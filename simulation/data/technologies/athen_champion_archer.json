@@ -1,0 +1,14 @@
+{
+	"genericName": "Champion archer",
+	"specificName": {
+	},
+	"description": "Unlock archer champion.",
+	"cost": { "food": 250, "wood": 300, "stone": 0, "metal": 100 },
+	"requirements": {"all": [{"tech": "skirmish_shield"},{ "tech": "helmets" },{ "tech": "advanced_armor" },{"tech": "champion_infantry" }, { "tech": "archery"}] },
+	"supersedes": "archery",
+	"icon": "arrow.png",
+	"researchTime": 150,
+	"tooltip": "Unlock the ability to train swordman champion.",
+	"requirementsTooltip": "Needs Champions, Archery, Helmets, Advanced armor and Skirmish shields.",
+	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
+}

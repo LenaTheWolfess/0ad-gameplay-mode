@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_male_citizen">
+  <Builder>
+    <Entities datatype="tokens">
+      structures/athen_gymnasion
+      structures/athen_theatron
+      structures/athen_prytaneion
+      structures/athen_royal_stoa
+    </Entities>
+  </Builder>
+  <Identity>
+    <Civ>athen</Civ>
+    <Lang>greek</Lang>
+     <SelectionGroupName>units/athen_support_citizen_male</SelectionGroupName>
+    <GenericName>Athenian Man</GenericName>
+    <Icon>units/global_slave.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/athenians/male_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

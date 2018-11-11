@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_blacksmith">
+  <Identity>
+    <Civ>kush</Civ>
+    <SpecificName>hmw h’y n r3-‘</SpecificName>
+  </Identity>
+  <ProductionQueue>
+    <Technologies datatype="tokens">
+      leather_helmet
+      helmets
+      round_shield
+      vertical_shield
+      improved_vertical_shield
+      basic_armor
+      advanced_armor
+      kush/strong_shield
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/kushites/blacksmith.xml</Actor>
+  </VisualActor>
+</Entity>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/ptol_infantry_spearman_merc_a">
+  <Armour>
+     <Missle>1</Missle>  
+     <Pierce>1</Pierce>  
+     <Crush>1</Crush>  
+     <Hack>1</Hack> 
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/ptolemies/infantry_spearman_e.xml</Actor>
+  </VisualActor>
+</Entity>

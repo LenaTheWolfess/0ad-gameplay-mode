@@ -1,0 +1,12 @@
+{
+	"genericName": "Javelins",
+	"specificName": {
+	},
+	"description": "Unlock javelins.",
+	"cost": { "food": 100, "wood": 100, "stone": 0, "metal": 50 },
+	"requirements": { "tech": "phase_village" },
+	"icon": "javelin_thong.png",
+	"researchTime": 80,
+	"tooltip": "Unlock the ability to train javelins.",
+	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
+}

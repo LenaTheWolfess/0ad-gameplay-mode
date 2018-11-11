@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_hero_infantry_archer">
+  <Armour>
+    <Hack>6</Hack>
+    <Crush>4</Crush>
+    <Pierce>6</Pierce>
+    <Missle>6</Missle>
+  </Armour>
+  <Auras datatype="tokens">
+    units/heroes/pers_hero_xerxes
+  </Auras>
+  <ProductionQueue>
+  <BatchTimeModifier>0.7</BatchTimeModifier>
+    <Technologies datatype="tokens">
+      pers/xerxes_champion
+    </Technologies>
+	<TechCostMultiplier>
+      <food>1.0</food>
+      <wood>1.0</wood>
+      <stone>1.0</stone>
+      <metal>1.0</metal>
+      <time>1.0</time>
+    </TechCostMultiplier>
+  </ProductionQueue>
+  <Identity>
+    <Civ>pers</Civ>
+    <GenericName>Xerxes I</GenericName>
+    <SpecificName>Xsayarsa I</SpecificName>
+    <Icon>units/pers_hero_xerxes.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/persians/hero_infantry_archer_xerxes.xml</Actor>
+  </VisualActor>
+</Entity>

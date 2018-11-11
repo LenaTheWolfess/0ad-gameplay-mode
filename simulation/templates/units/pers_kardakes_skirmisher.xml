@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_infantry_javelinist">
+  <Cost>
+    <Resources>
+      <food>0</food>
+      <metal op="mul">2</metal>
+    </Resources>
+  </Cost>
+  <Armour>
+    <Missle>5</Missle>  
+    <Pierce>4</Pierce>  
+    <Crush>5</Crush>  
+    <Hack>5</Hack> 
+    <Shield>
+      <Missle>2</Missle>  
+      <Pierce>2</Pierce>  
+      <Crush>2</Crush>  
+      <Hack>2</Hack> 
+    </Shield>
+  </Armour>
+  <Identity>
+    <Civ>pers</Civ>
+    <GenericName>Cardaces Skirmisher</GenericName>
+    <SpecificName>Peltastes Kardakes</SpecificName>
+    <Icon>units/pers_kardakes_skirmisher.png</Icon>
+    <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
+    <RequiredTechnology>pers/darius_champion</RequiredTechnology>
+  </Identity>
+  <VisualActor>
+    <Actor>units/persians/infantry_javelinist_c.xml</Actor>
+  </VisualActor>
+</Entity>

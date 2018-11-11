@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_blacksmith">
+  <Identity>
+    <Civ>mace</Civ>
+    <SpecificName>Sidērourgeîon</SpecificName>
+  </Identity>
+    <ProductionQueue>
+    <Technologies datatype="tokens">
+      helmets
+      simple_shield
+      round_med_shield
+      skirmish_shield
+      javelin_shield
+      medium_leg_protection  
+      advanced_leg_protection  
+      basic_armor
+      advanced_armor
+      chain_armor
+      plate_armor
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/hellenes/blacksmith.xml</Actor>
+  </VisualActor>
+</Entity>

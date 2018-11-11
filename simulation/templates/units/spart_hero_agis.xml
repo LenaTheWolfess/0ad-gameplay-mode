@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_hero_infantry_spearman_hoplite">
+  <Armour>
+    <Hack>10</Hack>
+    <Crush>7</Crush>
+    <Pierce>9</Pierce>
+    <Missle>8</Missle>
+    <Shield>
+      <Hack>5</Hack>
+      <Crush>5</Crush>
+      <Pierce>5</Pierce>
+      <Missle>5</Missle>
+    </Shield>
+  </Armour>
+  <Health>
+    <Max>2000</Max>
+  </Health>
+  <Identity>
+    <Civ>spart</Civ>
+    <Lang>greek</Lang>
+    <GenericName>Agis III</GenericName>
+    <SpecificName>Agis</SpecificName>
+    <Icon>units/spart_hero_agis.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/spartans/hero_infantry_spearman_agis.xml</Actor>
+  </VisualActor>
+</Entity>

@@ -1,0 +1,5 @@
+{
+	"modifications": [
+		{"value": "Attack/Ranged/Missle", "multiply": 1.2}],
+	"affects": ["Ranged"]
+}

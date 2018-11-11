@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant file="biped/base_spearman.xml">
+      <mesh>skeletal/new/m_dress_sleeves.dae</mesh>
+      <props>
+        <prop actor="props/units/heads/new/head_pers_a.xml" attachpoint="head"/>
+        <prop actor="props/units/heads/pers_hair_xerxes.xml" attachpoint="helmet"/>
+        <prop actor="props/units/helmets/headband_color.xml" attachpoint="helmet"/>
+        <prop actor="props/units/shields/gerron_plain.xml" attachpoint="shield"/>
+        <prop actor="props/units/weapons/spear_ball.xml" attachpoint="weapon_R"/>
+        <prop actor="props/units/quivers/pers_back.xml" attachpoint="back"/>
+      </props>
+      <textures>
+        <texture file="skeletal/pers_hero_xerxes.png" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+   <variant name="ready" file="biped/ready_stance/base_spearman.xml"/>
+   <variant name="relax" file="biped/relax/base_spearman.xml"/>
+    <variant file="biped/attack_capture.xml"/>
+    <variant file="biped/death_infantry.xml"/>
+    <variant name="secondary">
+      <animations>
+         <animation event="0.35" file="biped/new/bow_attack_a.dae" load="0.75" name="attack_ranged" speed="200"/>
+      </animations>
+     <props>
+        <prop actor="" attachpoint="shield"/>
+        <prop actor="" attachpoint="weapon_R"/>
+        <prop actor="props/units/weapons/bow_recurve.xml" attachpoint="weapon_L"/>
+        <prop actor="props/units/weapons/arrow_front.xml" attachpoint="projectile"/>
+        <prop actor="props/units/weapons/arrow_back.xml" attachpoint="loaded-projectile"/>
+      </props>
+    </variant>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

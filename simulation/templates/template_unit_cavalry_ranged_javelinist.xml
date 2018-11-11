@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_cavalry_ranged">
+  <Attack>
+    <Ranged>
+      <Missle>20</Missle>
+      <MaxRange>28.0</MaxRange>
+      <ProjectileSpeed>62.5</ProjectileSpeed>
+      <PrepareTime>3000</PrepareTime>
+      <RepeatTime>3000</RepeatTime>
+      <Spread>6.0</Spread>
+    </Ranged>
+  </Attack>
+  <Cost>
+    <Resources>
+      <wood>50</wood>
+    </Resources>
+  </Cost>
+  <Identity>
+    <VisibleClasses datatype="tokens">Javelin</VisibleClasses>
+    <GenericName>Cavalry Skirmisher</GenericName>
+	<RequiredTechnology>horse_javelins</RequiredTechnology>
+  </Identity>
+</Entity>

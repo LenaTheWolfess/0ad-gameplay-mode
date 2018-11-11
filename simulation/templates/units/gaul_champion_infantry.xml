@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_infantry_swordsman">
+  <Armour>
+    <Missle>6</Missle>  
+    <Pierce>6</Pierce>  
+    <Crush>5</Crush>  
+    <Hack>6</Hack> 
+    <Shield>
+      <Missle>3</Missle>  
+      <Pierce>3</Pierce>  
+      <Crush>3</Crush>  
+      <Hack>3</Hack> 
+    </Shield>
+  </Armour>
+  <Identity>
+    <Civ>gaul</Civ>
+    <GenericName>Heavy Swordsman</GenericName>
+    <SpecificName>Solduros</SpecificName>
+    <SelectionGroupName>units/gaul_champion_infantry</SelectionGroupName>
+    <Icon>units/gaul_champion_infantry.png</Icon>
+    <RequiredTechnology>gaul/champion_sword</RequiredTechnology>
+  </Identity>
+  <VisualActor>
+    <Actor>units/gauls/infantry_swordsman_c.xml</Actor>
+  </VisualActor>
+</Entity>

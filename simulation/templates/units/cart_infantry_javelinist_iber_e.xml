@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/cart_infantry_javelinist_iber_a">
+  <Armour>
+    <Missle>4</Missle>  
+    <Pierce>4</Pierce>  
+    <Crush>4</Crush>  
+    <Hack>4</Hack> 
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/iberians/infantry_javelinist_e.xml</Actor>
+  </VisualActor>
+</Entity>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_hero_cavalry_swordsman">
+  <Armour>
+    <Hack>9</Hack>
+    <Crush>6</Crush>
+    <Pierce>8</Pierce>
+    <Missle>8</Missle>
+    <Shield>
+      <Hack>2</Hack>
+      <Crush>2</Crush>
+      <Pierce>1</Pierce>
+      <Missle>2</Missle>
+    </Shield>
+  </Armour>
+  <Auras datatype="tokens">
+    units/heroes/rome_hero_marcellus_1
+    units/heroes/rome_hero_marcellus_2
+  </Auras>
+  <Identity>
+    <Civ>rome</Civ>
+    <Lang>latin</Lang>
+    <SpecificName>Marcus Claudius Marcellus</SpecificName>
+    <Icon>units/rome_hero_marcellus.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/romans/hero_cavalry_swordsman_marcellus_m.xml</Actor>
+  </VisualActor>
+</Entity>

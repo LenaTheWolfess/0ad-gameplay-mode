@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_male_citizen">
+  <Builder>
+    <Entities datatype="tokens">
+      -other/wallset_palisade
+      structures/rome_army_camp
+      structures/rome_wallset_siege
+      structures/rome_temple_vesta
+    </Entities>
+  </Builder>
+  <Identity>
+    <Civ>rome</Civ>
+    <Lang>latin</Lang>
+    <SelectionGroupName>units/rome_support_citizen_male</SelectionGroupName>
+    <GenericName>Roman Man</GenericName>
+	<SpecificName>Roman</SpecificName>
+    <Icon>units/global_slave.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/romans/male_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

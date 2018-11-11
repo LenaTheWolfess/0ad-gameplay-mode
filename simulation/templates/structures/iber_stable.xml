@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_barracks_stables">
+  <Footprint>
+    <Square width="25.0" depth="25.0"/>
+    <Height>12.0</Height>
+  </Footprint>
+  <Health>
+    <SpawnEntityOnDeath>decay|rubble/rubble_stone_5x5</SpawnEntityOnDeath>
+  </Health>
+  <Identity>
+    <Civ>iber</Civ>
+  </Identity>
+  <Obstruction>
+    <Static width="20.0" depth="20.0"/>
+  </Obstruction>
+  <ProductionQueue>
+    <Entities datatype="tokens">
+      units/{civ}_champion_cavalry
+    </Entities>
+    <Technologies datatype="tokens">
+      horse_javelins
+      horse_spear
+      iber/cav_javelin_a
+      iber/cav_javelin_e
+      iber/cav_spear_a
+      iber/cav_spear_e
+      iber/champion_cav_javelin
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/iberians/stables.xml</Actor>
+    <FoundationActor>structures/fndn_5x5.xml</FoundationActor>
+  </VisualActor>
+</Entity>

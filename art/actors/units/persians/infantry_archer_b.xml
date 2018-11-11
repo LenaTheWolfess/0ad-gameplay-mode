@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant frequency="1" name="Base">
+      <mesh>skeletal/new/m_tunic_short.dae</mesh>
+      <props>
+        <prop actor="props/units/heads/new/head_pers_a.xml" attachpoint="head"/>
+        <prop actor="props/units/weapons/arrow_back.xml" attachpoint="weapon_R"/>
+        <prop actor="props/units/weapons/bow_recurve.xml" attachpoint="weapon_L"/>
+        <prop actor="props/units/quiver_hip.xml" attachpoint="sheath_L"/>
+      </props>
+      <textures>
+        <texture file="skeletal/pers_iar_b_1.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant file="biped/attack_ranged_second.xml"/>
+    <variant file="biped/attack_ranged_archer_hip.xml"/>
+    <variant file="biped/attack_capture.xml"/>
+    <variant file="biped/attack_slaughter.xml"/>
+  </group>
+  <group>
+    <variant name="ready" file="biped/ready_stance/base_archer.xml"/>
+    <variant name="relax" file="biped/relax/base_archer.xml">
+       <props>
+        <prop actor="" attachpoint="weapon_R"/>
+      </props>
+    </variant>
+    <variant file="biped/build.xml"/>
+    <variant file="biped/build_farm.xml"/>
+    <variant file="biped/death_infantry.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

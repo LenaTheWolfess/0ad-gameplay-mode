@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/rome_cavalry_spearman_a">
+  <Armour>
+   <Missle>8</Missle>  
+   <Pierce>8</Pierce>  
+   <Crush>6</Crush>  
+   <Hack>8</Hack>  
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/romans/cavalry_spearman_e_m.xml</Actor>
+  </VisualActor>
+</Entity>

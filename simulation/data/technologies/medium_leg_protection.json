@@ -1,0 +1,12 @@
+{
+	"genericName": "Medium leg protection",
+	"specificName": {
+	},
+	"description": "Unlock Medium leg protection.",
+	"cost": { "food": 250, "wood": 100, "stone": 0, "metal": 100 },
+	"requirements": { "tech": "phase_village" },
+	"icon": "walk.png",
+	"researchTime": 60,
+	"tooltip": "",
+	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
+}

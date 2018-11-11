@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/athen_infantry_swordman_a">
+  <Armour>
+   <Missle>2</Missle>  
+   <Pierce>3</Pierce>  
+   <Crush>4</Crush>  
+   <Hack>5</Hack> 
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/athenians/infantry_swordsman_e.xml</Actor>
+  </VisualActor>
+</Entity>

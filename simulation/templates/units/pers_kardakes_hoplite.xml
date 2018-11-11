@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_infantry_spearman_hoplite">
+  <Cost>
+    <Resources>
+      <food>0</food>
+      <metal op="mul">2</metal>
+    </Resources>
+  </Cost>
+   <Armour>
+    <Missle>5</Missle>  
+    <Pierce>4</Pierce>  
+    <Crush>5</Crush>  
+    <Hack>5</Hack> 
+    <Shield>
+      <Missle>4</Missle>  
+      <Pierce>4</Pierce>  
+      <Crush>4</Crush>  
+      <Hack>4</Hack> 
+    </Shield>
+  </Armour>
+  <Identity>
+    <Civ>pers</Civ>
+    <GenericName>Cardaces Hoplite</GenericName>
+    <SpecificName>Hoplites Kardakes</SpecificName>
+    <Icon>units/pers_kardakes.png</Icon>
+    <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
+    <RequiredTechnology>pers/darius_champion</RequiredTechnology>
+  </Identity>
+  <VisualActor>
+    <Actor>units/persians/infantry_spearman_c3.xml</Actor>
+  </VisualActor>
+</Entity>

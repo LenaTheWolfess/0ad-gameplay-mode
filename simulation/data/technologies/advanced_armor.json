@@ -1,0 +1,13 @@
+{
+	"genericName": "Advanced armor",
+	"specificName": {
+	},
+	"description": "Unlock advanced armor.",
+	"cost": { "food": 250, "wood": 100, "stone": 0, "metal": 100 },
+	"supersedes": "basic_armor",
+	"requirements": { "tech": "basic_armor" },
+	"icon": "armor_scale.png",
+	"researchTime": 60,
+	"tooltip": "",
+	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
+}

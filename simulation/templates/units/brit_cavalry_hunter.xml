@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_cavalry_hunter">
+  <Identity>
+    <Civ>brit</Civ>
+    <SelectionGroupName>units/brit_cavalry_hunter</SelectionGroupName>
+    <Icon>units/hele_cavalry_javelinist.png</Icon>
+  </Identity>
+   <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/britons/cavalry_hunter_m.xml</Actor>
+  </VisualActor>
+</Entity>

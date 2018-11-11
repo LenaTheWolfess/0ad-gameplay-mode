@@ -1,0 +1,12 @@
+{
+	"genericName": "Spears",
+	"specificName": {
+	},
+	"description": "Unlock spearmen.",
+	"cost": { "food": 100, "wood": 50, "stone": 0, "metal": 50 },
+	"requirements": { "tech": "phase_village" },
+	"icon": "spear.png",
+	"researchTime": 60,
+	"tooltip": "Unlock the ability to train spearmen.",
+	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
+}

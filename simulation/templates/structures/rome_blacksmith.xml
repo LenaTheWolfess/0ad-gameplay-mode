@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_blacksmith">
+  <Identity>
+    <Civ>rome</Civ>
+    <SpecificName>Armamentarium</SpecificName>
+  </Identity>
+  <ProductionQueue>
+    <Technologies datatype="tokens">
+      helmets
+      medium_leg_protection
+      advanced_leg_protection
+      basic_armor
+      advanced_armor
+      chain_armor
+      improved_chain_armor
+      plate_armor
+      improved_plate_armor
+      scaled_armor
+      improved_scaled_armor
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/romans/blacksmith.xml</Actor>
+  </VisualActor>
+</Entity>

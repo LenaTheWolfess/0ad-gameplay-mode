@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_blacksmith">
+  <Identity>
+    <Civ>pers</Civ>
+    <SpecificName>Arštišta</SpecificName>
+  </Identity>
+  <ProductionQueue>
+    <Technologies datatype="tokens">
+      helmets
+      simple_shield  
+      vertical_shield  
+      improved_shield  
+      pers/round_med_shield  
+      basic_armor 
+      advanced_armor 
+      chain_armor 
+      plate_armor 
+      scaled_armor 
+      improved_scaled_armor
+      horse_basic_armor  
+      improved_horse_armor  
+      horse_scaled_armor  
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/persians/blacksmith.xml</Actor>
+  </VisualActor>
+</Entity>

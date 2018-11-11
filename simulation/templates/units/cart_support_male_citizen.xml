@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_male_citizen">
+   <Builder>
+    <Entities datatype="tokens">
+      structures/cart_super_dock
+      structures/cart_tophet
+      structures/cart_embassy_celtic
+      structures/cart_embassy_iberian
+      structures/cart_embassy_italiote
+    </Entities>
+  </Builder>
+  <Identity>
+    <Civ>cart</Civ>
+    <SelectionGroupName>units/cart_support_citizen_male</SelectionGroupName>
+    <GenericName>Carthaginian Man</GenericName>
+    <Icon>units/global_slave.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/carthaginians/male_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

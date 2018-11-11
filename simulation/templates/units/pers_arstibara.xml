@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_infantry_archer">
+  <Attack>
+    <Melee>
+      <Pierce>15</Pierce>
+      <Crush>0</Crush>
+      <Missle>0</Missle>
+      <Hack>0</Hack>
+      <MaxRange>4.5</MaxRange>
+      <PrepareTime>1000</PrepareTime>
+      <RepeatTime>500</RepeatTime>
+      <PreferredClasses datatype="tokens">Cavalry</PreferredClasses>
+    </Melee>
+    <Ranged>
+      <Missle>15</Missle>
+      <Pierce>0</Pierce>
+      <Hack>0</Hack>
+      <Crush>0</Crush>
+      <MaxRange>80</MaxRange>
+      <MinRange>10</MinRange>
+      <ProjectileSpeed>75.0</ProjectileSpeed>
+      <Gravity>9.81</Gravity>
+      <PrepareTime>1500</PrepareTime>
+      <RepeatTime>1500</RepeatTime>
+      <Spread>0.1</Spread>
+      <Delay>0</Delay>
+      <PreferredClasses datatype="tokens">Infantry</PreferredClasses>
+    </Ranged>
+  </Attack>
+  <Armour>
+    <Missle>5</Missle>  
+    <Pierce>4</Pierce>  
+    <Crush>5</Crush>  
+    <Hack>5</Hack> 
+    <Shield>
+      <Missle>5</Missle>  
+      <Pierce>3</Pierce>  
+      <Crush>2</Crush>  
+      <Hack>4</Hack> 
+    </Shield>
+  </Armour>
+  <Cost>
+    <BuildTime>5</BuildTime>
+    <Resources>
+      <wood>0</wood>
+      <metal>80</metal>
+    </Resources>
+  </Cost>
+  <Identity>
+    <Civ>pers</Civ>
+    <GenericName>Persian Apple Bearer</GenericName>
+    <SpecificName>Arštibara</SpecificName>
+    <Icon>units/pers_arstibara.png</Icon>
+    <RequiredTechnology>pers/xerxes_champion</RequiredTechnology>
+  </Identity>
+  <VisualActor>
+    <Actor>units/persians/infantry_archer_c.xml</Actor>
+  </VisualActor>
+</Entity>

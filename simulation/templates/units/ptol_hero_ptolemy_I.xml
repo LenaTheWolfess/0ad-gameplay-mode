@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_hero_elephant_melee">
+  <Armour>
+    <Hack>15</Hack>
+    <Crush>15</Crush>
+    <Pierce>12</Pierce>
+    <Missle>10</Missle>
+    <Shield>
+      <Hack>0</Hack>
+      <Crush>0</Crush>
+      <Pierce>0</Pierce>
+      <Missle>0</Missle>
+    </Shield>
+  </Armour>
+  <Auras datatype="tokens">
+    units/heroes/ptol_hero_ptolemy_I_1
+    units/heroes/ptol_hero_ptolemy_I_2
+  </Auras>
+  <Identity>
+    <Civ>ptol</Civ>
+    <GenericName>Ptolemy I "Savior"</GenericName>
+    <SpecificName>Ptolemaios A' Soter</SpecificName>
+    <Icon>units/hele_hero_alexander.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/ptolemies/hero_elephantry_ptolemy_I_m.xml</Actor>
+  </VisualActor>
+</Entity>

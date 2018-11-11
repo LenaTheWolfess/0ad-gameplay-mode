@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_formation">
+  <Auras datatype="tokens">
+    formations/formation_tetsudo
+  </Auras>
+<Identity>
+	<SpecificName>Tetsudo</SpecificName>
+	<Icon>formations/testudo.png</Icon>
+</Identity>
+  <Formation>
+    <Icon>formations/testudo.png</Icon>
+    <RequiredMemberCount>9</RequiredMemberCount>
+    <DisabledTooltip>only melee infantry allowed (at least 9)</DisabledTooltip>
+    <FormationName>Testudo</FormationName>
+    <UnitSeparationWidthMultiplier>0.5</UnitSeparationWidthMultiplier>
+    <UnitSeparationDepthMultiplier>0.7</UnitSeparationDepthMultiplier>
+    <WidthDepthRatio>1.5</WidthDepthRatio>
+    <Animations>
+      <idle>
+        1..1,1..-1: testudo_front_idle;
+        2..-1,1..-1: testudo_top_idle
+      </idle>
+      <walk>
+        1..1,1..-1: testudo_front_walk;
+        2..-1,1..-1: testudo_top_walk
+      </walk>
+      <run>
+        1..1,1..-1: testudo_front_run;
+        2..-1,1..-1: testudo_top_run
+      </run>
+    </Animations>
+  </Formation>
+  <FormationAttack>
+    <CanAttackAsFormation>true</CanAttackAsFormation>
+  </FormationAttack>
+</Entity>

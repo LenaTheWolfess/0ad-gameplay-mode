@@ -1,0 +1,13 @@
+{
+	"genericName": "Swordmen riders",
+	"specificName": {
+	},
+	"description": "Unlock swordmen riders.",
+	"cost": { "food": 50, "wood": 0, "stone": 0, "metal": 0 },
+	"requirements": {"all": [{ "tech": "cavalry" }, { "tech": "swords"}] },
+	"icon": "sword_cavalry.png",
+	"researchTime": 90,
+	"tooltip": "Unlock the ability to train swordmen riding horses.",
+	"requirementsTooltip": "Needs Cavalry and Swords.",
+	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
+}

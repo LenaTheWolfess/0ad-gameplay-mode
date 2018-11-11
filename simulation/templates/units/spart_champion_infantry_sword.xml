@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_infantry_swordsman">
+ <Armour>
+   <Missle>8</Missle>  
+   <Pierce>9</Pierce>  
+   <Crush>7</Crush>  
+   <Hack>10</Hack> 
+   <Shield>
+     <Missle>4</Missle>  
+     <Pierce>4</Pierce>  
+     <Crush>4</Crush>  
+     <Hack>4</Hack> 
+   </Shield>
+  </Armour>
+  <Attack>
+    <Ranged>
+      <Ammo>1</Ammo>
+      <AnimationVariant>secondary</AnimationVariant>
+      <Missle>20</Missle>
+      <Pierce>0</Pierce>
+      <Hack>0</Hack>
+      <Crush>0</Crush>
+      <MaxRange>28.0</MaxRange>
+      <MinRange>7.0</MinRange>
+      <ProjectileSpeed>62.5</ProjectileSpeed>
+      <Gravity>9.81</Gravity>
+      <PrepareTime>2000</PrepareTime>
+      <RepeatTime>3000</RepeatTime>
+      <Spread>1.0</Spread>
+      <Delay>0</Delay>
+      <RestrictedClasses datatype="tokens">Ranged RangedSecond</RestrictedClasses>
+      <PreferredClasses datatype="tokens">Infantry</PreferredClasses>
+    </Ranged>
+  </Attack>
+  <Identity>
+    <Civ>spart</Civ>
+    <Lang>greek</Lang>
+    <GenericName>Skiritai Commando</GenericName>
+    <SpecificName>Ékdromos Skirítēs</SpecificName>
+    <Icon>units/spart_champion_infantry_sword.png</Icon>
+	<Classes datatype="tokens">RangedSecond</Classes>
+    <RequiredTechnology>spart_champion_sword</RequiredTechnology>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/spartans/infantry_swordsman_c.xml</Actor>
+  </VisualActor>
+</Entity>

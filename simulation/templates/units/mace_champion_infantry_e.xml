@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/mace_champion_infantry_a">
+  <Identity>
+    <SpecificName>Hypaspistḗs Argyraspídi</SpecificName>
+    <Icon>units/mace_argyraspidai.png</Icon>
+	<RequiredTechnology>mace/champion_spear_silver</RequiredTechnology>
+  </Identity>
+  <VisualActor>
+    <Actor>units/macedonians/infantry_spearman_c_e.xml</Actor>
+  </VisualActor>
+</Entity>

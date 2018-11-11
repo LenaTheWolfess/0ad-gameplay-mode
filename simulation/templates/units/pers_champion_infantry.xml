@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_infantry_spearman">
+   <Attack>
+    <Melee>
+      <Primary>true</Primary>
+      <PreferredClasses datatype="tokens">Cavalry</PreferredClasses>
+    </Melee>
+    <Ranged>
+      <Ammo>5</Ammo>
+      <AnimationVariant>secondary</AnimationVariant>
+      <Missle>15</Missle>
+      <Pierce>0</Pierce>
+      <Hack>0</Hack>
+      <Crush>0</Crush>
+      <MaxRange>60</MaxRange>
+      <MinRange>7.0</MinRange>
+      <ProjectileSpeed>75.0</ProjectileSpeed>
+      <Gravity>9.81</Gravity>
+      <PrepareTime>1500</PrepareTime>
+      <RepeatTime>1500</RepeatTime>
+      <Spread>0.5</Spread>
+      <Delay>0</Delay>
+      <RestrictedClasses datatype="tokens">RangedSecond</RestrictedClasses>
+      <PreferredClasses datatype="tokens">Infantry</PreferredClasses>
+    </Ranged>
+  </Attack>
+  <Armour>
+    <Missle>5</Missle>  
+    <Pierce>4</Pierce>  
+    <Crush>5</Crush>  
+    <Hack>5</Hack> 
+    <Shield>
+      <Missle>5</Missle>  
+      <Pierce>3</Pierce>  
+      <Crush>2</Crush>  
+      <Hack>4</Hack> 
+    </Shield>
+  </Armour>
+  <Identity>
+    <Civ>pers</Civ>
+    <GenericName>Persian Immortal</GenericName>
+    <SpecificName>Anusiya</SpecificName>
+    <Classes datatype="tokens">Immortal RangedSecond</Classes>
+    <Icon>units/pers_champion_infantry.png</Icon>
+    <RequiredTechnology>pers/cyrus_champion</RequiredTechnology>
+  </Identity>
+  <VisualActor>
+    <Actor>units/persians/infantry_spearman_c2.xml</Actor>
+  </VisualActor>
+</Entity>

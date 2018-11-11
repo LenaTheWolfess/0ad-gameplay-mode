@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/cart_infantry_slinger_iber_a">
+  <Armour>
+    <Missle>0</Missle>  
+    <Pierce>0</Pierce>  
+    <Crush>1</Crush>  
+    <Hack>1</Hack> 
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/carthaginians/infantry_slinger_e.xml</Actor>
+  </VisualActor>
+</Entity>

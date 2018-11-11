@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_barracks_stables">
+  <Footprint>
+    <Square width="24.0" depth="26.0"/>
+    <Height>10.0</Height>
+  </Footprint>
+  <Identity>
+    <Civ>kush</Civ>
+    <SpecificName>Kushite Cavalry Stable</SpecificName>
+    <Icon>structures/pers_stable.png</Icon>
+  </Identity>
+  <Obstruction>
+    <Static width="20.0" depth="22.0"/>
+  </Obstruction>
+  <ProductionQueue>
+    <Technologies datatype="tokens">
+      horse_spear
+      horse_javelins
+	  kush/cav_javelin_a
+	  kush/cav_javelin_e
+	  kush/cav_spear_a
+	  kush/cav_spear_e
+      kush/champion_cav_spear
+      kush/champion_cav_javelin
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/kushites/stable.xml</Actor>
+  </VisualActor>
+</Entity>

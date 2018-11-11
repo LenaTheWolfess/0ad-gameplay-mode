@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_infantry">
+  <Attack>
+    <Melee>
+      <Hack>5</Hack>
+      <Pierce>0</Pierce>
+      <Crush>0.0</Crush>
+      <Missle>0.0</Missle>  
+      <MaxRange>2.2</MaxRange>
+      <PrepareTime>500</PrepareTime>
+      <RepeatTime>1000</RepeatTime>
+      <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>
+      <PreferredClasses datatype="tokens">Human</PreferredClasses>
+    </Melee>
+    <Ranged>
+      <Ammo>50</Ammo>
+      <Hack>0</Hack>
+      <Pierce>0</Pierce>
+      <Crush>0</Crush>
+      <Missle>0</Missle>
+      <MaxRange>20.0</MaxRange>
+      <MinRange>7.0</MinRange>
+      <ProjectileSpeed>75.0</ProjectileSpeed>
+      <Gravity>9.81</Gravity>
+      <PrepareTime>2000</PrepareTime>
+      <RepeatTime>4000</RepeatTime>
+      <Spread>3.0</Spread>
+      <Delay>0</Delay>
+      <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>
+      <PreferredClasses datatype="tokens">Human</PreferredClasses>
+    </Ranged>
+  </Attack>
+  <Health>
+    <Max>50</Max>
+  </Health>
+  <Identity>
+    <GenericName>Ranged</GenericName>
+    <VisibleClasses datatype="tokens">Ranged</VisibleClasses>
+    <Formations datatype="tokens">
+      special/formations/skirmish
+    </Formations>
+  </Identity>
+</Entity>

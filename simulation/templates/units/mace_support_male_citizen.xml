@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_male_citizen">
+  <Builder>
+    <Entities datatype="tokens">
+      structures/mace_workshop
+      structures/mace_theatron
+      structures/mace_library
+    </Entities>
+  </Builder>
+  <Identity>
+    <Civ>mace</Civ>
+    <SelectionGroupName>units/mace_support_citizen_male</SelectionGroupName>
+    <GenericName>Macedonian Man</GenericName>
+    <Icon>units/global_slave.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/macedonians/male_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

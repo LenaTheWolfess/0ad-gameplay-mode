@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_barracks_range">
+  <Footprint>
+    <Square width="27.0" depth="25.0"/>
+    <Height>12.0</Height>
+  </Footprint>
+  <Health>
+    <SpawnEntityOnDeath>decay|rubble/rubble_stone_5x5</SpawnEntityOnDeath>
+  </Health>
+  <Identity>
+    <Civ>mace</Civ>
+  </Identity>
+  <Obstruction>
+    <Static width="26.0" depth="24.0"/>
+  </Obstruction>
+  <ProductionQueue>
+    <Technologies datatype="tokens">
+      archery
+      javelins
+      mace/archer_a 
+      mace/archer_e 
+      mace/javelin_a
+      mace/javelin_e
+      mace/slinger_a
+      mace/slinger_e
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/hellenes/range.xml</Actor>
+    <FoundationActor>structures/fndn_5x5.xml</FoundationActor>
+  </VisualActor>
+</Entity>

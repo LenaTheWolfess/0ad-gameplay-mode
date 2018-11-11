@@ -1,0 +1,23 @@
+{
+	"autoResearch": true,
+	"genericName": "City Phase",
+	"specificName": {
+		"mace": "Megalópolis",
+		"spart": "Megalópolis"
+	},
+	"description": "Advances from a bustling town to a veritable metropolis, full of the wonders of modern technology.",
+	"cost": { "food": 0, "wood": 0, "stone": 0, "metal": 0 },
+	"requirements": {"all": [{ "entity": { "class": "House", "number": 15 } }, { "entity": { "class": "Blacksmith", "number": 1 } }, { "entity": { "class": "Market", "number": 1 } }, { "entity": { "class": "Temple", "number": 1 } }, { "entity": { "class": "Citizen", "number": 40 } } ] },
+	"requirementsTooltip": "",
+	"supersedes": "phase_town_generic",
+	"replaces": ["phase_city"],
+	"icon": "city_phase.png",
+	"researchTime": 60,
+	"tooltip": "Advance to City Phase, which unlocks more structures and units. Territory radius for Civic Centers increased by another +50%. Citizen soldiers max health increased by +10%. All structures +9 garrisoned regeneration rate.",
+	"modifications": [
+		{ "value": "TerritoryInfluence/Radius", "multiply": 1.50, "affects": "CivCentre" },
+		{ "value": "Health/Max", "multiply": 1.1, "affects": "CitizenSoldier" },
+		{ "value": "Capturable/GarrisonRegenRate", "add": 9.0, "affects": "Structure" }
+	],
+	"soundComplete": "interface/alarm/alarm_phase.xml"
+}

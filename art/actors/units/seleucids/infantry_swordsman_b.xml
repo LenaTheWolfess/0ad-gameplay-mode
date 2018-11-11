@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant frequency="1" name="Base">
+      <props>
+        <prop actor="props/units/heads/new/head_thrace.xml" attachpoint="head"/>
+        <prop actor="props/units/weapons/rhomphaia.xml" attachpoint="weapon_R"/>
+      </props>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Tunic-1">
+      <mesh>skeletal/new/m_tunic_long.dae</mesh>
+      <textures>
+        <texture file="skeletal/hele_ijv_a.dds" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Tunic-2">
+      <mesh>skeletal/new/m_tunic_short.dae</mesh>
+      <textures>
+        <texture file="skeletal/hele_ijv_a_2.dds" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Tunic-3">
+      <mesh>skeletal/new/m_tunic_long.dae</mesh>
+      <textures>
+        <texture file="skeletal/hele_ijv_a_3.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant file="biped/base_rhomphaia_shield_fast.xml"/>
+    <variant file="biped/build.xml"/>
+    <variant file="biped/build_farm.xml"/>
+  </group>
+  <group>
+    <variant name="ready" file="biped/ready_stance/base_rhomphaia_fast.xml"/>
+    <variant name="relax" file="biped/relax/base_rhomphaia_fast.xml"/>
+    <variant file="biped/attack_capture.xml"/>
+    <variant file="biped/attack_slaughter.xml"/>
+    <variant file="biped/build.xml"/>
+    <variant file="biped/build_farm.xml"/>
+    <variant file="biped/death_infantry.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_infantry_melee">
+  <Attack>
+    <Melee>
+      <Pierce>15.0</Pierce>
+      <MaxRange>4.5</MaxRange>
+    </Melee>
+  </Attack>
+  <Cost>
+    <Resources>
+      <wood>50</wood>
+    </Resources>
+  </Cost>
+  <Identity>
+    <VisibleClasses datatype="tokens">Spear</VisibleClasses>
+    <GenericName>Spearman</GenericName>
+    <Tooltip>Counters: 2x vs. Cavalry.</Tooltip>
+	<RequiredTechnology>spears</RequiredTechnology>
+  </Identity>
+  <Loot>
+    <wood>5</wood>
+  </Loot>
+</Entity>

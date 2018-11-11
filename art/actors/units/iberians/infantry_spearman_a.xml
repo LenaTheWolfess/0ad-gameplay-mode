@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant frequency="1" name="Base">
+      <mesh>skeletal/new/m_tunic_short.dae</mesh>
+      <props>
+        <prop actor="props/units/shields/iber_scutum_isp.xml" attachpoint="shield"/>
+        <prop actor="props/units/weapons/spear.xml" attachpoint="weapon_R"/>
+      </props>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Scutarius-Body-Texture-1">
+      <props>
+        <prop actor="props/units/heads/new/head_iber_su1.xml" attachpoint="head"/>
+        <prop actor="props/units/heads/iber_helmet_04.xml" attachpoint="helmet"/>
+      </props>
+      <textures>
+        <texture file="skeletal/iber_isp_a_1.dds" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Scutarius-Body-Texture-2">
+      <props>
+        <prop actor="props/units/heads/new/head_iber_adv_hood_1.xml" attachpoint="head"/>
+        <prop actor="props/units/heads/iber_helmet_yellow_ridges.xml" attachpoint="helmet"/>
+      </props>
+      <textures>
+        <texture file="skeletal/iber_isp_a_2.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant file="biped/base_spearman.xml"/> 
+    <variant file="biped/build.xml"/> 
+    <variant file="biped/build_farm.xml"/>
+  </group>
+  <group>
+    <variant name="ready" file="biped/ready_stance/base_spearman.xml"/>
+    <variant name="relax" file="biped/relax/base_spearman.xml"/>
+    <variant file="biped/attack_capture.xml"/>
+    <variant file="biped/attack_slaughter.xml"/>
+    <variant file="biped/build.xml"/>
+    <variant file="biped/build_farm.xml"/>
+    <variant file="biped/death_infantry.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/mace_cavalry_javelinist_a">
+ <Armour>
+    <Missle>1</Missle>  
+    <Pierce>2</Pierce>  
+    <Crush>2</Crush>  
+    <Hack>3</Hack> 
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/macedonians/cavalry_javelinist_e_m.xml</Actor>
+  </VisualActor>
+</Entity>

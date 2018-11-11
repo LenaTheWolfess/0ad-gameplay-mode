@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_male_citizen">
+  <Builder>
+    <Entities datatype="tokens">
+      structures/maur_elephant_stables
+      structures/maur_pillar_ashoka
+    </Entities>
+  </Builder>
+  <Identity>
+    <Civ>maur</Civ>
+    <SelectionGroupName>units/maur_support_citizen_male</SelectionGroupName>
+    <GenericName>Indian Man</GenericName>
+    <Icon>units/global_slave.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/mauryans/male_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

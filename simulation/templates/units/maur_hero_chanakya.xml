@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_hero_healer">
+  <Armour>
+    <Hack>0</Hack>
+    <Crush>0</Crush>
+    <Pierce>0</Pierce>
+    <Missle>0</Missle>
+    <Shield>
+      <Hack>0</Hack>
+      <Crush>0</Crush>
+      <Pierce>0</Pierce>
+      <Missle>0</Missle>
+    </Shield>
+  </Armour>
+  <Auras datatype="tokens">
+    units/heroes/maur_hero_chanakya_1
+    units/heroes/maur_hero_chanakya_2
+  </Auras>
+  <Identity>
+    <Civ>maur</Civ>
+    <GenericName>Acharya Chanakya</GenericName>
+    <SpecificName>Acharya Chāṇakya</SpecificName>
+    <Icon>units/maur_hero_chanakya.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/mauryans/hero_healer_chanakya.xml</Actor>
+  </VisualActor>
+</Entity>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/maur_infantry_swordsman_b">
+  <Armour>
+    <Shield>
+      <Missle>3</Missle>  
+      <Pierce>2</Pierce>  
+      <Crush>3</Crush>  
+      <Hack>3</Hack> 
+    </Shield>
+  </Armour>
+  <Identity>
+    <Rank>Advanced</Rank>
+  </Identity>
+  <Promotion>
+    <Entity>units/maur_infantry_swordsman_e</Entity>
+  </Promotion>
+  <VisualActor>
+    <Actor>units/mauryans/infantry_swordsman_a.xml</Actor>
+  </VisualActor>
+</Entity>

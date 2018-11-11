@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_infantry_ranged">
+  <Attack>
+    <Ranged>
+      <Crush>8.0</Crush>
+      <MaxRange>60.0</MaxRange>
+      <MinRange>7.0</MinRange>
+      <ProjectileSpeed>62.5</ProjectileSpeed>
+      <PrepareTime>500</PrepareTime>
+      <RepeatTime>2000</RepeatTime>
+      <Spread>6.0</Spread>
+      <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>
+    </Ranged>
+  </Attack>
+  <Cost>
+    <Resources>
+      <stone>30</stone>
+    </Resources>
+  </Cost>
+  <Identity>
+    <VisibleClasses datatype="tokens">Sling</VisibleClasses>
+    <GenericName>Slinger</GenericName>
+  </Identity>
+  <Loot>
+    <stone>5</stone>
+  </Loot>
+</Entity>

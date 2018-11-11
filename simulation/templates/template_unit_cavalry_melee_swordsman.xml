@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_cavalry_melee">
+  <Attack>
+    <Melee>
+      <Hack>11.0</Hack>
+      <Pierce>0</Pierce>
+      <Crush>0.0</Crush>
+      <PreferredClasses datatype="tokens">Siege</PreferredClasses>
+    </Melee>
+  </Attack>
+  <Cost>
+    <Resources>
+      <wood>30</wood>
+      <metal>20</metal>
+    </Resources>
+  </Cost>
+  <Identity>
+    <VisibleClasses datatype="tokens">Sword</VisibleClasses>
+    <GenericName>Cavalry Swordsman</GenericName>
+	<RequiredTechnology>sword_riders</RequiredTechnology>
+  </Identity>
+  <Loot>
+    <wood>0</wood>
+    <metal>5</metal>
+  </Loot>
+</Entity>

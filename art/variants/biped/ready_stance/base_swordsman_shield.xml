@@ -1,0 +1,14 @@
+<variant name="ready" frequency="1">
+  <animations>
+    <animation file="biped/new/sword_shield_idle_ready.dae" name="idle" id="idle1" speed="100"/>
+    <animation file="biped/new/sword_shield_idle_ready.dae" name="idle" id="idle2" speed="90"/>
+    <animation file="biped/new/sword_shield_walk_ready.dae" name="Walk" speed="30"/>
+    <animation file="biped/new/sword_shield_run_ready.dae" name="Run" speed="8"/>
+    <animation file="biped/new/sword_shield_idle_ready.dae" name="testudo_front_idle" id="tesfrontidle1" speed="30"/>
+    <animation file="biped/new/sword_shield_idle_ready.dae" name="testudo_top_idle" id="testopidle1" speed="30"/>
+    <animation file="biped/new/sword_shield_walk_ready.dae" name="testudo_front_walk" id="tesfrontwalk1" speed="30"/>
+    <animation file="biped/new/sword_shield_walk_ready.dae" name="testudo_top_walk" id="testopwalk1" speed="30"/>
+    <animation file="biped/new/sword_shield_run_ready.dae" name="testudo_front_run" id="tesfrontrun1" speed="4"/>
+    <animation file="biped/new/sword_shield_run_ready.dae" name="testudo_top_run" id="testoprun1" speed="4"/>
+  </animations>
+</variant>

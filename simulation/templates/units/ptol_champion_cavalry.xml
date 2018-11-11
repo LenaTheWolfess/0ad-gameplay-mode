@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_cavalry_spearman">
+ <Armour>
+    <Missle>8</Missle>  
+    <Pierce>9</Pierce>  
+    <Crush>7</Crush>  
+    <Hack>10</Hack> 
+    <Shield>
+      <Missle>4</Missle>  
+      <Pierce>4</Pierce>  
+      <Crush>4</Crush>  
+      <Hack>4</Hack> 
+    </Shield>
+  </Armour>
+  <Identity>
+    <Civ>ptol</Civ>
+    <GenericName>Royal Guard Cavalry</GenericName>
+    <SpecificName>Ágēma Basiléōs</SpecificName>
+    <Icon>units/ptol_champion_cavalry.png</Icon>
+	<RequiredTechnology>ptol/champion_cav_spear</RequiredTechnology>
+  </Identity>
+  <VisualActor>
+    <Actor>units/ptolemies/cavalry_spearman_c_m.xml</Actor>
+  </VisualActor>
+</Entity>

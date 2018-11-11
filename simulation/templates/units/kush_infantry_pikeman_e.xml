@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/kush_infantry_pikeman_a">
+ <Armour>
+    <Missle>0</Missle>  
+    <Pierce>0</Pierce>  
+    <Crush>2</Crush>  
+    <Hack>2</Hack> 
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/kushites/infantry_pikeman_e.xml</Actor>
+  </VisualActor>
+</Entity>

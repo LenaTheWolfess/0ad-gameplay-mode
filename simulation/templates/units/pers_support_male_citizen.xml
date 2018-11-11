@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_male_citizen">
+  <Builder>
+    <Entities datatype="tokens">
+      structures/pers_stables
+      structures/pers_elephant_stables
+      structures/pers_apadana
+      structures/pers_ishtar_gate
+      structures/pers_hall
+    </Entities>
+  </Builder>
+  <Identity>
+    <Civ>pers</Civ>
+    <SelectionGroupName>units/pers_support_citizen_male</SelectionGroupName>
+    <GenericName>Mesopotamian Man</GenericName>
+    <Icon>units/global_slave.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/persians/male_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

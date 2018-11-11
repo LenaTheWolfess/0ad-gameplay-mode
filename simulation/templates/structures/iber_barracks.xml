@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_barracks">
+  <Cost>
+    <Resources>
+      <wood>100</wood>
+      <stone>200</stone>
+    </Resources>
+  </Cost>
+  <Identity>
+    <Civ>iber</Civ>
+    <SpecificName>Kaserna</SpecificName>
+  </Identity>
+  <ProductionQueue>
+    <Entities datatype="tokens">
+      units/{civ}_champion_infantry
+    </Entities>
+    <Technologies datatype="tokens">
+      swords
+      spears
+      iber/sword_a
+      iber/sword_e
+      iber/spear_a
+      iber/spear_e
+      iber/champion_sword
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/iberians/barracks.xml</Actor>
+  </VisualActor>
+</Entity>

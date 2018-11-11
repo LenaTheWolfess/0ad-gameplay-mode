@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_male_citizen">
+  <Builder>
+    <Entities datatype="tokens">
+      structures/sele_military_colony
+      structures/sele_library
+    </Entities>
+  </Builder>
+  <Identity>
+    <Civ>sele</Civ>
+    <Lang>greek</Lang>
+    <SelectionGroupName>units/sele_support_citizen_male</SelectionGroupName>
+    <GenericName>Syrian Man</GenericName>
+    <Icon>units/global_slave.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/seleucids/male_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

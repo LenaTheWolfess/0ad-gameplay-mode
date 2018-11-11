@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/iber_infantry_javelinist_b_fire">
+  <Armour>
+    <Missle>1</Missle>  
+    <Pierce>1</Pierce>  
+    <Crush>1</Crush>  
+    <Hack>1</Hack> 
+    <Shield>
+      <Missle>1</Missle>  
+      <Pierce>0</Pierce>  
+      <Crush>1</Crush>  
+      <Hack>1</Hack> 
+    </Shield>
+  </Armour>
+  <Identity>
+    <Rank>Advanced</Rank>
+  </Identity>
+  <Promotion>
+    <Entity>units/iber_infantry_javelinist_e_fire</Entity>
+  </Promotion>
+  <VisualActor>
+    <Actor>units/iberians/infantry_javelinist_a_fire.xml</Actor>
+  </VisualActor>
+</Entity>

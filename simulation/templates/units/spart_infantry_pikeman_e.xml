@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/spart_infantry_pikeman_a">
+  <Armour>
+   <Missle>8</Missle>  
+   <Pierce>9</Pierce>  
+   <Crush>7</Crush>  
+   <Hack>10</Hack> 
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/spartans/infantry_pikeman_e.xml</Actor>
+  </VisualActor>
+</Entity>

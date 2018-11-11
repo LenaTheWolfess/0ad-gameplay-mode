@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant name="Base">
+      <mesh>skeletal/new/m_tunic_long.dae</mesh>
+      <props>
+        <prop actor="props/units/helmets/thracian_helmet.xml" attachpoint="helmet"/>
+        <prop actor="props/units/heads/new/head_hele_b.xml" attachpoint="head"/>
+        <prop actor="props/units/weapons/rhomphaia.xml" attachpoint="weapon_R"/>
+        <prop actor="props/units/shields/thracian_oval.xml" attachpoint="shield"/>
+        <prop actor="props/units/capes/cloak_black_thracian.xml" attachpoint="root"/>
+      </props>
+      <textures>
+        <texture file="skeletal/thrace_blackcloak_a.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant file="biped/base_rhomphaia_shield_fast.xml"/>
+    <variant file="biped/build.xml"/>
+    <variant file="biped/build_farm.xml"/>
+  </group>
+  <group>
+    <variant name="ready" file="biped/ready_stance/base_rhomphaia_fast.xml"/>
+    <variant name="relax" file="biped/relax/base_rhomphaia_fast.xml"/>
+    <variant file="biped/attack_capture.xml"/>
+    <variant file="biped/death_infantry.xml">
+      <props>
+        <prop actor="props/units/capes/cloak_black_thracian.xml" attachpoint="root"/>
+      </props>
+    </variant>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

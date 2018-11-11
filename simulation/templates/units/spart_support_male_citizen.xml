@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_male_citizen">
+  <Builder>
+    <Entities datatype="tokens">
+      structures/spart_syssiton
+      structures/spart_theatron
+      structures/spart_royal_stoa
+      -structures/{civ}_wallset_stone
+    </Entities>
+  </Builder>
+  <Identity>
+    <Civ>spart</Civ>
+    <Lang>greek</Lang>
+    <SelectionGroupName>units/spart_support_citizen_male</SelectionGroupName>
+    <GenericName>Spartan Man</GenericName>
+    <Icon>units/global_slave.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/spartans/male_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

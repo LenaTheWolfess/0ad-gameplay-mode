@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_blacksmith">
+  <Identity>
+    <Civ>maur</Civ>
+    <SpecificName>Lohakāra</SpecificName>
+  </Identity>
+  <ProductionQueue>
+    <Technologies datatype="tokens">
+      attack_steel_working
+      helmets
+      simple_shield
+      maur/strong_shield
+      basic_armor
+      advanced_armor
+      scaled_armor
+      chain_armor
+      plate_armor
+      elephant_armor
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/mauryans/blacksmith.xml</Actor>
+  </VisualActor>
+</Entity>

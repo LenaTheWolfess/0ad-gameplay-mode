@@ -1,0 +1,13 @@
+{
+	"genericName": "Javelin riders",
+	"specificName": {
+	},
+	"description": "Unlock archer riders.",
+	"cost": { "food": 50, "wood": 0, "stone": 0, "metal": 0 },
+	"requirements": {"all": [{ "tech": "cavalry" }, { "tech": "javelins"}] },
+	"icon": "accuracy_bolt.png",
+	"researchTime": 100,
+	"tooltip": "Unlock the ability to train javelins riding horses.",
+	"requirementsTooltip": "Needs Cavalry and Javelins.",
+	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
+}

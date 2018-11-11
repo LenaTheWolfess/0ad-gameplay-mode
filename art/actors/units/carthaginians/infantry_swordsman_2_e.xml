@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant file="biped/base_swordsman_shield_relax.xml">
+      <props>
+        <prop actor="props/units/shields/samn_scutum_elite.xml" attachpoint="shield"/>
+        <prop actor="props/units/weapons/xiphos.xml" attachpoint="weapon_R"/>
+        <prop actor="props/units/heads/samnite_elite.xml" attachpoint="helmet"/>
+        <prop actor="props/units/heads/new/head_hele_e.xml" attachpoint="head"/>
+        <prop actor="props/temp/l_sheath.xml" attachpoint="sheath_L"/>
+      </props>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Roman Chainmail">
+      <mesh>skeletal/new/m_tunic_short.dae</mesh>
+      <textures>
+        <texture file="skeletal/rome_su3_marian_legion.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant file="biped/base_swordsman_shield.xml"/>
+    <variant file="biped/build.xml"/>
+    <variant file="biped/build_farm.xml"/>
+  </group>
+  <group>
+    <variant name="ready" file="biped/ready_stance/base_swordsman_shield.xml"/>
+    <variant name="relax" file="biped/relax/base_swordsman_shield.xml">
+      <props>
+        <prop actor="props/temp/l_sheath_xiphos.xml" attachpoint="sheath_L"/>
+        <prop actor="" attachpoint="weapon_R"/>
+      </props>
+    </variant>
+    <variant file="biped/attack_capture.xml"/>
+    <variant file="biped/attack_slaughter.xml"/>
+    <variant file="biped/build.xml"/>
+    <variant file="biped/build_farm.xml"/>
+    <variant file="biped/death_infantry.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

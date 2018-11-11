@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/brit_infantry_javelinist_a">
+ <Armour>
+    <Missle>1</Missle>  
+    <Pierce>1</Pierce>  
+    <Crush>1</Crush>  
+    <Hack>1</Hack>  
+    <Shield>
+       <Missle op="mul">1.3</Missle>  
+       <Pierce op="mul">1.3</Pierce>  
+       <Crush op="mul">1.3</Crush>  
+       <Hack op="mul">1.3</Hack>  
+    </Shield>
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/celts/infantry_javelinist_e.xml</Actor>
+  </VisualActor>
+</Entity>

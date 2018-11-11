@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_male_citizen">
+  <Builder>
+    <Entities datatype="tokens">
+      structures/iber_monument
+    </Entities>
+  </Builder>
+  <Identity>
+    <Civ>iber</Civ>
+    <SelectionGroupName>units/iber_support_citizen_male</SelectionGroupName>
+    <GenericName>Iberian Man</GenericName>
+    <Icon>units/global_slave.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/iberians/male_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

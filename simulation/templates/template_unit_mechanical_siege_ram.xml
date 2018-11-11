@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_mechanical_siege">
+  <Armour>
+    <Missle>100</Missle>
+    <Crush>10</Crush>
+    <Hack>7</Hack>
+    <Pierce>7</Pierce>
+  </Armour>
+  <Attack>
+    <NeedsManPower>6</NeedsManPower>
+    <Melee>
+      <EnergyCost>10</EnergyCost>
+      <Hack>0.0</Hack>
+      <Pierce>0.0</Pierce>
+      <Crush>150.0</Crush>
+      <Missle>0.0</Missle>
+      <MaxRange>6.5</MaxRange>
+      <PrepareTime>3000</PrepareTime>
+      <RepeatTime>4000</RepeatTime>
+      <RestrictedClasses datatype="tokens">Organic</RestrictedClasses>
+      <PreferredClasses datatype="tokens">Gates Structure</PreferredClasses>
+    </Melee>
+  </Attack>
+  <Capturable disable=""/>
+  <Cost>
+    <BuildTime>30</BuildTime>
+    <Resources>
+      <wood>350</wood>
+      <metal>200</metal>
+    </Resources>
+  </Cost>
+  <Energy>
+    <MaxPoints>100</MaxPoints>
+    <RegenRate>5</RegenRate>
+    <RunDegRate>20</RunDegRate>
+  </Energy>
+  <GarrisonHolder>
+    <Max>10</Max>
+    <EjectHealth>0.1</EjectHealth>
+    <EjectClassesOnDestroy datatype="tokens">Unit</EjectClassesOnDestroy>
+    <List datatype="tokens">Support Infantry</List>
+    <BuffHeal>0</BuffHeal>
+    <LoadingRange>2</LoadingRange>
+  </GarrisonHolder>
+  <Health>
+    <Max>400</Max>
+  </Health>
+  <Identity>
+    <GenericName>Battering Ram</GenericName>
+    <VisibleClasses datatype="tokens">Melee Ram</VisibleClasses>
+	<RequiredTechnology>siege_ram</RequiredTechnology>
+  </Identity>
+  <Sound>
+    <SoundGroups>
+      <select>attack/siege/siege_select.xml</select>
+      <order_walk>attack/siege/ram_move.xml</order_walk>
+      <order_attack>attack/siege/ram_attack_order.xml</order_attack>
+      <trained>attack/siege/ram_trained.xml</trained>
+      <attack_melee>attack/siege/ram_attack.xml</attack_melee>
+    </SoundGroups>
+  </Sound>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.5</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.5</Speed>
+    </Run>
+  </UnitMotion>
+  <UnitAI>
+    <NeedsManPowerToMove>6</NeedsManPowerToMove>
+  </UnitAI>
+  <Vision>
+    <Range>80</Range>
+  </Vision>
+</Entity>

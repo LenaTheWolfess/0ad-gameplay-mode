@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/pers_cavalry_archer_b">
+  <Armour>
+    <Missle>6</Missle>  
+    <Pierce>6</Pierce>  
+    <Crush>5</Crush>  
+    <Hack>6</Hack> 
+  </Armour>
+  <Identity>
+    <Rank>Advanced</Rank>
+  </Identity>
+  <Promotion>
+    <Entity>units/pers_cavalry_archer_e</Entity>
+  </Promotion>
+  <UnitMotion>
+    <PassabilityClass>chariot</PassabilityClass>
+  </UnitMotion>
+  <VisualActor>
+    <Actor>units/persians/chariot_archer_a_m.xml</Actor>
+  </VisualActor>
+</Entity>

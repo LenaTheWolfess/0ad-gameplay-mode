@@ -1,0 +1,13 @@
+{
+	"genericName": "Advanced leg protection",
+	"specificName": {
+	},
+	"description": "Unlock Advanced leg protection.",
+	"cost": { "food": 250, "wood": 100, "stone": 0, "metal": 100 },
+	"supersedes": "medium_leg_protection",
+	"requirements": { "tech": "medium_leg_protection" },
+	"icon": "armor_greaves.png",
+	"researchTime": 60,
+	"tooltip": "",
+	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
+}

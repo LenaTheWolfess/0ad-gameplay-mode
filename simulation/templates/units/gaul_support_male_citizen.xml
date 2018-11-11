@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_male_citizen">
+   <Builder>
+    <Entities datatype="tokens">
+      structures/gaul_tavern
+      structures/gaul_rotarymill
+    </Entities>
+  </Builder>
+  <Identity>
+    <Civ>gaul</Civ>
+    <SelectionGroupName>units/gaul_support_citizen_male</SelectionGroupName>
+    <GenericName>Celtic Man</GenericName>
+    <Icon>units/global_slave.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/celts/male_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

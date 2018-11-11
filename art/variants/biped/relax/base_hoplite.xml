@@ -1,0 +1,7 @@
+<variant name="relax" frequency="1">
+  <animations>
+    <animation file="biped/new/hoplite_idle_relax.dae" name="Idle" speed="30"/>
+    <animation file="biped/new/hoplite_walk_relax.dae" name="Walk" speed="30"/>
+    <animation file="biped/new/hoplite_run_relax.dae" name="Run"  speed="15"/>
+  </animations>
+</variant>

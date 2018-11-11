@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_elephant_stables">
+  <Identity>
+    <Civ>pers</Civ>
+    <SpecificName>Persian Elephant Stables</SpecificName>
+  </Identity>
+  <ProductionQueue>
+    <Technologies datatype="tokens">
+      pers/champion_elephant
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/persians/stables_elephant.xml</Actor>
+  </VisualActor>
+</Entity>

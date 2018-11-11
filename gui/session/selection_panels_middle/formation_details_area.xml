@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Unit details for Formation Unit -->
+<object size="50%-112 0 50%+112 100%" name="detailsAreaFormation">
+
+	<!-- Total -->
+	<object size="100%-42 24 100%-8 58" type="image" sprite="groupsIcon">
+	<object size="0 0 100% 100%" type="text" style="largeCenteredOutlinedText" name="formNumberOfUnits" tooltip_style="sessionToolTipBold"/>
+	</object>
+
+	<!-- Stats Bars -->
+	<object size= "2 0 100%-2 98" type="image" tooltip_style="sessionToolTip">
+
+		<object size="0 4 100% 64" type="image" sprite="topEdgedPanelShader">
+			<!-- Placeholders storing the position for the bars -->
+			<object size="88 1 100% 24" name="formSectionPosTop" hidden="true"/>
+			<!-- Health bar -->
+			<object name="formHealthSection">
+				<object size="0 0 100% 12" name="formHealthLabel" type="text" style="StatsTextLeft" ghost="true">
+					<translatableAttribute id="tooltip">Health:</translatableAttribute>
+				</object>
+				<object size="0 0 100% 12" name="formHealthStats" type="text" style="StatsTextRight" ghost="true"/>
+				<object size="1 14 100% 21" name="formHealth" type="image" tooltip_style="sessionToolTip">
+					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
+					<object type="image" sprite="healthBackground" ghost="true"/>
+					<object type="image" sprite="healthForeground" ghost="true" name="formHealthBar"/>
+					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
+				</object>
+			</object>
+		</object>
+
+		<!-- Big unit icon -->
+		<object size="-8 -8 88 88" type="button" name="formIconBorder" sprite="iconBorder" tooltip_style="sessionToolTip">
+			<object size="1 1 100%-1 100%-1" type="image" name="formIcon" ghost="true"/>
+		</object>
+	</object>
+
+	<!-- Names (this must come before the attack and armor icon to avoid clipping issues) -->
+	<object size="2 96 100%-2 100%-36" name="formStatsArea" type="image" sprite="edgedPanelShader">
+
+		<!-- These images are used to clip off the top and bottom of the civ icon -->
+		<object z="30" size="0 -5 100% 40" ghost="true" type="image" sprite="remove"/>
+		<object z="30" size="0 100%-5 100% 100%+40" ghost="true" type="image" sprite="remove"/>
+
+		<object z="30" size="0 2 100% 45" ghost="true">
+			<!-- Specific Name -->
+			<object size="0 0 100% 20" name="formSpecific" ghost="true" type="text" style="SpecificNameCentered"/>
+
+			<!-- Generic Name -->
+			<object size="0 15 100% 36" name="formGeneric" ghost="true" type="text" style="GenericNameCentered"/>
+		</object>
+
+		<!-- Player Name and Civ -->
+		<object size="0 40 100% 100%">
+			<object size="50%-64 50%-64 50%+64 50%+64" name="formPlayerCivIcon" type="image" ghost="true"/>
+			<object size="0 0 100% 100%" name="formPlayerColorBackground" type="image" sprite="playerColorBackground" ghost="true"/>
+			<object size="0 0 100% 100%" type="image" sprite="bottomEdgedPanelShader" ghost="true"/>
+
+			<!-- Why is this being automatically ghosted? In the mean time, set ghost to false -->
+			<object ghost="false" size="0 0 100% 100%-5" name="formPlayer" type="text" style="largeCenteredOutlinedText" tooltip_style="sessionToolTip"/>
+		</object>
+	</object>
+
+</object>

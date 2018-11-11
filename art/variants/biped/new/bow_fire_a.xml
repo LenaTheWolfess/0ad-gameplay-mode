@@ -1,0 +1,9 @@
+<variant name="attack_ranged_loose">
+  <animations>
+    <animation event="0.35" file="biped/new/bow_losse_a.dae" load="0.75" name="attack_ranged_loose" speed="80"/>
+  </animations>
+  <props>
+    <prop actor="props/units/weapons/arrow_back.xml" attachpoint="loaded-projectile"/>
+    <prop actor="" attachpoint="loaded-projectile"/>
+  </props>
+</variant>

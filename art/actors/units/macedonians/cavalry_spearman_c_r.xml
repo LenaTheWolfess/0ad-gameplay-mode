@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant file="biped/base_cavalry_spearman_relax_shield_c.xml" frequency="100" name="Base">
+      <mesh>skeletal/new/m_tunic_short.dae</mesh>
+      <props>
+        <prop actor="props/units/heads/new/head_hele_b.xml" attachpoint="head"/>
+        <prop actor="props/units/helmets/mace_hetairoi.xml" attachpoint="helmet"/>
+        <prop actor="props/units/weapons/spear_lance_cavalry_reverse.xml" attachpoint="weapon_R"/>
+        <prop actor="props/units/capes/rider/spearman_relax.xml" attachpoint="root"/>
+        <prop actor="props/units/shields/mace_hypaspist.xml" attachpoint="shield_arm"/>
+      </props>
+    </variant>
+  </group>
+  <group>
+    <variant file="biped/base_cavalry_spearman_ready_shield.xml"/>
+  </group>
+  <group>
+    <variant frequency="1" name="armor-scale mail">
+      <textures>
+        <texture file="skeletal/spart_phalangite_officer.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Idle"/>
+    <variant file="biped/rider/death.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

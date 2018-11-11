@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_military_barracks_range">
+  <Footprint>
+    <Square width="25.0" depth="25.0"/>
+    <Height>12.0</Height>
+  </Footprint>
+  <Health>
+    <SpawnEntityOnDeath>decay|rubble/rubble_stone_5x5</SpawnEntityOnDeath>
+  </Health>
+  <Identity>
+    <Civ>pers</Civ>
+  </Identity>
+  <Obstruction>
+    <Static width="24.0" depth="24.0"/>
+  </Obstruction>
+  <ProductionQueue>
+    <Technologies datatype="tokens">
+      persians/special_archery_tradition
+      archery
+      javelins
+      pers/javelin_a
+      pers/javelin_e
+      pers/archer_a
+      pers/archer_e
+      pers/archer_e_fire
+      pers/champion_javelin 
+      pers/champion_archery  
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/persians/range.xml</Actor>
+    <FoundationActor>structures/fndn_5x5.xml</FoundationActor>
+  </VisualActor>
+</Entity>

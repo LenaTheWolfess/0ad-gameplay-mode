@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_infantry_swordsman">
+  <Armour>
+    <Missle>2</Missle>  
+    <Pierce>2</Pierce>  
+    <Crush>3</Crush>  
+    <Hack>3</Hack> 
+    <Shield>
+      <Missle>4</Missle>  
+      <Pierce>2</Pierce>  
+      <Crush>3</Crush>  
+      <Hack>3</Hack> 
+    </Shield>
+  </Armour>
+  <Identity>
+    <Civ>kush</Civ>
+    <GenericName>Napatan Temple Guard</GenericName>
+    <SpecificName>rs ‘Imn</SpecificName>
+    <Classes datatype="tokens">AmunGuard</Classes>
+    <Icon>units/kush_champion_amun.png</Icon>
+	<RequiredTechnology>kush/champion_sword</RequiredTechnology>
+  </Identity>
+  <VisualActor>
+    <Actor>units/kushites/infantry_swordsman_c.xml</Actor>
+  </VisualActor>
+</Entity>

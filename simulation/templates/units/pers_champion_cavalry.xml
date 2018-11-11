@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_cavalry_spearman">
+  <Armour>
+    <Missle>8</Missle>  
+    <Pierce>8</Pierce>  
+    <Crush>5</Crush>  
+    <Hack>7</Hack> 
+  </Armour>
+  <Identity>
+    <Civ>pers</Civ>
+    <GenericName>Bactrian Heavy Lancer</GenericName>
+    <SpecificName>Bakhtrish Asabara</SpecificName>
+    <Icon>units/pers_champion_cavalry.png</Icon>
+    <RequiredTechnology>pers/champion_cav_spear</RequiredTechnology>
+  </Identity>
+  <VisualActor>
+    <Actor>units/persians/cavalry_spearman_c_m.xml</Actor>
+  </VisualActor>
+</Entity>

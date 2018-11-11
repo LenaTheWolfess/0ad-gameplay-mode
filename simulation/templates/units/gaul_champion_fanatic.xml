@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_infantry_spearman">
+  <Armour>
+    <Shield>
+      <Missle>2</Missle>  
+      <Pierce>1</Pierce>  
+      <Crush>2</Crush>  
+      <Hack>2</Hack> 
+    </Shield>
+  </Armour>
+  <Cost>
+    <BuildTime op="mul">0.75</BuildTime>
+    <Resources>
+      <food>0</food>
+      <metal op="mul">2</metal>
+    </Resources>
+  </Cost>
+  <Identity>
+    <Civ>gaul</Civ>
+    <GenericName>Naked Fanatic</GenericName>
+    <SpecificName>Gaesata</SpecificName>
+    <Icon>units/celt_fanatic.png</Icon>
+    <RequiredTechnology>gaul/champion_spear</RequiredTechnology>
+  </Identity>
+  <UnitMotion>
+    <WalkSpeed op="mul">1.4</WalkSpeed>
+    <Run>
+      <Speed op="mul">1.4</Speed>
+    </Run>
+  </UnitMotion>
+  <VisualActor>
+    <Actor>units/gauls/infantry_spearman_c.xml</Actor>
+  </VisualActor>
+</Entity>

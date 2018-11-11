@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_cavalry_spearman">
+ <Armour>
+    <Missle>8</Missle>  
+    <Pierce>9</Pierce>  
+    <Crush>7</Crush>  
+    <Hack>10</Hack> 
+    <Shield>
+      <Missle>4</Missle>  
+      <Pierce>4</Pierce>  
+      <Crush>4</Crush>  
+      <Hack>4</Hack> 
+    </Shield>
+  </Armour>
+  <Identity>
+    <Civ>mace</Civ>
+    <Lang>greek</Lang>
+    <GenericName>Companion Cavalry</GenericName>
+    <SpecificName>Hetaîros</SpecificName>
+    <Icon>units/mace_champion_cavalry.png</Icon>
+    <SelectionGroupName>units/mace_champion_cavalry</SelectionGroupName>
+	<RequiredTechnology>mace/champion_cav_spear</RequiredTechnology>
+  </Identity>
+  <VisualActor>
+    <Actor>units/macedonians/cavalry_spearman_c_m.xml</Actor>
+  </VisualActor>
+</Entity>
