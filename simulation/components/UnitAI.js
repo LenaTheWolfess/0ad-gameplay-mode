@@ -3915,7 +3915,7 @@ UnitAI.prototype.Init = function()
 	this.lastAttacked = undefined;
 	this.lastHealed = undefined;
 
-	this.prepared = false;
+	this.prepared = true;
 	this.SetStance(this.template.DefaultStance);
 	this.fmp = {"x": 0,"z": 0};
 	this.mountDamage = false;
@@ -6809,11 +6809,21 @@ UnitAI.prototype.ResetTurretStance = function()
  */
 UnitAI.prototype.FindNewTargets = function()
 {
-	if (!this.losRangeQuery)
+	if (!this.losRangeQuery) {
+		if (this.prepared && !this.IsFormationMember()) {
+			this.SetAnimationVariant("relax");
+			this.prepared = false;
+		}
 		return false;
+	}
 
-	if (!this.GetStance().targetVisibleEnemies)
+	if (!this.GetStance().targetVisibleEnemies){
+		if (this.prepared && !this.IsFormationMember()) {
+			this.SetAnimationVariant("relax");
+			this.prepared = false;
+		}
 		return false;
+	}
 
 	let cmpRangeManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_RangeManager);
 	let query = cmpRangeManager.ResetActiveQuery(this.losRangeQuery);

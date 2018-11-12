@@ -1,0 +1,43 @@
+sword:
+ armour:
+   hack 8
+   pierce 8
+   crush 20
+ attack:
+   hack 11
+   pierce 0
+   crush 0
+spear:
+ armour:
+   hack 8
+   pierce 8
+   crush 20
+ attack:
+   hack 6
+   pierce 5
+   crush 0
+pike:
+ armour:
+   hack 13
+   pierce 13
+   crush 20
+ attack:
+   hack 2
+   pierce 6
+   crush 0
+mace:
+ armour:
+   hack 6
+   pierce 6
+   crush 20
+ atack:
+   hack 0
+   pierce 0
+   crush 10.5
+javelin:
+  pierce 26
+archer:
+  pierce 6.5
+slinger:
+  pierce 9.5
+  crush 1.0
