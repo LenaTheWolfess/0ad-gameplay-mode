@@ -24,7 +24,7 @@
   </group>
   <group>
     <variant frequency="1" name="Idle"/> 
- <variant file="biped/attack_ranged_second.xml"/>
+    <variant file="biped/attack_ranged_second.xml"/>
     <variant file="biped/attack_ranged_slinger.xml"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>

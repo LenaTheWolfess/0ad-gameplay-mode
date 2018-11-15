@@ -22,7 +22,7 @@
   </group>
   <group>
     <variant frequency="1" name="Idle"/> 
- <variant file="biped/attack_ranged_second.xml"/>
+    <variant file="biped/attack_ranged_cavalry_second_horse.xml"/>
     <variant name="Run">
       <props>
         <prop actor="particle/dust_cav.xml" attachpoint="root"/>

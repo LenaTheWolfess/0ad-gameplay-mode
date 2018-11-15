@@ -63,8 +63,8 @@
 
   <group>
     <variant file="biped/base_spearman.xml"/> 
- <variant file="biped/build.xml"/> 
- <variant file="biped/build_farm.xml"/>
+    <variant file="biped/build.xml"/> 
+    <variant file="biped/build_farm.xml"/>
   </group>
   <group>
    <variant name="ready" file="biped/ready_stance/base_spearman.xml"/>

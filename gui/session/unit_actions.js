@@ -837,7 +837,7 @@ var g_UnitActions =
 		{
 			let actionInfo = getActionInfo("garrison", target, selection);
 
-			if (!Engine.HotkeyIsPressed("session.garrison") || !actionInfo.possible)
+			if (/*!Engine.HotkeyIsPressed("session.garrison") ||*/ !actionInfo.possible)
 				return false;
 
 			return {

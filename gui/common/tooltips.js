@@ -254,7 +254,7 @@ function getAttackTooltip(template)
 	let tooltips = [];
 	for (let type in template.attack)
 	{
-		if (type == "Slaughter")
+		if (type == "Slaughter" || type == "NeedsManPower")
 			continue; // Slaughter is used to kill animals, so do not show it.
 
 		let rate = sprintf(translate("%(label)s %(details)s"), {
