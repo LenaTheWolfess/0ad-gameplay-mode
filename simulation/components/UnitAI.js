@@ -2484,10 +2484,11 @@ UnitAI.prototype.UnitFsmSpec = {
 					// TODO: we should probably only bother syncing projectile attacks, not melee
 
 					// If using a non-default prepare time, re-sync the animation when the timer runs.
-					//this.resyncAnimation = (prepare != this.attackTimers.prepare) ? true : false;
-					this.resyncAnimation =  false;
+					this.resyncAnimation = (prepare + delayAttack != this.attackTimers.prepare) ? true : false;
+					//this.resyncAnimation =  false;
 
 					this.setAnimation = true;
+					this.resyncAnimationNexTime = false;
 
 					this.FaceTowardsTarget(this.order.data.target);
 
@@ -2555,6 +2556,10 @@ UnitAI.prototype.UnitFsmSpec = {
 							return;
 						}
 
+						
+						if (this.resyncAnimationNexTime) {
+							this.resyncAnimation = true;
+						}
 						let t = this.order.data.attackType.toLowerCase();
 						if (this.setAnimation) {
 							let animationName = "attack_" + t;
@@ -2564,11 +2569,13 @@ UnitAI.prototype.UnitFsmSpec = {
 									animationName = cmpFormation.GetFormationAnimation(this.entity, animationName);
 							}
 							let variant = cmpAttack.GetAnimationVariant(this.order.data.attackType);
-							this.SetAnimationSync(0, this.attackTimers.repeat);
 							this.SetAnimationVariant(variant);
 							this.SelectAnimation(animationName);
+							this.SetAnimationSync(0, this.attackTimers.repeat);
 							this.setAnimation = false;
 							this.prepared = true;
+							this.resyncAnimation = false;
+							this.resyncAnimationNexTime = true;
 						}
 
 						// If we are hunting, first update the target position of the gather order so we know where will be the killed animal
@@ -2603,11 +2610,12 @@ UnitAI.prototype.UnitFsmSpec = {
 						// Check we can still reach the target for the next attack
 						if (this.CheckTargetAttackRange(target, this.order.data.attackType))
 						{
-						//	if (this.resyncAnimation)
-						//	{
-						//		this.SetAnimationSync(this.attackTimers.repeat, this.attackTimers.repeat);
-						//		this.resyncAnimation = false;
-						//	}
+							if (this.resyncAnimation)
+							{
+								this.SetAnimationSync(this.attackTimers.repeat, this.attackTimers.repeat);
+								this.resyncAnimation = false;
+								this.resyncAnimationNexTime = false;
+							}
 							//warn(this.entity + "Attack.Timer: can attack " + target);
 							return;
 						}

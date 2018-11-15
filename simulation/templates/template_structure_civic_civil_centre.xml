@@ -18,9 +18,9 @@
   <Attack>
     <Ranged>
       <Hack>0.0</Hack>
-      <Pierce>12.0</Pierce>
+      <Pierce>0.0</Pierce>
       <Crush>0.0</Crush>
-      <Missle>0</Missle>
+      <Missle>12</Missle>
       <MaxRange>72.0</MaxRange>
       <MinRange>0.0</MinRange>
       <ProjectileSpeed>75.0</ProjectileSpeed>

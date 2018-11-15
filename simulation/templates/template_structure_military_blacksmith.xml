@@ -15,6 +15,7 @@
   </Footprint>
   <GarrisonHolder>
     <Max>1</Max>
+    <MaxAttackers>1</MaxAttackers>
     <EjectHealth>0.1</EjectHealth>
     <EjectClassesOnDestroy datatype="tokens">Unit</EjectClassesOnDestroy>
     <List datatype="tokens">Infantry Healer</List>

@@ -24,10 +24,11 @@
   </Footprint>
   <GarrisonHolder>
     <Max>3</Max>
+    <MaxAttackers>3</MaxAttackers>
     <BuffHeal>0</BuffHeal>
     <EjectHealth>0.1</EjectHealth>
     <EjectClassesOnDestroy datatype="tokens">Unit</EjectClassesOnDestroy>
-    <List datatype="tokens">Support+!Elephant</List>
+    <List datatype="tokens">Support+!Elephant Infantry</List>
     <LoadingRange>1</LoadingRange>
   </GarrisonHolder>
   <Health>

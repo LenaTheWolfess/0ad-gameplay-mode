@@ -19,6 +19,7 @@
       <TrainList datatype="tokens">Melee+Infantry</TrainList>
     </Train>
     <Max>20</Max>
+    <MaxAttackers>20</MaxAttackers>
     <EjectHealth>0.1</EjectHealth>
     <EjectClassesOnDestroy datatype="tokens">Unit</EjectClassesOnDestroy>
     <List datatype="tokens">Infantry</List>

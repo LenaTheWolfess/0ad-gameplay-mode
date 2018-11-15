@@ -3,7 +3,6 @@
   <Armour>
     <Hack>5</Hack>
     <Pierce>5</Pierce>
-    <Missle>20</Missle>
     <Crush>1</Crush>
     <Foundation>
       <Hack>1</Hack>
@@ -13,7 +12,7 @@
   </Armour>
   <Attack>
     <Ranged>
-      <Missle>0</Missle>
+      <Missle>9</Missle>
       <MaxRange>55</MaxRange>
       <MinRange>13</MinRange>
       <ElevationBonus>0</ElevationBonus>
@@ -42,6 +41,7 @@
   </Footprint>
   <GarrisonHolder>
     <Max>1</Max>
+    <MaxAttackers>1</MaxAttackers>
   </GarrisonHolder>
   <Health>
     <Max>800</Max>

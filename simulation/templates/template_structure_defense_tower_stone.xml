@@ -21,6 +21,7 @@
   </Footprint>
   <GarrisonHolder>
     <Max>5</Max>
+    <MaxAttackers>5</MaxAttackers>
   </GarrisonHolder>
   <Health>
     <Max>1000</Max>

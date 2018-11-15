@@ -4,7 +4,7 @@
     <Hack>1</Hack>
     <Pierce>1</Pierce>
     <Crush>1</Crush>
-    <Missle>1</Missle>
+    <Missle>100</Missle>
     <Foundation>
       <Hack>1</Hack>
       <Pierce>1</Pierce>

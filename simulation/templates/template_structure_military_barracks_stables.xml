@@ -4,7 +4,7 @@
     <Train> 
       <TrainList datatype="tokens">Cavalry -Melee+Infantry</TrainList>
     </Train>
-    <List datatype="tokens">Cavalry</List>
+    <List datatype="tokens">Cavalry Infantry</List>
   </GarrisonHolder>
   <Identity>
     <GenericName>Stables</GenericName>
