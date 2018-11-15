@@ -37,6 +37,7 @@
   </Footprint>
   <GarrisonHolder>
     <Max>30</Max>
+    <MaxAttackers>30</MaxAttackers>
     <EjectHealth>0.1</EjectHealth>
     <EjectClassesOnDestroy datatype="tokens">Unit</EjectClassesOnDestroy>
     <List datatype="tokens">Support Infantry Cavalry</List>
