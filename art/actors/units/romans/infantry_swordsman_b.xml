@@ -35,6 +35,9 @@
     <variant file="biped/build_farm.xml"/>
   </group>
   <group>
+      <variant file="biped/shield-up.xml"/>
+  </group>
+  <group>
     <variant name="ready" file="biped/ready_stance/base_swordsman_shield.xml"/>
     <variant name="relax" file="biped/relax/base_swordsman_shield.xml">
       <props>

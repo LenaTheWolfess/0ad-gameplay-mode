@@ -24,6 +24,9 @@
     <variant file="biped/base_swordsman_shield.xml"/>
   </group>
   <group>
+      <variant file="biped/shield-up.xml"/>
+  </group>
+  <group>
     <variant name="ready" file="biped/ready_stance/base_swordsman_shield.xml"/>
     <variant name="relax" file="biped/relax/base_swordsman_shield.xml">
       <props>
@@ -31,6 +34,7 @@
         <prop actor="" attachpoint="weapon_R"/>
       </props>
     </variant>
+    <variant file="biped/shield-up.xml"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/death_infantry.xml"/>
   </group>

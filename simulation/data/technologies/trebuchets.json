@@ -8,7 +8,7 @@
 	"requirementsTooltip": "Unlocked in City Phase.",
 	"supersedes": "catapult",
 	"icon": "upgrade_advanced.png",
-	"researchTime": 720,
+	"researchTime": 60,
 	"tooltip": "Unlock the ability to build trebuchets.",
 	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
 }

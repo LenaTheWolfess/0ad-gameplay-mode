@@ -1054,7 +1054,7 @@ GarrisonHolder.prototype.TrainTimeout = function(data)
 	for (let rank in ranks) {
 		for (let name in ranks[rank]) {
 			let count = ranks[rank][name];
-			warn(count + "x " + name + " edned training with rank " + rank);
+		//	warn(count + "x " + name + " edned training with rank " + rank);
 			cmpGuiInterface.PushNotification({
 				"type": "trained",
 				"target": this.entity,

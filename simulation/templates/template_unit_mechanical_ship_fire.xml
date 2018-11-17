@@ -24,6 +24,7 @@
     <Hack>300.0</Hack>
     <Pierce>300.0</Pierce>
     <Crush>300.0</Crush>
+    <Missle>0.0</Missle>
   </DeathDamage>
   <Footprint>
     <Square width="8.0" depth="24.0"/>
