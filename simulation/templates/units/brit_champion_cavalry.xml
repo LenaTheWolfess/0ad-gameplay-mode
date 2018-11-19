@@ -19,6 +19,19 @@
     <Icon>units/brit_champion_chariot.png</Icon>
  	<RequiredTechnology>brit/champion_cav_javelin</RequiredTechnology>
  </Identity>
+  <Cost>
+    <BuildTime op="add">1.5</BuildTime>
+    <Resources>
+      <wood op="add">50</wood>
+      <metal op="add">50</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.97</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.97</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/britons/chariot_javelinist_c_m.xml</Actor>
   </VisualActor>

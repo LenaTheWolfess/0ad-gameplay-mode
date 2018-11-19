@@ -10,6 +10,18 @@
     <Rank>Elite</Rank>
   </Identity>
   <Promotion disable=""/>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">20</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.87</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.87</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/persians/chariot_archer_e_m.xml</Actor>
   </VisualActor>

@@ -20,6 +20,18 @@
     <Icon>units/gaul_champion_infantry.png</Icon>
     <RequiredTechnology>gaul/champion_sword</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">60</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.92</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.92</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/gauls/infantry_swordsman_c.xml</Actor>
   </VisualActor>

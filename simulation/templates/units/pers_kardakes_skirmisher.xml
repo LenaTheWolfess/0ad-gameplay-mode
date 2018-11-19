@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_champion_infantry_javelinist">
-  <Cost>
-    <Resources>
-      <food>0</food>
-      <metal op="mul">2</metal>
-    </Resources>
-  </Cost>
   <Armour>
     <Missle>5</Missle>  
     <Pierce>4</Pierce>  
@@ -18,6 +12,13 @@
       <Hack>2</Hack> 
     </Shield>
   </Armour>
+  <Cost>
+    <BuildTime op="add">2</BuildTime>
+    <Resources>
+      <metal op="add">45</metal>
+	  <wood op="add">10</wood>
+    </Resources>
+  </Cost>
   <Identity>
     <Civ>pers</Civ>
     <GenericName>Cardaces Skirmisher</GenericName>
@@ -26,6 +27,12 @@
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
     <RequiredTechnology>pers/darius_champion</RequiredTechnology>
   </Identity>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/persians/infantry_javelinist_c.xml</Actor>
   </VisualActor>

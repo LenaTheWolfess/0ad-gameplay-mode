@@ -12,7 +12,7 @@
   </Armour>
   <Attack>
     <Ranged>
-      <Missle>9</Missle>
+      <Missle>15</Missle>
       <MaxRange>55</MaxRange>
       <MinRange>13</MinRange>
       <ElevationBonus>0</ElevationBonus>

@@ -21,6 +21,18 @@
     <SelectionGroupName>units/rome_champion_cavalry</SelectionGroupName>
     <RequiredTechnology>rome/champion_cav_sword</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">2</BuildTime>
+    <Resources>
+	  <metal op="add">30</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.8</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.8</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/romans/cavalry_swordsman_c_m.xml</Actor>
   </VisualActor>

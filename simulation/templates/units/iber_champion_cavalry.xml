@@ -20,6 +20,12 @@
     <Tooltip>Special: Flaming javelins. Good vs. Buildings.</Tooltip>
 	<RequiredTechnology>iber/champion_cav_javelin</RequiredTechnology>
   </Identity>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.97</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.97</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/iberians/cavalry_javelinist_c_m.xml</Actor>
   </VisualActor>

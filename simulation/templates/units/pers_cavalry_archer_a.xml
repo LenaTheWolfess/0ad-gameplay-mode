@@ -15,6 +15,19 @@
   <UnitMotion>
     <PassabilityClass>chariot</PassabilityClass>
   </UnitMotion>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <food op="add">20</food>
+	  <metal op="add">10</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/persians/chariot_archer_a_m.xml</Actor>
   </VisualActor>

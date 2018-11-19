@@ -20,6 +20,12 @@
     <SpecificName>Hoplítēs Períoikos</SpecificName>
     <Icon>units/spart_infantry_spearman.png</Icon>
   </Identity>
+  <Cost>
+    <BuildTime>1.5</BuildTime>
+    <Resources>
+      <metal>5</metal>
+    </Resources>
+  </Cost>
   <Promotion>
     <Entity>units/spart_infantry_pikeman_a</Entity>
   </Promotion>

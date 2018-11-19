@@ -44,6 +44,19 @@
     <Icon>units/pers_champion_infantry.png</Icon>
     <RequiredTechnology>pers/cyrus_champion</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">3</BuildTime>
+    <Resources>
+      <metal op="add">60</metal>
+	  <wood op="add">30</wood>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.93</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.93</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/persians/infantry_spearman_c2.xml</Actor>
   </VisualActor>

@@ -50,7 +50,7 @@
   </group>
   <group>
     <variant frequency="1" name="Idle"/> 
- <variant file="biped/attack_ranged_cavalry_second_horse.xml"/>
+    <variant file="biped/attack_ranged_cavalry_second_horse.xml"/>
     <variant file="quadraped/base_horse_death.xml">
       <props>
         <prop actor="props/horse/cav_blanket_pers.xml" attachpoint="root"/>

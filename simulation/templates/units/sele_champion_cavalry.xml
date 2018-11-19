@@ -14,6 +14,17 @@
     <Icon>units/sele_champion_cavalry.png</Icon>
     <RequiredTechnology>sele/champion_cav_spear</RequiredTechnology>
   </Identity>
+  <Cost>
+    <Resources>
+      <metal op="add">50</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/seleucids/cavalry_spearman_c_m.xml</Actor>
   </VisualActor>

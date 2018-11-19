@@ -12,6 +12,18 @@
   <Promotion>
     <Entity>units/rome_infantry_swordsman_e</Entity>
   </Promotion>
+  <Cost>
+    <BuildTime op="add">0.8</BuildTime>
+    <Resources>
+	  <metal op="add">8</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.95</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.95</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/romans/infantry_swordsman_a.xml</Actor>
   </VisualActor>

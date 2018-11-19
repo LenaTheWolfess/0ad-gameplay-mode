@@ -7,6 +7,13 @@
     <Icon>units/maur_champion_elephant.png</Icon>
     <RequiredTechnology>maur/champion_elephant</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">2</BuildTime>
+    <Resources>
+      <wood op="add">10</wood>
+	  <metal op="add">200</metal>
+    </Resources>
+  </Cost>
   <VisualActor>
     <Actor>units/mauryans/elephantry_c_m.xml</Actor>
   </VisualActor>

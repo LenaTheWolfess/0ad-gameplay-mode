@@ -7,6 +7,12 @@
     <Icon>units/ptol_champion_elephant.png</Icon>
     <RequiredTechnology>ptol/champion_cav_javelin</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">1</BuildTime>
+    <Resources>
+      <metal op="add">90</metal>
+    </Resources>
+  </Cost>
   <VisualActor>
     <Actor>units/ptolemies/elephantry_c_m.xml</Actor>
   </VisualActor>

@@ -10,6 +10,13 @@
     <Square width="5.5" depth="10.0"/>
     <Height>5.0</Height>
   </Footprint>
+  <Cost>
+    <BuildTime op="add">2</BuildTime>
+    <Resources>
+      <wood op="add">100</wood>
+	  <metal op="add">50</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Civ>maur</Civ>
     <VisibleClasses datatype="tokens">Chariot</VisibleClasses>

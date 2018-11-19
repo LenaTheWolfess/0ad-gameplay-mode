@@ -10,6 +10,18 @@
     <Rank>Elite</Rank>
   </Identity>
   <Promotion disable=""/>
+  <Cost>
+    <BuildTime op="add">2</BuildTime>
+    <Resources>
+      <metal op="add">10</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/ptolemies/cavalry_spearman_e_m.xml</Actor>
   </VisualActor>

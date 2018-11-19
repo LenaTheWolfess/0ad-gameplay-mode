@@ -12,6 +12,18 @@
   <Promotion>
     <Entity>units/spart_infantry_swordman_e</Entity>
   </Promotion>
+  <Cost>
+    <BuildTime>1.5</BuildTime>
+    <Resources>
+      <metal>10</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.95</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.95</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/spartans/infantry_swordsman_a.xml</Actor>
   </VisualActor>

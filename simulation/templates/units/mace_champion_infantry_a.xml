@@ -21,6 +21,12 @@
     <SelectionGroupName>units/mace_champion_infantry_a</SelectionGroupName>
     <RequiredTechnology>mace/champion_spear_gold</RequiredTechnology>
   </Identity>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/macedonians/infantry_spearman_c_a.xml</Actor>
   </VisualActor>

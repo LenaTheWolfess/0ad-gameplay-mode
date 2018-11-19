@@ -8,6 +8,12 @@
     <Hack>4</Hack> 
    </Shield>
   </Armour>
+  <Cost>
+    <BuildTime>1.5</BuildTime>
+    <Resources>
+      <metal>8</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Rank>Advanced</Rank>
   </Identity>

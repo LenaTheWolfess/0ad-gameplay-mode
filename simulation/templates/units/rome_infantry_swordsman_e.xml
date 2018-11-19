@@ -10,6 +10,12 @@
     <Rank>Elite</Rank>
   </Identity>
   <Promotion disable=""/>
+  <Cost>
+    <BuildTime op="add">1</BuildTime>
+    <Resources>
+	  <metal op="add">5</metal>
+    </Resources>
+  </Cost>
   <VisualActor>
     <Actor>units/romans/infantry_swordsman_e.xml</Actor>
   </VisualActor>

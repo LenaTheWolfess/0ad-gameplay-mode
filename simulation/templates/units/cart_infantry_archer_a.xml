@@ -6,6 +6,12 @@
   <Promotion>
     <Entity>units/cart_infantry_archer_e</Entity>
   </Promotion>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <wood op="add">5</wood>
+    </Resources>
+  </Cost>
   <VisualActor>
     <Actor>units/carthaginians/infantry_archer_a.xml</Actor>
   </VisualActor>

@@ -2539,8 +2539,8 @@ UnitAI.prototype.UnitFsmSpec = {
 
 						if (bestAttack != this.order.data.attackType) {
 							if (!bestAttack) {
-								this.prepared = false;
-								this.SetAnimationVariant("relax");
+							//	this.prepared = false;
+							//	this.SetAnimationVariant("relax");
 								this.FinishOrder();
 								this.SetNextState("IDLE");
 								//warn(this.entity + " Timer.Attack: no possible attack against " + target);
@@ -5527,6 +5527,8 @@ UnitAI.prototype.CheckZoneDistance = function(target, iid, type)
 	if (!target)
 		return false;
 	let cmpRanged = Engine.QueryInterface(this.entity, iid);
+	if (!cmpRanged)
+		return false;
 	let range = iid !== IID_Attack ? cmpRanged.GetRange() : cmpRanged.GetRange(type);
 
 	let cmpPosition = Engine.QueryInterface(target, IID_Position);

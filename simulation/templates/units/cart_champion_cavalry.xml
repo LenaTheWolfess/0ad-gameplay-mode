@@ -13,6 +13,17 @@
     <Icon>units/cart_champion_cavalry.png</Icon>
 	<RequiredTechnology>cart/champion_cav_spear</RequiredTechnology>
   </Identity>
+  <Cost>
+    <Resources>
+      <metal op="add">30</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.95</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.95</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/carthaginians/cavalry_spearman_c_m.xml</Actor>
   </VisualActor>

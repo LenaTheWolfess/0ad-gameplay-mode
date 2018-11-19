@@ -22,6 +22,11 @@
     <Icon>units/celt_fanatic.png</Icon>
     <RequiredTechnology>gaul/champion_spear</RequiredTechnology>
   </Identity>
+  <Cost>
+    <Resources>
+      <wood op="add">10</wood>
+    </Resources>
+  </Cost>
   <UnitMotion>
     <WalkSpeed op="mul">1.4</WalkSpeed>
     <Run>

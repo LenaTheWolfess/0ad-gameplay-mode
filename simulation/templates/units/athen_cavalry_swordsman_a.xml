@@ -9,6 +9,18 @@
   <Identity>
     <Rank>Advanced</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">10</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.96</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.96</Speed>
+    </Run>
+  </UnitMotion>
   <Promotion>
     <Entity>units/athen_cavalry_swordsman_e</Entity>
   </Promotion>

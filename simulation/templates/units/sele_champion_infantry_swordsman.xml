@@ -20,6 +20,18 @@
     <Icon>units/sele_champion_swordsman.png</Icon>
     <RequiredTechnology>sele/champion_sword</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">2</BuildTime>
+    <Resources>
+      <metal op="add">100</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.8</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.8</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/seleucids/infantry_swordsman_c.xml</Actor>
   </VisualActor>

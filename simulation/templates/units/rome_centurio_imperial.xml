@@ -23,6 +23,12 @@
     <SelectionGroupName>units/rome_centurio_imperial</SelectionGroupName>
   </Identity>
   <Promotion disable=""/>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.85</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.85</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/romans/infantry_swordsman_c4.xml</Actor>
   </VisualActor>

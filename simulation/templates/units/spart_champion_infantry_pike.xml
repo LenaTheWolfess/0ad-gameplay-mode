@@ -12,6 +12,12 @@
      <Hack>3</Hack> 
    </Shield>
   </Armour>
+  <Cost>
+    <BuildTime>2</BuildTime>
+    <Resources>
+      <metal>30</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Civ>spart</Civ>
     <Lang>greek</Lang>
@@ -20,6 +26,12 @@
     <Icon>units/spart_champion_infantry_pike.png</Icon>
     <RequiredTechnology>spart_champion_pike</RequiredTechnology>
   </Identity>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/spartans/infantry_pikeman_c.xml</Actor>
   </VisualActor>

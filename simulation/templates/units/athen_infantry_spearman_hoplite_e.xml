@@ -10,6 +10,18 @@
     <Rank>Elite</Rank>
   </Identity>
   <Promotion disable=""/>
+  <Cost>
+    <BuildTime>2</BuildTime>
+    <Resources>
+      <metal>20</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.93</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.93</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/athenians/infantry_spearman_hoplite_e.xml</Actor>
   </VisualActor>

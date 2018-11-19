@@ -4,7 +4,7 @@
   <group>
     <variant frequency="1" name="Base">
       <mesh>skeletal/new/m_tunic_short.dae</mesh>
-      <props>>
+      <props>
         <prop actor="props/units/heads/new/head_celt.xml" attachpoint="head"/>
       </props>
       <textures>

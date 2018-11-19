@@ -32,6 +32,12 @@
       <PreferredClasses datatype="tokens">Infantry</PreferredClasses>
     </Ranged>
   </Attack>
+  <Cost>
+    <BuildTime>2</BuildTime>
+    <Resources>
+      <metal>30</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Civ>spart</Civ>
     <Lang>greek</Lang>
@@ -42,6 +48,12 @@
     <RequiredTechnology>spart_champion_sword</RequiredTechnology>
   </Identity>
   <Promotion disable=""/>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/spartans/infantry_swordsman_c.xml</Actor>
   </VisualActor>

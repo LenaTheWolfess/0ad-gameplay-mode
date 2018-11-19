@@ -9,6 +9,12 @@
   <Identity>
     <Rank>Advanced</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <food op="add">10</food>
+    </Resources>
+  </Cost>
   <Promotion>
     <Entity>units/pers_cavalry_javelinist_e</Entity>
   </Promotion>

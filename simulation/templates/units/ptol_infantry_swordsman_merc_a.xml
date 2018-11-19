@@ -18,6 +18,19 @@
   <Promotion>
     <Entity>units/ptol_infantry_swordsman_merc_e</Entity>
   </Promotion>
+  <Cost>
+    <BuildTime op="add">1</BuildTime>
+    <Resources>
+      <wood op="add">10</wood>
+	  <metal op="add">18</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.93</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.93</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/ptolemies/infantry_swordsman_a.xml</Actor>
   </VisualActor>

@@ -8,6 +8,12 @@
        <Hack op="mul">1.3</Hack>  
     </Shield>
   </Armour>
+  <Cost>
+    <BuildTime>2</BuildTime>
+    <Resources>
+      <metal op="add">2</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Rank>Elite</Rank>
   </Identity>

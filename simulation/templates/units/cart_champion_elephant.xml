@@ -7,6 +7,13 @@
     <Icon>units/cart_champion_elephant.png</Icon>
 	<RequiredTechnology>cart/champion_cav_javelin</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">1</BuildTime>
+    <Resources>
+      <metal op="add">50</metal>
+	  <wood op="add">20</wood>
+    </Resources>
+  </Cost>
   <VisualActor>
     <Actor>units/carthaginians/elephantry_c_m.xml</Actor>
   </VisualActor>

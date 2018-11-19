@@ -20,6 +20,18 @@
     <Icon>units/athen_champion_marine.png</Icon>
     <RequiredTechnology>athen_champion_sword</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">2</BuildTime>
+    <Resources>
+      <metal op="add">50</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/athenians/infantry_swordsman_c.xml</Actor>
   </VisualActor>

@@ -11,6 +11,15 @@
     <SelectionGroupName>units/rome_legionnaire_imperial</SelectionGroupName>
   </Identity>
   <Promotion disable = ""/>
+  <Cost>
+    <BuildTime op="add">1</BuildTime>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.85</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.85</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/romans/infantry_swordsman_c3.xml</Actor>
   </VisualActor>

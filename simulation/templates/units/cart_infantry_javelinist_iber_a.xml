@@ -12,6 +12,12 @@
       <Hack>1</Hack>  
     </Shield>
   </Armour>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">5</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Rank>Advanced</Rank>
   </Identity>

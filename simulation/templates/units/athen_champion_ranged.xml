@@ -20,6 +20,18 @@
     <Icon>units/athen_champion_ranged.png</Icon>
 	<RequiredTechnology>athen_champion_archer</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">1.5</BuildTime>
+    <Resources>
+      <metal op="add">25</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.95</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.95</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/athenians/infantry_archer_c.xml</Actor>
   </VisualActor>

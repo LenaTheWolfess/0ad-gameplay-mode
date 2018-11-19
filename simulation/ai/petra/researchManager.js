@@ -90,6 +90,8 @@ m.ResearchManager.prototype.researchWantedTechs = function(gameState, techs)
 			let template = tech[1]._template;
 			if (template.genericName == "Swords")
 				return { "name": tech[0], "increasePriority": true};
+			if (template.genericName == "Slings")
+				return { "name": tech[0], "increasePriority": true};
 			if (template.genericName == "Spears")
 				return { "name": tech[0], "increasePriority": true};
 			if (template.genericName == "Axes")

@@ -9,6 +9,18 @@
   <Identity>
     <Rank>Elite</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">10</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <Promotion disable=""/>
   <VisualActor>
     <Actor>units/athenians/cavalry_swordsman_e_m.xml</Actor>

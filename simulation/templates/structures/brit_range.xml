@@ -16,6 +16,7 @@
   <ProductionQueue>
     <Technologies datatype="tokens">
       javelins
+      slings
       brit/slinger_a
       brit/slinger_e
       brit/javelin_a

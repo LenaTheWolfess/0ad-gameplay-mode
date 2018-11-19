@@ -914,6 +914,9 @@ GarrisonHolder.prototype.UnloadTemplate = function(template, owner, all, forced)
 	{
 		let cmpIdentity = Engine.QueryInterface(entity, IID_Identity);
 
+		if (!cmpIdentity)
+			continue;
+
 		// Units with multiple ranks are grouped together.
 		let name = cmpIdentity.GetSelectionGroupName() || cmpTemplateManager.GetCurrentTemplateName(entity);
 		if (name != template || owner != Engine.QueryInterface(entity, IID_Ownership).GetOwner())

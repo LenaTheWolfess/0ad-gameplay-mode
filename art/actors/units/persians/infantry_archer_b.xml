@@ -22,6 +22,8 @@
     <variant file="biped/attack_slaughter.xml"/>
     <variant file="biped/build.xml"/> 
     <variant file="biped/build_farm.xml"/>
+    <variant file="biped/death_infantry.xml"/>
+    <variant name="Idle" frequency="1"/>
   </group>
   <group>
     <variant name="ready" file="biped/ready_stance/base_archer.xml"/>
@@ -30,7 +32,6 @@
         <prop actor="" attachpoint="weapon_R"/>
       </props>
     </variant>
-    <variant file="biped/death_infantry.xml"/>
   </group>
   <material>player_trans.xml</material>
 </actor>

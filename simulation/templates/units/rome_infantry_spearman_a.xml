@@ -4,7 +4,7 @@
    <Missle>4</Missle>  
    <Pierce>4</Pierce>  
    <Crush>4</Crush>  
-    <Hack>5</Hack>  
+   <Hack>5</Hack>  
   </Armour>
   <Identity>
     <Rank>Advanced</Rank>
@@ -12,6 +12,18 @@
   <Promotion>
     <Entity>units/rome_infantry_spearman_e</Entity>
   </Promotion>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+	  <metal op="add">8</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.95</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.95</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/romans/infantry_spearman_a.xml</Actor>
   </VisualActor>

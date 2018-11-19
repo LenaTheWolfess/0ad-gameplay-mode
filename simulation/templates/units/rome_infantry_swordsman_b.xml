@@ -8,6 +8,13 @@
        <Hack>4</Hack>  
     </Shield>
   </Armour>
+  <Cost>
+    <BuildTime op="add">0.2</BuildTime>
+    <Resources>
+      <wood op="add">5</wood>
+	  <metal op="add">2</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Civ>rome</Civ>
     <Lang>latin</Lang>

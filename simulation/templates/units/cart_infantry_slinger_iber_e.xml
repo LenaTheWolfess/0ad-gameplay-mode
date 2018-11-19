@@ -6,6 +6,9 @@
     <Crush>1</Crush>  
     <Hack>1</Hack> 
   </Armour>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+  </Cost>
   <Identity>
     <Rank>Elite</Rank>
   </Identity>

@@ -17,6 +17,12 @@
     <Icon>units/maur_champion_maiden.png</Icon>
     <RequiredTechnology>maur/champion_sword</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <wood op="add">10</wood>
+    </Resources>
+  </Cost>
   <VisualActor>
     <Actor>units/mauryans/infantry_swordsman_c.xml</Actor>
   </VisualActor>

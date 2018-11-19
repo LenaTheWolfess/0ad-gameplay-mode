@@ -6,6 +6,12 @@
     <Crush>1</Crush>  
     <Hack>1</Hack>
   </Armour>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">10</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Rank>Advanced</Rank>
   </Identity>

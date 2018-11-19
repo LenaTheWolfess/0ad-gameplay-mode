@@ -21,6 +21,7 @@
     </Entities>
     <Technologies datatype="tokens">
       javelins
+      slings
       iber/javelin_a
       iber/javelin_e
       iber/slinger_a

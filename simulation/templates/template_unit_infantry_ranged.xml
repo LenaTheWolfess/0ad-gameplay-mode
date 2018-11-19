@@ -30,6 +30,15 @@
       <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Ranged>
   </Attack>
+  <Cost>
+    <BuildTime>2</BuildTime>
+    <Resources>
+      <food>25</food>
+      <wood>10</wood>
+      <stone>0</stone>
+      <metal>0</metal>
+    </Resources>
+  </Cost>
   <Health>
     <Max>50</Max>
   </Health>

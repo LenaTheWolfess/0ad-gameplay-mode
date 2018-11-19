@@ -9,7 +9,20 @@
   <Identity>
     <Rank>Elite</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <wood op="add">5</wood>
+      <metal op="add">15</metal>
+    </Resources>
+  </Cost>
   <Promotion disable=""/>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.95</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.95</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/celts/cavalry_swordsman_e_m.xml</Actor>
   </VisualActor>

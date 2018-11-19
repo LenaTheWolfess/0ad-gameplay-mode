@@ -12,6 +12,11 @@
      <Hack>4</Hack> 
    </Shield>
   </Armour>
+  <Cost>
+    <Resources>
+      <metal>6</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Civ>spart</Civ>
     <Lang>greek</Lang>

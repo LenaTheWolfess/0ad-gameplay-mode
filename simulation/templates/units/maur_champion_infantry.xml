@@ -20,6 +20,19 @@
     <Icon>units/maur_champion_maceman.png</Icon>
     <RequiredTechnology>maur/champion_mace</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">2</BuildTime>
+    <Resources>
+      <wood op="add">10</wood>
+	  <metal op="add">50</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.95</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.95</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/mauryans/infantry_maceman_c.xml</Actor>
   </VisualActor>

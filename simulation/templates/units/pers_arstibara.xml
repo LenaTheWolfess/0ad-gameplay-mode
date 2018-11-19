@@ -42,8 +42,7 @@
   <Cost>
     <BuildTime>5</BuildTime>
     <Resources>
-      <wood>0</wood>
-      <metal>80</metal>
+      <wood>80</wood>
     </Resources>
   </Cost>
   <Identity>

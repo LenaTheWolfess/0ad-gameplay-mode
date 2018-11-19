@@ -9,6 +9,11 @@
   <Identity>
     <Rank>Elite</Rank>
   </Identity>
+  <Cost>
+    <Resources>
+      <metal>2</metal>
+    </Resources>
+  </Cost>
   <Promotion disable=""/>
   <VisualActor>
     <Actor>units/spartans/infantry_javelinist_e.xml</Actor>

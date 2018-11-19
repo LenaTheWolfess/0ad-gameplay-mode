@@ -8,14 +8,14 @@
   </Attack>
   <Cost>
     <Resources>
-      <wood>50</wood>
+      <wood>5</wood>
     </Resources>
   </Cost>
   <Identity>
     <VisibleClasses datatype="tokens">Spear</VisibleClasses>
     <GenericName>Spearman</GenericName>
     <Tooltip>Counters: 2x vs. Cavalry.</Tooltip>
-	<RequiredTechnology>spears</RequiredTechnology>
+    <RequiredTechnology>spears</RequiredTechnology>
   </Identity>
   <Loot>
     <wood>5</wood>

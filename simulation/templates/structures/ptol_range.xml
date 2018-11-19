@@ -17,6 +17,7 @@
     <Technologies datatype="tokens">
       javelins
       archery
+	  slings
       ptol/archer_a
       ptol/archer_e
       ptol/javelin_a

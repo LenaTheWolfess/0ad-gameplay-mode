@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_structure_civic">
   <AlertRaiser>
-    <List datatype="tokens">FemaleCitizen</List>
+    <List datatype="tokens">FemaleCitizen MaleCitizen</List>
     <RaiseAlertRange>140</RaiseAlertRange>
     <EndOfAlertRange>190</EndOfAlertRange>
     <SearchRange>100</SearchRange>
@@ -39,7 +39,7 @@
   </Attack>
   <BuildingAI>
     <DefaultArrowCount>3</DefaultArrowCount>
-    <GarrisonArrowMultiplier>1</GarrisonArrowMultiplier>
+    <GarrisonArrowMultiplier>0</GarrisonArrowMultiplier>
   </BuildingAI>
   <BuildRestrictions>
     <Territory>own neutral</Territory>

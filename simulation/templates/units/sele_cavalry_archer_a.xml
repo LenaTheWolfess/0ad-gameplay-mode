@@ -9,6 +9,12 @@
   <Identity>
     <Rank>Advanced</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <food op="add">10</food>
+    </Resources>
+  </Cost>
   <Promotion>
     <Entity>units/sele_cavalry_archer_e</Entity>
   </Promotion>

@@ -10,6 +10,18 @@
     <Rank>Elite</Rank>
   </Identity>
   <Promotion disable=""/>
+  <Cost>
+    <BuildTime op="add">1</BuildTime>
+    <Resources>
+      <metal op="add">20</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.85</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.85</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/persians/cavalry_axeman_e_m.xml</Actor>
   </VisualActor>

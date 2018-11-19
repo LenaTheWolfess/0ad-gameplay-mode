@@ -6,6 +6,12 @@
     <Crush>2</Crush>  
     <Hack>2</Hack> 
   </Armour>
+  <Cost>
+    <BuildTime>2</BuildTime>
+    <Resources>
+      <metal>9</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Rank>Elite</Rank>
   </Identity>

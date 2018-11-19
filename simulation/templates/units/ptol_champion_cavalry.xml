@@ -12,6 +12,13 @@
       <Hack>4</Hack> 
     </Shield>
   </Armour>
+  <Cost>
+    <BuildTime op="add">1</BuildTime>
+    <Resources>
+      <food op="add">40</food>
+	  <metal op="add">80</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Civ>ptol</Civ>
     <GenericName>Royal Guard Cavalry</GenericName>
@@ -19,6 +26,12 @@
     <Icon>units/ptol_champion_cavalry.png</Icon>
 	<RequiredTechnology>ptol/champion_cav_spear</RequiredTechnology>
   </Identity>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/ptolemies/cavalry_spearman_c_m.xml</Actor>
   </VisualActor>

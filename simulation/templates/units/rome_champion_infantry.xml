@@ -27,6 +27,19 @@
      <Entity>units/rome_legionnaire_imperial</Entity>
      <RequiredXp>300</RequiredXp>
   </Promotion>
+  <Cost>
+    <BuildTime op="add">1</BuildTime>
+    <Resources>
+      <wood op="add">10</wood>
+	  <metal op="add">30</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.85</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.85</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/romans/infantry_swordsman_c.xml</Actor>
   </VisualActor>

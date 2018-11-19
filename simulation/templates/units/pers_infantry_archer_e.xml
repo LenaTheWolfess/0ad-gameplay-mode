@@ -12,6 +12,18 @@
   <Promotion>
     <Entity>units/pers_infantry_archer_e_fire</Entity>
   </Promotion>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">10</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.95</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.95</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/persians/infantry_archer_e.xml</Actor>
   </VisualActor>

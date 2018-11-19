@@ -9,6 +9,9 @@
   <Identity>
     <Rank>Elite</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+  </Cost>
   <Promotion disable=""/>
   <VisualActor>
     <Actor>units/mauryans/cavalry_swordsman_e_m.xml</Actor>

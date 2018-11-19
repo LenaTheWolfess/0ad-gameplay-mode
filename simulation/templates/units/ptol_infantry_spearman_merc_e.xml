@@ -9,6 +9,12 @@
   <Identity>
     <Rank>Elite</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">6</metal>
+    </Resources>
+  </Cost>
   <Promotion disable=""/>
   <VisualActor>
     <Actor>units/ptolemies/infantry_spearman_e.xml</Actor>

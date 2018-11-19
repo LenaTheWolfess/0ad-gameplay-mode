@@ -8,6 +8,11 @@
      <Hack>1</Hack> 
    </Shield>
   </Armour>
+  <Cost>
+    <Resources>
+      <wood op="add">5</wood>
+    </Resources>
+  </Cost>
   <Identity>
     <Civ>spart</Civ>
     <Lang>greek</Lang>

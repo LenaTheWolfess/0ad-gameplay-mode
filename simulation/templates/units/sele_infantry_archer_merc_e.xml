@@ -13,6 +13,12 @@
     </Shield>
   </Armour>
   <Identity>
+  <Cost>
+    <BuildTime op="add">1.5</BuildTime>
+    <Resources>
+      <metal op="add">10</metal>
+    </Resources>
+  </Cost>
     <Rank>Elite</Rank>
   </Identity>
   <Promotion disable=""/>

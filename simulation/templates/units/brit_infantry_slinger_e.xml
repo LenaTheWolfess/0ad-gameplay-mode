@@ -11,6 +11,12 @@
   <Identity>
     <Rank>Elite</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">2</metal>
+    </Resources>
+  </Cost>
   <Promotion disable=""/>
   <VisualActor>
     <Actor>units/celts/infantry_slinger_e.xml</Actor>

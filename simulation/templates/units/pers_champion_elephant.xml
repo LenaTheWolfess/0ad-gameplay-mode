@@ -7,6 +7,13 @@
     <Icon>units/pers_champion_elephant.png</Icon>
     <RequiredTechnology>pers/champion_elephant</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">5</BuildTime>
+    <Resources>
+      <food op="add">100</food>
+      <wood op="add">20</wood>
+    </Resources>
+  </Cost>
   <VisualActor>
     <Actor>units/persians/elephantry_c_m.xml</Actor>
   </VisualActor>

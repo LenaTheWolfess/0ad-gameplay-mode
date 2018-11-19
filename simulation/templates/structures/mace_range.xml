@@ -17,6 +17,7 @@
     <Technologies datatype="tokens">
       archery
       javelins
+	  slings
       mace/archer_a 
       mace/archer_e 
       mace/javelin_a

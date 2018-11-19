@@ -21,6 +21,8 @@
     <variant file="biped/attack_ranged_archer.xml"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
+    <variant file="biped/death_infantry.xml"/>
+    <variant name="Idle" frequency="1"/>
   </group>
   <group>
     <variant name="ready" file="biped/ready_stance/base_archer.xml"/>
@@ -29,7 +31,6 @@
         <prop actor="" attachpoint="weapon_R"/>
       </props>
     </variant>
-    <variant file="biped/death_infantry.xml"/>
     <variant file="biped/attack_ranged_second.xml">
       <props>
         <prop actor="props/units/shields/gerron_plain.xml" attachpoint="shield"/>

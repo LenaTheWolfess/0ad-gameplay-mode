@@ -12,6 +12,12 @@
       <Hack>3</Hack> 
     </Shield>
   </Armour>
+  <Cost>
+    <BuildTime op="add">2</BuildTime>
+    <Resources>
+      <metal op="add">25</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Civ>kush</Civ>
     <GenericName>Meroitic Temple Guard</GenericName>

@@ -11,6 +11,12 @@
   <Identity>
     <Rank>Advanced</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <wood op="add">10</wood>
+    </Resources>
+  </Cost>
   <Promotion>
     <Entity>units/gaul_infantry_javelinist_e</Entity>
   </Promotion>

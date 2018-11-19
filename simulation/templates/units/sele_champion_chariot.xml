@@ -19,6 +19,19 @@
     <Icon>units/sele_champion_chariot.png</Icon>
     <RequiredTechnology>sele/champion_cav_archer</RequiredTechnology>
   </Identity>
+  <Cost>
+    <BuildTime op="add">1.5</BuildTime>
+    <Resources>
+      <food op="add">100</food>
+      <metal op="add">100</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.6</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.6</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/seleucids/chariot_archer_c_m.xml</Actor>
   </VisualActor>

@@ -16,6 +16,13 @@
     <SpecificName>Triarius</SpecificName>
     <Icon>units/rome_infantry_spearman.png</Icon>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.2</BuildTime>
+    <Resources>
+      <wood op="add">5</wood>
+	  <metal op="add">2</metal>
+    </Resources>
+  </Cost>
   <Promotion>
     <Entity>units/rome_infantry_spearman_a</Entity>
   </Promotion>

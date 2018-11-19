@@ -15,9 +15,21 @@
   <Identity>
     <Rank>Advanced</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">20</metal>
+    </Resources>
+  </Cost>
   <Promotion>
     <Entity>units/pers_cavalry_spearman_e</Entity>
   </Promotion>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.9</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.9</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/persians/cavalry_spearman_a_m.xml</Actor>
   </VisualActor>

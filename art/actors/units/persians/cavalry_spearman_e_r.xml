@@ -20,7 +20,6 @@
     <variant file="biped/rider/cavalry/base_spearman_shield.xml"/>
     <variant file="biped/rider/carry_meat.xml"/>
     <variant file="biped/gather_meat.xml"/>
-    <variant frequency="1" name="Idle"/>
   </group>
   <group>
     <variant name="ready" file="biped/ready_stance/base_cavalry_spearman_shield.xml"/>

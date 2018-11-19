@@ -11,6 +11,12 @@
   <Identity>
     <Rank>Advanced</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <wood op="add">8</wood>
+    </Resources>
+  </Cost>
   <Promotion>
     <Entity>units/ptol_infantry_spearman_merc_e</Entity>
   </Promotion>

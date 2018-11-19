@@ -9,6 +9,11 @@
   <Identity>
     <Rank>Advanced</Rank>
   </Identity>
+  <Cost>
+    <Resources>
+      <metal>2</metal>
+    </Resources>
+  </Cost>
   <Promotion>
     <Entity>units/spart_infantry_javelinist_e</Entity>
   </Promotion>

@@ -10,6 +10,12 @@
     <Rank>Elite</Rank>
   </Identity>
   <Promotion disable=""/>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.95</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.95</Speed>
+    </Run>
+  </UnitMotion>
   <VisualActor>
     <Actor>units/iberians/infantry_javelinist_e.xml</Actor>
   </VisualActor>

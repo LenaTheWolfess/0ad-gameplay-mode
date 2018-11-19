@@ -9,6 +9,12 @@
   <Identity>
     <Rank>Elite</Rank>
   </Identity>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <food op="add">10</food>
+    </Resources>
+  </Cost>
   <Promotion disable=""/>
   <VisualActor>
     <Actor>units/macedonians/infantry_slinger_e.xml</Actor>

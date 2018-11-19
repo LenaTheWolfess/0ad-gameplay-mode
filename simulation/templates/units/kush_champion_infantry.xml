@@ -6,6 +6,12 @@
     <Crush>3</Crush>  
     <Hack>3</Hack> 
   </Armour>
+  <Cost>
+    <BuildTime op="add">1.5</BuildTime>
+    <Resources>
+      <metal op="add">25</metal>
+    </Resources>
+  </Cost>
   <Identity>
     <Civ>kush</Civ>
     <GenericName>Noble Archer</GenericName>

@@ -5,20 +5,19 @@
       <Hack>11.0</Hack>
       <Pierce>0</Pierce>
       <RepeatTime>750</RepeatTime>
-	  <MissChance>4</MissChance>
+      <MissChance>4</MissChance>
       <PreferredClasses datatype="tokens">Siege</PreferredClasses>
     </Melee>
   </Attack>
   <Cost>
     <Resources>
-      <wood>40</wood>
-      <metal>10</metal>
+      <metal>6</metal>
     </Resources>
   </Cost>
   <Identity>
     <VisibleClasses datatype="tokens">Sword</VisibleClasses>
     <GenericName>Swordsman</GenericName>
-	<RequiredTechnology>swords</RequiredTechnology>
+    <RequiredTechnology>swords</RequiredTechnology>
   </Identity>
   <Loot>
     <metal>5</metal>

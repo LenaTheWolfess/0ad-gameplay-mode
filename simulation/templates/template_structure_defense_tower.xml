@@ -5,7 +5,7 @@
       <Hack>0</Hack>
       <Pierce>0</Pierce>
       <Crush>0</Crush>
-      <Missle>100</Missle>
+      <Missle>15</Missle>
       <ProjectileSpeed>75.0</ProjectileSpeed>
       <Gravity>9.81</Gravity>
       <PrepareTime>1200</PrepareTime>
