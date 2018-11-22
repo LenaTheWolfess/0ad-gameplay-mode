@@ -14,7 +14,6 @@
   <Identity>
     <VisibleClasses datatype="tokens">Spear</VisibleClasses>
     <GenericName>Spearman</GenericName>
-    <Tooltip>Counters: 2x vs. Cavalry.</Tooltip>
     <RequiredTechnology>spears</RequiredTechnology>
   </Identity>
   <Loot>

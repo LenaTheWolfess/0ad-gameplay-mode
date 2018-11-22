@@ -96,7 +96,7 @@ StatusBars.prototype.OnEnergyChanged = function(msg)
 		this.RegenerateSprites();
 }
 
-StatusBars.prototype.OnExperienceChanged = function(msg)
+StatusBars.prototype.OnXpChanged = function(msg)
 {
 	if (this.enabled)
 		this.RegenerateSprites();

@@ -3416,6 +3416,7 @@ UnitAI.prototype.UnitFsmSpec = {
 					if (cmpBuilderList)
 						cmpBuilderList.AddBuilder(this.entity);
 
+					this.SetAnimationVariant("Base");
 					this.SelectAnimation("build");
 					this.StartTimer(1000, 1000);
 					return false;

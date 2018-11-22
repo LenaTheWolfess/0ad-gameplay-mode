@@ -15,7 +15,6 @@
   <Identity>
     <VisibleClasses datatype="tokens">Pike</VisibleClasses>
     <GenericName>Pikeman</GenericName>
-    <Tooltip>Counters: 3x vs. Cavalry.</Tooltip>
     <Formations datatype="tokens">
       special/formations/syntagma
     </Formations>

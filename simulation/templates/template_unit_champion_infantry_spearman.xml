@@ -20,7 +20,6 @@
   <Identity>
     <GenericName>Champion Spearman</GenericName>
     <VisibleClasses datatype="tokens">Melee Spear</VisibleClasses>
-    <Tooltip>Counters: 3x vs. Cavalry.</Tooltip>
     <Formations datatype="tokens">
       special/formations/testudo
     </Formations>

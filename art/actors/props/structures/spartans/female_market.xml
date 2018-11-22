@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant>
+      <animations>
+        <animation file="biped/new/fem_idle_relax.dae" name="idle" id="idle1" speed="90"/>
+        <animation file="biped/new/fem_idle_relax.dae" name="idle" id="idle2" speed="90"/>
+        <animation file="biped/new/fem_idle_relax_long.dae" name="idle" id="idle2" speed="88"/>
+	  </animations>
+      <mesh>skeletal/new/f_tunic_short.dae</mesh>
+      <props>
+        <prop actor="props/units/heads/new/dudette_head.xml" attachpoint="head"/>
+      </props>
+      <textures>
+        <texture file="skeletal/spart_female_1.png" name="baseTex"/>
+        <texture file="skeletal/spart_female_1_spec.png" name="specTex"/>
+      </textures>
+    </variant>
+  </group>
+  <material>player_trans_spec.xml</material>
+</actor>

@@ -106,7 +106,7 @@ Experience.prototype.Advance = function()
 	}
 
 	this.LevelUp(this.level, this.subLevel);
-	this.RegisterExperienceChanged();
+	this.RegisterXpChanged();
 };
 
 Experience.prototype.LevelUp = function(level, subLevel)
@@ -184,9 +184,9 @@ Experience.prototype.OnValueModification = function(msg)
 		this.IncreaseXp(0);
 };
 
-Experience.prototype.RegisterExperienceChanged = function()
+Experience.prototype.RegisterXpChanged = function()
 {
-	Engine.PostMessage(this.entity, MT_ExperienceChanged, {});
+	Engine.PostMessage(this.entity, MT_XpChanged, {});
 };
 
 Engine.RegisterComponentType(IID_Experience, "Experience", Experience);

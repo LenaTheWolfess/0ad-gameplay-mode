@@ -20,7 +20,6 @@
   <Identity>
     <VisibleClasses datatype="tokens">Melee Spear Pike</VisibleClasses>
     <GenericName>Champion Pikeman</GenericName>
-    <Tooltip>Counters: 3x vs. Cavalry.</Tooltip>
     <Formations datatype="tokens">
       special/formations/syntagma
       special/formations/testudo

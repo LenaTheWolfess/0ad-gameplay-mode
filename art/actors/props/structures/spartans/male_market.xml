@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant frequency="1" name="Base">
+      <animations>
+        <animation file="biped/new/fem_idle_relax.dae" name="idle" id="idle1" speed="90"/>
+        <animation file="biped/new/fem_idle_relax.dae" name="idle" id="idle2" speed="90"/>
+        <animation file="biped/new/fem_idle_relax_long.dae" name="idle" id="idle2" speed="88"/>
+	  </animations>
+      <mesh>skeletal/new/m_tunic_short.dae</mesh>
+      <props>
+        <prop actor="props/units/heads/new/head_hele_b.xml" attachpoint="head"/>
+      </props>
+      <textures>
+         <texture file="skeletal/hele_tunic.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <material>player_trans.xml</material>
+</actor>
