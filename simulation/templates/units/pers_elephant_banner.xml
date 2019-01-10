@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_elephant_banner">
+  <Identity>
+    <Civ>pers</Civ>
+	<Rank>Advanced</Rank>
+    <SelectionGroupName>units/pers_elephant_banner_a</SelectionGroupName>
+    <Icon>units/athen_infantry_spearman.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/persians/elephant_banner_m.xml</Actor>
+  </VisualActor>
+</Entity>

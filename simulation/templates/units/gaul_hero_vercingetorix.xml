@@ -19,6 +19,8 @@
     <Civ>gaul</Civ>
     <SpecificName>Vercingetorix</SpecificName>
     <Icon>units/gaul_hero_vercingetorix.png</Icon>
+	<FormationCompany>gaul_champion_cavalry</FormationCompany>
+	<BannerCode>cavalry_spearman_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/gauls/hero_cavalry_swordsman_vercingetorix_m.xml</Actor>

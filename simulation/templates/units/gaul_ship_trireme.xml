@@ -26,6 +26,6 @@
     </Run>
   </UnitMotion>
   <VisualActor>
-    <Actor>structures/celts/warship.xml</Actor>
+    <Actor>structures/gauls/warship.xml</Actor>
   </VisualActor>
 </Entity>

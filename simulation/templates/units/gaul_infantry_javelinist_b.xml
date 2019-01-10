@@ -5,11 +5,12 @@
     <SelectionGroupName>units/gaul_infantry_javelinist_b</SelectionGroupName>
     <SpecificName>Baguada</SpecificName>
     <Icon>units/celt_infantry_javelinist.png</Icon>
+	<RequiredTechnology datatype="tokens">javelins</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/gaul_infantry_javelinist_a</Entity>
   </Promotion>
   <VisualActor>
-    <Actor>units/celts/infantry_javelinist_b.xml</Actor>
+    <Actor>units/gauls/infantry_javelinist_b.xml</Actor>
   </VisualActor>
 </Entity>

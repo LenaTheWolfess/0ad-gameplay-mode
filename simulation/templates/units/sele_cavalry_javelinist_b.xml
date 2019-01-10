@@ -7,6 +7,7 @@
     <GenericName>Militia Cavalry</GenericName>
     <SpecificName>Hippakontistès Politès</SpecificName>
     <Icon>units/sele_cavalry_javelinist.png</Icon>
+	<RequiredTechnology datatype="tokens">horse_javelins</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/sele_cavalry_javelinist_a</Entity>

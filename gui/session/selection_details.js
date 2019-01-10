@@ -149,7 +149,7 @@ function displaySingle(entState)
 	let sectionPosTop = Engine.GetGUIObjectByName("sectionPosTop");
 	let sectionPosMiddle = Engine.GetGUIObjectByName("sectionPosMiddle");
 	let sectionPosBottom = Engine.GetGUIObjectByName("sectionPosBottom");
-
+	
 	// Hitpoints
 	healthSection.hidden = !showHealth;
 	if (showHealth)
@@ -401,7 +401,7 @@ function displayFormation(entStates, fState)
 	let playerName = playerState.name;
 	let playerColor = rgbToGuiColor(g_DisplayedPlayerColors[fState.player], 128);
 	
-	Engine.GetGUIObjectByName("formNumberOfUnits").hidden = false;
+//	Engine.GetGUIObjectByName("formNumberOfUnits").hidden = true;
 	Engine.GetGUIObjectByName("formIcon").hidden = false;
 	Engine.GetGUIObjectByName("formIconBorder").hidden = false;
 
@@ -426,11 +426,12 @@ function displayFormation(entStates, fState)
 	let template = GetTemplateData(fState.template);
 	Engine.GetGUIObjectByName("formSpecific").caption = template.name.specific;
 	Engine.GetGUIObjectByName("formGeneric").caption = "(" + template.name.generic + ")";
+	Engine.GetGUIObjectByName("formState").caption = fState.unitAI.state.split(".").pop();
 	Engine.GetGUIObjectByName("formIcon").sprite = template.icon ? ("stretched:session/portraits/" + template.icon) : "BackgroundBlack";
 	Engine.GetGUIObjectByName("formIconBorder").onPressRight = () => { showTemplateDetails(fState.template);};
 
-	Engine.GetGUIObjectByName("formNumberOfUnits").caption = fState.formation.members.length;
-	Engine.GetGUIObjectByName("formNumberOfUnits").tooltip = "number of units";
+//	Engine.GetGUIObjectByName("formNumberOfUnits").caption = fState.formation.members.length;
+//	Engine.GetGUIObjectByName("formNumberOfUnits").tooltip = "number of units";
 	Engine.GetGUIObjectByName("formPlayer").caption = playerName;
 	Engine.GetGUIObjectByName("formPlayerColorBackground").sprite = "color:" + playerColor;
 
@@ -439,12 +440,22 @@ function displayFormation(entStates, fState)
 	Engine.GetGUIObjectByName("formPlayer").tooltip = isGaia ? "" : civName;
 
 	let sectionPosTop = Engine.GetGUIObjectByName("formSectionPosTop");
+	let sectionPosBottom = Engine.GetGUIObjectByName("formSectionPosBottom");
+	let sectionPosMiddle = Engine.GetGUIObjectByName("formSectionPosMiddle");
 	let healthSection = Engine.GetGUIObjectByName("formHealthSection");
+	let ammoSection   = Engine.GetGUIObjectByName("formAmmoSection");
+	let energySection = Engine.GetGUIObjectByName("formEnergySection");
 	healthSection.size = sectionPosTop.size;
+	ammoSection.size = sectionPosBottom.size;
+	energySection.size = sectionPosMiddle.size;
 
 	let averageHealth = 0;
 	let maxHealth = 0;
 	let playerID = 0;
+	let avAmmo = 0;
+	let maxAmmo = 0;
+	let maxEnergy = 0;
+	let avEnergy = 0;
 	for (let entState of entStates)
 	{
 		playerID = entState.player; // trust that all selected entities have the same owner
@@ -453,6 +464,14 @@ function displayFormation(entStates, fState)
 			averageHealth += entState.hitpoints;
 			maxHealth += entState.maxHitpoints;
 		}
+		if (!!entState.attack["Ranged"] && !!entState.attack["Ranged"].ammoMax) {
+			avAmmo += +entState.attack["Ranged"].ammoLeft;
+			maxAmmo += +entState.attack["Ranged"].ammoMax;
+		}
+		if (entState.energy) {
+			avEnergy += entState.energy.points;
+			maxEnergy += entState.energy.maxPoints;
+		}
 	}
 	if (averageHealth > 0)
 	{
@@ -460,12 +479,30 @@ function displayFormation(entStates, fState)
 		let healthSize = unitHealthBar.size;
 		healthSize.rright = 100 * Math.max(0, Math.min(1, averageHealth / maxHealth));
 		unitHealthBar.size = healthSize;
-
-		Engine.GetGUIObjectByName("formHealthStats").caption = sprintf(translate("%(hitpoints)s"), {
+		Engine.GetGUIObjectByName("formHealth").tooltip= sprintf(translate("Average helth: %(hitpoints)s %%"), {
 			"hitpoints": Math.round((averageHealth / maxHealth) * 100)
 		});
 	}
-
+	if (maxAmmo > 0)
+	{
+		let unitAmmoBar = Engine.GetGUIObjectByName("formAmmoBar");
+		let ammoSize = unitAmmoBar.size;
+		ammoSize.rright = 100 * Math.max(0, Math.min(1, avAmmo / maxAmmo));
+		unitAmmoBar.size = ammoSize;
+		Engine.GetGUIObjectByName("formAmmo").tooltip= sprintf("ammo: %(count)s", {"count": avAmmo});
+	}		
+	ammoSection.hidden = !maxAmmo;
+	if (maxEnergy > 0) {
+		let unitenergyBar = Engine.GetGUIObjectByName("formEnergyBar");
+		let energySize = unitenergyBar.size;
+		energySize.rright = 100 * Math.max(0, Math.min(1, avEnergy / maxEnergy));
+		unitenergyBar.size = energySize;
+		Engine.GetGUIObjectByName("formEnergy").tooltip= sprintf(translate("Average energy: %(hitpoints)s %%"), {
+			"hitpoints": Math.round((avEnergy / maxEnergy) * 100)
+		});
+	}
+	energySection.hidden = !maxEnergy;
+	
 	let iconTooltips = [];
 	iconTooltips = iconTooltips.concat([
 		getAurasTooltip,

@@ -13,6 +13,6 @@
     <Icon>units/global_slave.png</Icon>
   </Identity>
   <VisualActor>
-    <Actor>units/celts/male_citizen.xml</Actor>
+    <Actor>units/gauls/male_citizen.xml</Actor>
   </VisualActor>
 </Entity>

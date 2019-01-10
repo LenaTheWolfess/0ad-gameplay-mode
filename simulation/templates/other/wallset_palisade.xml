@@ -6,7 +6,7 @@
     <SpecificName>Palisade</SpecificName>
     <Classes datatype="tokens">-StoneWall Palisade</Classes>
     <Icon>structures/palisade_wall.png</Icon>
-    <RequiredTechnology>phase_village</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">phase_town -phase_city</RequiredTechnology>
   </Identity>
   <WallSet>
     <Templates>

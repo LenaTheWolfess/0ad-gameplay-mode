@@ -38,6 +38,8 @@
       <PyramidLarge>2</PyramidLarge>
       <TempleOfAmun>1</TempleOfAmun>
       <Field>0</Field>
+	  <Stables>0</Stables>
+	  <Barracks>0</Barracks>
     </Limits>
     <LimitChangers>
       <WarDog>
@@ -57,6 +59,12 @@
       <CivilCentre>
         <RequiredTechs datatype="tokens">phase_town</RequiredTechs>
       </CivilCentre>
+	  <Stables>
+	    <RequiredClasses datatype="tokens">Corral</RequiredClasses>
+	  </Stables>
+	  <Barracks>
+	    <RequiredClasses datatype="tokens">Blacksmith</RequiredClasses>
+	  </Barracks>
     </LimitRemovers>
   </EntityLimits>
   <Identity>

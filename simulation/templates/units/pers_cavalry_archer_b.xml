@@ -23,6 +23,7 @@
     <GenericName>Babylonian Scythed Chariot</GenericName>
     <SpecificName>Babiruviya Ratha</SpecificName>
     <Icon>units/pers_chariot_archer.png</Icon>
+	<RequiredTechnology datatype="tokens">horse_archery</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/pers_cavalry_archer_a</Entity>

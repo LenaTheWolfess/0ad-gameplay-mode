@@ -4,8 +4,8 @@
     <Formations datatype="tokens">
       special/formations/phalanx
     </Formations>
-    <RequiredTechnology>hoplites</RequiredTechnology>
     <VisibleClasses datatype="tokens">Hoplite -Spear</VisibleClasses>
+	<FormationGroup>InfantryHoplite</FormationGroup>
   </Identity>
   <Cost>
     <BuildTime op="add">2</BuildTime>

@@ -23,5 +23,6 @@
   <Identity>
     <VisibleClasses datatype="tokens">Melee</VisibleClasses>
     <GenericName>Melee Cavalry</GenericName>
+	<FormationGroup>CavalryMelee</FormationGroup>
   </Identity>
 </Entity>

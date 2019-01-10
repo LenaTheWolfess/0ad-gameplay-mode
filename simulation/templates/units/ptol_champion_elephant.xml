@@ -5,7 +5,7 @@
     <GenericName>Towered War Elephant</GenericName>
     <SpecificName>Polémou Eléphantos</SpecificName>
     <Icon>units/ptol_champion_elephant.png</Icon>
-    <RequiredTechnology>ptol/champion_cav_javelin</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">ptol/champion_cav_javelin</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">1</BuildTime>

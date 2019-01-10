@@ -34,6 +34,9 @@ FormationAttack.prototype.GetFullAttackRange = function()
 	let members = cmpFormation.GetMembers();
 	for (let ent of members)
 	{
+		let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
+		if (!cmpIdentity || cmpIdentity.HasClass("Banner") || cmpIdentity.HasClass("Commander"))
+			continue;
 		let cmpAttack = Engine.QueryInterface(ent, IID_Attack);
 		if (!cmpAttack)
 			continue;
@@ -71,6 +74,9 @@ FormationAttack.prototype.recalculateRange = function()
 	let members = cmpFormation.GetMembers();
 	for (let ent of members)
 	{
+		let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
+		if (!cmpIdentity || cmpIdentity.HasClass("Banner") || cmpIdentity.HasClass("Commander"))
+			continue;
 		let cmpAttack = Engine.QueryInterface(ent, IID_Attack);
 		if (!cmpAttack)
 			continue;
@@ -94,6 +100,10 @@ FormationAttack.prototype.GetRange = function(target)
 	let members = cmpFormation.GetMembers();
 	for (let ent of members)
 	{
+		let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
+		if (!cmpIdentity || cmpIdentity.HasClass("Banner") || cmpIdentity.HasClass("Commander"))
+			continue;
+		
 		let cmpAttack = Engine.QueryInterface(ent, IID_Attack);
 		if (!cmpAttack)
 			continue;
@@ -139,6 +149,10 @@ FormationAttack.prototype.GetBestAttackAgainst = function(target, allowCapture)
 	let members = cmpFormation.GetMembers();
 	for (let ent of members)
 	{
+		let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
+		if (!cmpIdentity || cmpIdentity.HasClass("Banner") || cmpIdentity.HasClass("Commander"))
+			continue;
+		
 		let cmpAttack = Engine.QueryInterface(ent, IID_Attack);
 		if (!cmpAttack)
 			continue;

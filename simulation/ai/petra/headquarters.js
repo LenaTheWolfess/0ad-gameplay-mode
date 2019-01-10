@@ -664,7 +664,6 @@ m.HQ.prototype.trainMoreWorkers = function(gameState, queues)
 			}
 		}
 	});
-
 	if ( numberOfWomanSupports / numberOfSupports < 0.2)
 		classesDef = ["Support", "Female", "Worker"];
 
@@ -696,23 +695,25 @@ m.HQ.prototype.trainMoreWorkers = function(gameState, queues)
 		if (queues.villager.plans[1])
 			queues.villager.plans[1].number = Math.min(queues.villager.plans[1].number, size);
 	}
-	if (queues.citizenSoldier.plans[0])
+/*	if (queues.citizenSoldier.plans[0])
 	{
 		queues.citizenSoldier.plans[0].number = Math.min(queues.citizenSoldier.plans[0].number, size);
 		if (queues.citizenSoldier.plans[1])
 			queues.citizenSoldier.plans[1].number = Math.min(queues.citizenSoldier.plans[1].number, size);
 	}
-
+*/
 	let numberOfQueuedSupports = queues.villager.countQueuedUnits();
 	let numberOfQueuedSoldiers = queues.citizenSoldier.countQueuedUnits();
-	let numberQueued = numberOfQueuedSupports + numberOfQueuedSoldiers;
-	let numberTotal = numberOfWorkers + numberQueued;
+	let numberQueued = numberOfQueuedSupports;
+	let numberTotal = numberOfWorkers + numberQueued - numberOfInfantry;
 
-	if (this.saveResources && numberTotal > this.Config.Economy.popPhase2 + 10)
+	if (this.saveResources && numberTotal > this.Config.Economy.popPhase2 + 10 && this.currentPhase == 2)
 		return;
+	if (this.saveResource && numberTotal > this.Config.Economy.popPhase3 + 10 && this.currentPhase == 3)
 	if (numberTotal > this.targetNumWorkers || (numberTotal >= this.Config.Economy.popPhase2 &&
-		this.currentPhase == 1 && !gameState.isResearching(gameState.getPhaseName(2))))
+		this.currentPhase == 1 && !gameState.isResearching(gameState.getPhaseName(2))) || (numberTotal >= this.Config.Economy.workPhase3 && this.currentPhase < 3))
 		return;
+	
 	if (numberQueued > 50 || (numberOfQueuedSupports > 20 && numberOfQueuedSoldiers > 20) || numberInTraining > 15)
 		return;
 
@@ -732,7 +733,7 @@ m.HQ.prototype.trainMoreWorkers = function(gameState, queues)
 		alpha += (1 - alpha) * Math.min(Math.max(gameState.ceasefireTimeRemaining - 120, 0), 180) / 180;
 	let supportMax = supportRatio * this.targetNumWorkers;
 	let supportNum = supportMax * (1 - Math.exp(-alpha*numberTotal/supportMax));
-
+/*
 	let template;
 	if (!templateDef || (numberOfSupports + numberOfQueuedSupports > supportNum))
 	{
@@ -751,13 +752,14 @@ m.HQ.prototype.trainMoreWorkers = function(gameState, queues)
 
 		template = this.findBestTrainableUnit(gameState, classes, requirements);
 	}
-
+*/
 	// If the template variable is empty, the default unit (Support unit) will be used
 	// base "0" means automatic choice of base
-	if (!template && templateDef)
+//	if (!template && templateDef)
 		queues.villager.addPlan(new m.TrainingPlan(gameState, templateDef, { "role": "worker", "base": 0, "support": true }, size, size));
-	else if (template)
+/*	else if (template)
 		queues.citizenSoldier.addPlan(new m.TrainingPlan(gameState, template, { "role": "worker", "base": 0 }, size, size));
+*/
 };
 
 /** picks the best template based on parameters and classes */
@@ -1954,6 +1956,9 @@ m.HQ.prototype.buildBlacksmith = function(gameState, queues)
  */
 m.HQ.prototype.constructTrainingBuildings = function(gameState, queues)
 {
+	if (this.currentPhase < 2)
+		return;
+	
 	if (this.saveResources && !this.canBarter || queues.militaryBuilding.hasQueuedUnits())
 		return;
 
@@ -2725,14 +2730,16 @@ m.HQ.prototype.update = function(gameState, queues, events)
 	this.territoryMap = m.createTerritoryMap(gameState);
 	this.canBarter = gameState.getOwnEntitiesByClass("BarterMarket", true).filter(API3.Filters.isBuilt()).hasEntities();
 	// TODO find a better way to update
+//	warn("update");
 	if (this.currentPhase != gameState.currentPhase())
 	{
 		if (this.Config.debug > 0)
 			API3.warn(" civ " + gameState.getPlayerCiv() + " has phasedUp from " + this.currentPhase +
 			          " to " + gameState.currentPhase() + " at time " + gameState.ai.elapsedTime +
 				  " phasing " + this.phasing);
+		
 		this.currentPhase = gameState.currentPhase();
-
+//		warn(this.currentPhase);
 		// In principle, this.phasing should be already reset to 0 when starting the research
 		// but this does not work in case of an autoResearch tech
 		if (this.phasing)
@@ -2807,7 +2814,8 @@ m.HQ.prototype.update = function(gameState, queues, events)
 
 	if (gameState.ai.playedTurn % 3 == 0)
 	{
-		this.constructTrainingBuildings(gameState, queues);
+		if (this.currentPhase > 1)
+			this.constructTrainingBuildings(gameState, queues);
 		if (this.Config.difficulty > 0)
 			this.buildDefenses(gameState, queues);
 	}

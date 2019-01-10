@@ -20,6 +20,7 @@
     <Lang>greek</Lang>
     <GenericName>Leonidas I</GenericName>
     <SpecificName>Leōnídēs</SpecificName>
+	<FormationCompany>spart_champion_infantry_spear</FormationCompany>
     <Icon>units/spart_hero_leonidas.png</Icon>
   </Identity>
   <VisualActor>

@@ -19,6 +19,7 @@
     <Civ>gaul</Civ>
     <SpecificName>Brennus</SpecificName>
     <Icon>units/gaul_hero_brennus.png</Icon>
+	<FormationCompany>gaul_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/gauls/hero_infantry_swordsman_brennus.xml</Actor>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_chariot_banner">
+  <Identity>
+    <Civ>sele</Civ>
+	<Rank>Advanced</Rank>
+    <SelectionGroupName>units/sele_chariot_banner_a</SelectionGroupName>
+    <Icon>units/athen_infantry_spearman.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/seleucids/chariot_banner_m.xml</Actor>
+  </VisualActor>
+</Entity>

@@ -18,6 +18,5 @@
   <Identity>
     <VisibleClasses datatype="tokens">Javelin</VisibleClasses>
     <GenericName>Cavalry Skirmisher</GenericName>
-	<RequiredTechnology>horse_javelins</RequiredTechnology>
   </Identity>
 </Entity>

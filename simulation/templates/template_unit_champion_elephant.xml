@@ -7,6 +7,7 @@
     <Missle>0</Missle>
   </Armour>
   <Cost>
+    <BatchSize>3</BatchSize>
     <Population>3</Population>
     <BuildTime op="add">10</BuildTime>
     <Resources>
@@ -27,6 +28,7 @@
     <GenericName>War Elephant</GenericName>
     <VisibleClasses datatype="tokens">Elephant</VisibleClasses>
     <Icon>gaia/fauna_elephant.png</Icon>
+	<BannerCode>elephant_banner</BannerCode>
   </Identity>
   <Position>
     <Anchor>pitch</Anchor>
@@ -61,7 +63,7 @@
     <WalkSpeed op="mul">0.8</WalkSpeed>
   </UnitMotion>
   <Vision>
-    <Range>100</Range>
+    <Range>50</Range>
   </Vision>
   <VisualActor>
     <Actor>units/mauryans/champion_elephant.xml</Actor>

@@ -18,6 +18,5 @@
   <Identity>
     <VisibleClasses datatype="tokens">Archer</VisibleClasses>
     <GenericName>Cavalry Archer</GenericName>
-	<RequiredTechnology>horse_archery</RequiredTechnology>
   </Identity>
 </Entity>

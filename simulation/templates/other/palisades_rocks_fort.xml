@@ -7,7 +7,7 @@
     <GenericName>Wooden Tower</GenericName>
     <Icon>structures/palisade_fort.png</Icon>
     <Classes datatype="tokens">-StoneWall Palisade Tower</Classes>
-    <RequiredTechnology>phase_village</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">phase_village</RequiredTechnology>
   </Identity>
   <BuildingAI disable=""/>
   <Cost>

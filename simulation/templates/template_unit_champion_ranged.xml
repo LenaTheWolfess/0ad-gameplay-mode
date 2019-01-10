@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Entity parent="template_unit_champion_cavalry">
+<Entity parent="template_unit_champion_infantry">
   <Attack>
     <Ranged>
       <Ammo>10</Ammo>
@@ -27,5 +27,6 @@
     <Formations datatype="tokens">
       special/formations/skirmish
     </Formations>
+	<FormationGroup>ChampionInfantryRanged</FormationGroup>
   </Identity>
 </Entity>

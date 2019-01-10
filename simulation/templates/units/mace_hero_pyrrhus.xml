@@ -21,6 +21,8 @@
     <GenericName>Pyrrhus of Epirus</GenericName>
     <SpecificName>Pyrrhos ton Epeiros</SpecificName>
     <Icon>units/mace_hero_pyrrhus.png</Icon>
+	<FormationCompany>mace_champion_cavalry</FormationCompany>
+	<BannerCode>cavalry_spearman_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/macedonians/hero_cavalry_spearman_pyrrhus_m.xml</Actor>

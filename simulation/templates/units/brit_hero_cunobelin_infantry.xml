@@ -7,6 +7,7 @@
     <Civ>brit</Civ>
     <SpecificName>Cunobelin</SpecificName>
     <Icon>units/celt_hero_cunobelin.png</Icon>
+	<FormationCompany>brit_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/britons/hero_infantry_swordsman_cunobelin.xml</Actor>

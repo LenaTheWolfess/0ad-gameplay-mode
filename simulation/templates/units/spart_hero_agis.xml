@@ -20,6 +20,7 @@
     <Lang>greek</Lang>
     <GenericName>Agis III</GenericName>
     <SpecificName>Agis</SpecificName>
+	<FormationCompany>spart_champion_infantry_spear</FormationCompany>
     <Icon>units/spart_hero_agis.png</Icon>
   </Identity>
   <VisualActor>

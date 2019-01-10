@@ -16,6 +16,7 @@
     </Slaughter>
   </Attack>
   <Cost>
+    <BatchSize>15</BatchSize>
     <Population>1</Population>
     <BuildTime>3</BuildTime>
     <Resources>
@@ -36,13 +37,13 @@
   </Health>
   <Identity>
     <Classes datatype="tokens">CitizenSoldier Human Organic</Classes>
-    <VisibleClasses datatype="tokens">Cavalry Citizen Soldier</VisibleClasses>
+    <VisibleClasses datatype="tokens">Cavalry Soldier</VisibleClasses>
     <GenericName>Cavalry</GenericName>
     <Rank>Basic</Rank>
     <Formations datatype="tokens">
       special/formations/wedge
     </Formations>
-	<RequiredTechnology>cavalry</RequiredTechnology>
+	<BannerCode>cavalry_spearman_banner</BannerCode>
   </Identity>
   <Loot>
     <xp>130</xp>
@@ -57,16 +58,6 @@
   <Promotion>
     <RequiredXp>150</RequiredXp>
   </Promotion>
-  <ResourceGatherer>
-    <MaxDistance>2.0</MaxDistance>
-    <BaseSpeed>1.0</BaseSpeed>
-    <Rates>
-      <food.meat>5</food.meat>
-    </Rates>
-    <Capacities>
-      <food>20</food>
-    </Capacities>
-  </ResourceGatherer>
   <Selectable>
     <Overlay>
       <Texture>
@@ -96,12 +87,12 @@
   </StatusBars>
   <UnitMotion>
     <PassabilityClass>horse</PassabilityClass>
-    <WalkSpeed op="mul">1.2</WalkSpeed>
+    <WalkSpeed op="mul">1.8</WalkSpeed>
     <Run>
-      <Speed op="mul">1.5</Speed>
+      <Speed op="mul">2.0</Speed>
     </Run>
   </UnitMotion>
   <Vision>
-    <Range>92</Range>
+    <Range>40</Range>
   </Vision>
 </Entity>

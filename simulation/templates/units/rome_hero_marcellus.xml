@@ -21,6 +21,8 @@
     <Lang>latin</Lang>
     <SpecificName>Marcus Claudius Marcellus</SpecificName>
     <Icon>units/rome_hero_marcellus.png</Icon>
+	<FormationCompany>rome_champion_cavalry</FormationCompany>
+	<BannerCode>cavalry_spearman_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/romans/hero_cavalry_swordsman_marcellus_m.xml</Actor>

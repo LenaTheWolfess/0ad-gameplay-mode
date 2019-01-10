@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_elephant_banner">
+  <Identity>
+    <Civ>kush</Civ>
+	<Rank>Advanced</Rank>
+    <SelectionGroupName>units/kush_elephant_banner_a</SelectionGroupName>
+    <Icon>units/athen_infantry_spearman.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/kushites/elephant_banner_m.xml</Actor>
+  </VisualActor>
+</Entity>

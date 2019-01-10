@@ -87,7 +87,7 @@ m.Config = function(difficulty, behavior)
 		"defenseBuilding": 70,
 		"civilCentre": 950,
 		"majorTech": 700,
-		"minorTech": 40,
+		"minorTech": 100,
 		"wonder": 1000,
 		"emergency": 1000    // used only in emergency situations, should be the highest one
 	};
@@ -219,10 +219,10 @@ m.Config.prototype.setConfig = function(gameState)
 	if (maxPop < 300)
 	{
 		this.popScaling = Math.sqrt(maxPop / 300);
-		this.Military.popForBarracks1 = 40;
+		this.Military.popForBarracks1 = 30;
 		this.Military.popForBarracks2 = Math.min(Math.max(Math.floor(this.Military.popForBarracks2 * this.popScaling), 45), Math.floor(maxPop*2/3));
 		this.Military.popForBlacksmith = Math.min(Math.max(Math.floor(this.Military.popForBlacksmith * this.popScaling), 30), Math.floor(maxPop/2));
-		this.Economy.popPhase2 = Math.min(Math.max(Math.floor(this.Economy.popPhase2 * this.popScaling), 20), Math.floor(maxPop/2));
+		this.Economy.popPhase2 = Math.min(Math.max(Math.floor(this.Economy.popPhase2 * this.popScaling), 25), Math.floor(maxPop/2));
 		this.Economy.workPhase3 = Math.min(Math.max(Math.floor(this.Economy.workPhase3 * this.popScaling), 40), Math.floor(maxPop*2/3));
 		this.Economy.workPhase4 = Math.min(Math.max(Math.floor(this.Economy.workPhase4 * this.popScaling), 45), Math.floor(maxPop*2/3));
 		this.Economy.targetNumTraders = Math.round(this.Economy.targetNumTraders * this.popScaling);

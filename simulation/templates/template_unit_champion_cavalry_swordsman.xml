@@ -23,6 +23,5 @@
   <Identity>
     <VisibleClasses datatype="tokens">Melee Sword</VisibleClasses>
     <GenericName>Champion Cavalry Swordsman</GenericName>
-    <RequiredTechnology>champion_cavalry_sword</RequiredTechnology>
   </Identity>
 </Entity>

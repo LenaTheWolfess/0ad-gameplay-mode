@@ -1,6 +1,11 @@
 function GarrisonHolder() {}
 
 GarrisonHolder.prototype.Schema =
+	"<optional>"+
+	  "<element name='FormationTake'>"+
+	     "<data type='boolean'/>"+
+	  "</element>"+
+	"</optional>"+
 	"<optional>" +
 		"<element name='WorkStation'>" +
 			"<data type='boolean'/>" +
@@ -121,6 +126,7 @@ GarrisonHolder.prototype.Init = function()
 	this.allowGarrisoning = new Map();
 	this.visibleGarrisonPoints = [];
 	this.visibleAttackPoints = [];
+	this.formationTake = !!this.template.FormationTake && this.template.FormationTake;
 	if (this.template.VisibleGarrisonPoints)
 	{
 		let points = this.template.VisibleGarrisonPoints;
@@ -181,6 +187,11 @@ GarrisonHolder.prototype.GetAttackerEntities = function()
 {
 	return this.attackerEntities;
 };
+
+GarrisonHolder.prototype.RequiresFormationTake = function()
+{
+	return this.formationTake;
+}
 
 /**
  * @return {Array} unit classes which can be garrisoned inside this
@@ -498,6 +509,16 @@ GarrisonHolder.prototype.PerformaAttackerGarison = function(entity)
 	if (cmpAura && cmpAura.HasGarrisonAura())
 		cmpAura.ApplyGarrisonBonus(this.entity);
 
+	let cmpUnitAI = Engine.QueryInterface(entity, IID_UnitAI);
+	if (cmpUnitAI) {
+		let formationEnt = cmpUnitAI.GetFormationController();
+		if (formationEnt) {
+			let formationAI = Engine.QueryInterface(formationEnt, IID_UnitAI);
+			if (formationAI) {
+				formationAI.AddGarrisonedMember(this.entity);
+			}
+		}
+	}
 	Engine.PostMessage(this.entity, MT_GarrisonedUnitsChanged, { "added": [entity], "removed": [] });
 	return true;
 };
@@ -514,6 +535,24 @@ GarrisonHolder.prototype.Garrison = function(entity, vgpEntity)
 	if (!cmpPosition)
 		return false;
 
+	if (this.RequiresFormationTake() && this.IsAllowedToGarrison(entity)) {
+		let cmpUnitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
+		let cmpEntAI = Engine.QueryInterface(entity, IID_UnitAI);
+		if (cmpEntAI && cmpEntAI.IsFormationMember() && cmpUnitAI && !cmpUnitAI.IsFormationMember()) {
+			let formationContr = cmpEntAI.GetFormationController();
+			if (formationContr) {
+				let cmpFormation = Engine.QueryInterface(formationContr, IID_Formation);
+				if(!cmpFormation.AddSiege(this.entity))
+					return false;
+			}
+		}
+		if (cmpEntAI && cmpUnitAI && cmpEntAI.GetFormationController() == cmpUnitAI.GetFormationController()) {
+			this.entities.push(entity);
+			cmpEntAI.SetSiegeCrew(this.entity);
+		}
+		return true;
+	}
+	
 	if (!this.PerformGarrison(entity))
 		return false;
 
@@ -604,6 +643,16 @@ GarrisonHolder.prototype.PerformGarrison = function(entity)
 	// Actual garrisoning happens here
 	this.entities.push(entity);
 	this.UpdateGarrisonFlag();
+	let cmpUnitAI = Engine.QueryInterface(entity, IID_UnitAI);
+	if (cmpUnitAI) {
+		let formationEnt = cmpUnitAI.GetFormationController();
+		if (formationEnt) {
+			let formationAI = Engine.QueryInterface(formationEnt, IID_UnitAI);
+			if (formationAI) {
+				formationAI.AddGarrisonedMember(this.entity);
+			}
+		}
+	}
 	let cmpProductionQueue = Engine.QueryInterface(entity, IID_ProductionQueue);
 	if (cmpProductionQueue)
 		cmpProductionQueue.PauseProduction();
@@ -624,6 +673,25 @@ GarrisonHolder.prototype.PerformGarrison = function(entity)
  */
 GarrisonHolder.prototype.Eject = function(entity, forced)
 {
+	if (this.RequiresFormationTake() && this.IsAllowedToGarrison(entity)) {
+		let cmpUnitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
+		let cmpEntAI = Engine.QueryInterface(entity, IID_UnitAI);
+		if (cmpEntAI && cmpEntAI.IsFormationMember() && cmpUnitAI && cmpUnitAI.IsFormationMember()) {
+			
+			if (cmpEntAI.GetFormationController() == cmpUnitAI.GetFormationController())
+				this.entities.splice(this.entities.indexOf(entity), 1);
+			cmpEntAI.Ungarrison();
+			cmpEntAI.ResetTurretStance();
+			cmpEntAI.ResetSiegeCrew();
+			let formationContr = cmpEntAI.GetFormationController();
+			if (formationContr && !this.entities.length) {
+				let cmpFormation = Engine.QueryInterface(formationContr, IID_Formation);
+				cmpFormation.RemoveMembers([this.entity]);
+			}
+			return true;
+		}
+	}
+	
 	let entityIndex = this.entities.indexOf(entity);
 	let attacker = false;
 	// Error: invalid entity ID, usually it's already been ejected
@@ -705,6 +773,17 @@ GarrisonHolder.prototype.Eject = function(entity, forced)
 	if (cmpPosition)
 		cmpEntPosition.SetYRotation(cmpPosition.GetPosition().horizAngleTo(pos));
 
+	let cmpUnitAI = Engine.QueryInterface(entity, IID_UnitAI);
+	if (cmpUnitAI) {
+		let formationEnt = cmpUnitAI.GetFormationController();
+		if (formationEnt) {
+			let formationAI = Engine.QueryInterface(formationEnt, IID_UnitAI);
+			if (formationAI) {
+				formationAI.RemoveGarrisonedMember(this.entity);
+			}
+		}
+	}
+	
 	Engine.PostMessage(this.entity, MT_GarrisonedUnitsChanged, { "added": [], "removed": [entity] });
 
 	return true;
@@ -881,6 +960,17 @@ GarrisonHolder.prototype.Unload = function(entity, forced)
 	return this.PerformEject([entity], forced);
 };
 
+GarrisonHolder.prototype.UnloadEnts = function(ents, owner)
+{
+	let entities = [];
+	for (let entity of ents) {
+		if (owner != Engine.QueryInterface(entity, IID_Ownership).GetOwner())
+			continue;
+		entities.push(entity);
+	}
+	return this.PerformEject(entities, false);
+}
+
 /**
  * Unload one or all units that match a template and owner from
  * the garrisoning entity and order them to move to the rally point.
@@ -898,6 +988,9 @@ GarrisonHolder.prototype.UnloadTemplate = function(template, owner, all, forced)
 	{
 		let cmpIdentity = Engine.QueryInterface(entity, IID_Identity);
 
+		let cmpUnitAI = Engine.QueryInterface(entity, IID_UnitAI);
+		if (cmpUnitAI && cmpUnitAI.GetFormationController())
+			continue;
 		// Units with multiple ranks are grouped together.
 		let name = cmpIdentity.GetSelectionGroupName() || cmpTemplateManager.GetCurrentTemplateName(entity);
 		if (name != template || owner != Engine.QueryInterface(entity, IID_Ownership).GetOwner())
@@ -916,7 +1009,11 @@ GarrisonHolder.prototype.UnloadTemplate = function(template, owner, all, forced)
 
 		if (!cmpIdentity)
 			continue;
-
+		
+		let cmpUnitAI = Engine.QueryInterface(entity, IID_UnitAI);
+		if (cmpUnitAI && cmpUnitAI.GetFormationController())
+			continue;
+		
 		// Units with multiple ranks are grouped together.
 		let name = cmpIdentity.GetSelectionGroupName() || cmpTemplateManager.GetCurrentTemplateName(entity);
 		if (name != template || owner != Engine.QueryInterface(entity, IID_Ownership).GetOwner())
@@ -1034,7 +1131,7 @@ GarrisonHolder.prototype.TrainTimeout = function(data)
 				if (!maxLeveled[name])
 					maxLeveled[name] = 0;
 				maxLeveled[name]++;
-				toEject.push(entity);
+		//		toEject.push(entity);
 				continue;
 			}
 			let newRank = cmpExperience.GetRank();
@@ -1044,14 +1141,14 @@ GarrisonHolder.prototype.TrainTimeout = function(data)
 				if (!ranks[newRank][name])
 					ranks[newRank][name] = 0;
 				ranks[newRank][name]++;
-				toEject.push(entity);
+		//		toEject.push(entity);
 				continue;
 			}
 			canTrain = true;
 		}
 	}
 
-	this.PerformEject(toEject, true);
+//	this.PerformEject(toEject, true);
 
 	let cmpGuiInterface = Engine.QueryInterface(SYSTEM_ENTITY, IID_GuiInterface);
 	for (let rank in ranks) {

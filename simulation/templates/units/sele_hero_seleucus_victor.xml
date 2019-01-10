@@ -9,12 +9,17 @@
   <Auras datatype="tokens">
     units/heroes/sele_hero_seleucus_victor
   </Auras>
+  <Cost>
+    <BatchSize>5</BatchSize>
+  </Cost>
   <Identity>
     <Civ>sele</Civ>
     <Lang>greek</Lang>
     <GenericName>Seleucus I "The Victor"</GenericName>
     <SpecificName>Seleukos A' Nikator</SpecificName>
     <Icon>units/sele_hero_seleucus.png</Icon>
+	<FormationCompany>sele_champion_elephant</FormationCompany>
+	<BannerCode>elephant_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/seleucids/hero_elephantry_seleucus_victor_m.xml</Actor>

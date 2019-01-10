@@ -7,6 +7,7 @@
     <SpecificName>nhw Noba</SpecificName>
     <Icon>units/kush_infantry_clubman.png</Icon>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
+	<RequiredTechnology datatype="tokens">clubs</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/kush_infantry_clubman_a</Entity>

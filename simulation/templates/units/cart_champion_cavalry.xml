@@ -11,7 +11,7 @@
     <GenericName>Sacred Band Cavalry</GenericName>
     <SpecificName>Sacred Band of Astarte</SpecificName>
     <Icon>units/cart_champion_cavalry.png</Icon>
-	<RequiredTechnology>cart/champion_cav_spear</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">cart/champion_cav_spear</RequiredTechnology>
   </Identity>
   <Cost>
     <Resources>

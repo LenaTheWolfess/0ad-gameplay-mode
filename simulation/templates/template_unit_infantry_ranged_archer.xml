@@ -23,7 +23,7 @@
   <Identity>
     <VisibleClasses datatype="tokens">Archer</VisibleClasses>
     <GenericName>Archer</GenericName>
-	<RequiredTechnology>archery</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">archery</RequiredTechnology>
   </Identity>
   <Loot>
     <wood>5</wood>

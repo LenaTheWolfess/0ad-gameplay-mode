@@ -6,6 +6,7 @@
     <GenericName>Meroitic Heavy Cavalry</GenericName>
     <SpecificName>Htr</SpecificName>
     <Icon>units/kush_cavalry_spearman.png</Icon>
+	<RequiredTechnology datatype="tokens">horse_spear</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/kush_cavalry_spearman_a</Entity>

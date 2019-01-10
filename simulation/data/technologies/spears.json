@@ -4,7 +4,7 @@
 	},
 	"description": "Unlock spearmen.",
 	"cost": { "food": 100, "wood": 50, "stone": 0, "metal": 50 },
-	"requirements": { "tech": "phase_village" },
+	"requirements": { "tech": "forging" },
 	"icon": "spear.png",
 	"researchTime": 60,
 	"tooltip": "Unlock the ability to train spearmen.",

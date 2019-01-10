@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_structure_military">
   <BuildRestrictions>
-    <Category>Barracks</Category>
+    <Category>Blacksmith</Category>
   </BuildRestrictions>
   <Cost>
     <BuildTime>200</BuildTime>
@@ -30,7 +30,7 @@
     <Classes datatype="tokens">-ConquestCritical</Classes>
     <GenericName>Blacksmith</GenericName>
     <Icon>structures/blacksmith.png</Icon>
-    <RequiredTechnology>phase_town</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
     <Tooltip>Research weapons and armor improvements.</Tooltip>
     <VisibleClasses datatype="tokens">Town Blacksmith</VisibleClasses>
   </Identity>
@@ -43,7 +43,7 @@
   </Obstruction>
   <ProductionQueue>
     <BatchTimeModifier>0.8</BatchTimeModifier>
-    <Technologies datatype="tokens"></Technologies>
+    <Technologies datatype="tokens">forging</Technologies>
   </ProductionQueue>
   <Sound>
     <SoundGroups>

@@ -12,6 +12,9 @@
       <Missle>3</Missle>
     </Shield>
   </Armour>
+  <Cost>
+    <BatchSize>5</BatchSize>
+  </Cost>
   <Auras datatype="tokens">
     units/heroes/maur_hero_ashoka
   </Auras>
@@ -27,6 +30,8 @@
     <VisibleClasses datatype="tokens">Chariot</VisibleClasses>
     <Icon>units/maur_hero_ashoka.png</Icon>
     <Tooltip>Hero Special: "Edicts of Ashoka" - Edict Pillars of Ashoka can be built during Ashoka's lifetime.</Tooltip>
+	<FormationCompany>maur_champion_chariot</FormationCompany>
+	<BannerCode>chariot_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/mauryans/hero_chariot_archer_ashoka_m.xml</Actor>

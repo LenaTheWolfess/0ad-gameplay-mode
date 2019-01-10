@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_formation">
   <Auras datatype="tokens">
-    formations/formation_battle_line
+    formations/formation_box
   </Auras>
-<Identity>
+  <Identity>
 	<SpecificName>Box</SpecificName>
 	 <Icon>formations/box.png</Icon>
-</Identity>
+  </Identity>
   <Formation>
     <Icon>formations/box.png</Icon>
     <RequiredMemberCount>8</RequiredMemberCount>
@@ -15,10 +15,10 @@
     <FormationShape>square</FormationShape>
     <SortingClasses>Ranged Pike Spear Hoplite Melee</SortingClasses>
     <SortingOrder>fillFromTheCenter</SortingOrder>
-	<UnitSeparationWidthMultiplier>0.5</UnitSeparationWidthMultiplier>
-    <UnitSeparationDepthMultiplier>0.5</UnitSeparationDepthMultiplier>
+	<UnitSeparationWidthMultiplier>1.0</UnitSeparationWidthMultiplier>
+    <UnitSeparationDepthMultiplier>1.0</UnitSeparationDepthMultiplier>
   </Formation>
-   <FormationAttack>
+  <FormationAttack>
     <CanAttackAsFormation>true</CanAttackAsFormation>
   </FormationAttack>
 </Entity>

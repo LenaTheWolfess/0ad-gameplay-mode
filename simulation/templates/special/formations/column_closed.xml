@@ -5,11 +5,9 @@
     <Icon>formations/column_closed.png</Icon>
   </Identity>
   <Formation>
-    <RequiredMemberCount>8</RequiredMemberCount>
-    <DisabledTooltip>at least 8 units required</DisabledTooltip> 
     <Icon>formations/column_closed.png</Icon>
     <FormationName>Forced March</FormationName>
-    <UnitSeparationWidthMultiplier>0.75</UnitSeparationWidthMultiplier>
+    <UnitSeparationWidthMultiplier>1.0</UnitSeparationWidthMultiplier>
     <UnitSeparationDepthMultiplier>1.0</UnitSeparationDepthMultiplier>
     <MinColumns>3</MinColumns>
     <MaxColumns>3</MaxColumns>

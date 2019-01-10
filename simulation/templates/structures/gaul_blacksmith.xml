@@ -11,10 +11,7 @@
     <Technologies datatype="tokens">
       helmets
 	  vertical_shield
-	  round_shield
-	  brit/javelin_shield_upgrade
 	  slinger_shield
-	  slinger_shield_upgrade
 	  basic_armor
 	  advanced_armor
 	  chain_armor

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="units/gaul_infantry_javelinist_b">
   <Armour>
-    <Shield>
-      <Missle>2</Missle>  
-      <Pierce>1</Pierce>  
-      <Crush>2</Crush>  
-      <Hack>2</Hack> 
-    </Shield>
+    <Missle>1</Missle>  
+    <Pierce>1</Pierce>  
+    <Crush>1</Crush>  
+    <Hack>1</Hack> 
   </Armour>
   <Identity>
     <Rank>Advanced</Rank>
@@ -21,6 +19,6 @@
     <Entity>units/gaul_infantry_javelinist_e</Entity>
   </Promotion>
   <VisualActor>
-    <Actor>units/celts/infantry_javelinist_a.xml</Actor>
+    <Actor>units/gauls/infantry_javelinist_a.xml</Actor>
   </VisualActor>
 </Entity>

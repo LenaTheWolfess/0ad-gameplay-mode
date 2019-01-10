@@ -21,6 +21,7 @@
     <GenericName>Acharya Chanakya</GenericName>
     <SpecificName>Acharya Chāṇakya</SpecificName>
     <Icon>units/maur_hero_chanakya.png</Icon>
+	<FormationCompany>maur_champion_maiden</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/mauryans/hero_healer_chanakya.xml</Actor>

@@ -267,8 +267,8 @@ g_SelectionPanels.Construction = {
 		if (!template)
 			return false;
 
-		let technologyEnabled = Engine.GuiInterfaceCall("IsTechnologyResearched", {
-			"tech": template.requiredTechnology,
+		let technologyEnabled = Engine.GuiInterfaceCall("AreTechnologiesResearched", {
+			"techs": template.requiredTechnologies,
 			"player": data.player
 		});
 
@@ -296,7 +296,7 @@ g_SelectionPanels.Construction = {
 		let limits = getEntityLimitAndCount(data.playerState, data.item);
 		tooltips.push(
 			formatLimitString(limits.entLimit, limits.entCount, limits.entLimitChangers),
-			getRequiredTechnologyTooltip(technologyEnabled, template.requiredTechnology, GetSimState().players[data.player].civ),
+			getRequiredTechnologiesTooltip(technologyEnabled, template.requiredTechnologies, GetSimState().players[data.player].civ),
 			getNeededResourcesTooltip(neededResources));
 
 		data.button.tooltip = tooltips.filter(tip => tip).join("\n");
@@ -443,26 +443,31 @@ g_SelectionPanels.Garrison = {
 
 		let groups = new EntityGroups();
 
-		for (let state of unitEntStates)
+		for (let state of unitEntStates) {
 			if (state.garrisonHolder) {
 				groups.add(state.garrisonHolder.entities);
 				groups.add(state.garrisonHolder.attackerEntities);
-			}
-
-		return groups.getEntsGrouped();
+			} // garisonHolder
+		}
+		return groups.getEntsFormationGrouped();
 	},
 	"setupButton": function(data)
 	{
 		let entState = GetEntityState(data.item.ents[0]);
-
 		let template = GetTemplateData(entState.template);
 		if (!template)
 			return false;
 
-		data.button.onPress = function() {
-			unloadTemplate(template.selectionGroupName || entState.template, entState.player);
-		};
-
+		let fc = entState.unitAI && entState.unitAI.formationController;
+		if (fc) {
+			data.button.onPress = function() {
+				unloadEnts(data.item.ents, entState.player);
+			};
+		} else {
+			data.button.onPress = function() {
+				unloadTemplate(template.selectionGroupName || entState.template, entState.player);
+			};
+		}
 		data.countDisplay.caption = data.item.ents.length || "";
 
 		let canUngarrison =
@@ -471,22 +476,35 @@ g_SelectionPanels.Garrison = {
 
 		data.button.enabled = canUngarrison && controlsPlayer(g_ViewedPlayer);
 
-		data.button.tooltip = (canUngarrison || g_IsObserver ?
-			sprintf(translate("Unload %(name)s"), { "name": getEntityNames(template) }) + "\n" +
-			translate("Single-click to unload 1. Shift-click to unload all of this type.") :
-			getEntityNames(template)) + "\n" +
-			sprintf(translate("Player: %(playername)s"), {
-				"playername": g_Players[entState.player].name
-			});
+		if (fc) {
+				data.button.tooltip = (canUngarrison || g_IsObserver ?
+				sprintf(translate("Unload %(name)s"), { "name": getEntityNames(template) }) + "\n" +
+				translate("Single-click to unload formation.") :
+				getEntityNames(template)) + "\n" +
+				sprintf(translate("Player: %(playername)s"), {
+					"playername": g_Players[entState.player].name
+				});
+
+		}
+		else {
+			data.button.tooltip = (canUngarrison || g_IsObserver ?
+				sprintf(translate("Unload %(name)s"), { "name": getEntityNames(template) }) + "\n" +
+				translate("Single-click to unload 1. Shift-click to unload all of this type.") :
+				getEntityNames(template)) + "\n" +
+				sprintf(translate("Player: %(playername)s"), {
+					"playername": g_Players[entState.player].name
+				});
+		}
 
 		data.guiSelection.sprite = getPlayerHighlightColor(entState.player);
 		data.button.sprite_disabled = data.button.sprite;
 
 		// Selection panel buttons only appear disabled if they
 		// also appear disabled to the owner of the building.
+		let icon = "stretched:session/portraits/" + template.icon;
 		data.icon.sprite =
 			(canUngarrison || g_IsObserver ? "" : "grayscale:") +
-			"stretched:session/portraits/" + template.icon;
+			icon;
 
 		setPanelObjectPosition(data.button, data.i, data.rowLength);
 
@@ -1036,8 +1054,8 @@ g_SelectionPanels.Training = {
 		if (!template)
 			return false;
 
-		let technologyEnabled = Engine.GuiInterfaceCall("IsTechnologyResearched", {
-			"tech": template.requiredTechnology,
+		let technologyEnabled = Engine.GuiInterfaceCall("AreTechnologiesResearched", {
+			"techs": template.requiredTechnologies,
 			"player": data.player
 		});
 
@@ -1092,7 +1110,7 @@ g_SelectionPanels.Training = {
 		tooltips.push(showTemplateViewerOnRightClickTooltip());
 		tooltips.push(
 			formatBatchTrainingString(buildingsCountToTrainFullBatch, fullBatchSize, remainderBatch),
-			getRequiredTechnologyTooltip(technologyEnabled, template.requiredTechnology, GetSimState().players[data.player].civ),
+			getRequiredTechnologiesTooltip(technologyEnabled, template.requiredTechnologies, GetSimState().players[data.player].civ),
 			getNeededResourcesTooltip(neededResources));
 
 		data.button.tooltip = tooltips.filter(tip => tip).join("\n");

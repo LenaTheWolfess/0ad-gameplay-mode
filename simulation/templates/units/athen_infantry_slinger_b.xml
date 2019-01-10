@@ -7,6 +7,7 @@
     <GenericName>Athenian Slinger Militia</GenericName>
     <SpecificName>Psilòs Athēnaîos</SpecificName>
     <Icon>units/athen_infantry_slinger.png</Icon>
+	<RequiredTechnology datatype="tokens">slings</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/athen_infantry_slinger_a</Entity>

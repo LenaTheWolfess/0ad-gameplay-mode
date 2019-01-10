@@ -39,6 +39,7 @@
   </Health>
   <Identity>
     <GenericName>Unit</GenericName>
+	<Civ>gaia</Civ>
     <Classes datatype="tokens">Unit ConquestCritical</Classes>
     <Formations datatype="tokens">
       special/formations/null
@@ -110,10 +111,10 @@
   </UnitAI>
   <UnitMotion>
     <FormationController>false</FormationController>
-    <WalkSpeed>9.0</WalkSpeed>
+    <WalkSpeed>5.0</WalkSpeed>
     <Run>
-      <Speed>15.0</Speed>
-      <Range>50.0</Range>
+      <Speed>10.0</Speed>
+      <Range>20.0</Range>
       <RangeMin>0.0</RangeMin>
       <RegenTime>0.1</RegenTime>
       <DecayTime>0.2</DecayTime>

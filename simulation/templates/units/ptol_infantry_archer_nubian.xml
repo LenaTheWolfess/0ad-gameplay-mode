@@ -6,7 +6,7 @@
     <GenericName>Nubian Mercenary Archer</GenericName>
     <SpecificName>Kousít Misthophóros Toxótēs</SpecificName>
     <Icon>units/ptol_infantry_archer.png</Icon>
-    <RequiredTechnology>phase_village</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">phase_village</RequiredTechnology>
   </Identity>
   <Promotion disable=""/>
   <VisualActor>

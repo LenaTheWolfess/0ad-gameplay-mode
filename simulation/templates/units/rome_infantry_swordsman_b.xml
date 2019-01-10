@@ -22,6 +22,7 @@
     <GenericName>Roman Swordsman</GenericName>
     <SpecificName>Hastatus</SpecificName>
     <Icon>units/rome_infantry_swordsman.png</Icon>
+	<RequiredTechnology datatype="tokens">swords</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/rome_infantry_swordsman_a</Entity>

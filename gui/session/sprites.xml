@@ -461,6 +461,22 @@
 	<sprite name="energyForeground">
 		<image backcolor="0 100 255 255"/>
 	</sprite>
+	
+	<sprite name="formEnergyBackground">
+		<image backcolor="red"/>
+	</sprite>
+
+	<sprite name="formEnergyForeground">
+		<image backcolor="0 100 255 255"/>
+	</sprite>
+	
+	<sprite name="formAmmoBackground">
+	  <image backcolor="black"/>
+	</sprite>
+	
+	<sprite name="formAmmoForeground">
+	  <image backcolor="white"/>
+	</sprite>
 
 	<sprite name="healthForeground">
 		<image backcolor="green"/>

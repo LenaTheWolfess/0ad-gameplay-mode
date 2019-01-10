@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_champion_infantry_swordsman">
   <Armour>
+    <Shield>
+	  <Missle>3</Missle>  
+      <Pierce>3</Pierce>  
+      <Crush>3</Crush>  
+      <Hack>3</Hack>  
+	</Shield>
     <Missle>5</Missle>  
     <Pierce>5</Pierce>  
     <Crush>4</Crush>  
@@ -12,7 +18,7 @@
     <SpecificName>Delamokludda</SpecificName>
     <SelectionGroupName>units/brit_champion_infantry</SelectionGroupName>
     <Icon>units/brit_champion_infantry.png</Icon>
-	<RequiredTechnology>brit/champion_sword</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">brit/champion_sword</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">0.5</BuildTime>

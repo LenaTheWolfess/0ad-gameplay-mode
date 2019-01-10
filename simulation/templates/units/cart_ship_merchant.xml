@@ -9,7 +9,7 @@
     <SpecificName>Seḥer</SpecificName>
     <Tooltip>Trade between docks. Garrison a Trader aboard for additional profit (+20% for each garrisoned). Gather profitable aquatic treasures. Carthaginians have +25% sea trading bonus.</Tooltip>
     <Icon>units/cart_ship_merchant.png</Icon>
-    <RequiredTechnology>phase_village</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">phase_village</RequiredTechnology>
   </Identity>
   <Trader>
     <GainMultiplier op="mul">1.25</GainMultiplier>

@@ -4,7 +4,6 @@
     <Formations datatype="tokens">
       special/formations/phalanx
     </Formations>
-	<RequiredTechnology>champion_infantry_spear_holpite</RequiredTechnology>
 	<VisibleClasses datatype="tokens">Hoplite -Spear</VisibleClasses>
   </Identity>
 </Entity>

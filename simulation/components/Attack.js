@@ -1,6 +1,6 @@
 function Attack() {}
 
-var g_AttackTypes = ["Melee", "Ranged", "Capture"];
+var g_AttackTypes = ["Melee", "Ranged", "Capture", "Chop"];
 
 Attack.prototype.bonusesSchema =
 	"<optional>" +
@@ -155,6 +155,8 @@ Attack.prototype.Schema =
 		"<element name='Ranged'>" +
 			"<interleave>" +
 				"<optional><element name='Ammo'><data type='nonNegativeInteger'/></element></optional>" +
+				"<optional><element name='RefillTime'><data type='nonNegativeInteger'/></element></optional>" +
+				"<optional><element name='RefillAmount'><data type='nonNegativeInteger'/></element></optional>" +
 				"<optional><element name='CritChance'><ref name='nonNegativeDecimal'/></element></optional>" +
 				"<optional><element name='CritDamage'><ref name='nonNegativeDecimal'/></element></optional>" +
 				"<optional><element name='AnimationVariant'><text/></element></optional>"+
@@ -251,6 +253,17 @@ Attack.prototype.Schema =
 				Attack.prototype.restrictedClassesSchema +
 			"</interleave>" +
 		"</element>" +
+	"</optional>"+
+	"<optional>" +
+		"<element name='Chop' a:help='A special attack to chop trees'>" +
+			"<interleave>" +
+				DamageTypes.BuildSchema("damage strength") +
+				"<element name='MaxRange'><ref name='nonNegativeDecimal'/></element>" + // TODO: how do these work?
+				Attack.prototype.bonusesSchema +
+				Attack.prototype.preferredClassesSchema +
+				Attack.prototype.restrictedClassesSchema +
+			"</interleave>" +
+		"</element>" +
 	"</optional>";
 
 Attack.prototype.Init = function()
@@ -258,8 +271,15 @@ Attack.prototype.Init = function()
 	this.closeZone = 8;
 	this.ammo = 0;
 	this.noRange = false;
+	this.refillTime = 0;
+	this.refillAmount = 0;
+	this.ammoReffilTimer = undefined;
 	if (!!this.template["Ranged"] && !!this.template["Ranged"].Ammo)
 		this.ammo = +this.template["Ranged"].Ammo;
+	if (!!this.template["Ranged"] && !!this.template["Ranged"].RefillAmount)
+		this.refillAmount = +this.template["Ranged"].RefillAmount;
+	if (!!this.template["Ranged"] && !!this.template["Ranged"].RefillTime)
+		this.refillTime = +this.template["Ranged"].RefillTime;
 };
 
 //Attack.prototype.Serialize = null; // we have no dynamic state to save
@@ -287,6 +307,37 @@ Attack.prototype.SetCanRange = function()
 	this.noRange = false;
 }
 
+Attack.prototype.CheckAmmoRefill = function()
+{
+	if (this.ammoReffilTimer != undefined)
+		return;
+	if (!this.refillAmount || !this.refillTime || !this.HasLimitedAmmo())
+		return;
+	if (this.ammo == this.GetMaxAmmo())
+		return;
+	let cmpTimer = Engine.QueryInterface(SYSTEM_ENTITY,IID_Timer);
+	this.ammoReffilTimer = cmpTimer.SetTimeout(this.entity, IID_Attack, "AmmoReffilTimeout", this.refillTime, {});
+}
+Attack.prototype.AmmoReffilTimeout = function(data)
+{
+	let cmpTimer = Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer);
+	if (!this.refillAmount || !this.refillTime || !this.HasLimitedAmmo()) {
+		cmpTimer.CancelTimer(this.ammoReffilTimer);
+		this.ammoReffilTimer = undefined;
+		return;
+	}
+	
+	this.ammo += this.refillAmount;
+	let maxAmmo = this.GetMaxAmmo();
+	if (this.ammo > maxAmmo)
+		this.ammo = maxAmmo;
+	if (this.ammo < maxAmmo) {
+		cmpTimer.SetTimeout(this.entity, IID_Attack, "AmmoReffilTimeout", this.refillTime, {});
+	} else {
+		cmpTimer.CancelTimer(this.ammoReffilTimer);
+		this.ammoReffilTimer = undefined;
+	}
+}
 Attack.prototype.GetAttackTypes = function(wantedTypes)
 {
 	let types = g_AttackTypes.filter(type => !!this.template[type]);
@@ -369,6 +420,13 @@ Attack.prototype.CanAttack = function(target, wantedTypes)
 	   (!wantedTypes || !wantedTypes.filter(wType => wType.indexOf("!") != 0).length))
 		return true;
 
+	if (targetClasses.indexOf("Tree") != -1 && !this.template.Chop)
+		return false;
+	
+	if (targetClasses.indexOf("Tree") != -1 && this.template.Chop && cmpHealth && cmpHealth.GetHitpoints() &&
+	   (!wantedTypes || !wantedTypes.filter(wType => wType.indexOf("!") != 0).length))
+		return true;
+	
 	let cmpEntityPlayer = QueryOwnerInterface(this.entity);
 	let cmpTargetPlayer = QueryOwnerInterface(target);
 	if (!cmpTargetPlayer || !cmpEntityPlayer)
@@ -482,6 +540,10 @@ Attack.prototype.GetBestAttackAgainst = function(target, allowCapture)
 	if (isTargetClass("Domestic") && this.template.Slaughter)
 		return "Slaughter";
 
+	// Always chop trees
+	if (isTargetClass("Tree") && this.template.Chop)
+		return "Chop";
+	
 	let types = this.GetAttackTypes().filter(type => !this.GetRestrictedClasses(type).some(isTargetClass));
 
 	// check if the target is capturable
@@ -795,8 +857,10 @@ Attack.prototype.PerformAttack = function(type, target)
 	if (type == "Ranged")
 	{
 		if (!!this.template["Ranged"].Ammo) {
-			if (this.ammo > 0)
+			if (this.ammo > 0) {
 				this.ammo--;
+				this.CheckAmmoRefill();
+			}
 			else {
 				warn(this.entity + " performs attack with no ammo");
 				return;

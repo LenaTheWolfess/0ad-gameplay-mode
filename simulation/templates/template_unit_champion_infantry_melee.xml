@@ -11,7 +11,7 @@
       <Crush>0</Crush>
       <Missle>0</Missle>
       <MaxRange>3.5</MaxRange>
-      <PrepareTime>375</PrepareTime>
+      <PrepareTime>5</PrepareTime>
       <RepeatTime>750</RepeatTime>
       <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>
     </Melee>

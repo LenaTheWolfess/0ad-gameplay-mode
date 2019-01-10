@@ -2,10 +2,10 @@
 <Entity parent="units/gaul_cavalry_swordsman_b">
   <Armour>
     <Shield>
-      <Missle>2</Missle>  
-      <Pierce>1</Pierce>  
-      <Crush>2</Crush>  
-      <Hack>2</Hack> 
+      <Missle>3</Missle>  
+      <Pierce>3</Pierce>  
+      <Crush>3</Crush>  
+      <Hack>3</Hack> 
     </Shield>
   </Armour>
   <Identity>
@@ -21,6 +21,6 @@
     <Entity>units/gaul_cavalry_swordsman_e</Entity>
   </Promotion>
   <VisualActor>
-    <Actor>units/celts/cavalry_swordsman_a_m.xml</Actor>
+    <Actor>units/gauls/cavalry_swordsman_a_m.xml</Actor>
   </VisualActor>
 </Entity>

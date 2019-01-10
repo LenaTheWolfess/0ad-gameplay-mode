@@ -6,7 +6,7 @@
     <GenericName>Maiden Guard Archer</GenericName>
     <SpecificName>Visha Kanya</SpecificName>
     <Icon>units/maur_champion_maiden_archer.png</Icon>
-    <RequiredTechnology>maur/champion_archer</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">maur/champion_archer</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">1</BuildTime>

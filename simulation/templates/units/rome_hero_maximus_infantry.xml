@@ -8,6 +8,7 @@
     <Lang>latin</Lang>
     <SpecificName>Quintus Fabius Maximus</SpecificName>
     <Icon>units/rome_hero_maximus.png</Icon>
+	<FormationCompany>rome_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/romans/hero_infantry_swordsman_maximus.xml</Actor>

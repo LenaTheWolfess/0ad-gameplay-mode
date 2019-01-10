@@ -19,7 +19,7 @@
     <SpecificName>Legionarius Romanus</SpecificName>
     <SelectionGroupName>units/rome_champion_infantry</SelectionGroupName>
     <Icon>units/rome_champion_legion_imperial.png</Icon>
-    <RequiredTechnology>rome/champion_sword</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">rome/champion_sword</RequiredTechnology>
     <VisibleClasses datatype="tokens">Legionare</VisibleClasses>
     <Classes datatype="tokens">LegionareUp</Classes>
   </Identity>

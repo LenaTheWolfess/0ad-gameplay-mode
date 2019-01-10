@@ -18,7 +18,7 @@
     <GenericName>Scythian Archer</GenericName>
     <SpecificName>Toxótēs Skythikós</SpecificName>
     <Icon>units/athen_champion_ranged.png</Icon>
-	<RequiredTechnology>athen_champion_archer</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">athen_champion_archer</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">1.5</BuildTime>

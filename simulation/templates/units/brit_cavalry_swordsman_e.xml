@@ -24,6 +24,6 @@
     </Run>
   </UnitMotion>
   <VisualActor>
-    <Actor>units/celts/cavalry_swordsman_e_m.xml</Actor>
+    <Actor>units/britons/cavalry_swordsman_e_m.xml</Actor>
   </VisualActor>
 </Entity>

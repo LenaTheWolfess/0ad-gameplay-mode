@@ -7,7 +7,7 @@
     <GenericName>Greek Cavalry</GenericName>
     <SpecificName>Hippeús</SpecificName>
     <Icon>units/hele_cavalry_swordsman.png</Icon>
-    <RequiredTechnology>sword_riders</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">sword_riders</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/athen_cavalry_swordsman_a</Entity>

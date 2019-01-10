@@ -20,6 +20,8 @@
     <Lang>latin</Lang>
     <SpecificName>Scipio Africanus</SpecificName>
     <Icon>units/rome_hero_scipio.png</Icon>
+	<FormationCompany>rome_champion_cavalry</FormationCompany>
+	<BannerCode>cavalry_spearman_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/romans/hero_cavalry_swordsman_scipio_m.xml</Actor>

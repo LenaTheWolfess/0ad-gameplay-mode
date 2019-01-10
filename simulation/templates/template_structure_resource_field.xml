@@ -16,7 +16,7 @@
   <Cost>
     <BuildTime>50</BuildTime>
     <Resources>
-      <wood>100</wood>
+      <food>100</food>
     </Resources>
   </Cost>
   <Capturable disable=""/>
@@ -33,6 +33,7 @@
     <VisibleClasses datatype="tokens">Field</VisibleClasses>
     <Tooltip>Harvest vegetables for food. Max gatherers: 5.</Tooltip>
     <Icon>structures/field.png</Icon>
+	<RequiredTechnology datatype="tokens">farming</RequiredTechnology>
   </Identity>
   <Loot>
     <food>50</food>

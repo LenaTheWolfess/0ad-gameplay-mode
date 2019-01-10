@@ -5,7 +5,7 @@
 	"description": "Unlock chain armor.",
 	"cost": { "food": 250, "wood": 100, "stone": 0, "metal": 100 },
 	"supersedes": "advanced_armor",
-	"requirements": { "tech": "advanced_armor" },
+	"requirements": {"all": [{"tech": "advanced_armor" }, "tech": "phace_city"]},
 	"icon": "armor_chain.png",
 	"researchTime": 60,
 	"tooltip": "",

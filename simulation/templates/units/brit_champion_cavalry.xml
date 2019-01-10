@@ -17,9 +17,11 @@
     <SpecificName>Carbanto</SpecificName>
     <SelectionGroupName>units/brit_champion_chariot</SelectionGroupName>
     <Icon>units/brit_champion_chariot.png</Icon>
- 	<RequiredTechnology>brit/champion_cav_javelin</RequiredTechnology>
+ 	<RequiredTechnology datatype="tokens">brit/champion_cav_javelin</RequiredTechnology>
+	<BannerCode>chariot_banner</BannerCode>
  </Identity>
   <Cost>
+    <BatchSize>5</BatchSize>
     <BuildTime op="add">1.5</BuildTime>
     <Resources>
       <wood op="add">50</wood>

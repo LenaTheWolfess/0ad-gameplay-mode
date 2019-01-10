@@ -17,7 +17,7 @@
     <GenericName>Noble Archer</GenericName>
     <SpecificName>Hry pdty</SpecificName>
     <Icon>units/kush_champion_archer.png</Icon>
-	<RequiredTechnology>kush/champion_archer</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">kush/champion_archer</RequiredTechnology>
   </Identity>
   <VisualActor>
     <Actor>units/kushites/infantry_archer_c.xml</Actor>

@@ -15,6 +15,7 @@
     <SpecificName>Amnirense qore li kdwe li</SpecificName>
     <Gender>female</Gender>
     <Icon>units/kush_hero_amanirenas.png</Icon>
+	<FormationCompany>kush_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/kushites/hero_infantry_archer_amanirenas.xml</Actor>

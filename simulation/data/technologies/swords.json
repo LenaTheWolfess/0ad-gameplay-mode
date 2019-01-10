@@ -4,7 +4,7 @@
 	},
 	"description": "Unlock swordsmen.",
 	"cost": { "food": 50, "wood": 50, "stone": 0, "metal": 100 },
-	"requirements": { "tech": "phase_village" },
+	"requirements": { "tech": "forging"},
 	"icon": "sword.png",
 	"researchTime": 180,
 	"tooltip": "Unlock the ability to train swordsmen.",

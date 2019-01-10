@@ -18,23 +18,19 @@
     </variant>
   </group>
   <group>
-    <variant file="biped/attack_ranged_second.xml"/>
+    <variant name="ready" file="biped/ready_stance/base_javelin.xml"/>
+    <variant name="relax" file="biped/relax/base_javelin.xml" frequency="1">
+      <props>
+        <prop actor="" attachpoint="weapon_R"/>
+      </props>
+    </variant>
+	<variant file="biped/attack_ranged_second.xml"/>
     <variant file="biped/attack_ranged_javelinist.xml"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/build.xml"/>
-    <variant file="biped/build_farm.xml"/>
     <variant file="biped/death_infantry.xml">
       <props>
         <prop actor="props/units/capes/javelinist.xml" attachpoint="root"/>
-      </props>
-    </variant>
-  </group>
-  <group>
-    <variant name="ready" file="biped/ready_stance/base_javelin.xml"/>
-    <variant name="relax" file="biped/relax/base_javelin.xml">
-      <props>
-        <prop actor="" attachpoint="weapon_R"/>
       </props>
     </variant>
   </group>

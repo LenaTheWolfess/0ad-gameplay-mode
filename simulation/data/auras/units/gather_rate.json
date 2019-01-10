@@ -1,7 +1,7 @@
 {
 	"type": "range",
 	"radius": 40,
-	"affects": ["FemaleCitizen","Citizen Soldier"],
+	"affects": ["FemaleCitizen","MaleCitizen"],
 	"modifications": [
 		{ "value": "ResourceGatherer/BaseSpeed", "multiply": 1.5 }
 	],

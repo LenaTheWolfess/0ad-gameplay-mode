@@ -633,30 +633,35 @@ ProductionQueue.prototype.OnDestroy = function()
  */
 ProductionQueue.prototype.SpawnUnits = function(templateName, count, metadata)
 {
-	var cmpFootprint = Engine.QueryInterface(this.entity, IID_Footprint);
-	var cmpOwnership = Engine.QueryInterface(this.entity, IID_Ownership);
-	var cmpRallyPoint = Engine.QueryInterface(this.entity, IID_RallyPoint);
-
-	var createdEnts = [];
-	var spawnedEnts = [];
+	let cmpFootprint = Engine.QueryInterface(this.entity, IID_Footprint);
+	let cmpOwnership = Engine.QueryInterface(this.entity, IID_Ownership);
+	let cmpRallyPoint = Engine.QueryInterface(this.entity, IID_RallyPoint);
+	
+	let civ_code = "athen";
+	let cmpIdentity = Engine.QueryInterface(this.entity, IID_Identity);
+	if (cmpIdentity)
+		civ_code = cmpIdentity.GetCiv();
+	
+	let createdEnts = [];
+	let spawnedEnts = [];
 
 	if (this.entityCache.length == 0)
 	{
 		// We need entities to test spawning, but we don't want to waste resources,
 		//	so only create them once and use as needed
-		for (var i = 0; i < count; ++i)
+		for (let i = 0; i < count; ++i)
 		{
-			var ent = Engine.AddEntity(templateName);
+			let ent = Engine.AddEntity(templateName);
 			this.entityCache.push(ent);
 
 			// Decrement entity count in the EntityLimits component
 			// since it will be increased by EntityLimits.OnGlobalOwnershipChanged function,
 			// i.e. we replace a 'trained' entity to an 'alive' one
-			var cmpTrainingRestrictions = Engine.QueryInterface(ent, IID_TrainingRestrictions);
+			let cmpTrainingRestrictions = Engine.QueryInterface(ent, IID_TrainingRestrictions);
 			if (cmpTrainingRestrictions)
 			{
-				var unitCategory = cmpTrainingRestrictions.GetCategory();
-				var cmpPlayerEntityLimits = QueryOwnerInterface(this.entity, IID_EntityLimits);
+				let unitCategory = cmpTrainingRestrictions.GetCategory();
+				let cmpPlayerEntityLimits = QueryOwnerInterface(this.entity, IID_EntityLimits);
 				cmpPlayerEntityLimits.ChangeCount(unitCategory, -1);
 			}
 			if (!this.queue.length) {
@@ -767,19 +772,78 @@ ProductionQueue.prototype.SpawnUnits = function(templateName, count, metadata)
 			}
 		}
 	}
-
-	if (spawnedEnts.length > 0 && !cmpAutoGarrison)
+	
+	let bannerCode = "infantry_pikeman_banner";
+	let formationCount = 15;
+	//let bEnt = spawnedEnts[0];
+	let bEnt = createdEnts[0];
+	if (bEnt) {
+		let cmpBEntIdentity = Engine.QueryInterface(bEnt, IID_Identity);
+		let cmpBECost = Engine.QueryInterface(bEnt, IID_Cost);
+		if (cmpBEntIdentity.HasBannerCode())
+			bannerCode = cmpBEntIdentity.GetBannerCode();
+		if (cmpBECost)
+			formationCount = cmpBECost.GetBatchSize();
+	}
+//	if (spawnedEnts.length > 0 && !cmpAutoGarrison)
+	if (createdEnts.length > 0 && !cmpAutoGarrison)
 	{
+		let formationTemplate = "special/formations/null";
+		let bannerTemplate = "units/"+civ_code+"_"+bannerCode;
+		let formations = [];
+	//	if (CanMoveEntsIntoFormation(spawnedEnts, formationTemplate)) {
+		if (CanMoveEntsIntoFormation(createdEnts, formationTemplate)) {
+			let cmpPosition = Engine.QueryInterface(this.entity, IID_Position);
+		//	let leftEnts = spawnedEnts.slice();
+			let leftEnts = createdEnts.slice();
+			let left = leftEnts.length;
+			while (left > 0) {
+				let formationEnt = Engine.AddEntity(formationTemplate);
+				let cmpFormation = Engine.QueryInterface(formationEnt, IID_Formation);
+				let cmpFOwnership = Engine.QueryInterface(formationEnt, IID_Ownership);
+				let player = cmpOwnership.GetOwner();
+				cmpFOwnership.SetOwner(player);
+				let numb = leftEnts.length;
+				cmpFormation.SetMaxMembers(formationCount);
+				left = cmpFormation.SetMembers(leftEnts);
+				let taken = numb - left;
+				leftEnts = leftEnts.slice(taken);
+				
+				let banner = Engine.AddEntity(bannerTemplate);
+				let cmpBannerOwnership = Engine.QueryInterface(banner, IID_Ownership);
+				cmpBannerOwnership.SetOwner(cmpOwnership.GetOwner());
+				cmpFormation.AddBanner(banner);
+				let posBanner = cmpFootprint.PickSpawnPoint(banner);
+				let cmpBannerPosition = Engine.QueryInterface(banner, IID_Position);
+				cmpBannerPosition.JumpTo(posBanner.x, posBanner.z);
+			//	createdEnts.push(banner);
+				
+				if (cmpPosition)
+					cmpBannerPosition.SetYRotation(cmpPosition.GetPosition().horizAngleTo(posBanner));
+				let cmpVisual = Engine.QueryInterface(formationEnt, IID_Visual);
+				if (cmpVisual) {
+					let civ = QueryPlayerIDInterface(player).GetCiv();
+					cmpVisual.SetVariant("animationVariant", civ);
+				}
+				formations.push(formationEnt);
+			}
+		}
 		// If a rally point is set, walk towards it (in formation) using a suitable command based on where the
 		// rally point is placed.
 		if (cmpRallyPoint)
 		{
-			var rallyPos = cmpRallyPoint.GetPositions()[0];
+			let rallyPos = cmpRallyPoint.GetPositions()[0];
 			if (rallyPos)
 			{
-				var commands = GetRallyPointCommands(cmpRallyPoint, spawnedEnts);
-				for (var com of commands)
-					ProcessCommand(cmpOwnership.GetOwner(), com);
+				if (!formations.length) {
+					let commands = GetRallyPointCommands(cmpRallyPoint, spawnedEnts);
+					for (let com of commands)
+						ProcessCommand(cmpOwnership.GetOwner(), com);
+				} else {
+					let commands = GetRallyPointCommands(cmpRallyPoint, formations);
+					for (let com of commands)
+						ProcessCommand(cmpOwnership.GetOwner(), com);
+				}
 			}
 		}
 	}
@@ -790,7 +854,7 @@ ProductionQueue.prototype.SpawnUnits = function(templateName, count, metadata)
 			"owner": cmpOwnership.GetOwner(),
 			"metadata": metadata,
 		});
-
+	
 	return createdEnts.length;
 };
 

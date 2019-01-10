@@ -15,11 +15,16 @@
   <Auras datatype="tokens">
     units/heroes/cart_hero_hannibal
   </Auras>
+  <Cost>
+    <BatchSize>14</BatchSize>
+  </Cost>
   <Identity>
     <Civ>cart</Civ>
     <GenericName>Hannibal Barca</GenericName>
     <SpecificName>Ḥannibaʿal Baraq</SpecificName>
     <Icon>units/cart_hero_hannibal.png</Icon>
+	<FormationCompany>cart_champion_infantry</FormationCompany>
+	<BannerCode>infantry_pikeman_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/carthaginians/hero_elephantry_hannibal_m.xml</Actor>

@@ -22,6 +22,7 @@ m.ResearchManager.prototype.checkPhase = function(gameState, queues)
 		return;
 
 	let currentPhaseIndex = gameState.currentPhase();
+	
 	let nextPhaseName = gameState.getPhaseName(currentPhaseIndex+1);
 	if (!nextPhaseName)
 		return;
@@ -82,39 +83,43 @@ m.ResearchManager.prototype.researchTradeBonus = function(gameState, queues)
 m.ResearchManager.prototype.researchWantedTechs = function(gameState, techs)
 {
 	let phase1 = gameState.currentPhase() === 1;
+	let phase2 = gameState.currentPhase() === 2;
 	let available = phase1 ? gameState.ai.queueManager.getAvailableResources(gameState) : null;
 	let numWorkers = phase1 ? gameState.getOwnEntitiesByRole("worker", true).length : 0;
 	for (let tech of techs)
 	{
 		if (!tech[1]._template.modifications) {
 			let template = tech[1]._template;
-			if (template.genericName == "Swords")
-				return { "name": tech[0], "increasePriority": true};
-			if (template.genericName == "Slings")
-				return { "name": tech[0], "increasePriority": true};
-			if (template.genericName == "Spears")
-				return { "name": tech[0], "increasePriority": true};
-			if (template.genericName == "Axes")
-				return { "name": tech[0], "increasePriority": true};
-			if (template.genericName == "Pikes")
-				return { "name": tech[0], "increasePriority": true};
-			if (template.genericName == "Mace")
-				return { "name": tech[0], "increasePriority": true};
-			if (template.genericName == "Javelins")
-				return { "name": tech[0], "increasePriority": true};
-			if (template.genericName == "Archery")
-				return { "name": tech[0], "increasePriority": true};
 			if (!phase1) {
+				if (template.genericName == "Farming")
+					return {"name": tech[0], "increasePriority": false};
+				if (template.genericName == "Forging")
+					return {"name": tech[0], "increasePriority": false};
+				if (template.genericName == "Swords")
+					return { "name": tech[0], "increasePriority": false};
+				if (template.genericName == "Slings")
+					return { "name": tech[0], "increasePriority": false};
+				if (template.genericName == "Spears")
+					return { "name": tech[0], "increasePriority": false};
+				if (template.genericName == "Axes")
+					return { "name": tech[0], "increasePriority": false};
+				if (template.genericName == "Pikes")
+					return { "name": tech[0], "increasePriority": false};
+				if (template.genericName == "Mace")
+					return { "name": tech[0], "increasePriority": false};
+				if (template.genericName == "Javelins")
+					return { "name": tech[0], "increasePriority": false};
+				if (template.genericName == "Archery")
+					return { "name": tech[0], "increasePriority": false};
 				if (template.genericName == "Cavalry")
-					return { "name": tech[0], "increasePriority": true};
+					return { "name": tech[0], "increasePriority": false};
 				if (template.genericName == "Javelin riders")
-					return { "name": tech[0], "increasePriority": true};
+					return { "name": tech[0], "increasePriority": false};
 				if (template.genericName == "Spear riders")
-					return { "name": tech[0], "increasePriority": true};
+					return { "name": tech[0], "increasePriority": false};
 				if (template.genericName == "Swordmen riders")
-					return { "name": tech[0], "increasePriority": true};
+					return { "name": tech[0], "increasePriority": false};
 			}
-			continue;
 		}
 		let template = tech[1]._template;
 		if (phase1)
@@ -123,19 +128,19 @@ m.ResearchManager.prototype.researchWantedTechs = function(gameState, techs)
 			let costMax = 0;
 			for (let res in cost)
 				costMax = Math.max(costMax, Math.max(cost[res]-available[res], 0));
-			if (10*numWorkers < costMax)
+			if (25*numWorkers < costMax)
 				continue;
 		}
 		for (let i in template.modifications)
 		{
 			if (gameState.ai.HQ.navalMap && template.modifications[i].value === "ResourceGatherer/Rates/food.fish")
-				return { "name": tech[0], "increasePriority": this.CostSum(template.cost) < 400 };
+				return { "name": tech[0], "increasePriority": this.CostSum(template.cost) < 600 };
 			else if (template.modifications[i].value === "ResourceGatherer/Rates/food.fruit")
-				return { "name": tech[0], "increasePriority": this.CostSum(template.cost) < 400 };
+				return { "name": tech[0], "increasePriority": this.CostSum(template.cost) < 600 };
 			else if (template.modifications[i].value === "ResourceGatherer/Rates/food.grain")
-				return { "name": tech[0], "increasePriority": false };
+				return { "name": tech[0], "increasePriority": this.CostSum(template.cost) < 600 };
 			else if (template.modifications[i].value === "ResourceGatherer/Rates/wood.tree")
-				return { "name": tech[0], "increasePriority": this.CostSum(template.cost) < 400 };
+				return { "name": tech[0], "increasePriority": this.CostSum(template.cost) < 600 };
 			else if (template.modifications[i].value.startsWith("ResourceGatherer/Capacities"))
 				return { "name": tech[0], "increasePriority": false };
 			else if (template.modifications[i].value === "Attack/Ranged/MaxRange")

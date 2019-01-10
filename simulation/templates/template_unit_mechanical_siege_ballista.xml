@@ -3,6 +3,8 @@
   <Attack>
     <Ranged>
       <Ammo>10</Ammo>
+	  <RefillAmount>5</RefillAmount>
+	  <RefillTime>100000</RefillTime>
       <Hack>0.0</Hack>
       <Pierce>150.0</Pierce>
       <Crush>25.0</Crush>
@@ -46,7 +48,7 @@
   <Identity>
     <GenericName>Bolt Shooter</GenericName>
     <VisibleClasses datatype="tokens">BoltShooter Ranged</VisibleClasses>
-	<RequiredTechnology>balista</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">balista</RequiredTechnology>
   </Identity>
   <Loot>
     <xp>200</xp>
@@ -81,7 +83,4 @@
       <Speed op="mul">0.9</Speed>
     </Run>
   </UnitMotion>
-  <Vision>
-    <Range>120</Range>
-  </Vision>
 </Entity>

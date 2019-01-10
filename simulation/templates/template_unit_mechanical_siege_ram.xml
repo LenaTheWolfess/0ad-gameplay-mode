@@ -3,8 +3,8 @@
   <Armour>
     <Missle>100</Missle>
     <Crush>10</Crush>
-    <Hack>7</Hack>
-    <Pierce>7</Pierce>
+    <Hack>100</Hack>
+    <Pierce>100</Pierce>
   </Armour>
   <Attack>
     <NeedsManPower>6</NeedsManPower>
@@ -35,7 +35,8 @@
     <RunDegRate>20</RunDegRate>
   </Energy>
   <GarrisonHolder>
-    <Max>10</Max>
+    <FormationTake>true</FormationTake>
+    <Max>17</Max>
     <EjectHealth>0.1</EjectHealth>
     <EjectClassesOnDestroy datatype="tokens">Unit</EjectClassesOnDestroy>
     <List datatype="tokens">Support Infantry</List>
@@ -48,7 +49,8 @@
   <Identity>
     <GenericName>Battering Ram</GenericName>
     <VisibleClasses datatype="tokens">Melee Ram</VisibleClasses>
-	<RequiredTechnology>siege_ram</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">siege_ram</RequiredTechnology>
+	<FormationGroup>Ram</FormationGroup>
   </Identity>
   <Sound>
     <SoundGroups>
@@ -69,6 +71,6 @@
     <NeedsManPowerToMove>6</NeedsManPowerToMove>
   </UnitAI>
   <Vision>
-    <Range>80</Range>
+    <Range>10</Range>
   </Vision>
 </Entity>

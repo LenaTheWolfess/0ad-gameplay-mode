@@ -6,6 +6,7 @@
     <GenericName>Longbowman</GenericName>
     <SpecificName>Dhanurdhar</SpecificName>
     <Icon>units/maur_infantry_archer.png</Icon>
+	<RequiredTechnology datatype="tokens">archery</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/maur_infantry_archer_a</Entity>

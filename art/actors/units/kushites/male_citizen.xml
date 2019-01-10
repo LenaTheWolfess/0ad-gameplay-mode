@@ -26,7 +26,8 @@
     <variant frequency="1" name="Idle"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/gather_tree.xml"/>
+    <variant file="biped/female_gather_tree.xml"/>
+    <variant file="biped/attack_chop.xml"/>
     <variant file="biped/gather_grain.xml"/>
     <variant file="biped/gather_fruit.xml"/>
     <variant file="biped/gather_meat.xml"/>

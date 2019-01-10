@@ -5,6 +5,8 @@
       <Ammo>50</Ammo>
       <CritChance>0.1</CritChance>
       <CritDamage>50000</CritDamage>
+	  <RefillAmount>5</RefillAmount>
+	  <RefillTime>100000</RefillTime>
       <Hack>0</Hack>
       <Pierce>0</Pierce>
       <Crush>0</Crush>

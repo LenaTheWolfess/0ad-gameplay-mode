@@ -21,6 +21,7 @@
     <SpecificName>Ḥimelqart Baraq</SpecificName>
     <GenericName>Hamilcar Barca</GenericName>
     <Icon>units/cart_hero_hamilcar.png</Icon>
+	<FormationCompany>cart_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/carthaginians/hero_cavalry_swordsman_hamilcar_m.xml</Actor>

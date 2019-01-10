@@ -23,6 +23,6 @@
     </Run>
   </UnitMotion>
   <VisualActor>
-    <Actor>units/celts/infantry_spearman_e.xml</Actor>
+    <Actor>units/gauls/infantry_spearman_e.xml</Actor>
   </VisualActor>
 </Entity>

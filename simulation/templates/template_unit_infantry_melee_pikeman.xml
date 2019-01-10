@@ -18,7 +18,7 @@
     <Formations datatype="tokens">
       special/formations/syntagma
     </Formations>
-	<RequiredTechnology>pikes</RequiredTechnology>
+	<FormationGroup>InfantryPike</FormationGroup>
   </Identity>
   <Loot>
     <wood>5</wood>

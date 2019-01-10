@@ -6,6 +6,7 @@
     <GenericName>Meroitic Swordsman</GenericName>
     <SpecificName>knw hps</SpecificName>
     <Icon>units/kush_infantry_swordsman.png</Icon>
+	<RequiredTechnology datatype="tokens">swords</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/kush_infantry_swordsman_a</Entity>

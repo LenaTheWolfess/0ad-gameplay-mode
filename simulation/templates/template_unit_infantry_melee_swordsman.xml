@@ -17,7 +17,8 @@
   <Identity>
     <VisibleClasses datatype="tokens">Sword</VisibleClasses>
     <GenericName>Swordsman</GenericName>
-    <RequiredTechnology>swords</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">swords</RequiredTechnology>
+	<FormationGroup>InfantrySword</FormationGroup>
   </Identity>
   <Loot>
     <metal>5</metal>

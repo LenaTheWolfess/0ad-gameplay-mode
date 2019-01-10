@@ -5,8 +5,6 @@
     <Icon>formations/column_open.png</Icon>
   </Identity>
   <Formation>
-    <RequiredMemberCount>8</RequiredMemberCount>
-    <DisabledTooltip>at least 8 units required</DisabledTooltip>
     <Icon>formations/column_open.png</Icon>
     <FormationName>Column Open</FormationName>
     <ShiftRows>true</ShiftRows>

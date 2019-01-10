@@ -4,7 +4,7 @@
     <Melee>
       <Pierce>15</Pierce>
       <MaxRange>4.5</MaxRange>
-      <PrepareTime>1000</PrepareTime>
+      <PrepareTime>375</PrepareTime>
       <RepeatTime>500</RepeatTime>
       <PreferredClasses datatype="tokens">Cavalry</PreferredClasses>
     </Melee>
@@ -23,6 +23,5 @@
     <Formations datatype="tokens">
       special/formations/testudo
     </Formations>
-    <RequiredTechnology>champion_infantry_spear</RequiredTechnology>
   </Identity>
 </Entity>

@@ -9,6 +9,7 @@
     <SpecificName>Boadicea</SpecificName>
     <Gender>female</Gender>
     <Icon>units/brit_hero_boudicca.png</Icon>
+	<FormationCompany>brit_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/britons/hero_infantry_swordsman_boudicca.xml</Actor>

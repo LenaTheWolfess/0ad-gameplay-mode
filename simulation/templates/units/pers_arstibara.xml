@@ -50,7 +50,7 @@
     <GenericName>Persian Apple Bearer</GenericName>
     <SpecificName>Arštibara</SpecificName>
     <Icon>units/pers_arstibara.png</Icon>
-    <RequiredTechnology>pers/xerxes_champion</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">pers/xerxes_champion</RequiredTechnology>
   </Identity>
   <VisualActor>
     <Actor>units/persians/infantry_archer_c.xml</Actor>

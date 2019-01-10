@@ -12,7 +12,7 @@
     <GenericName>Heavy Skirmisher</GenericName>
     <SpecificName>Thyreophóros</SpecificName>
     <Icon>units/mace_thureophoros.png</Icon>
-    <RequiredTechnology>javelins</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">javelins</RequiredTechnology>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
   </Identity>
   <VisualActor>

@@ -14,7 +14,7 @@
     <SpecificName>Rhomphaiaphoros</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
     <Icon>units/sele_infantry_swordsman.png</Icon>
-    <RequiredTechnology>swords</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">swords</RequiredTechnology>
   </Identity>
   <VisualActor>
     <Actor>units/hellenes/infantry_swordsman_c_thracian_blackcloak.xml</Actor>

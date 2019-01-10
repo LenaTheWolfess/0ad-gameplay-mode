@@ -34,7 +34,8 @@
     <GenericName>Sentry Tower</GenericName>
     <Icon>structures/sentry_tower.png</Icon>
     <Classes datatype="tokens">GarrisonTower</Classes>
-    <VisibleClasses datatype="tokens">Village DefenseTower SentryTower</VisibleClasses>
+    <VisibleClasses datatype="tokens">Town DefenseTower SentryTower</VisibleClasses>
+	<RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
     <Tooltip>Shoots arrows. Garrison to provide extra defence. Needs the murder holes tech to protect its foot. Upgradeable to stone tower.</Tooltip>
   </Identity>
   <Loot>
@@ -57,7 +58,7 @@
     <Tower>
       <Entity>structures/{civ}_defense_tower</Entity>
       <Tooltip>Reinforce with stone and upgrade to a defense tower.</Tooltip>
-      <RequiredTechnology>phase_town</RequiredTechnology>
+      <RequiredTechnology>phase_city</RequiredTechnology>
       <Cost>
         <wood>50</wood>
         <stone>100</stone>

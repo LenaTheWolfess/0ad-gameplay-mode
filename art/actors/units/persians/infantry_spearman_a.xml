@@ -17,12 +17,8 @@
   </group>
   <group>
     <variant file="biped/base_spearman.xml"/> 
-    <variant file="biped/build.xml"/> 
-    <variant file="biped/build_farm.xml"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/build.xml"/>
-    <variant file="biped/build_farm.xml"/>
     <variant file="biped/death_infantry.xml"/>
     <variant name="Idle" frequency="1"/>
   </group>

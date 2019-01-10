@@ -21,6 +21,7 @@
     <GenericName>Philip II of Macedon</GenericName>
     <SpecificName>Phílippos B' ho Makedṓn</SpecificName>
     <Icon>units/hele_hero_philip.png</Icon>
+	<FormationCompany>mace_champion_infantry_a</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/macedonians/hero_infantry_pikeman_philip.xml</Actor>

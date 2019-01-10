@@ -8,8 +8,6 @@
 	 <Icon>formations/battle_line.png</Icon>
 </Identity>
   <Formation>
-    <RequiredMemberCount>8</RequiredMemberCount>
-    <DisabledTooltip>at least 8 units required</DisabledTooltip>
     <Icon>formations/battle_line.png</Icon>
     <FormationName>Battle Line</FormationName>
     <SortingClasses>Cavalry Melee Ranged</SortingClasses>
@@ -18,8 +16,8 @@
     <MinColumns>5</MinColumns>
     <MaxRows>2</MaxRows>
     <WidthDepthRatio>2</WidthDepthRatio>
-    <UnitSeparationWidthMultiplier>0.5</UnitSeparationWidthMultiplier>
-    <UnitSeparationDepthMultiplier>0.5</UnitSeparationDepthMultiplier>
+    <UnitSeparationWidthMultiplier>1.0</UnitSeparationWidthMultiplier>
+    <UnitSeparationDepthMultiplier>1.0</UnitSeparationDepthMultiplier>
   </Formation>
   <FormationAttack>
     <CanAttackAsFormation>true</CanAttackAsFormation>

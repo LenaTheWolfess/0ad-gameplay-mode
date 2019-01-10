@@ -14,6 +14,7 @@
     <Classes datatype="tokens">Celt</Classes>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
     <Icon>units/cart_infantry_swordsman.png</Icon>
+	<RequiredTechnology datatype="tokens">swords</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/ptol_infantry_swordsman_merc_a</Entity>

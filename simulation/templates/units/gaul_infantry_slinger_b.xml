@@ -6,12 +6,12 @@
     <GenericName>Celtic Slinger</GenericName>
     <SpecificName>Iaosae</SpecificName>
     <Icon>units/celt_infantry_slinger.png</Icon>
-    <RequiredTechnology>phase_town</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">slings</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/gaul_infantry_slinger_a</Entity>
   </Promotion>
   <VisualActor>
-    <Actor>units/celts/infantry_slinger_b.xml</Actor>
+    <Actor>units/gauls/infantry_slinger_b.xml</Actor>
   </VisualActor>
 </Entity>

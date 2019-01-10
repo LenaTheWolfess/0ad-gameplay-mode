@@ -77,6 +77,8 @@ Armour.prototype.TakeDamage = function(strengths, multiplier = 1, flank = 0, fir
 
 	// Reduce health
 	let cmpHealth = Engine.QueryInterface(this.entity, IID_Health);
+	if (!cmpHealth)
+		return 0;
 	let reduced = cmpHealth.Reduce(total);
 	return reduced;
 };

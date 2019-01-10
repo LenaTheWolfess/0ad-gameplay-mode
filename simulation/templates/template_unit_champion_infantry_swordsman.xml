@@ -4,7 +4,7 @@
     <Melee>
       <Hack>11</Hack>
       <MaxRange>3.0</MaxRange>
-      <PrepareTime>1250</PrepareTime>
+      <PrepareTime>375</PrepareTime>
       <RepeatTime>1000</RepeatTime>
       <PreferredClasses datatype="tokens">Human Siege</PreferredClasses>
     </Melee>
@@ -24,6 +24,5 @@
     <Formations datatype="tokens">
       special/formations/testudo
     </Formations>
-    <RequiredTechnology>champion_infantry_sword</RequiredTechnology>
   </Identity>
 </Entity>

@@ -14,7 +14,8 @@
   <Identity>
     <VisibleClasses datatype="tokens">Spear</VisibleClasses>
     <GenericName>Spearman</GenericName>
-    <RequiredTechnology>spears</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">spears</RequiredTechnology>
+	<FormationGroup>InfantrySpear</FormationGroup>
   </Identity>
   <Loot>
     <wood>5</wood>

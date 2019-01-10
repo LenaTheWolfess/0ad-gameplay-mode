@@ -21,7 +21,7 @@
   <Identity>
     <VisibleClasses datatype="tokens">Javelin</VisibleClasses>
     <GenericName>Skirmisher</GenericName>
-	<RequiredTechnology>javelins</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">javelins</RequiredTechnology>
   </Identity>
   <Loot>
     <wood>5</wood>

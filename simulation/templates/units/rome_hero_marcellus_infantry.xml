@@ -9,6 +9,7 @@
     <Lang>latin</Lang>
     <SpecificName>Marcus Claudius Marcellus</SpecificName>
     <Icon>units/rome_hero_marcellus.png</Icon>
+	<FormationCompany>rome_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/romans/hero_infantry_swordsman_marcellus.xml</Actor>

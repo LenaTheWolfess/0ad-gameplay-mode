@@ -23,6 +23,7 @@
   <Cost>
     <Population>3</Population>
     <BuildTime>60</BuildTime>
+	<BatchSize>3</BatchSize>
     <Resources>
       <food>500</food>
       <metal>500</metal>
@@ -37,6 +38,7 @@
   </Health>
   <Identity>
     <VisibleClasses datatype="tokens">Elephant Melee</VisibleClasses>
+	<BannerCode>elephant_banner</BannerCode>
   </Identity>
   <Sound>
     <SoundGroups>

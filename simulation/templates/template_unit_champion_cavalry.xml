@@ -34,7 +34,7 @@
     <Formations datatype="tokens">
       special/formations/wedge
     </Formations>
-    <RequiredTechnology>champion_cavalry</RequiredTechnology>
+	<FormationGroup>ChampionCavalry</FormationGroup>
   </Identity>
   <Position>
     <Anchor>pitch</Anchor>
@@ -72,6 +72,6 @@
     </Run>
   </UnitMotion>
   <Vision>
-    <Range>96</Range>
+    <Range>40</Range>
   </Vision>
 </Entity>

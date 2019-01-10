@@ -38,8 +38,8 @@
     </Ranged>
   </Attack>
   <BuildingAI>
-    <DefaultArrowCount>3</DefaultArrowCount>
-    <GarrisonArrowMultiplier>0</GarrisonArrowMultiplier>
+    <DefaultArrowCount>0</DefaultArrowCount>
+    <GarrisonArrowMultiplier>1</GarrisonArrowMultiplier>
   </BuildingAI>
   <BuildRestrictions>
     <Territory>own neutral</Territory>
@@ -54,7 +54,7 @@
     <RegenRate>5.0</RegenRate>
   </Capturable>
   <Cost>
-    <PopulationBonus>20</PopulationBonus>
+    <PopulationBonus>35</PopulationBonus>
     <BuildTime>500</BuildTime>
     <Resources>
       <food>0</food>
@@ -101,7 +101,7 @@
     <BatchTimeModifier>0.8</BatchTimeModifier>
     <Entities datatype="tokens">
       units/{civ}_support_female_citizen
-	  units/{civ}_support_male_citizen
+      units/{civ}_support_male_citizen
       units/{civ}_cavalry_hunter
     </Entities>
     <Technologies datatype="tokens">
@@ -110,6 +110,8 @@
       unlock_spies
       spy_counter
       champion_infantry
+	  gods/gods_family_vs_build
+	  gods/gods_animals_vs_forge
     </Technologies>
   </ProductionQueue>
   <ResourceDropsite>

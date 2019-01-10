@@ -8,6 +8,12 @@
       <RestrictedClasses datatype="tokens">Field Palisade SiegeWall Organic</RestrictedClasses>
     </Capture>
   </Attack>
+  <Armour>
+    <Missle>100</Missle>
+    <Crush>10</Crush>
+    <Hack>100</Hack>
+    <Pierce>100</Pierce>
+  </Armour>
   <Cost>
     <BuildTime>40</BuildTime>
     <Resources>
@@ -25,7 +31,8 @@
     <Height>20.0</Height>
   </Footprint>
   <GarrisonHolder>
-    <Max>10</Max>
+    <FormationTake>true</FormationTake>
+    <Max>17</Max>
     <EjectHealth>0.1</EjectHealth>
     <EjectClassesOnDestroy datatype="tokens">Unit</EjectClassesOnDestroy>
     <List datatype="tokens">Support Infantry</List>
@@ -53,7 +60,7 @@
     <GenericName>Siege Tower</GenericName>
     <VisibleClasses datatype="tokens">SiegeTower Ranged</VisibleClasses>
     <Tooltip>Garrison units for transport and to increase firepower.</Tooltip>
-	<RequiredTechnology>siege_tower</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">siege_tower</RequiredTechnology>
   </Identity>
   <Selectable>
     <Overlay>
@@ -86,6 +93,6 @@
     <NeedsManPowerToMove>9</NeedsManPowerToMove>
   </UnitAI>
   <Vision>
-    <Range>80</Range>
+    <Range>70</Range>
   </Vision>
 </Entity>

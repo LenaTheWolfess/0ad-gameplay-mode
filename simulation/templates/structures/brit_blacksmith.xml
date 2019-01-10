@@ -10,7 +10,6 @@
   <ProductionQueue>
     <Technologies datatype="tokens">
       helmets
-	  round_shield
 	  vertical_shield
 	  brit/javelin_shield_upgrade
 	  slinger_shield

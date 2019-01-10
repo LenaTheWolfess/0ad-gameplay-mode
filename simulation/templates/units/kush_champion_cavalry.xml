@@ -23,7 +23,7 @@
     <GenericName>Noble Cavalry</GenericName>
     <SpecificName>Htr Ms’ n mh-ib</SpecificName>
     <Icon>units/kush_champion_cavalry.png</Icon>
-	<RequiredTechnology>kush/champion_cav_spear</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">kush/champion_cav_spear</RequiredTechnology>
   </Identity>
   <VisualActor>
     <Actor>units/kushites/cavalry_spearman_c_m.xml</Actor>

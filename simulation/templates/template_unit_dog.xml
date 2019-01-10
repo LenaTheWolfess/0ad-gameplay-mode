@@ -48,6 +48,7 @@
     <stone>0</stone>
     <metal>0</metal>
   </Loot>
+  <Formations disable=""/>
   <Promotion>
     <RequiredXp>100</RequiredXp>
   </Promotion>

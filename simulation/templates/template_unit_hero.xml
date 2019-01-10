@@ -18,6 +18,7 @@
     units/heroes/hero_garrison
   </Auras>
   <Cost>
+    <BatchSize>14</BatchSize>
     <Population>2</Population>
     <BuildTime>40</BuildTime>
     <Resources>
@@ -31,8 +32,9 @@
   <Identity>
     <GenericName>Hero</GenericName>
     <Classes datatype="tokens">Organic Human</Classes>
-    <VisibleClasses datatype="tokens">Hero Soldier</VisibleClasses>
-    <RequiredTechnology>phase_city</RequiredTechnology>
+    <VisibleClasses datatype="tokens">Hero Soldier Commander</VisibleClasses>
+    <RequiredTechnology datatype="tokens">phase_city</RequiredTechnology>
+	<FormationGroup>Commander</FormationGroup>
   </Identity>
   <Loot>
     <xp>400</xp>

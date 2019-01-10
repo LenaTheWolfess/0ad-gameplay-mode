@@ -18,6 +18,7 @@
     <GenericName>Support</GenericName>
     <Classes datatype="tokens">Human Organic</Classes>
     <VisibleClasses datatype="tokens">Support</VisibleClasses>
+	<Formations disable=""/>
   </Identity>
   <Loot>
     <xp>10</xp>
@@ -37,4 +38,7 @@
   <UnitAI>
     <DefaultStance>passive</DefaultStance>
   </UnitAI>
+  <Vision>
+    <Range>32</Range>
+  </Vision>
 </Entity>

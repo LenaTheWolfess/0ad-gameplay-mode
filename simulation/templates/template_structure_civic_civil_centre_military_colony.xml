@@ -32,7 +32,7 @@
     <SpecificName>Klēroukhía</SpecificName>
     <Classes datatype="tokens">Colony</Classes>
     <Icon>structures/military_settlement.png</Icon>
-    <RequiredTechnology>phase_town</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
   </Identity>
   <Obstruction>
     <Static width="23.0" depth="23.0"/>

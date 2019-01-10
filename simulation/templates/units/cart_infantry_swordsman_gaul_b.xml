@@ -14,6 +14,7 @@
     <SelectionGroupName>units/cart_infantry_swordsman_gaul_b</SelectionGroupName>
     <SpecificName>Seḫīr Ḥerev</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
+	<RequiredTechnology datatype="tokens">swords</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/cart_infantry_swordsman_gaul_a</Entity>

@@ -20,6 +20,7 @@
     <GenericName>Maharbal</GenericName>
     <SpecificName>Maharbaʿal</SpecificName>
     <Icon>units/cart_hero_maharbal.png</Icon>
+	<FormationCompany>cart_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/carthaginians/hero_cavalry_spearman_maharbal_m.xml</Actor>

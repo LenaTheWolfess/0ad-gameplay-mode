@@ -17,6 +17,7 @@
   <Identity>
     <VisibleClasses datatype="tokens">Club</VisibleClasses>
     <GenericName>Clubman</GenericName>
+	<FormationGroup>InfantryClub</FormationGroup>
   </Identity>
   <Loot>
     <metal>5</metal>

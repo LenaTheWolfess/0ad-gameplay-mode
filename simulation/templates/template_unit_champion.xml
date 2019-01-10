@@ -9,13 +9,13 @@
     </Capture>
   </Attack>
   <Cost>
+    <BatchSize>15</BatchSize>
     <BuildTime>10</BuildTime>
   </Cost>
   <Identity>
     <GenericName>Champion Unit</GenericName>
     <Classes datatype="tokens">Organic Human</Classes>
     <VisibleClasses datatype="tokens">Champion Soldier</VisibleClasses>
-    <RequiredTechnology>phase_city</RequiredTechnology>
   </Identity>
   <Loot>
     <xp>150</xp>
@@ -30,4 +30,7 @@
       <attack_ranged>attack/weapon/arrowfly.xml</attack_ranged>
     </SoundGroups>
   </Sound>
+  <Vision>
+    <Range>32</Range>
+  </Vision>
 </Entity>

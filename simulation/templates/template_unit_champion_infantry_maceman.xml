@@ -24,6 +24,5 @@
     <Formations datatype="tokens">
       special/formations/testudo
     </Formations>
-    <RequiredTechnology>champion_infantry_mace</RequiredTechnology>
   </Identity>
 </Entity>

@@ -17,6 +17,7 @@
   <Identity>
     <GenericName>Mechanical</GenericName>
     <VisibleClasses datatype="tokens">Mechanical</VisibleClasses>
+    <Formations disable=""/>
   </Identity>
   <Loot>
     <xp>60</xp>

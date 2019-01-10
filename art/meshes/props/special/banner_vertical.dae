@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.73.0 commit date:2015-01-20, commit time:18:16, hash:bbf09d9</authoring_tool>
+    </contributor>
+    <created>2019-01-03T19:33:49</created>
+    <modified>2019-01-03T19:33:49</modified>
+    <unit name="centimeter" meter="0.01"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Material-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.64 0.64 0.64 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Material-material" name="Material">
+      <instance_effect url="#Material-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="weap_spear_long_a-Geometry-mesh" name="weap_spear_long_a-Geometry">
+      <mesh>
+        <source id="weap_spear_long_a-Geometry-mesh-positions">
+          <float_array id="weap_spear_long_a-Geometry-mesh-positions-array" count="66">0 -0.04939395 -1.490886 0 0 -1.776874 0.04939395 0 -1.490886 0.04939395 0 -1.490886 0 0.04939395 -1.490886 0 0.04861599 5.242951 0.04861599 0 5.242951 -0.04939395 0 -1.490886 -0.04861599 0 5.242953 0 -0.04939395 -1.490886 0 -0.04861599 5.242951 0 0.04939395 -1.490886 -0.04939395 0 -1.490886 -0.01901769 -0.009258151 3.963323 1.765042 -0.009258151 5.199852 -0.01901769 -0.009258151 5.199852 1.764905 -0.005945146 3.963323 -0.01915371 -0.005944132 3.963323 -0.01915371 -0.005944132 5.199852 1.764905 -0.005945146 5.199852 0 0 5.43083 1.765042 -0.009258151 3.963517</float_array>
+          <technique_common>
+            <accessor source="#weap_spear_long_a-Geometry-mesh-positions-array" count="22" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="weap_spear_long_a-Geometry-mesh-normals">
+          <float_array id="weap_spear_long_a-Geometry-mesh-normals-array" count="54">0 -0.9853816 -0.1701712 0 0 -1 0.9853816 0 -0.1701712 1 0 9.15555e-5 0 1 9.15555e-5 0 0.9927976 0.1197241 0.9927976 0 0.1197241 -1 0 9.15555e-5 -0.9927976 0 0.1197241 0 -1 9.15555e-5 0 -0.9927976 0.1197241 0 0.9853816 -0.1701712 -0.9853816 0 -0.1701712 0 -1 0 5.5961e-7 1 0 5.5961e-7 1 0 0 0 1 0 -1 0</float_array>
+          <technique_common>
+            <accessor source="#weap_spear_long_a-Geometry-mesh-normals-array" count="18" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="weap_spear_long_a-Geometry-mesh-map-0">
+          <float_array id="weap_spear_long_a-Geometry-mesh-map-0-array" count="120">0.9785942 0.001469314 1 0.050727 0.9571884 0.002938687 0.9765625 1 0.9609375 1 0.9609375 0.03125 0.9609375 0.03125 0.9765625 0.03125 0.9765625 1 0.9609375 1 0.9375 1 0.9375 0.03125 0.9375 0.03125 0.9609375 0.03125 0.9609375 1 0.9375 1 0.9140625 1 0.9140625 0.03125 0.9140625 0.03125 0.9375 0.03125 0.9375 1 0.9140625 1 0.890625 1 0.890625 0.03125 0.890625 0.03125 0.9140625 0.03125 0.9140625 1 0.9785942 0.05219638 1 0.050727 1 0.1014541 0.9785942 0.001469314 1 0 1 0.050727 1 0.1014541 0.9571884 0.05366575 0.9785942 0.05219638 0.890625 1 0 1 0 0.109375 0.890625 1 0 1 0 0.109375 0 0.109375 0.890625 0.109375 0.890625 1 0.9765625 0.03125 0.9609375 0.03125 0.9609375 0 0.9140625 0.03125 0.890625 0.03125 0.9140625 0 0.9375 0.03125 0.9140625 0.03125 0.9140625 0 0.9609375 0.03125 0.9375 0.03125 0.9609375 0 0.890625 0.109375 0.890625 1 0 0.109375</float_array>
+          <technique_common>
+            <accessor source="#weap_spear_long_a-Geometry-mesh-map-0-array" count="60" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="weap_spear_long_a-Geometry-mesh-map-1">
+          <float_array id="weap_spear_long_a-Geometry-mesh-map-1-array" count="120">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.890625 1 0 1 0 0.109375 0.890625 0.109375 0 0.109375 0 1 0 1 0.890625 1 0.890625 0.109375 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.109375 0 0</float_array>
+          <technique_common>
+            <accessor source="#weap_spear_long_a-Geometry-mesh-map-1-array" count="60" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="weap_spear_long_a-Geometry-mesh-vertices">
+          <input semantic="POSITION" source="#weap_spear_long_a-Geometry-mesh-positions"/>
+        </vertices>
+        <polylist material="Material-material" count="20">
+          <input semantic="VERTEX" source="#weap_spear_long_a-Geometry-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#weap_spear_long_a-Geometry-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#weap_spear_long_a-Geometry-mesh-map-0" offset="2" set="0"/>
+          <input semantic="TEXCOORD" source="#weap_spear_long_a-Geometry-mesh-map-1" offset="2" set="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 0 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5 5 5 6 6 6 7 3 3 8 4 4 9 7 7 10 8 8 11 8 8 12 5 5 13 4 4 14 7 7 15 9 9 16 10 10 17 10 10 18 8 8 19 7 7 20 9 9 21 3 3 22 6 6 23 6 6 24 10 10 25 9 9 26 11 11 27 2 2 28 1 1 29 0 0 30 12 12 31 1 1 32 1 1 33 12 12 34 11 11 35 14 13 36 15 13 37 13 13 38 16 14 39 17 14 40 18 14 41 18 15 42 19 15 43 16 15 44 6 6 45 5 5 46 20 16 47 10 10 48 6 6 49 20 16 50 8 8 51 10 10 52 20 16 53 5 5 54 8 8 55 20 16 56 21 17 57 14 17 58 13 17 59</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="weap_spear_long_a" name="weap_spear_long_a" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#weap_spear_long_a-Geometry-mesh">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Material-material" target="#Material-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

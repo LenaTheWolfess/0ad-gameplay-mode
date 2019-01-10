@@ -9,6 +9,8 @@
     <GenericName>Philip II of Macedon</GenericName>
     <SpecificName>Phílippos B' ho Makedṓn</SpecificName>
     <Icon>units/hele_hero_philip.png</Icon>
+	<FormationCompany>mace_champion_cavalry</FormationCompany>
+	<BannerCode>cavalry_spearman_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/macedonians/hero_cavalry_spearman_philip_m.xml</Actor>

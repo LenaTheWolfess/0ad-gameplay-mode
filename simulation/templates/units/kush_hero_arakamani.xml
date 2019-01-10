@@ -6,6 +6,9 @@
     <Pierce>12</Pierce>
     <Missle>10</Missle>
   </Armour>
+  <Cost>
+    <BatchSize>5</BatchSize>
+  </Cost>
   <Auras datatype="tokens">
     units/heroes/kush_hero_arakamani_1
     units/heroes/kush_hero_arakamani_2
@@ -16,6 +19,8 @@
     <GenericName>Arakamani</GenericName>
     <SpecificName>‘Irk.‘Imn</SpecificName>
     <Icon>units/kush_hero_arakamani.png</Icon>
+	<FormationCompany>kush_champion_elephant</FormationCompany>
+	<BannerCode>elephant_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/kushites/hero_elephantry_arakamani_m.xml</Actor>

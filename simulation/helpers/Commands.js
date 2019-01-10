@@ -75,7 +75,43 @@ var g_Commands = {
 		let technology = "heroes/"+tmpl.split("hero_")[1];
 
 		cmpTechnologyManager.ResearchTechnology(technology);
-		TriggerHelper.SpawnUnits(spawnPoint, cmd.template, 1, player);
+		let spawned = TriggerHelper.SpawnUnits(spawnPoint, cmd.template, 1, player);
+		if (!spawned || !spawned.length)
+			return;
+		let cmpIdentity = Engine.QueryInterface(spawned[0], IID_Identity);
+		if (!cmpIdentity)
+			return;
+		if (cmpIdentity.HasFormationCompany()) {
+			let civ_code = cmpIdentity.GetCiv();
+			let companyTemplate = cmpIdentity.GetFormationCompany();
+			companyTemplate = "units/"+companyTemplate;
+			let companyCount = 1;
+			let bannerCode = "infantry_pikeman_banner";
+			if (cmpIdentity.HasBannerCode())
+				bannerCode = cmpIdentity.GetBannerCode();
+			let cmpCost = Engine.QueryInterface(spawned[0], IID_Cost);
+			if (cmpCost)
+				companyCount = cmpCost.GetBatchSize();
+			let formationCompanyEnts = TriggerHelper.SpawnUnits(spawnPoint, companyTemplate, companyCount);
+			let formationTemplate = "special/formations/null";
+			let bannerTemplate = "units/"+civ_code+"_"+bannerCode;
+			
+			let formationEnt = Engine.AddEntity(formationTemplate);
+			let cmpFormation = Engine.QueryInterface(formationEnt, IID_Formation);
+			let cmpOwnership = Engine.QueryInterface(formationEnt, IID_Ownership);
+			cmpOwnership.SetOwner(player);
+			cmpFormation.SetMembers(formationCompanyEnts);
+			
+			let banner = TriggerHelper.SpawnUnits(spawnPoint, bannerTemplate, 1, player)[0];
+			
+			cmpFormation.AddBanner(banner, false);
+			cmpFormation.AddCommander(spawned[0]);
+			
+			let cmpVisual = Engine.QueryInterface(formationEnt, IID_Visual);
+			if (cmpVisual) {
+				cmpVisual.SetVariant("animationVariant", civ_code);
+			}
+		}
 	},
 	"debug-print": function(player, cmd, data)
 	{
@@ -597,6 +633,23 @@ var g_Commands = {
 						continue;
 
 				if (!cmpGarrisonHolder.UnloadTemplate(cmd.template, cmd.owner, cmd.all))
+					notifyUnloadFailure(player, garrisonHolder);
+			}
+		}
+	},
+	
+	"unload-ents": function(player, cmd, data)
+	{
+		for (let garrisonHolder of cmd.garrisonHolders)
+		{
+			var cmpGarrisonHolder = Engine.QueryInterface(garrisonHolder, IID_GarrisonHolder);
+			if (cmpGarrisonHolder)
+			{
+				// Only the owner of the garrisonHolder may unload entities from any owners
+				if (player != +cmd.owner)
+						continue;
+
+				if (!cmpGarrisonHolder.UnloadEnts(cmd.ents, cmd.owner))
 					notifyUnloadFailure(player, garrisonHolder);
 			}
 		}
@@ -1503,7 +1556,7 @@ function GetFormationUnitAIs(ents, player)
 			continue;
 
 		let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
-		let nullFormation = cmpUnitAI.GetFormationTemplate() == "special/formations/null";
+		let nullFormation = cmpUnitAI.GetFormationTemplate() == "null";
 		if (nullFormation) {
 			RemoveFromFormation([ent]);
 			nonformedUnitAIs.push(cmpUnitAI);
@@ -1545,48 +1598,45 @@ function GetMergedFormationUnitAIs(ents, player, formationTemplate)
 	}
 
 	// Separate out the units that don't support the chosen formation
-	var formedEnts = [];
-	var nonformedUnitAIs = [];
+	let formedEnts = [];
+	let nonformedUnitAIs = [];
 	for (let ent of ents)
 	{
 		// Skip units with no UnitAI or no position
-		var cmpUnitAI = Engine.QueryInterface(ent, IID_UnitAI);
-		var cmpPosition = Engine.QueryInterface(ent, IID_Position);
+		let cmpUnitAI = Engine.QueryInterface(ent, IID_UnitAI);
+		let cmpPosition = Engine.QueryInterface(ent, IID_Position);
 		if (!cmpUnitAI || !cmpPosition || !cmpPosition.IsInWorld())
 			continue;
 
-		var cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
+		let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
 		// TODO: We only check if the formation is usable by some units
 		// if we move them to it. We should check if we can use formations
 		// for the other cases.
-		var nullFormation = (formationTemplate || cmpUnitAI.GetFormationTemplate()) == "special/formations/null";
+		let nullFormation = (formationTemplate || cmpUnitAI.GetFormationTemplate()) == "null";
 		if (!nullFormation && cmpIdentity && cmpIdentity.CanUseFormation(formationTemplate || "special/formations/null"))
 			formedEnts.push(ent);
 		else
 		{
 			if (nullFormation)
 				RemoveFromFormation([ent]);
-
 			nonformedUnitAIs.push(cmpUnitAI);
 		}
 	}
-
+	
+	// No units support the formation - return all the others
 	if (formedEnts.length == 0)
-	{
-		// No units support the formation - return all the others
 		return nonformedUnitAIs;
-	}
 
 	// Find what formations the formationable selected entities are currently in
-	var formation = ExtractFormations(formedEnts);
+	let formation = ExtractFormations(formedEnts);
 
-	var formationUnitAIs = [];
+	let formationUnitAIs = [];
 	if (formation.ids.length == 1)
 	{
 		// Selected units either belong to this formation or have no formation
 		// Check that all its members are selected
-		var fid = formation.ids[0];
-		var cmpFormation = Engine.QueryInterface(+fid, IID_Formation);
+		let fid = formation.ids[0];
+		let cmpFormation = Engine.QueryInterface(+fid, IID_Formation);
 		if (cmpFormation && cmpFormation.GetMemberCount() == formation.members[fid].length
 			&& cmpFormation.GetMemberCount() == formation.entities.length)
 		{
@@ -1595,75 +1645,6 @@ function GetMergedFormationUnitAIs(ents, player, formationTemplate)
 			formationUnitAIs = [Engine.QueryInterface(+fid, IID_UnitAI)];
 			if (formationTemplate && CanMoveEntsIntoFormation(formation.entities, formationTemplate))
 				cmpFormation.LoadFormation(formationTemplate);
-		}
-	}
-
-	if (!formationUnitAIs.length)
-	{
-		// We need to give the selected units a new formation controller
-
-		// TODO replace the fixed 60 with something sensible, based on vision range f.e.
-		var formationSeparation = 60;
-		var clusters = ClusterEntities(formation.entities, formationSeparation);
-		var formationEnts = [];
-		for (let cluster of clusters)
-		{
-			if (!formationTemplate || !CanMoveEntsIntoFormation(cluster, formationTemplate))
-			{
-				// Use the last formation template if everyone was using it
-				var lastFormationTemplate = undefined;
-				for (let ent of cluster)
-				{
-					var cmpUnitAI = Engine.QueryInterface(ent, IID_UnitAI);
-					if (cmpUnitAI)
-					{
-						var template = cmpUnitAI.GetFormationTemplate();
-						if (lastFormationTemplate === undefined)
-						{
-							lastFormationTemplate = template;
-						}
-						else if (lastFormationTemplate != template)
-						{
-							lastFormationTemplate = undefined;
-							break;
-						}
-					}
-				}
-				if (lastFormationTemplate && CanMoveEntsIntoFormation(cluster, lastFormationTemplate))
-					formationTemplate = lastFormationTemplate;
-				else
-					formationTemplate = "special/formations/null";
-			}
-
-			RemoveFromFormation(cluster);
-
-			if (formationTemplate == "special/formations/null")
-			{
-				for (let ent of cluster)
-					nonformedUnitAIs.push(Engine.QueryInterface(ent, IID_UnitAI));
-
-				continue;
-			}
-
-			// Create the new controller
-			let formationEnt = Engine.AddEntity(formationTemplate);
-			let cmpFormation = Engine.QueryInterface(formationEnt, IID_Formation);
-			formationUnitAIs.push(Engine.QueryInterface(formationEnt, IID_UnitAI));
-			cmpFormation.SetFormationSeparation(formationSeparation);
-			cmpFormation.SetMembers(cluster);
-
-			for (let ent of formationEnts)
-				cmpFormation.RegisterTwinFormation(ent);
-
-			formationEnts.push(formationEnt);
-			let cmpOwnership = Engine.QueryInterface(formationEnt, IID_Ownership);
-			cmpOwnership.SetOwner(player);
-			
-			let cmpVisual = Engine.QueryInterface(formationEnt, IID_Visual);
-			if (cmpVisual) {
-				let civ = QueryPlayerIDInterface(player).GetCiv();
-				cmpVisual.SetVariant("animationVariant", civ);
-			}
 		}
 	}
 
@@ -1756,18 +1737,31 @@ function CanMoveEntsIntoFormation(ents, formationTemplate)
 	// TODO: should check the player's civ is allowed to use this formation
 	// See simulation/components/Player.js GetFormations() for a list of all allowed formations
 
-	var requirements = GetFormationRequirements(formationTemplate);
+	if (formationTemplate === "null")
+		return false;
+	
+	let requirements = GetFormationRequirements(formationTemplate);
 	if (!requirements)
 		return false;
 
-	var count = 0;
+	let count = 0;
+	let formationGroup = null;
 	for (let ent of ents)
 	{
-		var cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
+		let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
 		if (!cmpIdentity || !cmpIdentity.CanUseFormation(formationTemplate))
 			continue;
-
-		++count;
+		if (!formationGroup) {
+			let fg = cmpIdentity.GetFormationGroup();
+			if (fg != "Banner" && fg != "Commander")
+				formationGroup = cmpIdentity.GetFormationGroup();
+			++count;
+		}
+		else {
+			let fg = cmpIdentity.GetFormationGroup();
+			if (!fg || fg === formationGroup || fg === "Banner" || fg === "Commander")
+				++count
+		}
 	}
 
 	return count >= requirements.minCount;

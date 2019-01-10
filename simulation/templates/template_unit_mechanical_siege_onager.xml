@@ -3,6 +3,8 @@
   <Attack>
     <Ranged>
       <Ammo>10</Ammo>
+	  <RefillAmount>5</RefillAmount>
+	  <RefillTime>100000</RefillTime>
       <Hack>0.0</Hack>
       <Pierce>10.0</Pierce>
       <Crush>100.0</Crush>
@@ -49,7 +51,7 @@
   <Identity>
     <GenericName>Siege Catapult</GenericName>
     <VisibleClasses datatype="tokens">Catapult Ranged</VisibleClasses>
-	<RequiredTechnology>catapult</RequiredTechnology>
+	<RequiredTechnology datatype="tokens">catapult</RequiredTechnology>
   </Identity>
   <Loot>
     <xp>300</xp>
@@ -84,7 +86,4 @@
       <Speed op="mul">0.8</Speed>
     </Run>
   </UnitMotion>
-  <Vision>
-    <Range>120</Range>
-  </Vision>
 </Entity>

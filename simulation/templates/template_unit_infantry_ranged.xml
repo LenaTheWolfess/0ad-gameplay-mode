@@ -14,6 +14,8 @@
     </Melee>
     <Ranged>
       <Ammo>50</Ammo>
+	  <RefillAmount>5</RefillAmount>
+	  <RefillTime>100000</RefillTime>
       <Hack>0</Hack>
       <Pierce>0</Pierce>
       <Crush>0</Crush>
@@ -48,5 +50,6 @@
     <Formations datatype="tokens">
       special/formations/skirmish
     </Formations>
+	<FormationGroup>InfantryRanged</FormationGroup>
   </Identity>
 </Entity>

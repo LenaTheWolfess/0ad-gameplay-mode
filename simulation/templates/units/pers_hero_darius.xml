@@ -38,6 +38,7 @@
     <GenericName>Darius The Great</GenericName>
     <SpecificName>Darayavahush I</SpecificName>
     <Icon>units/pers_hero_darius.png</Icon>
+	<FormationCompany>pers_kardakes_skirmisher</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/persians/hero_chariot_archer_darius_m.xml</Actor>

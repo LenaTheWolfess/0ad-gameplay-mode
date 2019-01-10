@@ -11,7 +11,8 @@ var g_TooltipTextFormats = {
 var g_AttackTypes = {
 	"Melee": translate("Melee Attack:"),
 	"Ranged": translate("Ranged Attack:"),
-	"Capture": translate("Capture Attack:")
+	"Capture": translate("Capture Attack:"),
+	"Chop": translate("Chop:")
 };
 
 var g_DamageTypes = new DamageTypes();
@@ -619,14 +620,24 @@ function getEntityCostTooltip(template, entity, buildingsCountToTrainFullBatch, 
 
 	return "";
 }
-
 function getRequiredTechnologyTooltip(technologyEnabled, requiredTechnology, civ)
 {
 	if (technologyEnabled)
 		return "";
-
 	return sprintf(translate("Requires %(technology)s"), {
 		"technology": getEntityNames(GetTechnologyData(requiredTechnology, civ))
+	});
+}
+function getRequiredTechnologiesTooltip(technologyEnabled, requiredTechnologies, civ)
+{
+	if (technologyEnabled)
+		return "";
+	
+	if (!requiredTechnologies.length)
+		return "";
+	let mTechNames = requiredTechnologies.map(tech => {return getEntityNames(GetTechnologyData(tech, civ));});
+	return sprintf(translate("Requires %(technology)s"), {
+		"technology": mTechNames.join(",")
 	});
 }
 

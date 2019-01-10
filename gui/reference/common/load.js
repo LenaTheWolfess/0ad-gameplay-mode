@@ -145,7 +145,7 @@ function loadEntityTemplate(templateName)
 	parsed.name.internal = templateName;
 
 	parsed.history = template.Identity.History;
-
+	
 	parsed.production = loadProductionQueue(template);
 	if (template.Builder)
 		parsed.builder = loadBuildQueue(template);

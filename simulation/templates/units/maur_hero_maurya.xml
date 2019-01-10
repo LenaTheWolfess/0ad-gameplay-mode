@@ -6,11 +6,16 @@
     <Pierce>10</Pierce>
     <Missle>8</Missle>
   </Armour>
+  <Cost>
+    <BatchSize>14</BatchSize>
+  </Cost>
   <Identity>
     <Civ>maur</Civ>
     <GenericName>Chandragupta Maurya</GenericName>
     <SpecificName>Chandragupta Maurya</SpecificName>
     <Icon>units/maur_hero_chandragupta.png</Icon>
+	<FormationCompany>maur_champion_maiden_archer_fire</FormationCompany>
+	<BannerCode>infantry_pikeman_banner</BannerCode>
   </Identity>
   <ProductionQueue>
     <BatchTimeModifier>0.7</BatchTimeModifier>

@@ -20,6 +20,7 @@
     <Civ>iber</Civ>
     <SpecificName>Viriato</SpecificName>
     <Icon>units/iber_hero_viriato.png</Icon>
+	<FormationCompany>iber_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/iberians/hero_infantry_swordsman_viriato.xml</Actor>

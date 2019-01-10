@@ -31,6 +31,5 @@
     <Formations datatype="tokens">
       special/formations/skirmish
     </Formations>
-    <RequiredTechnology>champion_infantry_archer</RequiredTechnology>
   </Identity>
 </Entity>

@@ -7,6 +7,7 @@
     <Civ>iber</Civ>
     <SpecificName>Indibil</SpecificName>
     <Icon>units/iber_hero_indibil.png</Icon>
+	<FormationCompany>iber_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/iberians/hero_infantry_spearman_indibil.xml</Actor>

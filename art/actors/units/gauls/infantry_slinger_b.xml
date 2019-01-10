@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant frequency="1" name="Base">
+      <mesh>skeletal/new/m_pants.dae</mesh>
+      <props>
+        <prop actor="props/units/heads/new/head_celt.xml" attachpoint="head"/>
+        <prop actor="props/units/weapons/sling.xml" attachpoint="weapon_R"/>
+        <prop actor="props/units/weapons/slingrock.xml" attachpoint="projectile"/>
+      </props>
+      <textures>
+        <texture file="skeletal/celt_ijv_b_01.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant file="biped/base_slinger_ready.xml"/>
+  </group>
+  <group>
+    <variant frequency="1" name="Idle"/> 
+    <variant file="biped/attack_ranged_second.xml"/>
+    <variant file="biped/attack_ranged_slinger.xml"/>
+    <variant file="biped/attack_capture.xml"/>
+    <variant file="biped/attack_slaughter.xml"/>
+    <variant file="biped/gather_praise.xml"/>
+    <variant file="biped/death_infantry.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

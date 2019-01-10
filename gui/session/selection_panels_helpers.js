@@ -384,6 +384,20 @@ function unloadTemplate(template, owner)
 	});
 }
 
+function unloadEnts(ents, owner)
+{
+	Engine.PostNetworkCommand({
+		"type": "unload-ents",
+		"ents": ents,
+		"owner": owner,
+		// Filter out all entities that aren't garrisonable.
+		"garrisonHolders": g_Selection.toList().filter(ent => {
+			let state = GetEntityState(ent);
+			return state && !!state.garrisonHolder;
+		})
+	});
+}
+
 function unloadSelection()
 {
 	let parent = 0;

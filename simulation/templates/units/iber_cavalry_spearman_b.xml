@@ -5,6 +5,7 @@
     <SelectionGroupName>units/iber_cavalry_spearman_b</SelectionGroupName>
     <SpecificName>Lantzari</SpecificName>
     <Icon>units/iber_cavalry_spearman.png</Icon>
+	<RequiredTechnology datatype="tokens">horse_spear</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/iber_cavalry_spearman_a</Entity>

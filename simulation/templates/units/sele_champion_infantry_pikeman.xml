@@ -18,7 +18,7 @@
     <GenericName>Silver Shield Pikeman</GenericName>
     <SpecificName>Phalangitès Argyraspis</SpecificName>
     <Icon>units/sele_champion_pikeman.png</Icon>
-    <RequiredTechnology>sele/champion_pike</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">sele/champion_pike</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">2</BuildTime>

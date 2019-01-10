@@ -18,7 +18,7 @@
     <SpecificName>Solduros</SpecificName>
     <SelectionGroupName>units/gaul_champion_infantry</SelectionGroupName>
     <Icon>units/gaul_champion_infantry.png</Icon>
-    <RequiredTechnology>gaul/champion_sword</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">gaul/champion_sword</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">0.5</BuildTime>

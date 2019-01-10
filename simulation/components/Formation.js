@@ -96,9 +96,12 @@ Formation.prototype.Init = function()
 	this.centerGap = +(this.template.CenterGap || 0);
 	this.useAvgRot = false;
 
+	this.maxMembersCount = +this.template.MaxMemberCount;
 	var animations = this.template.Animations;
 	this.animations = {};
 	this.speed = 0;
+	this.running = false;
+	this.charging = false;
 	for (let animationName in animations)
 	{
 		let differentAnimations = animations[animationName].split(/\s*;\s*/);
@@ -127,6 +130,9 @@ Formation.prototype.Init = function()
 	this.memberPositions = [];
 	this.maxRowsUsed = 0;
 	this.maxColumnsUsed = [];
+	this.commander = INVALID_ENTITY;
+	this.banner = INVALID_ENTITY;
+	this.siege = INVALID_ENTITY;
 	this.inPosition = []; // entities that have reached their final position
 	this.columnar = false; // whether we're travelling in column (vs box) formation
 	this.rearrange = true; // whether we should rearrange all formation members
@@ -221,9 +227,16 @@ Formation.prototype.GetMemberCount = function()
 	return this.members.length;
 };
 
+Formation.prototype.SetMaxMembers = function(max)
+{
+	if (max < +this.template.RequiredMemberCount || max > +this.template.MaxMemberCount)
+		return;
+	this.maxMembersCount = max;
+}
+
 Formation.prototype.GetMaxMembers = function()
 {
-	return +this.template.MaxMemberCount;
+	return this.maxMembersCount;
 }
 
 Formation.prototype.GetMembers = function()
@@ -402,8 +415,14 @@ Formation.prototype.step = function(dirSin, dirCos)
 	this.inPosition = [];
 }
 */
+Formation.prototype.IsFreeFormation = function()
+{
+	return this.template.FormationName === "Free";
+}
 Formation.prototype.CanLeavePosition = function(entity)
 {
+	if (this.template.FormationName === "Free")
+		return true;
 	if (!entity)
 		return false;
 	if (!this.memberPositions)
@@ -511,17 +530,115 @@ Formation.prototype.InheritMembers = function(memberPositions)
 {
 	this.memberPositions = memberPositions;
 }
+Formation.prototype.AddBanner = function(banner, reform = true) {
+	this.offsets = undefined;
+	this.inPosition = [];
+	this.banner = banner;
+	
+	this.members.push(banner);
+	
+	for (let ent of this.formationMembersWithAura) {
+		let cmpAuras = Engine.QueryInterface(ent, IID_Auras);
+		cmpAuras.ApplyFormationBonus([banner]);
+	}
+	
+	let cmpUnitAI = Engine.QueryInterface(banner, IID_UnitAI);
+	cmpUnitAI.SetFormationController(this.entity);
+
+	let cmpAuras = Engine.QueryInterface(banner, IID_Auras);
+	if (cmpAuras && cmpAuras.HasFormationAura()) {
+		this.formationMembersWithAura.push(banner);
+		cmpAuras.ApplyFormationBonus(this.members);
+	}
+	
+	let cmpAura = Engine.QueryInterface(this.entity, IID_Auras);
+	if(cmpAura && cmpAura.HasFormationAura()) {
+		cmpAura.ApplyFormationBonus([banner]);
+	}
+	if (!reform)
+		return;
+	this.useAvgRot = true;
+	this.MoveMembersIntoFormation(true, true);
+}
+Formation.prototype.AddSiege = function(siege, reform = true) {
+	this.offsets = undefined;
+	this.inPosition = [];
+	this.siege = siege;
+//	warn("added siege");
+	this.members.push(siege);
+	
+	for (let ent of this.formationMembersWithAura) {
+		let cmpAuras = Engine.QueryInterface(ent, IID_Auras);
+		cmpAuras.ApplyFormationBonus([siege]);
+	}
+	
+	let cmpUnitAI = Engine.QueryInterface(siege, IID_UnitAI);
+	cmpUnitAI.SetFormationController(this.entity);
+
+	let cmpAuras = Engine.QueryInterface(siege, IID_Auras);
+	if (cmpAuras && cmpAuras.HasFormationAura()) {
+		this.formationMembersWithAura.push(siege);
+		cmpAuras.ApplyFormationBonus(this.members);
+	}
+	
+	let cmpAura = Engine.QueryInterface(this.entity, IID_Auras);
+	if(cmpAura && cmpAura.HasFormationAura()) {
+		cmpAura.ApplyFormationBonus([siege]);
+	}
+	if (!reform)
+		return true;
+	this.useAvgRot = true;
+	this.MoveMembersIntoFormation(true, true);
+	return true;
+}
+Formation.prototype.AddCommander = function(commander, reform = true) {
+	this.offsets = undefined;
+	this.inPosition = [];
+	this.commander = commander;
+	
+	this.members.push(commander);
+	
+	for (let ent of this.formationMembersWithAura) {
+		let cmpAuras = Engine.QueryInterface(ent, IID_Auras);
+		cmpAuras.ApplyFormationBonus([commander]);
+	}
+	
+	let cmpUnitAI = Engine.QueryInterface(commander, IID_UnitAI);
+	cmpUnitAI.SetFormationController(this.entity);
+
+	let cmpAuras = Engine.QueryInterface(commander, IID_Auras);
+	if (cmpAuras && cmpAuras.HasFormationAura()) {
+		this.formationMembersWithAura.push(commander);
+		cmpAuras.ApplyFormationBonus(this.members);
+	}
+	
+	let cmpAura = Engine.QueryInterface(this.entity, IID_Auras);
+	if(cmpAura && cmpAura.HasFormationAura()) {
+		cmpAura.ApplyFormationBonus([commander]);
+	}
+	if (!reform)
+		return;
+	this.useAvgRot = true;
+	this.MoveMembersIntoFormation(true, true);
+}
 /**
  * Initialise the members of this formation.
  * Must only be called once.
  * All members must implement UnitAI.
  */
-Formation.prototype.SetMembers = function(ents)
+Formation.prototype.SetMembers = function(ents, withBanner = false, withCommander = false, withSiege = false)
 {
-	if (ents.length > this.template.MaxMemberCount) {
+	let extraPlace = 0;
+	if (withBanner)
+		extraPlace++;
+	if (withCommander)
+		extraPlace++;
+	if (withSiege)
+		extraPlace++;
+	if (ents.length > this.maxMembersCount + extraPlace) {
 		for (let ent of ents) {
 			this.members.push(ent);
-			if (this.members.length == this.template.MaxMemberCount)
+			if (this.members.length == this.maxMembersCount)
 				break;
 		}
 	}
@@ -530,12 +647,20 @@ Formation.prototype.SetMembers = function(ents)
 
 	for (let ent of this.members)
 	{
+		let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
+		if (cmpIdentity) {
+			if (cmpIdentity.HasClass("Banner"))
+				this.banner = ent;
+			if (cmpIdentity.HasClass("Commander"))
+				this.commander = ent;
+			if (cmpIdentity.HasClass("Siege"))
+				this.siege = ent;
+		}
 		let cmpUnitAI = Engine.QueryInterface(ent, IID_UnitAI);
 		cmpUnitAI.SetFormationController(this.entity);
 
 		let cmpAuras = Engine.QueryInterface(ent, IID_Auras);
-		if (cmpAuras && cmpAuras.HasFormationAura())
-		{
+		if (cmpAuras && cmpAuras.HasFormationAura()) {
 			this.formationMembersWithAura.push(ent);
 			cmpAuras.ApplyFormationBonus(this.members);
 		}
@@ -566,6 +691,7 @@ Formation.prototype.SetMembers = function(ents)
 	let civ = QueryPlayerIDInterface(player).GetCiv();
 	cmpVisual.SetVariant("animationVariant", civ);
 */
+	return ents.length - this.members.length;
 };
 
 Formation.prototype.Died = function(ents)
@@ -590,10 +716,18 @@ Formation.prototype.RemoveMembers = function(ents)
 		cmpUnitAI.UpdateWorkOrders();
 		cmpUnitAI.SetFormationController(INVALID_ENTITY);
 		let cmpHealth = Engine.QueryInterface(ent, IID_Health);
-		if (!cmpHealth)
+		if (!cmpHealth || cmpHealth.GetHitpoints() <= 0) {
 			died.push(ent);
-		else if (cmpHealth.GetHitpoints() <= 0)
-			died.push(ent);
+			let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
+			if (cmpIdentity) {
+				if (cmpIdentity.HasClass("Banner"))
+					this.banner = INVALID_ENTITY;
+				if (cmpIdentity.HasClass("Commander"))
+					this.commander = INVALID_ENTITY;
+				if (cmpIdentity.HasClass("Siege"))
+					this.siege = INVALID_ENTITY;
+			}
+		}
 	}
 
 	for (let ent of this.formationMembersWithAura)
@@ -613,7 +747,8 @@ Formation.prototype.RemoveMembers = function(ents)
 
 	this.formationMembersWithAura = this.formationMembersWithAura.filter(function(e) { return ents.indexOf(e) == -1; });
 
-	if (this.members.length < this.template.RequiredMemberCount)
+//	if (this.members.length < this.template.RequiredMemberCount)
+	if (!this.members.length)
 	{
 		this.Disband();
 		return;
@@ -625,6 +760,8 @@ Formation.prototype.RemoveMembers = function(ents)
 
 	if (!this.rearrange) {
 		this.Died(died);
+		// Locate this formation controller in the middle of its members
+		//this.MoveToMembersCenter();
 		return;
 	}
 
@@ -639,15 +776,15 @@ Formation.prototype.AddMembers = function(ents)
 	this.offsets = undefined;
 	this.inPosition = [];
 
-	if (this.members.length == this.template.MaxMemberCount)
+	if (this.members.length == this.maxMembersCount)
 		return;
 
 	let newMembers = [];
-	if (this.members.length + ents.length > this.template.MaxMemberCount) {
+	if (this.members.length + ents.length > this.maxMembersCount) {
 		for (let ent of ents) {
 			this.members.push(ent);
 			newMembers.push(ent);
-			if (this.members.length == this.template.MaxMemberCount)
+			if (this.members.length == this.maxMembersCount)
 				break;
 		}
 	} else {
@@ -732,6 +869,8 @@ Formation.prototype.Disband = function()
 	this.members = [];
 	this.inPosition = [];
 	this.formationMembersWithAura = [];
+	this.commander = INVALID_ENTITY;
+	this.banner = INVALID_ENTITY;
 	this.offsets = undefined;
 
 	Engine.DestroyEntity(this.entity);
@@ -746,6 +885,7 @@ Formation.prototype.Disband = function()
  */
 Formation.prototype.MoveMembersIntoFormation = function(moveCenter, force)
 {
+	moveCenter = false;
 	if (!this.members.length)
 		return;
 
@@ -830,9 +970,10 @@ Formation.prototype.MoveMembersIntoFormation = function(moveCenter, force)
 		{
 			"target": this.entity,
 			"x": offset.x,
-			"z": offset.y
+			"z": offset.y,
+			"running": this.running
 		};
-		cmpUnitAI.AddOrder("FormationWalk", data, !force);
+		cmpUnitAI.AddOrder("FormationWalk", data, force);
 		this.memberPositions[offset.ent].offset = i;
 		this.memberPositions[offset.ent].x = offset.x;
 		this.memberPositions[offset.ent].y = offset.y;
@@ -1307,14 +1448,16 @@ Formation.prototype.WalkSpeed = function()
 {
 	let cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
 	cmpUnitMotion.SetSpeed(this.minSpeed);
-	this.speed =this.minSpeed;
+	this.speed = this.minSpeed;
+	this.running = false;
+	this.charging = false;
 }
 
 Formation.prototype.MemberCannotRun = function(entity)
 {
 	let cmpUnitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
 	this.WalkSpeed();
-
+	this.running = false;
 	if (!cmpUnitAI)
 		return;
 
@@ -1325,7 +1468,8 @@ Formation.prototype.MemberCannotCharge = function(entity)
 {
 	let cmpUnitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
 	this.WalkSpeed();
-
+	this.running = false;
+	this.charging = false;
 	if (!cmpUnitAI)
 		return;
 
@@ -1335,6 +1479,12 @@ Formation.prototype.MemberCannotCharge = function(entity)
 Formation.prototype.GetSpeed = function()
 {
 	return this.speed;
+}
+
+Formation.prototype.Charge = function()
+{
+	this.Run();
+	this.charging = true;
 }
 
 Formation.prototype.Run = function()
@@ -1354,6 +1504,7 @@ Formation.prototype.Run = function()
 	maxSpeed *= this.GetSpeedMultiplier();
 
 	this.speed = maxSpeed;
+	this.running = true;
 
 	let cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
 	cmpUnitMotion.SetSpeed(maxSpeed);
@@ -1470,11 +1621,13 @@ Formation.prototype.DeleteTwinFormations = function()
 
 Formation.prototype.LoadFormation = function(newTemplate)
 {
+//	warn("loadFormation");
 	// get the old formation info
 	let members = this.members.slice();
 	let cmpThisUnitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
 	let orders = cmpThisUnitAI.GetOrders().slice();
 	let offsets = undefined;
+	let maxMem = this.GetMaxMembers();
 	if (this.offsets)
 		offsets = this.offsets.slice()
 	let memberPositions = undefined;
@@ -1514,8 +1667,8 @@ Formation.prototype.LoadFormation = function(newTemplate)
 		cmpFormation.InheritOffsets(offsets);
 		cmpFormation.InheritMembers(memberPositions);
 	}
-
-	cmpFormation.SetMembers(members);
+	cmpFormation.SetMaxMembers(maxMem);
+	cmpFormation.SetMembers(members, true, true, true);
 	if (orders.length)
 		cmpNewUnitAI.AddOrders(orders);
 	else

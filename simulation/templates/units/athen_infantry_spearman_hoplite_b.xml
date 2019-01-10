@@ -20,7 +20,7 @@
     <SelectionGroupName>units/athen_infantry_spearman_hoplite_b</SelectionGroupName>
     <GenericName>Athenian Hoplite</GenericName>
     <SpecificName>Hoplítēs Athēnaîos</SpecificName>
-    <RequiredTechnology>athen_hoplite</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">athen_hoplite</RequiredTechnology>
     <Icon>units/athen_infantry_spearman.png</Icon>
   </Identity>
   <Promotion>

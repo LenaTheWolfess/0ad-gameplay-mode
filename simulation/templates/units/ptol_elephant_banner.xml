@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_elephant_banner">
+  <Identity>
+    <Civ>ptol</Civ>
+	<Rank>Advanced</Rank>
+    <SelectionGroupName>units/ptol_elephant_banner_a</SelectionGroupName>
+    <Icon>units/athen_infantry_spearman.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/ptolemies/elephant_banner_m.xml</Actor>
+  </VisualActor>
+</Entity>

@@ -21,6 +21,7 @@
     <Lang>greek</Lang>
     <GenericName>Themistocles</GenericName>
     <SpecificName>Themistoklês</SpecificName>
+	<FormationCompany>athen_champion_marine</FormationCompany>
     <Icon>units/athen_hero_themistocles.png</Icon>
   </Identity>
   <VisualActor>

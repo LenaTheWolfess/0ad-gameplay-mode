@@ -20,8 +20,8 @@
   </group>
   <group>
     <variant file="biped/pikeman_base.xml"/> 
- <variant file="biped/build.xml"/> 
- <variant file="biped/build_farm.xml"/>
+    <variant file="biped/build.xml"/> 
+    <variant file="biped/build_farm.xml"/>
   </group>
   <group>
     <variant name="ready" file="biped/ready_stance/base_pikeman.xml"/>

@@ -8,19 +8,17 @@
 	<Icon>formations/line_open.png</Icon>
 </Identity>
   <Formation>
-    <RequiredMemberCount>8</RequiredMemberCount>
-    <DisabledTooltip>at least 8 units required</DisabledTooltip>
     <Icon>formations/line_open.png</Icon>
     <FormationName>Open Order</FormationName>
     <SortingClasses>Cavalry Archer Javelin Ranged Pike Spear Hoplite Sword Melee</SortingClasses>
     <SortingOrder>fillFromTheBack</SortingOrder>
     <MinColumns>3</MinColumns>
-    <UnitSeparationWidthMultiplier>1.0</UnitSeparationWidthMultiplier>
-    <UnitSeparationDepthMultiplier>1.0</UnitSeparationDepthMultiplier>
+    <UnitSeparationWidthMultiplier>2.0</UnitSeparationWidthMultiplier>
+    <UnitSeparationDepthMultiplier>2.0</UnitSeparationDepthMultiplier>
     <WidthDepthRatio>4</WidthDepthRatio>
     <Sloppyness>0.0</Sloppyness>
   </Formation>
   <FormationAttack>
-    <CanAttackAsFormation>false</CanAttackAsFormation>
+    <CanAttackAsFormation>true</CanAttackAsFormation>
  </FormationAttack>
 </Entity>

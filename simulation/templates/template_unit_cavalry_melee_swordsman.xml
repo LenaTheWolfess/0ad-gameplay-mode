@@ -16,7 +16,6 @@
   <Identity>
     <VisibleClasses datatype="tokens">Sword</VisibleClasses>
     <GenericName>Cavalry Swordsman</GenericName>
-	<RequiredTechnology>sword_riders</RequiredTechnology>
   </Identity>
   <Loot>
     <wood>0</wood>

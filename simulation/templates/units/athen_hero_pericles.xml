@@ -21,6 +21,7 @@
     <Lang>greek</Lang>
     <GenericName>Pericles</GenericName>
     <SpecificName>Periklēs</SpecificName>
+	<FormationCompany>athen_champion_infantry</FormationCompany>
     <Icon>units/athen_hero_pericles.png</Icon>
   </Identity>
   <VisualActor>

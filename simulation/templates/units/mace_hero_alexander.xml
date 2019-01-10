@@ -27,6 +27,8 @@
     <SpecificName>Mégās Aléxandros</SpecificName>
     <Tooltip>"Herocide" Bonus: +20% attack bonus vs. enemy Heroes.</Tooltip>
     <Icon>units/hele_hero_alexander.png</Icon>
+	<FormationCompany>mace_champion_cavalry</FormationCompany>
+	<BannerCode>cavalry_spearman_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/macedonians/hero_cavalry_swordsman_alexander_m.xml</Actor>

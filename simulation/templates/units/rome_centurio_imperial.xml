@@ -18,7 +18,7 @@
     <GenericName>Roman Centurion</GenericName>
     <SpecificName>Centurio Legionarius</SpecificName>
     <Icon>units/rome_champion_legion_centurio.png</Icon>
-    <RequiredTechnology>rome/champion_centurio</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">rome/champion_centurio</RequiredTechnology>
     <VisibleClasses datatype="tokens">Centurion</VisibleClasses>
     <SelectionGroupName>units/rome_centurio_imperial</SelectionGroupName>
   </Identity>

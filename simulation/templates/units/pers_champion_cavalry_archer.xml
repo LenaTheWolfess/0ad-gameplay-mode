@@ -11,7 +11,7 @@
     <GenericName>Bactrian Heavy Cavalry Archer</GenericName>
     <SpecificName>Bakhtrish Asabara</SpecificName>
     <Icon>units/pers_champion_cavalry.png</Icon>
-    <RequiredTechnology>pers/champion_cav_archer</RequiredTechnology>
+    <RequiredTechnology datatype="tokens">pers/champion_cav_archer</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">2</BuildTime>

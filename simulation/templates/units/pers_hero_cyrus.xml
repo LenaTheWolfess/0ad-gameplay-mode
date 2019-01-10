@@ -20,6 +20,8 @@
     <GenericName>Cyrus II The Great</GenericName>
     <SpecificName>Kurush II</SpecificName>
     <Icon>units/pers_hero_cyrus.png</Icon>
+	<FormationCompany>pers_champion_cavalry</FormationCompany>
+	<BannerCode>cavalry_spearman_banner</BannerCode>
   </Identity>
   <ProductionQueue>
     <BatchTimeModifier>0.7</BatchTimeModifier>

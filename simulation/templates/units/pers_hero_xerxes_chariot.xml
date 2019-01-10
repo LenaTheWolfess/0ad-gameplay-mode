@@ -19,6 +19,7 @@
     <GenericName>Xerxes I</GenericName>
     <SpecificName>Xsayarsa I</SpecificName>
     <Icon>units/pers_hero_xerxes.png</Icon>
+	<FormationCompany>pers_champion_infantry</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/persians/hero_chariot_archer_xerxes_m.xml</Actor>

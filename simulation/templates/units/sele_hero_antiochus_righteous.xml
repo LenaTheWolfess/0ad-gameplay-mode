@@ -21,6 +21,7 @@
     <GenericName>Antiochus IV "The Righteous"</GenericName>
     <SpecificName>Antiokhos D' Epiphanes</SpecificName>
     <Icon>units/sele_hero_antiochus_the_righteous.png</Icon>
+	<FormationCompany>sele_champion_infantry_swordsman</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/ptolemies/hero_cavalry_swordsman_ptolemy_IV_m.xml</Actor>

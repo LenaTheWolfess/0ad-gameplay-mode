@@ -20,6 +20,7 @@
     <Lang>greek</Lang>
     <GenericName>Brasidas</GenericName>
     <SpecificName>Brasidas</SpecificName>
+	<FormationCompany>spart_champion_infantry_sword</FormationCompany>
     <Icon>units/spart_hero_brasidas.png</Icon>
   </Identity>
   <VisualActor>

@@ -21,6 +21,8 @@
     <SpecificName>Ptolemaios D' Philopator</SpecificName>
     <Classes datatype="tokens">PtolemyIV</Classes>
     <Icon>units/mace_hero_philip.png</Icon>
+	<FormationCompany>ptol_champion_cavalry</FormationCompany>
+	<BannerCode>cavalry_spearman_banner</BannerCode>
   </Identity>
   <VisualActor>
     <Actor>units/ptolemies/hero_cavalry_swordsman_ptolemy_IV_m.xml</Actor>

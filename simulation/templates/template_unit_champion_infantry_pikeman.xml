@@ -4,7 +4,7 @@
     <Melee>
       <Pierce>15</Pierce>
       <MaxRange>7</MaxRange>
-      <PrepareTime>500</PrepareTime>
+      <PrepareTime>375</PrepareTime>
       <RepeatTime>2000</RepeatTime>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Melee>
@@ -24,6 +24,5 @@
       special/formations/syntagma
       special/formations/testudo
     </Formations>
-    <RequiredTechnology>champion_infantry_pike</RequiredTechnology>
   </Identity>
 </Entity>

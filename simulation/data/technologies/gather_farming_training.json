@@ -1,0 +1,13 @@
+{
+	"genericName": "Gather Training",
+	"description": "Training for workers to increase farm gathering speed.",
+	"cost": {"food": 150, "wood": 0, "stone": 0, "metal": 0},
+	"icon": "farming_training.png",
+	"requirements": {"tech": "farming"},
+	"requirementsTooltip": "You need to research farming first.",
+	"researchTime": 40,
+	"tooltip": "Workers +50% farming rate.",
+	"modifications": [{"value": "ResourceGatherer/Rates/food.grain", "multiply": 1.5}],
+	"affects": ["Worker"],
+	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
+}

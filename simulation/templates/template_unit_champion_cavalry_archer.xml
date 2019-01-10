@@ -25,7 +25,6 @@
     <Formations datatype="tokens">
       special/formations/skirmish
     </Formations>
-    <RequiredTechnology>champion_cavalry_archer</RequiredTechnology>
   </Identity>
   <Sound>
     <SoundGroups>

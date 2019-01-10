@@ -6,6 +6,7 @@
     <GenericName>Hyrcanian Cavalry</GenericName>
     <SpecificName>Varkaniya Asabara</SpecificName>
     <Icon>units/pers_cavalry_swordsman.png</Icon>
+	<RequiredTechnology datatype="tokens">horse_axes</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/pers_cavalry_axeman_a</Entity>

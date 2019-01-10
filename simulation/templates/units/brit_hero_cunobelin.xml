@@ -18,6 +18,7 @@
   <Identity>
     <Civ>brit</Civ>
     <SpecificName>Cunobelin</SpecificName>
+	<FormationCompany>brit_champion_infantry</FormationCompany>
     <Icon>units/brit_hero_cunobelin.png</Icon>
   </Identity>
   <VisualActor>

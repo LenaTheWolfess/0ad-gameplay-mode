@@ -21,6 +21,7 @@
     <Lang>greek</Lang>
     <GenericName>Iphicrates</GenericName>
     <SpecificName>Iphikratēs</SpecificName>
+	<FormationCompany>athen_thureophoros</FormationCompany>
     <Icon>units/athen_hero_iphicrates.png</Icon>
   </Identity>
   <VisualActor>
