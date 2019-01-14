@@ -35,7 +35,7 @@
     <Tooltip>Train citizen-soldiers. Research training improvements.</Tooltip>
     <VisibleClasses datatype="tokens">Town Barracks</VisibleClasses>
     <Icon>structures/barracks.png</Icon>
-    <RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
+    <RequiredTechnology>phase_town</RequiredTechnology>
   </Identity>
   <Loot>
     <wood>30</wood>

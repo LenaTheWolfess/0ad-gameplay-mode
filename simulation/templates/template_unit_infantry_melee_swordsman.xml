@@ -4,8 +4,8 @@
     <Melee>
       <Hack>11.0</Hack>
       <Pierce>0</Pierce>
-      <RepeatTime>750</RepeatTime>
       <MissChance>4</MissChance>
+	  <PrepareTime>500</PrepareTime>
       <PreferredClasses datatype="tokens">Siege</PreferredClasses>
     </Melee>
   </Attack>
@@ -17,7 +17,7 @@
   <Identity>
     <VisibleClasses datatype="tokens">Sword</VisibleClasses>
     <GenericName>Swordsman</GenericName>
-    <RequiredTechnology datatype="tokens">swords</RequiredTechnology>
+    <RequiredTechnology>swords</RequiredTechnology>
 	<FormationGroup>InfantrySword</FormationGroup>
   </Identity>
   <Loot>

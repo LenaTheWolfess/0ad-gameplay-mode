@@ -643,7 +643,9 @@ function updateSelectionDetails()
 
 	for (let sel of g_Selection.toList())
 	{
+		//warn(sel + ": sel detail st");
 		let entState = GetEntityState(sel);
+		//warn("sel detail en");
 		if (!entState)
 			continue;
 		entStates.push(entState);
@@ -683,7 +685,9 @@ function updateSelectionDetails()
 	}
 
 	if (hasFormation) {
+		//warn(formation + ": selDetail fState st");
 		fState = GetEntityState(formation);
+		//warn("selDetail fState en");
 		displayFormation(entStates, fState);
 	}
 	// Fill out general info and display it

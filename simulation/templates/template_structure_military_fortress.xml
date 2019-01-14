@@ -74,7 +74,7 @@
     <Classes datatype="tokens">Defensive Fortress GarrisonFortress</Classes>
     <VisibleClasses datatype="tokens">City</VisibleClasses>
     <Icon>structures/fortress.png</Icon>
-    <RequiredTechnology datatype="tokens">phase_city</RequiredTechnology>
+    <RequiredTechnology>phase_city</RequiredTechnology>
   </Identity>
   <Loot>
     <xp>100</xp>

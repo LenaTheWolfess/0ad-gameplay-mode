@@ -33,7 +33,7 @@
     <GenericName>Hero</GenericName>
     <Classes datatype="tokens">Organic Human</Classes>
     <VisibleClasses datatype="tokens">Hero Soldier Commander</VisibleClasses>
-    <RequiredTechnology datatype="tokens">phase_city</RequiredTechnology>
+    <RequiredTechnology>phase_city</RequiredTechnology>
 	<FormationGroup>Commander</FormationGroup>
   </Identity>
   <Loot>
@@ -77,6 +77,6 @@
     <Category>Hero</Category>
   </TrainingRestrictions>
   <Vision>
-    <Range>88</Range>
+    <Range>32</Range>
   </Vision>
 </Entity>

@@ -1,4 +1,5 @@
 {
+	"pair": "gods/gods_farms_vs_war",
 	"genericName": "God of war",
 	"description": "Whorship God of war.",
 	"cost": {"food": 0, "wood": 0, "stone": 0, "metal": 0},

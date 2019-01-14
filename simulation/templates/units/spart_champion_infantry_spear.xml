@@ -44,7 +44,7 @@
     <SpecificName>Spartiátēs</SpecificName>
 	<Classes datatype="tokens">RangedSecond</Classes>
     <Icon>units/spart_champion_infantry_spear.png</Icon>
-    <RequiredTechnology datatype="tokens">spart_champion_hoplite</RequiredTechnology>
+     <RequiredTechnology>spart_champion_hoplite</RequiredTechnology>
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">0.9</WalkSpeed>

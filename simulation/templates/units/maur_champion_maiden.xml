@@ -15,7 +15,7 @@
     <SpecificName>Visha Kanya</SpecificName>
     <SelectionGroupName>units/maur_champion_maiden</SelectionGroupName>
     <Icon>units/maur_champion_maiden.png</Icon>
-    <RequiredTechnology datatype="tokens">maur/champion_sword</RequiredTechnology>
+     <RequiredTechnology>maur/champion_sword</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">0.5</BuildTime>

@@ -24,7 +24,7 @@
     <Classes datatype="tokens">-ConquestCritical</Classes>
     <GenericName>Healer</GenericName>
     <Rank>Basic</Rank>
-    <RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
+    <RequiredTechnology>phase_town</RequiredTechnology>
     <Tooltip>Heal units.</Tooltip>
     <VisibleClasses datatype="tokens">Healer</VisibleClasses>
   </Identity>

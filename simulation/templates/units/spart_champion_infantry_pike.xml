@@ -24,7 +24,7 @@
     <GenericName>Spartan Pikeman</GenericName>
     <SpecificName>Phalangites Spartiatis</SpecificName>
     <Icon>units/spart_champion_infantry_pike.png</Icon>
-    <RequiredTechnology datatype="tokens">spart_champion_pike</RequiredTechnology>
+     <RequiredTechnology>spart_champion_pike</RequiredTechnology>
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">0.9</WalkSpeed>

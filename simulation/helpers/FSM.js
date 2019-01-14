@@ -347,7 +347,7 @@ FSM.prototype.SwitchToNextState = function(obj, nextStateName)
 	}
 
 	// If the next-state is the same as the current state, leave/enter up one level so cleanup gets triggered.
-	if (equalPrefix > 0 && equalPrefix === toState.length)
+	if (obj.fsmReenter && equalPrefix > 0 && equalPrefix === toState.length)
 		--equalPrefix;
 
 	for (var i = fromState.length-1; i >= equalPrefix; --i)
@@ -358,6 +358,7 @@ FSM.prototype.SwitchToNextState = function(obj, nextStateName)
 			obj.fsmStateName = fromState[i];
 			if (leave.apply(obj))
 			{
+	//			warn(obj.fsmStateName);
 				obj.FsmStateNameChanged(obj.fsmStateName);
 				return;
 			}
@@ -372,6 +373,7 @@ FSM.prototype.SwitchToNextState = function(obj, nextStateName)
 			obj.fsmStateName = toState[i];
 			if (enter.apply(obj))
 			{
+		//		warn(obj.fsmStateName);
 				obj.FsmStateNameChanged(obj.fsmStateName);
 				return;
 			}
@@ -379,6 +381,7 @@ FSM.prototype.SwitchToNextState = function(obj, nextStateName)
 	}
 
 	obj.fsmStateName = nextStateName;
+//	warn(obj.fsmStateName);
 	obj.FsmStateNameChanged(obj.fsmStateName);
 };
 

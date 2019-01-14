@@ -80,38 +80,29 @@ m.Template = m.Class({
 		return true;
 	},
 
-	"requiredTechs": function() { 
-		let requiredTechnologies = this.get("Identity/RequiredTechnologies/_string");
-		if (requiredTechnologies && requiredTechnologies._string)
-			return requiredTechnologies.split(/\s+/);
-		if (requiredTechnologies && requiredTechnologies.length && !requiredTechnologies._string) {
-			warn("AI: requiredTechnologies: missing _string");
-		}
-		return [];
-	},
+	"requiredTech": function() { return this.get("Identity/RequiredTechnology"); },
 
 	"available": function(gameState) {
-		let techsRequired = this.requiredTechs();
-		if (!techsRequired.length)
+		let techRequired = this.requiredTech();
+		if (!techRequired)
 			return true;
-		return gameState.areResearched(techsRequired);
+		return gameState.isResearched(techRequired);
 	},
 
 	// specifically
 	"phase": function() {
-		let techsRequired = this.requiredTechs();
-		let id = 0;
-		for (let techRequired of techsRequired) {
-			if (techRequired == "phase_village")
-				id = Math.max(id, 1);
-			else if (techRequired == "phase_town")
-				id = Math.max(id, 2);
-			else if (techRequired == "phase_city")
-				id = Math.max(id, 3);
-			else if (techRequired.startsWith("phase_"))
-				id = Math.max(id, 4);
-		}
-		return id;
+		let techRequired = this.requiredTech();
+		if (!techRequired)
+			return 0;
+		if (techRequired == "phase_village")
+			return 1;
+		if (techRequired == "phase_town")
+			return 2;
+		if (techRequired == "phase_city")
+			return 3;
+		if (techRequired.startsWith("phase_"))
+			return 4;
+		return 0;
 	},
 
 	"batchSize": function(productionQueue) {

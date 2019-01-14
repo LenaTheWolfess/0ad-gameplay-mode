@@ -6,7 +6,7 @@
     <GenericName>Celtic Slinger</GenericName>
     <SpecificName>Iaosae</SpecificName>
     <Icon>units/celt_infantry_slinger.png</Icon>
-	<RequiredTechnology datatype="tokens">slings</RequiredTechnology>
+	 <RequiredTechnology>slings</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/gaul_infantry_slinger_a</Entity>

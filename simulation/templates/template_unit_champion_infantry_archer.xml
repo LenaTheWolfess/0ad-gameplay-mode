@@ -6,12 +6,13 @@
       <Pierce>0</Pierce>
       <Hack>0</Hack>
       <Crush>0</Crush>
-      <MaxRange>76</MaxRange>
+      <MaxRange>32</MaxRange>
       <MinRange>7.0</MinRange>
       <ProjectileSpeed>75.0</ProjectileSpeed>
       <Gravity>9.81</Gravity>
       <PrepareTime>1500</PrepareTime>
-      <RepeatTime>1500</RepeatTime>
+	  <AnimLength>1500</AnimLength>
+      <RepeatTime>2000</RepeatTime>
       <Spread>0.5</Spread>
       <Delay>0</Delay>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>

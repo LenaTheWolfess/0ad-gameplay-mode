@@ -7,7 +7,7 @@
     <GenericName>Perioikoi Cavalryman</GenericName>
     <SpecificName>Pródromos Perioïkós</SpecificName>
     <Icon>units/spart_cavalry_javelinist.png</Icon>
-	<RequiredTechnology datatype="tokens">horse_javelins</RequiredTechnology>
+	 <RequiredTechnology>horse_javelins</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/spart_cavalry_javelinist_a</Entity>

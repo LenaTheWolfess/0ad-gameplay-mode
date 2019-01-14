@@ -3,7 +3,7 @@
   <Identity>
     <SpecificName>Hypaspistḗs Argyraspídi</SpecificName>
     <Icon>units/mace_argyraspidai.png</Icon>
-	<RequiredTechnology datatype="tokens">mace/champion_spear_silver</RequiredTechnology>
+	 <RequiredTechnology>mace/champion_spear_silver</RequiredTechnology>
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">0.9</WalkSpeed>

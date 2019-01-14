@@ -23,14 +23,10 @@
     </variant>
   </group>
   <group>
-    <variant file="biped/attack_ranged_second.xml"/>
-    <variant file="biped/attack_ranged_archer_hip.xml"/>
-    <variant file="biped/attack_capture.xml"/>
-    <variant file="biped/attack_slaughter.xml"/>
-  </group>
-  <group>
+	<variant file="biped/new/bow_aim_a_hip.xml"/>
+	<variant file="biped/new/bow_fire_a_hip.xml"/>
     <variant name="ready" file="biped/ready_stance/base_archer.xml"/>
-    <variant name="relax" file="biped/relax/base_archer.xml">
+    <variant name="relax" file="biped/relax/base_archer.xml" frequency="1">
        <props>
         <prop actor="" attachpoint="weapon_R"/>
       </props>
@@ -40,6 +36,10 @@
         <prop actor="props/units/capes/bow_hip.xml" attachpoint="root"/>
       </props>
     </variant>
+    <variant file="biped/attack_ranged_second.xml"/>
+    <!-- hipp -->
+    <variant file="biped/attack_capture.xml"/>
+    <variant file="biped/attack_slaughter.xml"/>
   </group>
   <material>player_trans.xml</material>
 </actor>

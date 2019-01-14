@@ -30,7 +30,7 @@
   </Health>
   <Identity>
     <GenericName>Elephant Stables</GenericName>
-    <RequiredTechnology datatype="tokens">phase_city</RequiredTechnology>
+    <RequiredTechnology>phase_city</RequiredTechnology>
     <Icon>structures/elephant_stables.png</Icon>
     <Tooltip>Train elephant units.</Tooltip>
     <VisibleClasses datatype="tokens">City ElephantStables</VisibleClasses>

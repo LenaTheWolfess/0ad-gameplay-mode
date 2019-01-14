@@ -14,7 +14,7 @@
     <SelectionGroupName>units/cart_infantry_javelinist_iber_b</SelectionGroupName>
     <SpecificName>Sǝḫīr Kidōn</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
-	<RequiredTechnology datatype="tokens">javelins</RequiredTechnology>
+	 <RequiredTechnology>javelins</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/cart_infantry_javelinist_iber_a</Entity>

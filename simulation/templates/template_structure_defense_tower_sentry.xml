@@ -35,7 +35,7 @@
     <Icon>structures/sentry_tower.png</Icon>
     <Classes datatype="tokens">GarrisonTower</Classes>
     <VisibleClasses datatype="tokens">Town DefenseTower SentryTower</VisibleClasses>
-	<RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
+	<RequiredTechnology>phase_town</RequiredTechnology>
     <Tooltip>Shoots arrows. Garrison to provide extra defence. Needs the murder holes tech to protect its foot. Upgradeable to stone tower.</Tooltip>
   </Identity>
   <Loot>

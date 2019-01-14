@@ -61,7 +61,7 @@
     <GenericName>Heavy Warship</GenericName>
     <Tooltip>Garrison units for transport and to increase firepower.</Tooltip>
     <VisibleClasses datatype="tokens">Ranged Warship</VisibleClasses>
-    <RequiredTechnology datatype="tokens">phase_city</RequiredTechnology>
+    <RequiredTechnology>phase_city</RequiredTechnology>
   </Identity>
   <Loot>
     <xp>150</xp>

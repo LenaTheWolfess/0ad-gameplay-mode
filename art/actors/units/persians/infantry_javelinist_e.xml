@@ -18,6 +18,8 @@
     </variant>
   </group>
   <group>
+    <variant file="biped/new/jav_aim_a.xml"/>
+    <variant file="biped/new/jav_fire_a.xml"/>
     <variant name="ready" file="biped/ready_stance/base_javelin.xml"/>
     <variant name="relax" file="biped/relax/base_javelin.xml" frequency="1">
       <props>

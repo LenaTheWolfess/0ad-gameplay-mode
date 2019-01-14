@@ -40,7 +40,7 @@
   <Identity>
     <VisibleClasses datatype="tokens">Town Embassy</VisibleClasses>
     <GenericName>Embassy</GenericName>
-    <RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
+    <RequiredTechnology>phase_town</RequiredTechnology>
   </Identity>
   <Loot>
     <stone>20</stone>

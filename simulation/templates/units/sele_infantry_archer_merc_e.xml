@@ -12,13 +12,13 @@
       <Hack>1</Hack> 
     </Shield>
   </Armour>
-  <Identity>
   <Cost>
     <BuildTime op="add">1.5</BuildTime>
     <Resources>
       <metal op="add">10</metal>
     </Resources>
   </Cost>
+  <Identity>
     <Rank>Elite</Rank>
   </Identity>
   <Promotion disable=""/>

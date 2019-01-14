@@ -13,7 +13,7 @@
     <GenericName>Bronze Shield Pikeman</GenericName>
     <SpecificName>Chalkaspides</SpecificName>
     <Icon>units/sele_infantry_spearman.png</Icon>
-    <RequiredTechnology datatype="tokens">sele/pikes</RequiredTechnology>
+     <RequiredTechnology>sele/pikes</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">0.5</BuildTime>

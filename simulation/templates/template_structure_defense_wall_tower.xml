@@ -62,7 +62,7 @@
     <Tooltip>Shoots arrows. Garrison to defend a city wall against attackers.</Tooltip>
     <Classes datatype="tokens">-ConquestCritical StoneWall Tower</Classes>
     <Icon>structures/tower.png</Icon>
-    <RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
+    <RequiredTechnology>phase_town</RequiredTechnology>
   </Identity>
   <Loot>
     <wood>0</wood>

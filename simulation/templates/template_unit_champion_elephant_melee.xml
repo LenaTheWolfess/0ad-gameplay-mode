@@ -7,8 +7,8 @@
       <Crush>150.0</Crush>
       <Missle>0</Missle>
       <MaxRange>8.0</MaxRange>
-      <PrepareTime>750</PrepareTime>
-      <RepeatTime>1500</RepeatTime>
+      <PrepareTime>1000</PrepareTime>
+      <RepeatTime>5000</RepeatTime>
       <PreferredClasses datatype="tokens">Structure</PreferredClasses>
     </Melee>
   </Attack>

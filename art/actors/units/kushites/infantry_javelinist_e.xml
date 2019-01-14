@@ -22,16 +22,14 @@
     </variant>
   </group>
   <group>
+    <variant file="biped/new/jav_aim_a.xml"/>
+    <variant file="biped/new/jav_fire_a.xml"/>
     <variant file="biped/attack_ranged_second.xml"/>
     <variant file="biped/attack_ranged_javelinist.xml"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/build.xml"/>
-    <variant file="biped/build_farm.xml"/>
-  </group>
-  <group>
     <variant name="ready" file="biped/ready_stance/base_javelin.xml"/>
-    <variant name="relax" file="biped/relax/base_javelin.xml">
+    <variant name="relax" file="biped/relax/base_javelin.xml" frequency="1">
       <props>
         <prop actor="" attachpoint="weapon_R"/>
       </props>

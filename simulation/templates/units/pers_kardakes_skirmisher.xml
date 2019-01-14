@@ -25,7 +25,7 @@
     <SpecificName>Peltastes Kardakes</SpecificName>
     <Icon>units/pers_kardakes_skirmisher.png</Icon>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
-    <RequiredTechnology datatype="tokens">pers/darius_champion</RequiredTechnology>
+     <RequiredTechnology>pers/darius_champion</RequiredTechnology>
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">0.9</WalkSpeed>

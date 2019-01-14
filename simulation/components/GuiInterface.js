@@ -233,8 +233,11 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 	};
 
 	let cmpMirage = Engine.QueryInterface(ent, IID_Mirage);
-	if (cmpMirage)
+	if (cmpMirage) {
 		ret.mirage = true;
+	//	warn("GuiInterface: " + ent + "  = " + template);
+	//	warn(ent + " mirraged");
+	}
 
 	let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
 	if (cmpIdentity)
@@ -601,19 +604,6 @@ GuiInterface.prototype.IsTechnologyResearched = function(player, data)
 		return false;
 
 	return cmpTechnologyManager.IsTechnologyResearched(data.tech);
-};
-
-GuiInterface.prototype.AreTechnologiesResearched = function(player, data)
-{
-	if (!data.techs)
-		return true;
-
-	let cmpTechnologyManager = QueryPlayerIDInterface(data.player || player, IID_TechnologyManager);
-
-	if (!cmpTechnologyManager)
-		return false;
-
-	return cmpTechnologyManager.AreTechnologiesResearched(data.techs);
 };
 
 // Checks whether the requirements for this technology have been met
@@ -1647,7 +1637,7 @@ GuiInterface.prototype.GetFoundationSnapData = function(player, data)
 	let template = Engine.QueryInterface(SYSTEM_ENTITY, IID_TemplateManager).GetTemplate(data.template);
 	if (!template)
 	{
-		warn("[GetFoundationSnapData] Failed to load template '" + data.template + "'");
+	//	warn("[GetFoundationSnapData] Failed to load template '" + data.template + "'");
 		return false;
 	}
 
@@ -1984,7 +1974,6 @@ let exposedFunctions = {
 	"GetAverageRangeForBuildings": 1,
 	"GetTemplateData": 1,
 	"IsTechnologyResearched": 1,
-	"AreTechnologiesResearched": 1,
 	"CheckTechnologyRequirements": 1,
 	"GetStartedResearch": 1,
 	"GetBattleState": 1,

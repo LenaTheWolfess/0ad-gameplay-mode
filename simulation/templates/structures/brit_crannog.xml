@@ -15,7 +15,7 @@
     <Icon>structures/crannog.png</Icon>
     <Tooltip>Increase population limit and defend waterways.</Tooltip>
     <SpecificName>Crannóc</SpecificName>
-    <RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
+    <RequiredTechnology>phase_town</RequiredTechnology>
   </Identity>
   <Obstruction>
     <Static width="29" depth="29"/>

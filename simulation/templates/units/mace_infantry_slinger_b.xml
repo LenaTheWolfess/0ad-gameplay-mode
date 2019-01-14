@@ -14,7 +14,7 @@
     <SpecificName>Sphendonḗtēs Rhódios</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
     <Icon>units/mace_infantry_slinger.png</Icon>
-	<RequiredTechnology datatype="tokens">slings</RequiredTechnology>
+	 <RequiredTechnology>slings</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/mace_infantry_slinger_a</Entity>

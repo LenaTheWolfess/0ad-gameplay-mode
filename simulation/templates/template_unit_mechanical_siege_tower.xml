@@ -60,7 +60,7 @@
     <GenericName>Siege Tower</GenericName>
     <VisibleClasses datatype="tokens">SiegeTower Ranged</VisibleClasses>
     <Tooltip>Garrison units for transport and to increase firepower.</Tooltip>
-	<RequiredTechnology datatype="tokens">siege_tower</RequiredTechnology>
+	<RequiredTechnology>siege_tower</RequiredTechnology>
   </Identity>
   <Selectable>
     <Overlay>

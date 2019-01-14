@@ -2,13 +2,15 @@
 <Entity parent="template_unit_champion_infantry_ranged">
   <Attack>
     <Ranged>
+      <Ammo>25</Ammo>
       <Missle>20</Missle>
-      <MaxRange>28.0</MaxRange>
+      <MaxRange>22.0</MaxRange>
       <MinRange>7.0</MinRange>
       <ProjectileSpeed>62.5</ProjectileSpeed>
       <Gravity>9.81</Gravity>
       <PrepareTime>1500</PrepareTime>
-      <RepeatTime>1000</RepeatTime>
+	  <AnimLength>1500</AnimLength>
+      <RepeatTime>2500</RepeatTime>
       <Spread>2.0</Spread>
       <Delay>0</Delay>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>

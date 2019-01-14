@@ -9,7 +9,7 @@
       <Crush>0.0</Crush>
       <Missle>0.0</Missle>
       <MaxRange>3.5</MaxRange>
-      <PrepareTime>375</PrepareTime>
+      <PrepareTime>500</PrepareTime>
       <RepeatTime>750</RepeatTime>  
       <MissChance>3</MissChance>
       <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>

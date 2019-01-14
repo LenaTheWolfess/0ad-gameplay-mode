@@ -42,7 +42,7 @@
     <SpecificName>Anusiya</SpecificName>
     <Classes datatype="tokens">Immortal RangedSecond</Classes>
     <Icon>units/pers_champion_infantry.png</Icon>
-    <RequiredTechnology datatype="tokens">pers/cyrus_champion</RequiredTechnology>
+     <RequiredTechnology>pers/cyrus_champion</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">3</BuildTime>

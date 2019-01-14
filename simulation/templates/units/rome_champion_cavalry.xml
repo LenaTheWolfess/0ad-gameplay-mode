@@ -19,7 +19,7 @@
     <GenericName>Consular Bodyguard</GenericName>
     <Icon>units/rome_champion_cavalry.png</Icon>
     <SelectionGroupName>units/rome_champion_cavalry</SelectionGroupName>
-    <RequiredTechnology datatype="tokens">rome/champion_cav_sword</RequiredTechnology>
+     <RequiredTechnology>rome/champion_cav_sword</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">2</BuildTime>

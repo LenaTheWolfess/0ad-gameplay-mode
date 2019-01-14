@@ -8,6 +8,6 @@
 	"icon": "helmet_hero_side.png",
 	"researchTime": 60,
 	"tooltip": "Unlock the ability to train champions.",
-	"requirementsTooltip": "Unlocked in city phace.",
+	"requirementsTooltip": "Unlocked in city phase.",
 	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
 }

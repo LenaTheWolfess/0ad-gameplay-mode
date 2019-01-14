@@ -3,7 +3,7 @@
   <Attack>
     <Ranged>
       <Missle>20</Missle>
-      <MaxRange>36.0</MaxRange>
+      <MaxRange>28.0</MaxRange>
       <PrepareTime>750</PrepareTime>
       <RepeatTime>1250</RepeatTime>
       <Spread>0.5</Spread>

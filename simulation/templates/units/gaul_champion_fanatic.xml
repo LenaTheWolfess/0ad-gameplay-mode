@@ -20,7 +20,7 @@
     <GenericName>Naked Fanatic</GenericName>
     <SpecificName>Gaesata</SpecificName>
     <Icon>units/celt_fanatic.png</Icon>
-    <RequiredTechnology datatype="tokens">gaul/champion_spear</RequiredTechnology>
+     <RequiredTechnology>gaul/champion_spear</RequiredTechnology>
   </Identity>
   <Cost>
     <Resources>

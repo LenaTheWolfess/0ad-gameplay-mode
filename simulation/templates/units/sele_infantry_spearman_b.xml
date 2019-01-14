@@ -13,7 +13,7 @@
     <GenericName>Militia Thureos Spearman</GenericName>
     <SpecificName>Thureophóros Politès</SpecificName>
     <Icon>units/sele_infantry_spearman_2.png</Icon>
-	<RequiredTechnology datatype="tokens">spears</RequiredTechnology>
+	 <RequiredTechnology>spears</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/sele_infantry_spearman_a</Entity>

@@ -2777,7 +2777,7 @@ m.HQ.prototype.update = function(gameState, queues, events)
 		if (this.needCorral && gameState.ai.playedTurn % 4 == 3)
 			this.manageCorral(gameState, queues);
 
-		if (!queues.minorTech.hasQueuedUnits() && gameState.ai.playedTurn % 5 == 1)
+		if (!queues.minorTech.hasQueuedUnits()/* && gameState.ai.playedTurn % 5 == 1*/)
 			this.researchManager.update(gameState, queues);
 	}
 
@@ -2798,8 +2798,10 @@ m.HQ.prototype.update = function(gameState, queues, events)
 
 		if (!this.saveResources)
 		{
-			this.buildBlacksmith(gameState, queues);
-			this.buildTemple(gameState, queues);
+			if (this.currentPhase > 1) {
+				this.buildBlacksmith(gameState, queues);
+				this.buildTemple(gameState, queues);
+			}
 		}
 
 		if (gameState.ai.playedTurn % 30 == 0 &&
@@ -2814,8 +2816,12 @@ m.HQ.prototype.update = function(gameState, queues, events)
 
 	if (gameState.ai.playedTurn % 3 == 0)
 	{
-		if (this.currentPhase > 1)
-			this.constructTrainingBuildings(gameState, queues);
+		if (this.currentPhase > 1) {
+			if (gameState.getOwnEntitiesByClass("Blacksmith", true).hasEntities())
+				this.constructTrainingBuildings(gameState, queues);
+			else if(gameState.ai.HQ.canBuild(gameState,"structures/{civ}_blacksmith"))
+				this.buildBlacksmith(gameState, queues);	
+		}
 		if (this.Config.difficulty > 0)
 			this.buildDefenses(gameState, queues);
 	}

@@ -12,7 +12,7 @@
     <GenericName>Cappadocian Cavalry</GenericName>
     <SpecificName>Katpaduka Asabara</SpecificName>
     <Icon>units/pers_cavalry_spearman.png</Icon>
-    <RequiredTechnology datatype="tokens">pers/horse_spear</RequiredTechnology>
+     <RequiredTechnology>pers/horse_spear</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/pers_cavalry_spearman_a</Entity>

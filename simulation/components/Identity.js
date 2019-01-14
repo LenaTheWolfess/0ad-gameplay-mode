@@ -97,10 +97,7 @@ Identity.prototype.Schema =
 		"</element>" +
 	"</optional>" +
 	"<optional>" +
-		"<element name='RequiredTechnology' a:help='Optional list of a technologies which must be researched before the entity can be produced.'>" +
-			"<attribute name='datatype'>" +
-				"<value>tokens</value>" +
-			"</attribute>" +
+		"<element name='RequiredTechnology' a:help='Optional name of a technology which must be researched before the entity can be produced.'>" +
 			"<text/>" +
 		"</element>" +
 	"</optional>" +
@@ -167,12 +164,6 @@ Identity.prototype.GetFormationsList = function()
 		return this.template.Formations._string.split(/\s+/);
 	return [];
 };
-Identity.prototype.GetRequiredTechnologiesList = function()
-{
-	if (this.template.RequiredTechnology && this.template.RequiredTechnology._string)
-		return this.template.RequiredTechnology._string.split(/\s+/);
-	return [];
-}
 Identity.prototype.CanUseFormation = function(template)
 {
 	return this.GetFormationsList().indexOf(template) != -1;

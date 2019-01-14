@@ -16,7 +16,7 @@
       <Missle>0.0</Missle>
       <MaxRange>6.5</MaxRange>
       <PrepareTime>3000</PrepareTime>
-      <RepeatTime>4000</RepeatTime>
+      <RepeatTime>8000</RepeatTime>
       <RestrictedClasses datatype="tokens">Organic</RestrictedClasses>
       <PreferredClasses datatype="tokens">Gates Structure</PreferredClasses>
     </Melee>
@@ -49,7 +49,7 @@
   <Identity>
     <GenericName>Battering Ram</GenericName>
     <VisibleClasses datatype="tokens">Melee Ram</VisibleClasses>
-	<RequiredTechnology datatype="tokens">siege_ram</RequiredTechnology>
+	<RequiredTechnology>siege_ram</RequiredTechnology>
 	<FormationGroup>Ram</FormationGroup>
   </Identity>
   <Sound>

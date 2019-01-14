@@ -221,10 +221,11 @@ function GetEntityState(entId)
 {
 	if (!g_EntityStates[entId])
 	{
+	//	warn("GuiInterfaceCall(GetEntityState): " + entId);
 		let entityState = Engine.GuiInterfaceCall("GetEntityState", entId);
 		g_EntityStates[entId] = entityState && deepfreeze(entityState);
+		//warn("OK");
 	}
-
 	return g_EntityStates[entId];
 }
 
@@ -527,7 +528,9 @@ function initFormationEntities()
  */
 function getEntityOrHolder(ent)
 {
+	//warn ("EntityOrHolder st");
 	let entState = GetEntityState(ent);
+	//warn ("EntityOrHolder en");
 	if (entState && !entState.position && entState.unitAI && entState.unitAI.orders.length &&
 			entState.unitAI.orders[0].type == "Garrison")
 		return getEntityOrHolder(entState.unitAI.orders[0].data.target);
@@ -717,7 +720,7 @@ function updateTopPanel()
 	{
 		if (!Engine.GetGUIObjectByName("resource[" + r + "]"))
 		{
-			warn("Current GUI limits prevent displaying more than " + r + " resources in the top panel!");
+			//warn("Current GUI limits prevent displaying more than " + r + " resources in the top panel!");
 			break;
 		}
 		Engine.GetGUIObjectByName("resource[" + r + "]_icon").sprite = "stretched:session/icons/resources/" + res + ".png";
@@ -987,7 +990,9 @@ function updateFormationSelection()
 	let used = [];
 	for (let sel in selected)
 	{
+		//warn("update formation selection st")
 		let state = GetEntityState(selected[sel]);
+		//warn("update formation selection end");
 		if (!state.unitAI)
 			continue;
 		let formation = state.unitAI.formationController;
@@ -996,13 +1001,15 @@ function updateFormationSelection()
 		if (used.indexOf(formation) != -1)
 			continue;
 		used.push(formation);
+		//warn("updateFormationSelection fState st");
 		let fState = GetEntityState(formation);
+		//warn("updateFormationSelection fState end");
 		if(!fState){
-			warn("fState does not exist");
+			//warn("fState does not exist");
 			continue;
 		}
 		if(!fState.formation){
-			warn("cmpFormation does not exist");
+			//warn("cmpFormation does not exist");
 			continue;
 		}
 
@@ -1126,7 +1133,9 @@ function updateFormationEntities()
 
 	for (let ent of formationEnts)
 	{
+		 //warn("updateFormationEntities st");
 		let formationEntState = GetEntityState(ent);
+		 //warn("updateFormationEntities en");
 		let template = GetTemplateData(formationEntState.template);
 
 		let formationEnt = g_FormationEntities.find(pEnt => ent == pEnt.ent);
@@ -1156,9 +1165,10 @@ function updateFormationEntities()
 		formationEnt.currentHitpoints = hit;
 		formationEnt.maxHitpoints =  max;
 	}
-
+	//warn("updateFormationEntities formationEntIndex st");
 	let formationEntIndex = ent => g_FormationEntityOrder.findIndex(entClass =>
 		GetEntityState(ent).identity.classes.indexOf(entClass) != -1);
+	//warn("updateFormationEntities formationEntIndex end");
 
 	g_FormationEntities = g_FormationEntities.sort((formationEntA, formationEntB) => formationEntIndex(formationEntA.ent) - formationEntIndex(formationEntB.ent));
 
@@ -1175,7 +1185,9 @@ function updatePanelEntities()
 
 	for (let ent of panelEnts)
 	{
+		//warn("update panel ent st");
 		let panelEntState = GetEntityState(ent);
+		//warn("update panel ent en");
 		let template = GetTemplateData(panelEntState.template);
 
 		let panelEnt = g_PanelEntities.find(pEnt => ent == pEnt.ent);
@@ -1199,8 +1211,10 @@ function updatePanelEntities()
 		panelEnt.maxHitpoints = panelEntState.maxHitpoints;
 	}
 
+	//warn("updatePanelEntities indx st");
 	let panelEntIndex = ent => g_PanelEntityOrder.findIndex(entClass =>
 		GetEntityState(ent).identity.classes.indexOf(entClass) != -1);
+	//warn("updatePanelEntities indx en");
 
 	g_PanelEntities = g_PanelEntities.sort((panelEntA, panelEntB) => panelEntIndex(panelEntA.ent) - panelEntIndex(panelEntB.ent));
 }
@@ -1317,10 +1331,12 @@ function updateGroups()
 
 	// Determine the sum of the costs of a given template
 	let getCostSum = (ent) => {
+		//warn("update groups st");
 		let cost = GetTemplateData(GetEntityState(ent).template).cost;
+		//warn("update groups en");
 		return cost ? Object.keys(cost).map(key => cost[key]).reduce((sum, cur) => sum + cur) : 0;
 	};
-
+	
 	for (let i in Engine.GetGUIObjectByName("unitGroupPanel").children)
 	{
 		Engine.GetGUIObjectByName("unitGroupLabel[" + i + "]").caption = i;
@@ -1367,7 +1383,9 @@ function updateDebug()
 	let selection = g_Selection.toList();
 	if (selection.length)
 	{
+		//warn("update Debug st");
 		let entState = GetEntityState(selection[0]);
+		//warn("update debug en");
 		if (entState)
 		{
 			let template = GetTemplateData(entState.template);
@@ -1465,7 +1483,9 @@ function updatePlayerDisplay()
 
 function moveTo(ent)
 {
+	//warn(ent + " moveTo st");
 	let entState = GetEntityState(ent);
+	//warn("moveTo en");
 	if (!entState || !entState.position)
 		return;
 	let position = entState.position;
@@ -1474,7 +1494,9 @@ function moveTo(ent)
 
 function selectAndMoveTo(ent)
 {
+	//warn(ent + "selAndMoveTo");
 	let entState = GetEntityState(ent);
+	//warn("selAndMoveTo en");
 	if (!entState || !entState.position)
 		return;
 
@@ -1623,7 +1645,9 @@ function updateAdditionalHighlight()
 		// flag the guarding and/or guarded entities to add in this additional highlight
 		for (let sel in g_Selection.selected)
 		{
+			warn(g_Selection.selected[sel] + ": updateAdditionalHighlight st");
 			let state = GetEntityState(g_Selection.selected[sel]);
+			warn("updateAdditionalHighlight en");
 			if(!state)
 				continue;
 			if (g_ShowGuarded){
@@ -1646,7 +1670,9 @@ function updateAdditionalHighlight()
 	let used = [];
 	for (let sel in highlighted)
 	{
+		//warn(highlighted[sel] + ": updateAdditionalHighlight st");
 		let state = GetEntityState(highlighted[sel]);
+		//warn("updateAdditionalHighlight en");
 		if(!state)
 			continue;
 		if (!state.unitAI)
@@ -1657,13 +1683,15 @@ function updateAdditionalHighlight()
 		if (used.indexOf(formation) != -1)
 			continue;
 		used.push(formation);
+		//warn(formation + ": updateAdditionalHighlight fState st");
 		let fState = GetEntityState(formation);
+		//warn("updateAdditionalHighlight fState en");
 		if(!fState){
-			warn("fState does not exist");
+			//warn("fState does not exist");
 			continue;
 		}
 		if(!fState.formation){
-			warn("cmpFormation does not exist");
+			//warn("cmpFormation does not exist");
 			continue;
 		}
 

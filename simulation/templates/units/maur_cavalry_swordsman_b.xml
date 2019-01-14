@@ -6,7 +6,7 @@
     <GenericName>Indian Raiding Cavalry</GenericName>
     <SpecificName>Aśvārohagaṇaḥ</SpecificName>
     <Icon>units/maur_cavalry_swordsman.png</Icon>
-	<RequiredTechnology datatype="tokens">sword_riders</RequiredTechnology>
+	 <RequiredTechnology>sword_riders</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/maur_cavalry_swordsman_a</Entity>

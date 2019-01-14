@@ -13,7 +13,7 @@
     <SpecificName>Hippeús Makedonikós</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
     <Icon>units/ptol_cavalry_spearman.png</Icon>
-	<RequiredTechnology datatype="tokens">horse_spear</RequiredTechnology>
+	 <RequiredTechnology>horse_spear</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/ptol_cavalry_spearman_merc_a</Entity>

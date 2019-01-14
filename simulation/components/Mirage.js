@@ -149,7 +149,7 @@ Mirage.prototype.IsInfinite = function() { return this.isInfinite; };
 Mirage.prototype.GetKillBeforeGather = function() { return this.killBeforeGather; };
 Mirage.prototype.GetMaxGatherers = function() { return this.maxGatherers; };
 Mirage.prototype.GetNumGatherers = function() { return this.numGatherers; };
-Mirage.prototype.IsWorkStation = function() { return this.IsWorkStation; };
+Mirage.prototype.IsWorkStation = function() { return this.isWorkStation; };
 
 // Market data
 

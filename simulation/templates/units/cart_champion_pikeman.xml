@@ -22,7 +22,7 @@
     <GenericName>Sacred Band Pikeman</GenericName>
     <SpecificName>Mašal</SpecificName>
     <Icon>units/cart_champion_infantry.png</Icon>
-	<RequiredTechnology datatype="tokens">cart/champion_pike</RequiredTechnology>
+	 <RequiredTechnology>cart/champion_pike</RequiredTechnology>
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">0.92</WalkSpeed>

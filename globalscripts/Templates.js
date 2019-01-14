@@ -390,10 +390,7 @@ function GetTemplateDataHelper(template, player, auraTemplates, resources, damag
 		};
 		ret.icon = template.Identity.Icon;
 		ret.tooltip = template.Identity.Tooltip;
-		ret.requiredTechnologies = [];
-		if (template.Identity.RequiredTechnology && template.Identity.RequiredTechnology._string) {
-			ret.requiredTechnologies = template.Identity.RequiredTechnology._string.split(/\s+/);
-		} 
+		ret.requiredTechnology = template.Identity.RequiredTechnology;
 		
 		ret.visibleIdentityClasses = GetVisibleIdentityClasses(template.Identity);
 		ret.nativeCiv = template.Identity.Civ;

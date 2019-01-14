@@ -13,7 +13,7 @@
     <SpecificName>Thureophóros Akrobolistḗs</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
     <Icon>units/ptol_infantry_javelinist_merc.png</Icon>
-	<RequiredTechnology datatype="tokens">javelins</RequiredTechnology>
+	<RequiredTechnology>javelins</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/ptol_infantry_javelinist_a</Entity>

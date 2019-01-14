@@ -18,7 +18,7 @@
     <SpecificName>Delamokludda</SpecificName>
     <SelectionGroupName>units/brit_champion_infantry</SelectionGroupName>
     <Icon>units/brit_champion_infantry.png</Icon>
-	<RequiredTechnology datatype="tokens">brit/champion_sword</RequiredTechnology>
+	 <RequiredTechnology>brit/champion_sword</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">0.5</BuildTime>

@@ -5,7 +5,7 @@
     <GenericName>North African War Elephant</GenericName>
     <SpecificName>Pil Malḥamit</SpecificName>
     <Icon>units/cart_champion_elephant.png</Icon>
-	<RequiredTechnology datatype="tokens">cart/champion_cav_javelin</RequiredTechnology>
+	 <RequiredTechnology>cart/champion_cav_javelin</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">1</BuildTime>

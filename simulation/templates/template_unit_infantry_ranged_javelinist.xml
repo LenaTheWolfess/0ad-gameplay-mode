@@ -4,11 +4,12 @@
     <Ranged>
       <Ammo>25</Ammo>
       <Missle>20</Missle>
-      <MaxRange>50.0</MaxRange>
+      <MaxRange>20.0</MaxRange>
       <MinRange>7.0</MinRange>
       <ProjectileSpeed>62.5</ProjectileSpeed>
       <PrepareTime>3000</PrepareTime>
-      <RepeatTime>3000</RepeatTime>
+	  <AnimLength>4000</AnimLength>
+      <RepeatTime>5000</RepeatTime>
       <Spread>4.0</Spread>
       <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>
     </Ranged>
@@ -21,7 +22,7 @@
   <Identity>
     <VisibleClasses datatype="tokens">Javelin</VisibleClasses>
     <GenericName>Skirmisher</GenericName>
-	<RequiredTechnology datatype="tokens">javelins</RequiredTechnology>
+	<RequiredTechnology>javelins</RequiredTechnology>
   </Identity>
   <Loot>
     <wood>5</wood>

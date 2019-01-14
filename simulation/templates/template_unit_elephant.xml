@@ -17,6 +17,15 @@
       <metal>250</metal>
     </Resources>
   </Cost>
+  <DeathDamage>
+    <Shape>Circular</Shape>
+	<Range>5</Range>
+	<FriendlyFire>true</FriendlyFire>
+	<Hack>0</Hack>
+	<Pierce>0</Pierce>
+	<Missle>0</Missle>
+	<Crush>500</Crush>
+  </DeathDamage>
   <Footprint>
     <Circle radius="3.5"/>
     <Height>6.0</Height>

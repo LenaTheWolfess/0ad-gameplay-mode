@@ -7,6 +7,7 @@
     <Missle>0</Missle>
   </Armour>
   <Cost>
+    <BatchSize>15</BatchSize>
     <Population>1</Population>
     <BuildTime op="add">5</BuildTime>
     <Resources>

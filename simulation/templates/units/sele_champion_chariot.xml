@@ -17,7 +17,7 @@
     <GenericName>Scythed Chariot</GenericName>
     <SpecificName>Drepanèphoros</SpecificName>
     <Icon>units/sele_champion_chariot.png</Icon>
-    <RequiredTechnology datatype="tokens">sele/champion_cav_archer</RequiredTechnology>
+     <RequiredTechnology>sele/champion_cav_archer</RequiredTechnology>
 	<BannerCode>chariot_banner</BannerCode>
   </Identity>
   <Cost>

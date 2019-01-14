@@ -25,7 +25,7 @@
     <SpecificName>Rath</SpecificName>
     <SelectionGroupName>units/maur_champion_chariot</SelectionGroupName>
     <Icon>units/maur_champion_chariot.png</Icon>
-    <RequiredTechnology datatype="tokens">maur/champion_cav_archer</RequiredTechnology>
+     <RequiredTechnology>maur/champion_cav_archer</RequiredTechnology>
 	<BannerCode>chariot_banner</BannerCode>
   </Identity>
   <VisualActor>

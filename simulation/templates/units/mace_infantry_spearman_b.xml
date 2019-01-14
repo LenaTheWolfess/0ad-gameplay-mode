@@ -6,7 +6,7 @@
     <SelectionGroupName>units/mace_infantry_spearman_b</SelectionGroupName>
     <GenericName>Spearman</GenericName>
     <Icon>units/mace_infantry_pikeman.png</Icon>
-	<RequiredTechnology datatype="tokens">spears</RequiredTechnology>
+	 <RequiredTechnology>spears</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/mace_infantry_spearman_a</Entity>

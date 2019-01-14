@@ -18,7 +18,7 @@
     <SpecificName>Gallic Brihent</SpecificName>
     <SelectionGroupName>units/gaul_champion_cavalry</SelectionGroupName>
     <Icon>units/gaul_champion_cavalry.png</Icon>
-    <RequiredTechnology datatype="tokens">gaul/champion_cav_spear</RequiredTechnology>
+     <RequiredTechnology>gaul/champion_cav_spear</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">0.5</BuildTime>

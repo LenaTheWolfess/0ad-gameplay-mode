@@ -14,7 +14,7 @@
     <SelectionGroupName>units/cart_infantry_swordsman_ital_b</SelectionGroupName>
     <SpecificName>Seḫīr Romaḥ</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
-	<RequiredTechnology datatype="tokens">swords</RequiredTechnology>
+	 <RequiredTechnology>swords</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/cart_infantry_swordsman_ital_a</Entity>

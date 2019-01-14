@@ -17,19 +17,14 @@
     </variant>
   </group>
   <group>
+	<variant file="biped/new/bow_aim_a.xml"/>
+	<variant file="biped/new/bow_fire_a.xml"/>
     <variant file="biped/attack_ranged_second.xml"/>
-    <variant file="biped/attack_ranged_archer.xml"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/build_farm.xml"/>
-    <variant file="biped/death_infantry.xml"/>
-  </group>
-  <group>
     <variant file="biped/base_archer_ready.xml"/>
-  </group>
-  <group>
     <variant name="ready" file="biped/ready_stance/base_archer.xml"/>
-    <variant name="relax" file="biped/relax/base_archer.xml">
+    <variant name="relax" file="biped/relax/base_archer.xml" frequency="1">
        <props>
         <prop actor="" attachpoint="weapon_R"/>
       </props>

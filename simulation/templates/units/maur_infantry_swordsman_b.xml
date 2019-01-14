@@ -6,7 +6,7 @@
     <GenericName>Indian Swordsman</GenericName>
     <SpecificName>Khadagdhari</SpecificName>
     <Icon>units/maur_infantry_swordsman.png</Icon>
-	<RequiredTechnology datatype="tokens">swords</RequiredTechnology>
+	 <RequiredTechnology>swords</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/maur_infantry_swordsman_a</Entity>

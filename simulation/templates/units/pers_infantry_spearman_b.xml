@@ -6,7 +6,7 @@
     <GenericName>Shield Bearer</GenericName>
     <SpecificName>Sparabara</SpecificName>
     <Icon>units/pers_infantry_spearman.png</Icon>
-	<RequiredTechnology datatype="tokens">spears</RequiredTechnology>
+	 <RequiredTechnology>spears</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/pers_infantry_spearman_a</Entity>

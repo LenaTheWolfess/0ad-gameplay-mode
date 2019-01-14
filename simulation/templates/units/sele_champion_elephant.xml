@@ -6,7 +6,7 @@
     <GenericName>Armored War Elephant</GenericName>
     <SpecificName>Thorakisménos Eléphantos</SpecificName>
     <Icon>units/sele_champion_elephant.png</Icon>
-    <RequiredTechnology datatype="tokens">sele/champion_elephant</RequiredTechnology>
+     <RequiredTechnology>sele/champion_elephant</RequiredTechnology>
   </Identity>
   <VisualActor>
     <Actor>units/seleucids/elephantry_c_m.xml</Actor>

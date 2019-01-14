@@ -31,7 +31,7 @@
     <Icon>structures/temple_epic.png</Icon>
     <Classes datatype="tokens">TempleOfAmun</Classes>
     <VisibleClasses datatype="tokens">City -Town</VisibleClasses>
-    <RequiredTechnology datatype="tokens">phase_city</RequiredTechnology>
+     <RequiredTechnology>phase_city</RequiredTechnology>
   </Identity>
   <Obstruction>
     <Static width="28" depth="56.0"/>

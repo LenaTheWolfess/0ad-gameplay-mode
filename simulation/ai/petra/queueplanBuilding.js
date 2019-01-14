@@ -28,7 +28,7 @@ m.ConstructionPlan.prototype.canStart = function(gameState)
 	if (!this.isGo(gameState))
 		return false;
 
-	if (this.template.requiredTechs() && !gameState.areResearched(this.template.requiredTechs()))
+	if (this.template.requiredTech() && !gameState.isResearched(this.template.requiredTech()))
 		return false;
 
 	return gameState.ai.HQ.buildManager.hasBuilder(this.type);

@@ -13,7 +13,7 @@
     <SpecificName>nhw Bulahau gml</SpecificName>
     <Icon>units/kush_merc_camelry.png</Icon>
     <VisibleClasses datatype="tokens">Camel Mercenary</VisibleClasses>
-	<RequiredTechnology datatype="tokens">horse_javelins</RequiredTechnology>
+	 <RequiredTechnology>horse_javelins</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/kush_cavalry_javelinist_merc_a</Entity>

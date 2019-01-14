@@ -46,7 +46,7 @@
     <VisibleClasses datatype="tokens">-City Shipyard Town</VisibleClasses>
     <Tooltip>Construct and repair mighty warships.</Tooltip>
     <Icon>structures/uber_dock.png</Icon>
-    <RequiredTechnology datatype="tokens">phase_town -phase_city</RequiredTechnology>
+     <RequiredTechnology>phase_town</RequiredTechnology>
   </Identity>
   <Loot>
     <wood>75</wood>

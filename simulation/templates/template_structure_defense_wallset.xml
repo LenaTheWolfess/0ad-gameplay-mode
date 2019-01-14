@@ -9,7 +9,7 @@
     <Classes datatype="tokens">StoneWall</Classes>
     <GenericName>City Wall</GenericName>
     <Tooltip>Wall off your town for a stout defense.</Tooltip>
-    <RequiredTechnology datatype="tokens">phase_city</RequiredTechnology>
+    <RequiredTechnology>phase_city</RequiredTechnology>
     <Undeletable>true</Undeletable>
   </Identity>
   <WallSet>

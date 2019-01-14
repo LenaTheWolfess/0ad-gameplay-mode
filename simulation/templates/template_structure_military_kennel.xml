@@ -43,7 +43,7 @@
     <VisibleClasses datatype="tokens">Town</VisibleClasses>
     <Tooltip>Train war dogs.</Tooltip>
     <Icon>structures/kennel.png</Icon>
-    <RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
+    <RequiredTechnology>phase_town</RequiredTechnology>
   </Identity>
   <Loot>
     <stone>10</stone>

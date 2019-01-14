@@ -6,7 +6,7 @@
     <GenericName>Maiden Guard Archer</GenericName>
     <SpecificName>Visha Kanya</SpecificName>
     <Icon>units/maur_champion_maiden_archer_fire.png</Icon>
-    <RequiredTechnology datatype="tokens">maur/maiden_archer_fire</RequiredTechnology>
+     <RequiredTechnology>maur/maiden_archer_fire</RequiredTechnology>
   </Identity>
   <VisualActor>
     <Actor>units/mauryans/infantry_archer_c_fire.xml</Actor>

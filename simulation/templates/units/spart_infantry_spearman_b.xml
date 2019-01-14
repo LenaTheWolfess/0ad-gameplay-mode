@@ -19,7 +19,7 @@
     <GenericName>Perioikoi Hoplite</GenericName>
     <SpecificName>Hoplítēs Períoikos</SpecificName>
     <Icon>units/spart_infantry_spearman.png</Icon>
-	<RequiredTechnology datatype="tokens">spears</RequiredTechnology>
+	 <RequiredTechnology>spears</RequiredTechnology>
   </Identity>
   <Cost>
     <Resources>

@@ -11,7 +11,7 @@
     <GenericName>Bactrian Heavy Lancer</GenericName>
     <SpecificName>Bakhtrish Asabara</SpecificName>
     <Icon>units/pers_champion_cavalry.png</Icon>
-    <RequiredTechnology datatype="tokens">pers/champion_cav_spear</RequiredTechnology>
+     <RequiredTechnology>pers/champion_cav_spear</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">2</BuildTime>

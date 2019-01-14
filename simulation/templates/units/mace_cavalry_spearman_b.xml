@@ -7,7 +7,7 @@
     <GenericName>Thessalian Lancer</GenericName>
     <SpecificName>Xystophóros Thessalikós</SpecificName>
     <Icon>units/mace_cavalry_spearman.png</Icon>
-	<RequiredTechnology datatype="tokens">horse_spear</RequiredTechnology>
+	 <RequiredTechnology>horse_spear</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/mace_cavalry_spearman_a</Entity>

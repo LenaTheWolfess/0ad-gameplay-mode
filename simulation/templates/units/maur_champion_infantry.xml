@@ -18,7 +18,7 @@
     <SpecificName>Yōddha</SpecificName>
     <SelectionGroupName>units/maur_champion_infantry</SelectionGroupName>
     <Icon>units/maur_champion_maceman.png</Icon>
-    <RequiredTechnology datatype="tokens">maur/champion_mace</RequiredTechnology>
+     <RequiredTechnology>maur/champion_mace</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">2</BuildTime>

@@ -18,7 +18,7 @@
     <Icon>units/iber_champion_cavalry.png</Icon>
     <SelectionGroupName>units/iber_champion_cavalry</SelectionGroupName>
     <Tooltip>Special: Flaming javelins. Good vs. Buildings.</Tooltip>
-	<RequiredTechnology datatype="tokens">iber/champion_cav_javelin</RequiredTechnology>
+	 <RequiredTechnology>iber/champion_cav_javelin</RequiredTechnology>
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">0.97</WalkSpeed>

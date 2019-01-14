@@ -14,7 +14,7 @@
     <SelectionGroupName>units/cart_cavalry_spearman_ital_b</SelectionGroupName>
     <SpecificName>Ḥayyāl Romaḥ Raḫūv</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
-	<RequiredTechnology datatype="tokens">horse_spear</RequiredTechnology>
+	 <RequiredTechnology>horse_spear</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/cart_cavalry_spearman_ital_a</Entity>

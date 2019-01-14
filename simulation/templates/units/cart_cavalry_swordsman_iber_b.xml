@@ -14,7 +14,7 @@
     <SelectionGroupName>units/cart_cavalry_swordsman_iber_b</SelectionGroupName>
     <SpecificName>Ḥayyāl Ḥerev Raḫūv</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
-	<RequiredTechnology datatype="tokens">sword_riders</RequiredTechnology>
+	 <RequiredTechnology>sword_riders</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/cart_cavalry_swordsman_iber_a</Entity>

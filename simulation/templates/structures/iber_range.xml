@@ -15,9 +15,7 @@
   </Obstruction>
   <ProductionQueue>
    <Entities datatype="tokens">
-      units/{civ}_infantry_javelinist_a_fire
       units/{civ}_infantry_javelinist_b_fire
-      units/{civ}_infantry_javelinist_e_fire
     </Entities>
     <Technologies datatype="tokens">
       javelins

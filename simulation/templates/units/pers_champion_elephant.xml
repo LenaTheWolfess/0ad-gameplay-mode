@@ -5,7 +5,7 @@
     <GenericName>Indian War Elephant</GenericName>
     <SpecificName>Hinduya Pila</SpecificName>
     <Icon>units/pers_champion_elephant.png</Icon>
-    <RequiredTechnology datatype="tokens">pers/champion_elephant</RequiredTechnology>
+     <RequiredTechnology>pers/champion_elephant</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">5</BuildTime>

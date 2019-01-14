@@ -23,7 +23,7 @@
     <GenericName>Meroitic War Elephant</GenericName>
     <SpecificName>Abore ‘h3</SpecificName>
     <Icon>units/kush_champion_elephant.png</Icon>
-	<RequiredTechnology datatype="tokens">kush/champion_cav_javelin</RequiredTechnology>
+	 <RequiredTechnology>kush/champion_cav_javelin</RequiredTechnology>
   </Identity>
   <VisualActor>
     <Actor>units/kushites/elephantry_c_m.xml</Actor>

@@ -22,7 +22,7 @@
       <Pierce>0.0</Pierce>
       <Crush>0.0</Crush>
       <Missle>0.0</Missle>
-      <MaxRange>76.0</MaxRange>
+      <MaxRange>16.0</MaxRange>
       <MinRange>7.0</MinRange>
       <ProjectileSpeed>75.0</ProjectileSpeed>
       <Gravity>9.81</Gravity>

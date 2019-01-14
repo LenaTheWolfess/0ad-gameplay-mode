@@ -6,7 +6,7 @@
     <GenericName>Mauritanian Archer</GenericName>
     <SpecificName>Qešet</SpecificName>
     <Icon>units/cart_infantry_archer.png</Icon>
-	<RequiredTechnology datatype="tokens">archery</RequiredTechnology>
+	 <RequiredTechnology>archery</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/cart_infantry_archer_a</Entity>

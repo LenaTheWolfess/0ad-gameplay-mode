@@ -390,7 +390,10 @@ Damage.prototype.CauseDamage = function(data)
 		this.TargetKilled(data.attacker, data.target, data.attackerOwner);
 	}
 
-	Engine.PostMessage(data.target, MT_Attacked, { "attacker": data.attacker, "target": data.target, "type": data.type, "damage": -targetState.change, "attackerOwner": data.attackerOwner });
+	let dmg = 0;
+	if (!!targetState.change)
+		dmg = targetState.change;
+	Engine.PostMessage(data.target, MT_Attacked, { "attacker": data.attacker, "target": data.target, "type": data.type, "damage": -dmg, "attackerOwner": data.attackerOwner });
 };
 
 /**

@@ -6,10 +6,11 @@
       <Pierce>0</Pierce>
       <Crush>0</Crush>
       <Missle>15</Missle>
-      <MaxRange>70.0</MaxRange>
+      <MaxRange>30.0</MaxRange>
       <MinRange>7.0</MinRange>
       <ProjectileSpeed>75.0</ProjectileSpeed>
       <PrepareTime>3000</PrepareTime>
+	  <AnimLength>2000</AnimLength>
       <RepeatTime>4000</RepeatTime>
       <Spread>2.0</Spread>
       <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>
@@ -23,7 +24,7 @@
   <Identity>
     <VisibleClasses datatype="tokens">Archer</VisibleClasses>
     <GenericName>Archer</GenericName>
-	<RequiredTechnology datatype="tokens">archery</RequiredTechnology>
+	<RequiredTechnology>archery</RequiredTechnology>
   </Identity>
   <Loot>
     <wood>5</wood>

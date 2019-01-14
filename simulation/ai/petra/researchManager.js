@@ -82,45 +82,86 @@ m.ResearchManager.prototype.researchTradeBonus = function(gameState, queues)
 /** Techs to be searched for as soon as they are available */
 m.ResearchManager.prototype.researchWantedTechs = function(gameState, techs)
 {
+	let pn = gameState.currentPhase();
 	let phase1 = gameState.currentPhase() === 1;
 	let phase2 = gameState.currentPhase() === 2;
 	let available = phase1 ? gameState.ai.queueManager.getAvailableResources(gameState) : null;
 	let numWorkers = phase1 ? gameState.getOwnEntitiesByRole("worker", true).length : 0;
-	for (let tech of techs)
-	{
-		if (!tech[1]._template.modifications) {
-			let template = tech[1]._template;
-			if (!phase1) {
-				if (template.genericName == "Farming")
-					return {"name": tech[0], "increasePriority": false};
-				if (template.genericName == "Forging")
-					return {"name": tech[0], "increasePriority": false};
-				if (template.genericName == "Swords")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Slings")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Spears")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Axes")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Pikes")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Mace")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Javelins")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Archery")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Cavalry")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Javelin riders")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Spear riders")
-					return { "name": tech[0], "increasePriority": false};
-				if (template.genericName == "Swordmen riders")
-					return { "name": tech[0], "increasePriority": false};
+	
+	// check key technologies for start
+	for (let tech of techs) {
+		let template = tech[1]._template;
+		if (template.genericName == "God of family")
+			return {"name": tech[0], "increasePriority": true};
+		if (
+			template.genericName == "Iron Ax Heads" ||
+			template.genericName == "Servants" ||
+			template.genericName == "Wicker Baskets"
+		) {
+			
+			return {"name": tech[0], "increasePriority": true};
+		}
+		if (pn > 1) {
+			if (template.genericName == "God of farming")
+				return {"name": tech[0], "increasePriority": true};
+			if (template.genericName == "Farming")
+				return {"name": tech[0], "increasePriority": true};
+			if (template.genericName == "Forging")
+				return {"name": tech[0], "increasePriority": true};
+			if (
+				template.genericName == "Wedge and Mallet" ||
+				template.genericName == "Iron Plow" ||
+				template.genericName == "Gather Training"	||			
+				template.genericName == "Stronger Ax"				
+			) {
+				return {"name": tech[0], "increasePriority": true};
 			}
 		}
+		if (pn > 2) {
+			if (template.genericName == "God of animals")
+				return {"name": tech[0], "increasePriority": true};
+		}
+	}
+	// check key technologies after phase1
+	if (pn > 1) {
+		for (let tech of techs)
+		{
+			let template = tech[1]._template;
+			if (!template.modifications) {	
+					if (template.genericName == "Farming")
+						return {"name": tech[0], "increasePriority": true};
+					if (template.genericName == "Forging")
+						return {"name": tech[0], "increasePriority": true};
+					if (template.genericName == "Swords")
+						return { "name": tech[0], "increasePriority": true};
+					if (template.genericName == "Slings")
+						return { "name": tech[0], "increasePriority": true};
+					if (template.genericName == "Spears")
+						return { "name": tech[0], "increasePriority": true};
+					if (template.genericName == "Axes")
+						return { "name": tech[0], "increasePriority": true};
+					if (template.genericName == "Pikes")
+						return { "name": tech[0], "increasePriority": true};
+					if (template.genericName == "Mace")
+						return { "name": tech[0], "increasePriority": true};
+					if (template.genericName == "Javelins")
+						return { "name": tech[0], "increasePriority": true};
+					if (template.genericName == "Archery")
+						return { "name": tech[0], "increasePriority": true};
+					if (template.genericName == "Cavalry")
+						return { "name": tech[0], "increasePriority": false};
+					if (template.genericName == "Javelin riders")
+						return { "name": tech[0], "increasePriority": false};
+					if (template.genericName == "Spear riders")
+						return { "name": tech[0], "increasePriority": false};
+					if (template.genericName == "Swordmen riders")
+						return { "name": tech[0], "increasePriority": false};
+				}
+		}
+	}
+	// check rest
+	for (let tech of techs)
+	{
 		let template = tech[1]._template;
 		if (phase1)
 		{
@@ -128,9 +169,13 @@ m.ResearchManager.prototype.researchWantedTechs = function(gameState, techs)
 			let costMax = 0;
 			for (let res in cost)
 				costMax = Math.max(costMax, Math.max(cost[res]-available[res], 0));
-			if (25*numWorkers < costMax)
+			if (10*numWorkers < costMax) {
+		//		warn("phase1: "+tech[0] + " cost skip");
 				continue;
+			}
 		}
+		if (!template.modifications)
+			continue;
 		for (let i in template.modifications)
 		{
 			if (gameState.ai.HQ.navalMap && template.modifications[i].value === "ResourceGatherer/Rates/food.fish")
@@ -147,6 +192,7 @@ m.ResearchManager.prototype.researchWantedTechs = function(gameState, techs)
 				return { "name": tech[0], "increasePriority": false };
 		}
 	}
+//	warn("research: nothing picked");
 	return null;
 };
 
@@ -189,11 +235,10 @@ m.ResearchManager.prototype.researchPreferredTechs = function(gameState, techs)
 
 m.ResearchManager.prototype.update = function(gameState, queues)
 {
-	if (queues.minorTech.hasQueuedUnits() || queues.majorTech.hasQueuedUnits())
-		return;
+//	if (queues.minorTech.hasQueuedUnits() || queues.majorTech.hasQueuedUnits())
+//		return;
 
 	let techs = gameState.findAvailableTech();
-
 	let techName = this.researchWantedTechs(gameState, techs);
 	if (techName)
 	{
@@ -203,9 +248,12 @@ m.ResearchManager.prototype.update = function(gameState, queues)
 			let plan = new m.ResearchPlan(gameState, techName.name);
 			plan.queueToReset = "minorTech";
 			queues.minorTech.addPlan(plan);
+	//		warn("research (prioriting): " + techName.name);
 		}
-		else
+		else {
+	//		warn("research adding: " + techName.name);
 			queues.minorTech.addPlan(new m.ResearchPlan(gameState, techName.name));
+		}
 		return;
 	}
 

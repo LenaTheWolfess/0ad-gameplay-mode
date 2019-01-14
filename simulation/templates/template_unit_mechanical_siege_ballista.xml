@@ -6,7 +6,7 @@
 	  <RefillAmount>5</RefillAmount>
 	  <RefillTime>100000</RefillTime>
       <Hack>0.0</Hack>
-      <Pierce>150.0</Pierce>
+      <Pierce>300.0</Pierce>
       <Crush>25.0</Crush>
       <Missle>0.0</Missle>
       <MaxRange>80.0</MaxRange>
@@ -15,14 +15,14 @@
       <ProjectileSpeed>150.0</ProjectileSpeed>
       <Gravity>9.81</Gravity>
       <PrepareTime>3000</PrepareTime>
-      <RepeatTime>4000</RepeatTime>
+      <RepeatTime>8000</RepeatTime>
       <Delay>0</Delay>
       <Splash>
         <Shape>Linear</Shape>
         <Range>8.0</Range>
-        <FriendlyFire>false</FriendlyFire>
+        <FriendlyFire>true</FriendlyFire>
         <Hack>0.0</Hack>
-        <Pierce>75.0</Pierce>
+        <Pierce>100.0</Pierce>
         <Crush>5.0</Crush>
         <Missle>0.0</Missle>
       </Splash>
@@ -48,7 +48,7 @@
   <Identity>
     <GenericName>Bolt Shooter</GenericName>
     <VisibleClasses datatype="tokens">BoltShooter Ranged</VisibleClasses>
-	<RequiredTechnology datatype="tokens">balista</RequiredTechnology>
+	<RequiredTechnology>balista</RequiredTechnology>
   </Identity>
   <Loot>
     <xp>200</xp>

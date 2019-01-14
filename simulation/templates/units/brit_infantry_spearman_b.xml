@@ -6,7 +6,7 @@
     <SpecificName>Gaeroa</SpecificName>
     <GenericName>Celtic Spearman</GenericName>
     <Icon>units/celt_infantry_spearman.png</Icon>
-	<RequiredTechnology datatype="tokens">spears</RequiredTechnology>
+	 <RequiredTechnology>spears</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/brit_infantry_spearman_a</Entity>

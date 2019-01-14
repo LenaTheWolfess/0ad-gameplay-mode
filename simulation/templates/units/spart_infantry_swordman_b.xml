@@ -23,7 +23,7 @@
     <SelectionGroupName>units/spart_infantry_swordman_b</SelectionGroupName>
     <GenericName>Perioikoi Swordman</GenericName>
     <Icon>units/spart_champion_infantry_sword.png</Icon>
-	<RequiredTechnology datatype="tokens">swords</RequiredTechnology>
+	 <RequiredTechnology>swords</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/spart_infantry_swordman_a</Entity>

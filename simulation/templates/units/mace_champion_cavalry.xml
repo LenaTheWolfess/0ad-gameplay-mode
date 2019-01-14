@@ -19,7 +19,7 @@
     <SpecificName>Hetaîros</SpecificName>
     <Icon>units/mace_champion_cavalry.png</Icon>
     <SelectionGroupName>units/mace_champion_cavalry</SelectionGroupName>
-	<RequiredTechnology datatype="tokens">mace/champion_cav_spear</RequiredTechnology>
+	 <RequiredTechnology>mace/champion_cav_spear</RequiredTechnology>
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">0.9</WalkSpeed>

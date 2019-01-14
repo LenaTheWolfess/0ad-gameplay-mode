@@ -21,7 +21,7 @@
     <GenericName>Armored Swordsman</GenericName>
     <SpecificName>Thōrakitēs</SpecificName>
     <Icon>units/mace_thorakites.png</Icon>
-    <RequiredTechnology datatype="tokens">swords</RequiredTechnology>
+     <RequiredTechnology>swords</RequiredTechnology>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
   </Identity>
   <VisualActor>

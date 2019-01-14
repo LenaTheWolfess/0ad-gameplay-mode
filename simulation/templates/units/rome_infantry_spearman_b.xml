@@ -15,7 +15,7 @@
     <GenericName>Veteran Spearman</GenericName>
     <SpecificName>Triarius</SpecificName>
     <Icon>units/rome_infantry_spearman.png</Icon>
-	<RequiredTechnology datatype="tokens">spears</RequiredTechnology>
+	 <RequiredTechnology>spears</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">0.2</BuildTime>

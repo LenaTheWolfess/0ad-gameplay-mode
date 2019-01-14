@@ -26,7 +26,7 @@
     <GenericName>Wooden Wall</GenericName>
     <Classes datatype="tokens">-StoneWall Palisade Tower</Classes>
     <Icon>gaia/special_palisade.png</Icon>
-    <RequiredTechnology datatype="tokens">phase_village</RequiredTechnology>
+     <RequiredTechnology>phase_village</RequiredTechnology>
   </Identity>
   <Loot>
     <wood>10</wood>

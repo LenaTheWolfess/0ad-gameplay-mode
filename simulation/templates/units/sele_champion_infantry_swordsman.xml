@@ -18,7 +18,7 @@
     <GenericName>Romanized Heavy Swordsman</GenericName>
     <SpecificName>Thorakitès Rhomaïkós</SpecificName>
     <Icon>units/sele_champion_swordsman.png</Icon>
-    <RequiredTechnology datatype="tokens">sele/champion_sword</RequiredTechnology>
+     <RequiredTechnology>sele/champion_sword</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">2</BuildTime>

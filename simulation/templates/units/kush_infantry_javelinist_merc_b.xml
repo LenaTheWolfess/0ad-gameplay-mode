@@ -13,7 +13,7 @@
     <SpecificName>nhw ‘h3w Noba</SpecificName>
     <Icon>units/kush_infantry_merc_javelinist.png</Icon>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
-	<RequiredTechnology datatype="tokens">javelins</RequiredTechnology>
+	 <RequiredTechnology>javelins</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/kush_infantry_javelinist_merc_a</Entity>

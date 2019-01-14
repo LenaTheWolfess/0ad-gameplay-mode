@@ -4,6 +4,6 @@
     <BuildTime>30</BuildTime>
   </Cost>
   <Identity>
-    <RequiredTechnology datatype="tokens">unlock_females_house</RequiredTechnology>
+     <RequiredTechnology>unlock_females_house</RequiredTechnology>
   </Identity>
 </Entity>

@@ -28,7 +28,7 @@
     <SpecificName>mr</SpecificName>
     <VisibleClasses datatype="tokens">-City Town Pyramid</VisibleClasses>
     <Classes datatype="tokens">Pyramid -ConquestCritical PyramidSmall</Classes>
-    <RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
+     <RequiredTechnology>phase_town</RequiredTechnology>
     <Icon>structures/kush_pyramid_small.png</Icon>
   </Identity>
   <Loot>

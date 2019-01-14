@@ -160,6 +160,7 @@ Attack.prototype.Schema =
 				"<optional><element name='CritChance'><ref name='nonNegativeDecimal'/></element></optional>" +
 				"<optional><element name='CritDamage'><ref name='nonNegativeDecimal'/></element></optional>" +
 				"<optional><element name='AnimationVariant'><text/></element></optional>"+
+				"<optional><element name='AnimLength'><ref name='nonNegativeDecimal'/></element></optional>"+
 				DamageTypes.BuildSchema("damage strength") +
 				"<optional> <element name='Fire'><ref name='positiveDecimal'/></element></optional>"+
 				"<element name='MaxRange' a:help='Maximum attack range (in metres)'><ref name='nonNegativeDecimal'/></element>" +
@@ -287,6 +288,18 @@ Attack.prototype.Init = function()
 Attack.prototype.HasAttack = function(type)
 {
 	return !!this.template[type];
+}
+
+Attack.prototype.IsOneTime = function(type)
+{
+	return type == "Ranged" && !!this.template[type].AnimLength;
+}
+
+Attack.prototype.GetAnimLength = function(type)
+{
+	if (this.IsOneTime(type) && this.template[type] && this.template[type].AnimLength)
+		return this.template[type].AnimLength;
+	return undefined;
 }
 
 Attack.prototype.SetNoRange = function()

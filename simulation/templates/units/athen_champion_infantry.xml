@@ -18,7 +18,7 @@
     <GenericName>City Guard</GenericName>
     <SpecificName>Epílektos</SpecificName>
     <Icon>units/athen_champion_infantry.png</Icon>
-    <RequiredTechnology datatype="tokens">athen_champion_hoplite</RequiredTechnology>
+     <RequiredTechnology>athen_champion_hoplite</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">2</BuildTime>

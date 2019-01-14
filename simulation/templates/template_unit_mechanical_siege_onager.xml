@@ -7,14 +7,14 @@
 	  <RefillTime>100000</RefillTime>
       <Hack>0.0</Hack>
       <Pierce>10.0</Pierce>
-      <Crush>100.0</Crush>
+      <Crush>500.0</Crush>
       <Missle>0.0</Missle>
       <MaxRange>80.0</MaxRange>
       <MinRange>26.0</MinRange>
       <ProjectileSpeed>37.5</ProjectileSpeed>
       <Gravity>9.81</Gravity>
       <PrepareTime>4000</PrepareTime>
-      <RepeatTime>5000</RepeatTime>
+      <RepeatTime>10000</RepeatTime>
       <Spread>4.0</Spread>
       <Delay>0</Delay>
       <Projectile>
@@ -24,10 +24,10 @@
       <Splash>
         <Shape>Circular</Shape>
         <Range>10</Range>
-        <FriendlyFire>false</FriendlyFire>
+        <FriendlyFire>true</FriendlyFire>
         <Hack>0.0</Hack>
         <Pierce>15.0</Pierce>
-        <Crush>35.0</Crush>
+        <Crush>100.0</Crush>
         <Missle>0.0</Missle>
       </Splash>
       <PreferredClasses datatype="tokens">Structure</PreferredClasses>
@@ -51,7 +51,7 @@
   <Identity>
     <GenericName>Siege Catapult</GenericName>
     <VisibleClasses datatype="tokens">Catapult Ranged</VisibleClasses>
-	<RequiredTechnology datatype="tokens">catapult</RequiredTechnology>
+	<RequiredTechnology>catapult</RequiredTechnology>
   </Identity>
   <Loot>
     <xp>300</xp>

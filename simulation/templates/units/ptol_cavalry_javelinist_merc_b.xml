@@ -13,7 +13,7 @@
     <SpecificName>Hippeús Tarantînos</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
     <Icon>units/mace_cavalry_javelinist.png</Icon>
-	<RequiredTechnology datatype="tokens">horse_javelins</RequiredTechnology>
+	 <RequiredTechnology>horse_javelins</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/ptol_cavalry_javelinist_merc_a</Entity>

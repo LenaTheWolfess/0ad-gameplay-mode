@@ -33,6 +33,8 @@
     </variant>
   </group>
   <group>
+	<variant file="biped/new/bow_aim_a_hip_fire.xml"/>
+	<variant file="biped/new/bow_fire_a_hip_fire.xml"/>
     <variant name="ready" file="biped/ready_stance/base_archer.xml"/>
     <variant name="relax" file="biped/relax/base_archer.xml" frequency="1">
        <props>

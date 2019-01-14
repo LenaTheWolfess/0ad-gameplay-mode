@@ -18,7 +18,7 @@
     <GenericName>Athenian Marine</GenericName>
     <SpecificName>Epibátēs Athēnaîos</SpecificName>
     <Icon>units/athen_champion_marine.png</Icon>
-    <RequiredTechnology datatype="tokens">athen_champion_sword</RequiredTechnology>
+     <RequiredTechnology>athen_champion_sword</RequiredTechnology>
   </Identity>
   <Cost>
     <BuildTime op="add">2</BuildTime>

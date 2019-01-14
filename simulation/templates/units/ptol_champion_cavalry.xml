@@ -24,7 +24,7 @@
     <GenericName>Royal Guard Cavalry</GenericName>
     <SpecificName>Ágēma Basiléōs</SpecificName>
     <Icon>units/ptol_champion_cavalry.png</Icon>
-	<RequiredTechnology datatype="tokens">ptol/champion_cav_spear</RequiredTechnology>
+	 <RequiredTechnology>ptol/champion_cav_spear</RequiredTechnology>
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">0.9</WalkSpeed>

@@ -5,7 +5,7 @@
     <SelectionGroupName>units/brit_infantry_javelinist_b</SelectionGroupName>
     <SpecificName>Baguada</SpecificName>
     <Icon>units/celt_infantry_javelinist.png</Icon>
-	<RequiredTechnology datatype="tokens">javelins</RequiredTechnology>
+	 <RequiredTechnology>javelins</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/brit_infantry_javelinist_a</Entity>

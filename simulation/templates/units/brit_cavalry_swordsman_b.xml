@@ -6,7 +6,7 @@
     <SpecificName>Epos</SpecificName>
     <GenericName>Celtic Cavalry</GenericName>
     <Icon>units/celt_cavalry_swordsman.png</Icon>
-	<RequiredTechnology datatype="tokens">sword_riders</RequiredTechnology>
+	 <RequiredTechnology>sword_riders</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/brit_cavalry_swordsman_a</Entity>

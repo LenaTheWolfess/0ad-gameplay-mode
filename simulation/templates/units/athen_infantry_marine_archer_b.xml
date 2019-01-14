@@ -8,7 +8,7 @@
     <GenericName>Cretan Mercenary Archer</GenericName>
     <SpecificName>Toxótēs Krētikós</SpecificName>
     <Icon>units/hele_infantry_archer.png</Icon>
-	<RequiredTechnology datatype="tokens">archery</RequiredTechnology>
+	 <RequiredTechnology>archery</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/athen_infantry_marine_archer_a</Entity>

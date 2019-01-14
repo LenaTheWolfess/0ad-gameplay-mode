@@ -8,7 +8,7 @@
     <SpecificName>Peltastḗs Thrâx</SpecificName>
     <VisibleClasses datatype="tokens">Mercenary</VisibleClasses>
     <Icon>units/hele_infantry_javelinist.png</Icon>
-	<RequiredTechnology datatype="tokens">javelins</RequiredTechnology>
+	 <RequiredTechnology>javelins</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/athen_infantry_javelinist_a</Entity>

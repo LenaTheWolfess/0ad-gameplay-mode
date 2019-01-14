@@ -7,7 +7,7 @@
     <GenericName>Greek Allied Cavalry</GenericName>
     <SpecificName>Hippeús Symmakhikós</SpecificName>
     <Icon>units/spart_cavalry_spearman.png</Icon>
-	<RequiredTechnology datatype="tokens">horse_spear</RequiredTechnology>
+	 <RequiredTechnology>horse_spear</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/spart_cavalry_spearman_a</Entity>

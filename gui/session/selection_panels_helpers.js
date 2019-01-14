@@ -63,7 +63,7 @@ function getStanceDisplayName(name)
 	case "standground":
 		return translateWithContext("stance", "Standground");
 	default:
-		warn("Internationalization: Unexpected stance found: " + name);
+		//warn("Internationalization: Unexpected stance found: " + name);
 		return name;
 	}
 }
@@ -257,7 +257,9 @@ function performAllyCommand(entity, commandName)
 	if (!entity)
 		return;
 
+	//warn(entity + " ally command");
 	let entState = GetEntityState(entity);
+	//warn("ally command done");
 	let playerState = GetSimState().players[Engine.GetPlayerID()];
 	if (!playerState.isMutualAlly[entState.player] || g_IsObserver)
 		return;
@@ -353,7 +355,9 @@ function cancelUpgradeEntity()
  */
 function setCameraFollow(entity)
 {
+	//warn(entity + " setCameraFollow");
 	let entState = entity && GetEntityState(entity);
+	//warn("setCameraFollow end");
 	if (entState && hasClass(entState, "Unit"))
 		Engine.CameraFollow(entity);
 	else

@@ -21,7 +21,7 @@
     <GenericName>Roman Cavalry</GenericName>
     <SpecificName>Eques Romanus</SpecificName>
     <Icon>units/rome_cavalry_spearman.png</Icon>
-	<RequiredTechnology datatype="tokens">horse_spear</RequiredTechnology>
+	 <RequiredTechnology>horse_spear</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/rome_cavalry_spearman_a</Entity>

@@ -236,7 +236,14 @@ Formation.prototype.SetMaxMembers = function(max)
 
 Formation.prototype.GetMaxMembers = function()
 {
-	return this.maxMembersCount;
+	let extra = 0;
+	if (this.banner != INVALID_ENTITY)
+		extra++;
+	if (this.commander != INVALID_ENTITY)
+		extra++;
+	if (this.siege != INVALID_ENTITY)
+		extra++;
+	return this.maxMembersCount + extra;
 }
 
 Formation.prototype.GetMembers = function()
@@ -341,6 +348,8 @@ Formation.prototype.FillPositions = function(ents)
 			let oRow = this.offsets[off].row;
 			let oColumn = this.offsets[off].column;
 			for ( let stEnt of this.members ) {
+				if (!this.memberPositions || !this.memberPositions[stEnt])
+					continue;
 				let fRow = this.memberPositions[stEnt].fRow;
 				let fColumn = this.memberPositions[stEnt].fColumn;
 				let nfo = this.memberPositions[stEnt].offset;
@@ -868,11 +877,13 @@ Formation.prototype.Disband = function()
 
 	this.members = [];
 	this.inPosition = [];
+	this.memberPositions = [];
 	this.formationMembersWithAura = [];
 	this.commander = INVALID_ENTITY;
 	this.banner = INVALID_ENTITY;
+	this.siege = INVALID_ENTITY;
 	this.offsets = undefined;
-
+//	warn("formation destroyed " + this.entity);
 	Engine.DestroyEntity(this.entity);
 };
 
@@ -1427,18 +1438,18 @@ Formation.prototype.GetEstimatedOrientation = function(pos)
  */
 Formation.prototype.ComputeMotionParameters = function()
 {
-	var maxRadius = 0;
-	var minSpeed = Infinity;
+	let maxRadius = 0;
+	let minSpeed = Infinity;
 
-	for (var ent of this.members)
+	for (let ent of this.members)
 	{
-		var cmpUnitMotion = Engine.QueryInterface(ent, IID_UnitMotion);
+		let cmpUnitMotion = Engine.QueryInterface(ent, IID_UnitMotion);
 		if (cmpUnitMotion)
 			minSpeed = Math.min(minSpeed, cmpUnitMotion.GetWalkSpeed());
 	}
 	minSpeed *= this.GetSpeedMultiplier();
 
-	var cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
+	let cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
 	cmpUnitMotion.SetSpeed(minSpeed);
 	this.minSpeed = minSpeed;
 	this.speed = minSpeed;
@@ -1546,6 +1557,7 @@ Formation.prototype.ShapeUpdate = function()
 		let otherMembers = cmpOtherFormation.members;
 		cmpOtherFormation.RemoveMembers(otherMembers);
 		this.AddMembers(otherMembers);
+	//	warn("formation destroyed " + this.entity);
 		Engine.DestroyEntity(this.twinFormations[i]);
 		this.twinFormations.splice(i,1);
 	}
@@ -1580,14 +1592,14 @@ Formation.prototype.OnGlobalEntityRenamed = function(msg)
 	if (this.members.indexOf(msg.entity) != -1)
 	{
 		this.offsets = undefined;
-		var cmpNewUnitAI = Engine.QueryInterface(msg.newentity, IID_UnitAI);
+		let cmpNewUnitAI = Engine.QueryInterface(msg.newentity, IID_UnitAI);
 		if (cmpNewUnitAI)
 		{
 			this.members[this.members.indexOf(msg.entity)] = msg.newentity;
 			this.memberPositions[msg.newentity] = this.memberPositions[msg.entity];
 		}
 
-		var cmpOldUnitAI = Engine.QueryInterface(msg.entity, IID_UnitAI);
+		let cmpOldUnitAI = Engine.QueryInterface(msg.entity, IID_UnitAI);
 		cmpOldUnitAI.SetFormationController(INVALID_ENTITY);
 
 		if (cmpNewUnitAI)
@@ -1675,13 +1687,12 @@ Formation.prototype.LoadFormation = function(newTemplate)
 		cmpNewUnitAI.MoveIntoFormation();
 
 	let cmpVisual = Engine.QueryInterface(newFormation, IID_Visual);
-	if (!cmpVisual)
-		return;
-
-	let player = cmpNewOwnership.GetOwner();
-	let civ = QueryPlayerIDInterface(player).GetCiv();
-	cmpVisual.SetVariant("animationVariant", civ);
-
+	if (cmpVisual) {
+		let player = cmpNewOwnership.GetOwner();
+		let civ = QueryPlayerIDInterface(player).GetCiv();
+		cmpVisual.SetVariant("animationVariant", civ);
+	}
+	
 	Engine.PostMessage(this.entity, MT_EntityRenamed, { "entity": this.entity, "newentity": newFormation });
 };
 

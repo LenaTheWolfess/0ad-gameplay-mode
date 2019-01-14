@@ -91,6 +91,7 @@ function draw()
 						break;
 					++p;
 				}
+//techs
 /*
 				if (stru.production.techs[prod_pha])
 					for (let prod of stru.production.techs[prod_pha])
@@ -109,6 +110,7 @@ function draw()
 						++p;
 					}
 */
+//techs
 				rowCounts[r] = p;
 
 				if (p>c)

@@ -59,13 +59,13 @@
         <prop actor="" attachpoint="weapon_R"/>
       </props>
     </variant>
-    <variant file="biped/death_infantry.xml"/>
 	<variant file="biped/attack_ranged_second.xml"/>
-    <variant file="biped/attack_ranged_archer_hip.xml"/>
+    <!-- hipp -->
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/build_farm.xml"/>
     <variant file="biped/death_infantry.xml"/>
+	<variant file="biped/new/bow_aim_a_hip.xml"/>
+	<variant file="biped/new/bow_fire_a_hip.xml"/>
   </group>
   <material>player_trans_spec.xml</material>
 </actor>

@@ -8,6 +8,6 @@
 	"icon": "horseshoe_bronze.png",
 	"researchTime": 120,
 	"tooltip": "Unlock the ability to train cavalry.",
-	"requirementsTooltip": "Unlocked by town phace.",
+	"requirementsTooltip": "Unlocked by town phase.",
 	"soundComplete": "interface/alarm/alarm_upgradearmory.xml"
 }

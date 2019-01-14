@@ -22,30 +22,17 @@
     </variant>
   </group>
   <group>
+    <variant file="biped/attack_ranged_second.xml"/>
     <variant file="biped/base_skirmisher.xml"/>
-    <variant file="biped/carry_food.xml"/>
-    <variant file="biped/carry_meat.xml"/>
-    <variant file="biped/carry_wood.xml"/>
-    <variant file="biped/carry_stone.xml"/>
-    <variant file="biped/carry_metal.xml"/>
-  </group>
-  <group>
     <variant name="ready" file="biped/ready_stance/base_javelin.xml"/>
-    <variant name="relax" file="biped/relax/base_javelin.xml"/>
+    <variant name="relax" file="biped/relax/base_javelin.xml"/>    
+	<variant file="biped/base_skirmisher.xml"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_ranged_javelinist.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/gather_tree.xml"/>
-    <variant file="biped/gather_grain.xml"/>
-    <variant file="biped/gather_fruit.xml"/>
-    <variant file="biped/gather_meat.xml"/>
-    <variant file="biped/gather_rock.xml"/>
-    <variant file="biped/gather_ore.xml"/>
-    <variant file="biped/gather_ruins.xml"/>
-    <variant file="biped/gather_praise.xml"/>
-    <variant file="biped/build.xml"/>
-    <variant file="biped/build_farm.xml"/>
     <variant file="biped/death_infantry.xml"/>
+	<variant file="biped/new/jav_aim_a.xml"/>
+	<variant file="biped/new/jav_fire_a.xml"/>
   </group>
   <material>basic_trans.xml</material>
 </actor>

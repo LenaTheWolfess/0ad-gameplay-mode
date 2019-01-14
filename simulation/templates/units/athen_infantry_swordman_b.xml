@@ -5,7 +5,7 @@
     <Lang>greek</Lang>
     <GenericName>Athenian Swordman</GenericName>
     <Icon>units/athen_champion_marine.png</Icon>
-	<RequiredTechnology datatype="tokens">swords</RequiredTechnology>
+	 <RequiredTechnology>swords</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/athen_infantry_swordman_a</Entity>

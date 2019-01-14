@@ -267,8 +267,8 @@ g_SelectionPanels.Construction = {
 		if (!template)
 			return false;
 
-		let technologyEnabled = Engine.GuiInterfaceCall("AreTechnologiesResearched", {
-			"techs": template.requiredTechnologies,
+		let technologyEnabled = Engine.GuiInterfaceCall("IsTechnologyResearched", {
+			"tech": template.requiredTechnology,
 			"player": data.player
 		});
 
@@ -296,7 +296,7 @@ g_SelectionPanels.Construction = {
 		let limits = getEntityLimitAndCount(data.playerState, data.item);
 		tooltips.push(
 			formatLimitString(limits.entLimit, limits.entCount, limits.entLimitChangers),
-			getRequiredTechnologiesTooltip(technologyEnabled, template.requiredTechnologies, GetSimState().players[data.player].civ),
+			getRequiredTechnologyTooltip(technologyEnabled, template.requiredTechnology, GetSimState().players[data.player].civ),
 			getNeededResourcesTooltip(neededResources));
 
 		data.button.tooltip = tooltips.filter(tip => tip).join("\n");
@@ -1054,8 +1054,8 @@ g_SelectionPanels.Training = {
 		if (!template)
 			return false;
 
-		let technologyEnabled = Engine.GuiInterfaceCall("AreTechnologiesResearched", {
-			"techs": template.requiredTechnologies,
+		let technologyEnabled = Engine.GuiInterfaceCall("IsTechnologyResearched", {
+			"tech": template.requiredTechnology,
 			"player": data.player
 		});
 
@@ -1110,7 +1110,7 @@ g_SelectionPanels.Training = {
 		tooltips.push(showTemplateViewerOnRightClickTooltip());
 		tooltips.push(
 			formatBatchTrainingString(buildingsCountToTrainFullBatch, fullBatchSize, remainderBatch),
-			getRequiredTechnologiesTooltip(technologyEnabled, template.requiredTechnologies, GetSimState().players[data.player].civ),
+			getRequiredTechnologyTooltip(technologyEnabled, template.requiredTechnology, GetSimState().players[data.player].civ),
 			getNeededResourcesTooltip(neededResources));
 
 		data.button.tooltip = tooltips.filter(tip => tip).join("\n");

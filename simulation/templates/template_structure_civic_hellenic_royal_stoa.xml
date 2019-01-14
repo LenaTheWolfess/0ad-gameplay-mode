@@ -34,7 +34,7 @@
     <SpecificName>Hellenic Royal Stoa</SpecificName>
     <Tooltip>Recruit special units.</Tooltip>
     <Icon>gaia/special_stoa.png</Icon>
-    <RequiredTechnology datatype="tokens">phase_town</RequiredTechnology>
+    <RequiredTechnology>phase_town</RequiredTechnology>
     <VisibleClasses datatype="tokens">Town</VisibleClasses>
   </Identity>
   <Loot>

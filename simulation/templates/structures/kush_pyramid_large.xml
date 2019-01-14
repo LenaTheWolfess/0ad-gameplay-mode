@@ -30,7 +30,7 @@
     <SpecificName>mr ‘3</SpecificName>
     <VisibleClasses datatype="tokens">Pyramid</VisibleClasses>
     <Classes datatype="tokens">Pyramid -ConquestCritical PyramidLarge</Classes>
-    <RequiredTechnology datatype="tokens">phase_city</RequiredTechnology>
+     <RequiredTechnology>phase_city</RequiredTechnology>
     <Icon>structures/kush_pyramid_big.png</Icon>
   </Identity>
   <Loot>
