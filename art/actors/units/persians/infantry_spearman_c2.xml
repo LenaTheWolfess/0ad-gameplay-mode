@@ -27,7 +27,7 @@
   </group>
   <group>
    <variant name="ready" file="biped/ready_stance/base_spearman_smallshield.xml"/>
-   <variant name="relax" file="biped/relax/base_spearman_smallshield.xml"/>
+   <variant name="relax" file="biped/relax/base_spearman_smallshield.xml" frequency="1"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/death_infantry.xml"/>
     <variant name="attack_ranged">

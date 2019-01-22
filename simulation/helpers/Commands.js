@@ -1648,6 +1648,81 @@ function GetMergedFormationUnitAIs(ents, player, formationTemplate)
 		}
 	}
 
+	
+	// TESTING PURPOSES ONLY
+	// ALLOW TO CREATE FORMATION
+	/*
+	if (!formationUnitAIs.length)
+	{
+		// We need to give the selected units a new formation controller
+
+		// TODO replace the fixed 60 with something sensible, based on vision range f.e.
+		var formationSeparation = 60;
+		var clusters = ClusterEntities(formation.entities, formationSeparation);
+		var formationEnts = [];
+		for (let cluster of clusters)
+		{
+			if (!formationTemplate || !CanMoveEntsIntoFormation(cluster, formationTemplate))
+			{
+				// Use the last formation template if everyone was using it
+				var lastFormationTemplate = undefined;
+				for (let ent of cluster)
+				{
+					var cmpUnitAI = Engine.QueryInterface(ent, IID_UnitAI);
+					if (cmpUnitAI)
+					{
+						var template = cmpUnitAI.GetFormationTemplate();
+						if (lastFormationTemplate === undefined)
+						{
+							lastFormationTemplate = template;
+						}
+						else if (lastFormationTemplate != template)
+						{
+							lastFormationTemplate = undefined;
+							break;
+						}
+					}
+				}
+				if (lastFormationTemplate && CanMoveEntsIntoFormation(cluster, lastFormationTemplate))
+					formationTemplate = lastFormationTemplate;
+				else
+					formationTemplate = "special/formations/null";
+			}
+
+			RemoveFromFormation(cluster);
+
+			if (formationTemplate == "special/formations/null")
+			{
+				for (let ent of cluster)
+					nonformedUnitAIs.push(Engine.QueryInterface(ent, IID_UnitAI));
+
+				continue;
+			}
+
+			// Create the new controller
+			let formationEnt = Engine.AddEntity(formationTemplate);
+			let cmpFormation = Engine.QueryInterface(formationEnt, IID_Formation);
+			formationUnitAIs.push(Engine.QueryInterface(formationEnt, IID_UnitAI));
+			cmpFormation.SetFormationSeparation(formationSeparation);
+			cmpFormation.SetMembers(cluster);
+
+			for (let ent of formationEnts)
+				cmpFormation.RegisterTwinFormation(ent);
+
+			formationEnts.push(formationEnt);
+			let cmpOwnership = Engine.QueryInterface(formationEnt, IID_Ownership);
+			cmpOwnership.SetOwner(player);
+
+			let cmpVisual = Engine.QueryInterface(formationEnt, IID_Visual);
+			if (cmpVisual) {
+				let civ = QueryPlayerIDInterface(player).GetCiv();
+				cmpVisual.SetVariant("animationVariant", civ);
+			}
+		}
+	}
+	*/
+	// ALLOW TO CREATE FORMATION
+	
 	return nonformedUnitAIs.concat(formationUnitAIs);
 }
 

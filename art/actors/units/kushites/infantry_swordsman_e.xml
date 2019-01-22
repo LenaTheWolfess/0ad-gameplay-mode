@@ -107,12 +107,10 @@
   </group>
   <group>
     <variant file="biped/base_swordsman_shield.xml"/>
-    <variant file="biped/build.xml"/>
-    <variant file="biped/build_farm.xml"/>
   </group>
   <group>
     <variant name="ready" file="biped/ready_stance/base_swordsman_shield.xml"/>
-    <variant name="relax" file="biped/relax/base_swordsman_shield.xml">
+    <variant name="relax" file="biped/relax/base_swordsman_shield.xml" frequency="1">
       <props>
         <prop actor="" attachpoint="weapon_R"/>
         <prop actor="props/units/kush_meroitic_scabbard_w.xml" attachpoint="back"/>
@@ -120,8 +118,6 @@
     </variant>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/build.xml"/>
-    <variant file="biped/build_farm.xml"/>
     <variant file="biped/death_infantry.xml"/>
   </group>
   <material>player_trans_spec.xml</material>

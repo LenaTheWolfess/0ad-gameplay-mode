@@ -25,7 +25,7 @@
     </Capture>
   </Attack>
   <Builder>
-    <Rate>1.5</Rate>
+    <Rate>1.0</Rate>
     <Entities datatype="tokens">
       structures/{civ}_storehouse
       structures/{civ}_corral

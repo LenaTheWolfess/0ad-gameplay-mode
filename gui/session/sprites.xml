@@ -458,6 +458,14 @@
 		<image backcolor="red"/>
 	</sprite>
 
+	<sprite name="countForeground">
+		<image backcolor="yellow"/>
+	</sprite>
+	
+	<sprite name="countBackground">
+		<image backcolor="black"/>
+	</sprite>
+
 	<sprite name="energyForeground">
 		<image backcolor="0 100 255 255"/>
 	</sprite>
@@ -474,10 +482,34 @@
 	  <image backcolor="black"/>
 	</sprite>
 	
+	<sprite name="ammoForeground">
+	  <image backcolor="white"/>
+	</sprite>
+	
+	<sprite name="ammoBackground">
+	  <image backcolor="black"/>
+	</sprite>
+	
 	<sprite name="formAmmoForeground">
 	  <image backcolor="white"/>
 	</sprite>
 
+	<sprite name="moraleBackground">
+	  <image backcolor="black"/>
+	</sprite>
+	
+	<sprite name="moraleForeground">
+	  <image backcolor="0 255 255 255"/>
+	</sprite>
+	
+	<sprite name="formMoraleBackground">
+	  <image backcolor="black"/>
+	</sprite>
+	
+	<sprite name="formMoraleForeground">
+	  <image backcolor="0 255 255 255"/>
+	</sprite>
+	
 	<sprite name="healthForeground">
 		<image backcolor="green"/>
 	</sprite>

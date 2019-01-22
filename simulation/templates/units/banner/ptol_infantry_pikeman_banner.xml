@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_infantry_pikeman_banner">
+  <Identity>
+    <Civ>ptol</Civ>
+	<Rank>Advanced</Rank>
+    <SelectionGroupName>units/ptol_infantry_pikeman_banner_a</SelectionGroupName>
+    <Icon>units/athen_infantry_spearman.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/ptolemies/infantry_pikeman_banner_a.xml</Actor>
+  </VisualActor>
+</Entity>

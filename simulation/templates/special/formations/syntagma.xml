@@ -11,7 +11,8 @@
     <Icon>formations/syntagma.png</Icon>
     <RequiredMemberCount>16</RequiredMemberCount>
     <DisabledTooltip>only pike infantry allowed (at least 16)</DisabledTooltip>
-    <SortingClasses>Hero Champion Elite Advanced Basic</SortingClasses>
+	<SortingClasses>Hero Banner Commander Pike Spear Hoplite Sword Melee</SortingClasses>
+	<SortingOrder>fillFromTheBack</SortingOrder>
     <FormationName>Syntagma</FormationName>
     <UnitSeparationWidthMultiplier>0.55</UnitSeparationWidthMultiplier>
     <UnitSeparationDepthMultiplier>0.55</UnitSeparationDepthMultiplier>

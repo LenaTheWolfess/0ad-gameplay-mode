@@ -1,6 +1,6 @@
-<variant name="attack_ranged_aim">
+<variant name="aim">
   <animations>
-    <animation event="0.35" file="biped/new/bow_aim_a.dae" load="0" name="attack_ranged_aim" speed="80"/>
+    <animation event="0.35" file="biped/new/bow_aim_a.dae" load="0" name="aim" speed="80"/>
   </animations>
   <props>
     <prop actor="props/units/weapons/arrow_front.xml" attachpoint="projectile"/>

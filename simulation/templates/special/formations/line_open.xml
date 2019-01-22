@@ -10,7 +10,7 @@
   <Formation>
     <Icon>formations/line_open.png</Icon>
     <FormationName>Open Order</FormationName>
-    <SortingClasses>Cavalry Archer Javelin Ranged Pike Spear Hoplite Sword Melee</SortingClasses>
+    <SortingClasses>Siege Cavalry Archer Javelin Ranged Pike Spear Hoplite Sword Melee Hero Banner Commander</SortingClasses>
     <SortingOrder>fillFromTheBack</SortingOrder>
     <MinColumns>3</MinColumns>
     <UnitSeparationWidthMultiplier>2.0</UnitSeparationWidthMultiplier>

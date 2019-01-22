@@ -5,8 +5,10 @@
     <Icon>formations/column_open.png</Icon>
   </Identity>
   <Formation>
+	 <SortingClasses>Cavalry Archer Javelin Ranged Pike Spear Hoplite Sword Melee Hero Banner Commander Siege</SortingClasses>
     <Icon>formations/column_open.png</Icon>
     <FormationName>Column Open</FormationName>
+    <SortingOrder>fillFromTheBack</SortingOrder>
     <ShiftRows>true</ShiftRows>
     <UnitSeparationWidthMultiplier>2</UnitSeparationWidthMultiplier>
     <MaxColumns>2</MaxColumns>

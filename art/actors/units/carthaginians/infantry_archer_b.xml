@@ -2,7 +2,7 @@
 <actor version="1">
   <castshadow/>
   <group>
-    <variant frequency="1" name="Base">
+    <variant name="Base">
       <mesh>skeletal/new/m_tunic_short.dae</mesh>
       <props>
         <prop actor="props/units/heads/new/head_maur_ponytail.xml" attachpoint="head"/>
@@ -27,7 +27,6 @@
     <!-- hipp -->
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/base_archer_ready.xml"/>
 	<variant file="biped/new/bow_aim_a_hip.xml"/>
 	<variant file="biped/new/bow_fire_a_hip.xml"/>
   </group>

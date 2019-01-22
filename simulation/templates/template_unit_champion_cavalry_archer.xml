@@ -3,22 +3,15 @@
   <Attack>
     <Ranged>
       <Missle>15.0</Missle>
-      <MaxRange>72.0</MaxRange>
-      <MinRange>7.0</MinRange>
+      <MaxRange>40.0</MaxRange>
       <ProjectileSpeed>75.0</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
       <PrepareTime>500</PrepareTime>
-      <RepeatTime>1000</RepeatTime>
+      <RepeatTime>3000</RepeatTime>
       <Spread>1.0</Spread>
       <Delay>0</Delay>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Ranged>
   </Attack>
-  <Cost>
-    <Resources>
-      <wood>100</wood>
-    </Resources>
-  </Cost>
   <Identity>
     <VisibleClasses datatype="tokens">Ranged Archer</VisibleClasses>
     <GenericName>Champion Cavalry Archer.</GenericName>

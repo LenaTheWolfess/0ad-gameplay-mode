@@ -9,19 +9,6 @@
   <Auras datatype="tokens">
     units/heroes/pers_hero_xerxes
   </Auras>
-  <ProductionQueue>
-  <BatchTimeModifier>0.7</BatchTimeModifier>
-    <Technologies datatype="tokens">
-      pers/xerxes_champion
-    </Technologies>
-	<TechCostMultiplier>
-      <food>1.0</food>
-      <wood>1.0</wood>
-      <stone>1.0</stone>
-      <metal>1.0</metal>
-      <time>1.0</time>
-    </TechCostMultiplier>
-  </ProductionQueue>
   <Identity>
     <Civ>pers</Civ>
     <GenericName>Xerxes I</GenericName>

@@ -1,4 +1,4 @@
-<variant name="relax" frequency="1">
+<variant name="relax">
   <animations>
     <animation file="biped/new/2h_idle_relax.dae" name="idle" id="idle1" speed="100"/>
     <animation file="biped/new/2h_idle_relax.dae" name="idle" id="idle2" speed="90"/>

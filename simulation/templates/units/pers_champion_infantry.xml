@@ -7,17 +7,19 @@
     </Melee>
     <Ranged>
       <Ammo>5</Ammo>
+	  <RefillAmount>5</RefillAmount>
+	  <RefillTime>100000</RefillTime>
       <AnimationVariant>secondary</AnimationVariant>
       <Missle>15</Missle>
       <Pierce>0</Pierce>
       <Hack>0</Hack>
       <Crush>0</Crush>
-      <MaxRange>60</MaxRange>
+      <MaxRange>30</MaxRange>
       <MinRange>7.0</MinRange>
       <ProjectileSpeed>75.0</ProjectileSpeed>
       <Gravity>9.81</Gravity>
       <PrepareTime>1500</PrepareTime>
-      <RepeatTime>1500</RepeatTime>
+      <RepeatTime>3000</RepeatTime>
       <Spread>0.5</Spread>
       <Delay>0</Delay>
       <RestrictedClasses datatype="tokens">RangedSecond</RestrictedClasses>

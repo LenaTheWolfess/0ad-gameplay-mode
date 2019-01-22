@@ -1,4 +1,4 @@
-<variant name="ready" frequency="1">
+<variant name="ready">
   <animations>
     <animation file="biped/new/pike_idle_ready.dae" name="syntagma_front_idle" speed="30"/>
     <animation file="biped/new/pike_idle_ready.dae" name="syntagma_front_walk" speed="30"/>

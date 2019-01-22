@@ -33,6 +33,317 @@ let g_FormationsInfo = new Map();
 
 let g_SelectionPanels = {};
 
+let g_FormationPanels = {};
+
+g_FormationPanels.Command = {
+	"getMaxNumberOfItems": function()
+	{
+		return 3;
+	},
+	"rowLength": 16,
+	"getItems": function(unitEntStates)
+	{
+		let commands = [];
+
+		for (let command in g_EntityCommands)
+		{
+			let info = g_EntityCommands[command].getInfo(unitEntStates);
+			if (info)
+			{
+				info.name = command;
+				commands.push(info);
+			}
+		}
+		return commands;
+	},
+	"setupButton": function(data)
+	{
+		data.button.tooltip = data.item.tooltip;
+
+		data.button.onPress = function() {
+			if (data.item.callback)
+				data.item.callback(data.item);
+			else
+				performCommand(data.unitEntStates, data.item.name);
+		};
+
+		data.countDisplay.caption = data.item.count || "";
+
+		data.button.enabled =
+			g_IsObserver && data.item.name == "focus-rally" ||
+			controlsPlayer(data.player) && (data.item.name != "delete" ||
+				data.unitEntStates.some(state => !isUndeletable(state)));
+
+		data.icon.sprite = "stretched:session/icons/" + data.item.icon;
+
+		setPanelObjectPosition(data.button, data.i + 5, data.rowLength);
+		return true;
+	}
+};
+
+g_FormationPanels.Members = {
+	"getMaxNumberOfItems": function()
+	{
+		return 5;
+	},
+	"rowLength": 5,
+	"getItems": function(unitEntStates)
+	{
+		if (unitEntStates.some( state => !state.unitAI || !state.unitAI.formationController) )
+			return [];
+		let groups = new EntityGroups();
+		
+		groups.add(unitEntStates.map(state => state.id));
+		
+		return groups.getEntsGrouped();
+	},
+	"setupButton": function(data)
+	{
+		let entState = GetEntityState(data.item.ents[0]);
+		let template = GetTemplateData(entState.template);
+		if (!template)
+			return false;
+		
+		data.countDisplay.caption = data.item.ents.length || "";
+		data.button.onPressRight = function() { showTemplateDetails(entState.template); };
+
+		let tips = [
+			getAttackTooltip,
+			getSplashDamageTooltip,
+			getHealerTooltip,
+			getArmorTooltip,
+			getGatherTooltip,
+			getSpeedTooltip,
+			getGarrisonTooltip,
+			getProjectilesTooltip,
+			getResourceTrickleTooltip,
+			getLootTooltip
+		].map(func => func(entState)).filter(tip => tip).join("\n");
+
+		data.button.tooltip = "[font=\"sans-bold-16\"]" + template.name.generic + "[/font]" + "\n" + tips;
+
+		data.icon.sprite = "stretched:session/portraits/" + template.icon;
+		setPanelObjectPositionH(data.button, data.i, data.rowLength);
+		return true;
+	}
+};
+
+g_FormationPanels.Pack = {
+	"getMaxNumberOfItems": function()
+	{
+		return 2;
+	},
+	"rowLength": 16,
+	"getItems": function(unitEntStates)
+	{
+		let checks = {};
+		for (let state of unitEntStates)
+		{
+			if (!state.pack)
+				continue;
+
+			if (state.pack.progress == 0)
+			{
+				if (state.pack.packed)
+					checks.unpackButton = true;
+				else
+					checks.packButton = true;
+			}
+			else if (state.pack.packed)
+				checks.unpackCancelButton = true;
+			else
+				checks.packCancelButton = true;
+		}
+
+		let items = [];
+		if (checks.packButton)
+			items.push({
+				"packing": false,
+				"packed": false,
+				"tooltip": translate("Pack"),
+				"callback": function() { packUnit(true); }
+			});
+
+		if (checks.unpackButton)
+			items.push({
+				"packing": false,
+				"packed": true,
+				"tooltip": translate("Unpack"),
+				"callback": function() { packUnit(false); }
+			});
+
+		if (checks.packCancelButton)
+			items.push({
+				"packing": true,
+				"packed": false,
+				"tooltip": translate("Cancel Packing"),
+				"callback": function() { cancelPackUnit(true); }
+			});
+
+		if (checks.unpackCancelButton)
+			items.push({
+				"packing": true,
+				"packed": true,
+				"tooltip": translate("Cancel Unpacking"),
+				"callback": function() { cancelPackUnit(false); }
+			});
+
+		return items;
+	},
+	"setupButton": function(data)
+	{
+		data.button.onPress = function() {data.item.callback(data.item); };
+
+		data.button.tooltip = data.item.tooltip;
+
+		if (data.item.packing)
+			data.icon.sprite = "stretched:session/icons/cancel.png";
+		else if (data.item.packed)
+			data.icon.sprite = "stretched:session/icons/unpack.png";
+		else
+			data.icon.sprite = "stretched:session/icons/pack.png";
+
+		data.button.enabled = controlsPlayer(data.player);
+
+		setPanelObjectPosition(data.button, data.i + 8, data.rowLength);
+		return true;
+	}
+};
+
+g_FormationPanels.Ability = {
+	"getMaxNumberOfItems": function()
+	{
+		return 2;
+	},
+	"rowLength": 16,
+	"getItems": function(unitEntStates)
+	{
+		if (unitEntStates.some(state => !hasClass(state, "Unit")))
+			return [];
+
+		let hideNoRange = unitEntStates.every(state => !state.attack || !state.attack["Ranged"] || !state.attack["Ranged"].allowed)
+		let hideAllowRange = unitEntStates.every(state => !state.attack || !state.attack["Ranged"] || state.attack["Ranged"].allowed)
+		if (hideNoRange && hideAllowRange)
+			return [];
+		
+		return [
+			{
+				"hidden": hideNoRange,
+				"tooltip": "Only melee weapons",
+				"icon": "session/icons/attack-request.png",
+				"allow": false
+			},
+			{
+				"hidden": hideAllowRange,
+				"tooltip": "All weapons",
+				"icon": "session/icons/focus-rally.png",
+				"allow": true
+			}
+		];
+	},
+	"setupButton": function(data)
+	{
+		data.button.onPress = function() { disableRangeAttack(!data.item.allow)};
+		data.button.tooltip = data.item.tooltip;
+		data.button.enabled = controlsPlayer(data.player);
+		data.guiSelection.hidden = data.item.hidden;
+		data.icon.sprite = "stretched:" + data.item.icon;
+
+		setPanelObjectPosition(data.button, data.i + 8, data.rowLength);
+		return true;
+	}
+};
+
+g_FormationPanels.FormationType = {
+	"getMaxNumberOfItems": function()
+	{
+		return 16;
+	},
+	"rowLength": 16,
+	"getItems": function(unitEntStates)
+	{
+		if (unitEntStates.some(state => !hasClass(state, "Unit")))
+			return [];
+
+		if (!g_AvailableFormations.has(unitEntStates[0].player))
+			g_AvailableFormations.set(unitEntStates[0].player, Engine.GuiInterfaceCall("GetAvailableFormations", unitEntStates[0].player));
+
+		let availableFormations = g_AvailableFormations.get(unitEntStates[0].player);
+
+		// Hide the panel if all formations are disabled
+		if (availableFormations.some(formation => canMoveSelectionIntoFormation(formation)))
+			return availableFormations;
+
+		return [];
+	},
+	"setupButton": function(data)
+	{
+		if (!g_FormationsInfo.has(data.item))
+			g_FormationsInfo.set(data.item, Engine.GuiInterfaceCall("GetFormationInfoFromTemplate", { "templateName": data.item }));
+
+		let formationInfo = g_FormationsInfo.get(data.item);
+		let formationOk = canMoveSelectionIntoFormation(data.item);
+		let unitIds = data.unitEntStates.map(state => state.id);
+		let formationSelected = Engine.GuiInterfaceCall("IsFormationSelected", {
+			"ents": unitIds,
+			"formationTemplate": data.item
+		});
+
+		data.button.onPress = function() {
+			performFormation(unitIds, data.item);
+		};
+
+		let tooltip = translate(formationInfo.name);
+		if (!formationOk && formationInfo.tooltip)
+			tooltip += "\n" + coloredText(translate(formationInfo.tooltip), "red");
+		if (formationInfo.description) {
+			tooltip += "\n" + formationInfo.description;
+		}
+		data.button.tooltip = tooltip;
+		data.button.onPressRight = function() { showTemplateDetails(data.item);};
+		
+		data.button.enabled = formationOk && controlsPlayer(data.player);
+		let grayscale = formationOk ? "" : "grayscale:";
+		data.guiSelection.hidden = !formationSelected;
+		data.icon.sprite = "stretched:" + grayscale + "session/icons/" + formationInfo.icon;
+
+		setPanelObjectPosition(data.button, data.i, data.rowLength);
+		return true;
+	}
+};
+
+g_FormationPanels.FormationStance = {
+	"getMaxNumberOfItems": function()
+	{
+		return 5;
+	},
+	"getItems": function(unitEntStates)
+	{
+		if (unitEntStates.some(state => !state.unitAI || !hasClass(state, "Unit") || hasClass(state, "Animal")))
+			return [];
+
+		return unitEntStates[0].unitAI.selectableStances;
+	},
+	"setupButton": function(data)
+	{
+		let unitIds = data.unitEntStates.map(state => state.id);
+		data.button.onPress = function() { performStance(unitIds, data.item); };
+
+		data.button.tooltip = getStanceDisplayName(data.item) + "\n" +
+			"[font=\"sans-13\"]" + getStanceTooltip(data.item) + "[/font]";
+
+		data.guiSelection.hidden = !Engine.GuiInterfaceCall("IsStanceSelected", {
+			"ents": unitIds,
+			"stance": data.item
+		});
+		data.icon.sprite = "stretched:session/icons/stances/" + data.item + ".png";
+		data.button.enabled = controlsPlayer(data.player);
+
+		setPanelObjectPosition(data.button, data.i, data.rowLength);
+		return true;
+	}
+};
+
 g_SelectionPanels.Ability = {
 	"getMaxNumberOfItems": function()
 	{
@@ -254,13 +565,14 @@ g_SelectionPanels.AllyCommand = {
 g_SelectionPanels.Construction = {
 	"getMaxNumberOfItems": function()
 	{
-		return 24 - getNumberOfRightPanelButtons();
+		return 40 - getNumberOfRightPanelButtons();
 	},
 	"conflictsWith": ["FormationMembers"],
 	"getItems": function()
 	{
 		return getAllBuildableEntitiesFromSelection();
 	},
+	"rowLength": 10,
 	"setupButton": function(data)
 	{
 		let template = GetTemplateData(data.item);
@@ -515,7 +827,7 @@ g_SelectionPanels.Garrison = {
 g_SelectionPanels.Gate = {
 	"getMaxNumberOfItems": function()
 	{
-		return 24 - getNumberOfRightPanelButtons();
+		return 40 - getNumberOfRightPanelButtons();
 	},
 	"conflictsWith": ["FormationMembers"],
 	"getItems": function(unitEntStates)
@@ -557,7 +869,7 @@ g_SelectionPanels.Gate = {
 g_SelectionPanels.Pack = {
 	"getMaxNumberOfItems": function()
 	{
-		return 24 - getNumberOfRightPanelButtons();
+		return 40 - getNumberOfRightPanelButtons();
 	},
 	"getItems": function(unitEntStates)
 	{
@@ -1041,7 +1353,7 @@ g_SelectionPanels.Stance = {
 g_SelectionPanels.Training = {
 	"getMaxNumberOfItems": function()
 	{
-		return 24 - getNumberOfRightPanelButtons();
+		return 40 - getNumberOfRightPanelButtons();
 	},
 	"conflictsWith": ["FormationMembers"],
 	"getItems": function()
@@ -1141,7 +1453,7 @@ g_SelectionPanels.Training = {
 g_SelectionPanels.Upgrade = {
 	"getMaxNumberOfItems": function()
 	{
-		return 24 - getNumberOfRightPanelButtons();
+		return 40 - getNumberOfRightPanelButtons();
 	},
 	"conflictsWith": ["FormationMembers"],
 	"getItems": function(unitEntStates)
@@ -1269,6 +1581,15 @@ function showTemplateDetails(templateName, civCode)
 	});
 }
 
+let g_FormationPanelsOrder = [
+	"FormationType",
+	"FormationStance",
+	"Members",
+	"Command",
+	"Ability",
+	"Pack",
+]
+
 /**
  * If two panels need the same space, so they collide,
  * the one appearing first in the order is rendered.
@@ -1297,5 +1618,5 @@ let g_PanelsOrder = [
 	"Command",
 	"AllyCommand",
 	"Queue",
-	"Selection",
+	"Selection"
 ];

@@ -2,7 +2,7 @@
 <actor version="1">
   <castshadow/>
   <group>
-    <variant frequency="1" name="Base">
+    <variant name="Base">
       <mesh>skeletal/new/m_tunic_short.dae</mesh>
       <props>
         <prop actor="props/units/weapons/iber_banner_a.xml" attachpoint="weapon_R"/>
@@ -30,11 +30,8 @@
     </variant>
   </group>
   <group>
-    <variant file="biped/banner_base.xml"/> 
-  </group>
-  <group>
     <variant name="ready" file="biped/ready_stance/base_banner.xml"/>
-    <variant name="relax" file="biped/relax/base_banner.xml"/>
+    <variant name="relax" file="biped/relax/base_banner.xml" frequency="1"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
     <variant file="biped/death_infantry.xml"/>

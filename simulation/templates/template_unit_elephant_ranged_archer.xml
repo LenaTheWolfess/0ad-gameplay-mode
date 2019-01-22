@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_elephant_ranged">
+ <Attack>
+    <Ranged>
+      <Missle>15</Missle>
+      <MaxRange>38.0</MaxRange>
+      <ProjectileSpeed>75.0</ProjectileSpeed>
+      <PrepareTime>3000</PrepareTime>
+      <RepeatTime>4000</RepeatTime>
+      <Spread>4.0</Spread>
+    </Ranged>
+  </Attack>
+ <Identity>
+    <VisibleClasses datatype="tokens">Archer</VisibleClasses>
+    <GenericName>Elephant Archer</GenericName>
+ </Identity>
+</Entity>

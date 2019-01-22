@@ -14,6 +14,8 @@
   </Armour>
   <Attack>
     <Ranged>
+	  <RefillAmount>1</RefillAmount>
+	  <RefillTime>100000</RefillTime>
       <Ammo>1</Ammo>
       <AnimationVariant>secondary</AnimationVariant>
       <Missle>15</Missle>

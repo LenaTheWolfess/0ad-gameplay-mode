@@ -1104,7 +1104,9 @@ function updateGUIStatusBar(nameOfBar, points, maxPoints, direction)
 		return;
 
 	let healthSize = statusBar.size;
-	let value = 100 * Math.max(0, Math.min(1, points / maxPoints));
+	let value = 0;
+	if (maxPoints)
+		value = 100 * Math.max(0, Math.min(1, points / maxPoints));
 
 	// inverse bar
 	if (direction == 2 || direction == 3)
@@ -1140,30 +1142,85 @@ function updateFormationEntities()
 
 		let formationEnt = g_FormationEntities.find(pEnt => ent == pEnt.ent);
 
-		let hit = formationEntState.formation.membersCount;
-		let max = formationEntState.formation.maxMembers;
-		if (hit == undefined)
-			hit = 0;
-		if (max == undefined)
-			max = 0;
+		let currCount = formationEntState.formation.membersCount;
+		let maxCount = formationEntState.formation.maxMembers;
+		let currHit = 0;
+		let maxHit = 0;
+		let currAmmo = 0;
+		let maxAmmo = 0;
+		let currEnergy = 0;
+		let maxEnergy = 0;
+		let currMorale = 0;
+		let maxMorale = 0;
+		let unitName = formationEntState.formation.unitName;
+		for (let mem of formationEntState.formation.members) {
+			let memState = GetEntityState(mem);
+			maxHit += +memState.maxHitpoints;
+			currHit += +memState.hitpoints;
+			if (memState.energy) {
+				currEnergy += +memState.energy.points;
+				maxEnergy += +memState.energy.maxPoints;
+			}
+			if (memState.attack && memState.attack["Ranged"] && memState.attack["Ranged"].ammoMax) {
+				currAmmo += +memState.attack["Ranged"].ammoLeft;
+				maxAmmo += +memState.attack["Ranged"].ammoMax;
+			}
+			if (memState.morale) {
+				currMorale += +memState.morale.points;
+				maxMorale += +memState.morale.maxPoints;
+			}
+		}
 		if (!formationEnt)
 		{
 			formationEnt = {
 				"ent": ent,
 				"tooltip": undefined,
+				"unitSprite": "stretched:session/portraits/" + formationEntState.formation.unitIcon,
 				"sprite": "stretched:session/portraits/" + template.icon,
-				"maxHitpoints": max,
-				"currentHitpoints": hit,
+				"maxHitpoints": maxHit,
+				"currentHitpoints": currHit,
+				"currentAmmo": currAmmo,
+				"maxAmmo": maxAmmo,
+				"currentEnergy": currEnergy,
+				"maxEnergy": maxEnergy,
+				"currentCount": currCount,
+				"maxCount": maxCount,
+				"currentMorale": currMorale,
+				"maxMorale": maxMorale,
 				"previousHitpoints": undefined,
 				"members": formationEntState.formation.members,
 			};
 			g_FormationEntities.push(formationEnt);
 		}
 
-		formationEnt.tooltip =  hit + "/" + max;//createFormationEntityTooltip(formationEntState, template);
+		
+		formationEnt.tooltip = unitName;
+		formationEnt.tooltip += "\nFormation: " + template.name.specific;
+		formationEnt.tooltip += "\nMembers: " + currCount+ "/" + maxCount;
+		if (maxHit)
+			formationEnt.tooltip += "\nHealth: " + currHit + "/" + maxHit;
+		if (maxEnergy)
+			formationEnt.tooltip += "\nEnergy: " + currEnergy + "/" + maxEnergy;
+		if (maxMorale)
+			formationEnt.tooltip += "\nMorale: " + currMorale + "/" + maxMorale;
+		if (maxAmmo)
+			formationEnt.tooltip += "\nAmmo: " + currAmmo + "/" + maxAmmo;
+		//createFormationEntityTooltip(formationEntState, template);
 		formationEnt.previousHitpoints = formationEnt.currentHitpoints;
-		formationEnt.currentHitpoints = hit;
-		formationEnt.maxHitpoints =  max;
+		
+		formationEnt.currentHitpoints = currHit;
+		formationEnt.currentAmmo = currAmmo;
+		formationEnt.currentEnergy = currEnergy;
+		formationEnt.currentMorale = currMorale;
+		formationEnt.currentCount = currCount;
+		
+		formationEnt.maxHitpoints =  maxHit;
+		formationEnt.maxAmmo =  maxAmmo;
+		formationEnt.maxEnergy =  maxEnergy;
+		formationEnt.maxMorale =  maxMorale;
+		formationEnt.maxCount =  maxCount;
+		
+		formationEnt.members = formationEntState.formation.members;
 	}
 	//warn("updateFormationEntities formationEntIndex st");
 	let formationEntIndex = ent => g_FormationEntityOrder.findIndex(entClass =>
@@ -1257,22 +1314,29 @@ function displayFormationEntities()
 		let formationEntButton = Engine.GetGUIObjectByName("formationEntityButton[" + slot + "]");
 		formationEntButton.tooltip = formationEnt.tooltip;
 
+		updateGUIStatusBar("formationEntityCountBar[" + slot + "]", formationEnt.currentCount, formationEnt.maxCount);
 		updateGUIStatusBar("formationEntityHealthBar[" + slot + "]", formationEnt.currentHitpoints, formationEnt.maxHitpoints);
+		updateGUIStatusBar("formationEntityEnergyBar[" + slot + "]", formationEnt.currentEnergy, formationEnt.maxEnergy);
+		updateGUIStatusBar("formationEntityMoraleBar[" + slot + "]", formationEnt.currentMorale, formationEnt.maxMorale);
+		updateGUIStatusBar("formationEntityAmmoBar[" + slot + "]", formationEnt.currentAmmo, formationEnt.maxAmmo);
 
 		if (formationEnt.slot === undefined)
 		{
+			let formationFormImage = Engine.GetGUIObjectByName("formationFormImage[" + slot + "]");
 			let formationEntImage = Engine.GetGUIObjectByName("formationEntityImage[" + slot + "]");
-			formationEntImage.sprite = formationEnt.sprite;
+			formationFormImage.sprite = formationEnt.sprite;
+			formationEntImage.sprite = formationEnt.unitSprite;
 
 			formationEntButton.hidden = false;
 			formationEnt.slot = slot;
 		}
 
 		// If the health of the formationEnt changed since the last update, trigger the animation.
+		/*
 		if (formationEnt.previousHitpoints > formationEnt.currentHitpoints)
 			startColorFade("formationEntityHitOverlay[" + slot + "]", 100, 0,
 				colorFade_attackUnit, true, smoothColorFadeRestart_attackUnit);
-
+		*/
 		// TODO: Instead of instant position changes, animate button movement.
 		setFormationObjectPosition(formationEntButton, displayIndex, buttons.length);
 	}

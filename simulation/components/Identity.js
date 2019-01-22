@@ -148,6 +148,11 @@ Identity.prototype.GetClassesList = function()
 	return this.classesList;
 };
 
+Identity.prototype.GetIcon = function()
+{
+	return this.template.Icon;
+}
+
 Identity.prototype.GetVisibleClassesList = function()
 {
 	return this.visibleClassesList;

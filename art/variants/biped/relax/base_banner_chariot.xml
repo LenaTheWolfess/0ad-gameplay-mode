@@ -1,4 +1,4 @@
-<variant name="relax" frequency="1">
+<variant name="relax">
   <animations>
     <animation file="biped/new/pike_idle_relax.dae" name="syntagma_front_idle" speed="30"/>
     <animation file="biped/new/pike_idle_relax.dae" name="syntagma_front_walk" speed="30"/>

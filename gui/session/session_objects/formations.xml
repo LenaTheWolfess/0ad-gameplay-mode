@@ -1,23 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<object
-	name="formationEntityPanel"
-	size="0 86 50 93"
->
-	<!-- Displays buttons for active formations -->
+<object	name="formationEntityPanel" size="30% 100%-150 70% 100%">	
+<!-- Displays buttons for active formations -->
 	<repeat count="19" var="n">
-		<object name="formationEntityButton[n]" size="0 0 50 50" type="button" hidden="true" style="iconButton" tooltip_style="sessionToolTip">
-			<object name="formationEntityImage[n]" size="5 5 100%-5 100%-5" type="image" ghost="true"/>
+		<object name="formationEntityButton[n]" size="0 0 50 100%" type="button" hidden="true" style="iconButton" tooltip_style="sessionToolTip">
+			<object name="formationEntityImage[n]" size="5 10 45 45" type="image" ghost="true"/>
+			<object name="formationFormImage[n]" size="5 45 45 85" type="image" ghost="true"/>
 			<object name="formationEntityHitOverlay[n]" hidden="true" type="image" ghost="true" size="5 5 100%-5 100%-5"/>
+			<!-- Count bar -->
+			<object size="3 85 100%-3 92" name="formationEntityCountSection[n]" ghost="true">
+				<object size="0 0 100% 100%" name="formationEntityCount[n]" type="image" ghost="true">
+					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
+					<object type="image" sprite="countBackground" ghost="true"/>
+					<object type="image" sprite="countForeground" ghost="true" name="formationEntityCountBar[n]"/>
+					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
+				</object>
+			</object>
 			<!-- Health bar -->
-			<object size="3 100%-7 100%-3 100%-2" name="formationEntityHealthSection[n]" ghost="true">
-				<object size="0 0 100% 5" name="formationEntityHealth[n]" type="image" ghost="true">
+			<object size="3 94 100%-3 102" name="formationEntityHealthSection[n]" ghost="true">
+				<object size="0 0 100% 100%" name="formationEntityHealth[n]" type="image" ghost="true">
 					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
 					<object type="image" sprite="healthBackground" ghost="true"/>
 					<object type="image" sprite="healthForeground" ghost="true" name="formationEntityHealthBar[n]"/>
 					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
 				</object>
 			</object>
+			<!-- Energy bar -->
+			<object size="3 104 100%-3 112" name="formationEntityEnergySection[n]" ghost="true">
+				<object size="0 0 100% 100%" name="formationEntityEnergy[n]" type="image" ghost="true">
+					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
+					<object type="image" sprite="energyBackground" ghost="true"/>
+					<object type="image" sprite="energyForeground" ghost="true" name="formationEntityEnergyBar[n]"/>
+					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
+				</object>
+			</object>
+			<!-- Morale bar -->
+			<object size="3 114 100%-3 122" name="formationEntityMoraleSection[n]" ghost="true">
+				<object size="0 0 100% 100%" name="formationEntityMorale[n]" type="image" ghost="true">
+					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
+					<object type="image" sprite="moraleBackground" ghost="true"/>
+					<object type="image" sprite="moraleForeground" ghost="true" name="formationEntityMoraleBar[n]"/>
+					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
+				</object>
+			</object>
+			<!-- Ammo bar -->
+			<object size="3 124 100%-3 132" name="formationEntityAmmoSection[n]" ghost="true">
+				<object size="0 0 100% 100%" name="formationEntityAmmo[n]" type="image" ghost="true">
+					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
+					<object type="image" sprite="ammoBackground" ghost="true"/>
+					<object type="image" sprite="ammoForeground" ghost="true" name="formationEntityAmmoBar[n]"/>
+					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
+				</object>
+			</object>
 		</object>
 	</repeat>
-
 </object>

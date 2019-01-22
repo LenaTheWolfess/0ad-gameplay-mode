@@ -2,14 +2,14 @@ function layoutSelectionSingle()
 {
 	Engine.GetGUIObjectByName("detailsAreaSingle").hidden = false;
 	Engine.GetGUIObjectByName("detailsAreaMultiple").hidden = true;
-	Engine.GetGUIObjectByName("detailAreaFormation").hidden = true;
+	Engine.GetGUIObjectByName("selectionFormation").hidden = true;
 }
 
 function layoutSelectionMultiple()
 {
 	Engine.GetGUIObjectByName("detailsAreaMultiple").hidden = false;
 	Engine.GetGUIObjectByName("detailsAreaSingle").hidden = true;
-	Engine.GetGUIObjectByName("detailsAreaFormation").hidden = true;
+	Engine.GetGUIObjectByName("selectionFormation").hidden = true;
 }
 
 function getResourceTypeDisplayName(resourceType)
@@ -88,6 +88,7 @@ function updateGarrisonHealthBar(entState, selection)
 // Fills out information that most entities have
 function displaySingle(entState)
 {
+	Engine.GetGUIObjectByName("selectionFormation").hidden = true;
 	// Get general unit and player data
 	let template = GetTemplateData(entState.template);
 	let specificName = template.name.specific;
@@ -122,7 +123,6 @@ function displaySingle(entState)
 		Engine.GetGUIObjectByName("rankIcon").tooltip = "";
 	}
 
-	Engine.GetGUIObjectByName("formIcon").hidden = false;
 	Engine.GetGUIObjectByName("icon").hidden = false;
 	Engine.GetGUIObjectByName("iconBorder").hidden = false;
 	Engine.GetGUIObjectByName("healthSection").hidden = false;
@@ -392,8 +392,13 @@ function displaySingle(entState)
 
 function displayFormation(entStates, fState)
 {
-	if (!fState)
+	if (!fState) {
 		displayMultiple(entStates);
+		return;
+	}
+	Engine.GetGUIObjectByName("selectionDetails").hidden = true;
+	
+	let template = GetTemplateData(fState.template);
 	
 	let playerState = g_Players[fState.player];
 	let civName = g_CivData[playerState.civ].Name;
@@ -401,54 +406,45 @@ function displayFormation(entStates, fState)
 	let playerName = playerState.name;
 	let playerColor = rgbToGuiColor(g_DisplayedPlayerColors[fState.player], 128);
 	
-//	Engine.GetGUIObjectByName("formNumberOfUnits").hidden = true;
-	Engine.GetGUIObjectByName("formIcon").hidden = false;
-	Engine.GetGUIObjectByName("formIconBorder").hidden = false;
-
-	Engine.GetGUIObjectByName("icon").hidden = true;
-	Engine.GetGUIObjectByName("iconBorder").hidden = true;
-	Engine.GetGUIObjectByName("healthSection").hidden = true;
-	Engine.GetGUIObjectByName("energySection").hidden = true;
-	Engine.GetGUIObjectByName("captureSection").hidden = true;
-	Engine.GetGUIObjectByName("resourceSection").hidden = true;
-	Engine.GetGUIObjectByName("sectionPosTop").hidden = true;
-	Engine.GetGUIObjectByName("sectionPosMiddle").hidden = true;
-	Engine.GetGUIObjectByName("sectionPosBottom").hidden = true;
-	Engine.GetGUIObjectByName("specific").hidden = true;
-	Engine.GetGUIObjectByName("player").hidden = true;
-	Engine.GetGUIObjectByName("playerColorBackground").hidden = true;
-	Engine.GetGUIObjectByName("generic").hidden = true;
-	Engine.GetGUIObjectByName("playerCivIcon").hidden = true;
-	Engine.GetGUIObjectByName("attackAndArmorStats").hidden = true;
-	Engine.GetGUIObjectByName("rankIcon").hidden = true;
-	
-	// Get formation tempalte
-	let template = GetTemplateData(fState.template);
-	Engine.GetGUIObjectByName("formSpecific").caption = template.name.specific;
-	Engine.GetGUIObjectByName("formGeneric").caption = "(" + template.name.generic + ")";
-	Engine.GetGUIObjectByName("formState").caption = fState.unitAI.state.split(".").pop();
-	Engine.GetGUIObjectByName("formIcon").sprite = template.icon ? ("stretched:session/portraits/" + template.icon) : "BackgroundBlack";
-	Engine.GetGUIObjectByName("formIconBorder").onPressRight = () => { showTemplateDetails(fState.template);};
-
-//	Engine.GetGUIObjectByName("formNumberOfUnits").caption = fState.formation.members.length;
-//	Engine.GetGUIObjectByName("formNumberOfUnits").tooltip = "number of units";
+	// Player data
 	Engine.GetGUIObjectByName("formPlayer").caption = playerName;
 	Engine.GetGUIObjectByName("formPlayerColorBackground").sprite = "color:" + playerColor;
-
 	let isGaia = playerState.civ == "gaia";
 	Engine.GetGUIObjectByName("formPlayerCivIcon").sprite = isGaia ? "" : "stretched:grayscale:" + civEmblem;
 	Engine.GetGUIObjectByName("formPlayer").tooltip = isGaia ? "" : civName;
+	
+	let unitTemplate = GetTemplateData(fState.formation.unitTemplate);
+	
+	Engine.GetGUIObjectByName("formFightStatsAttackImage").tooltip = "Melee";
+	Engine.GetGUIObjectByName("formFightStatsAttackRangeImage").tooltip = "Ranged";
+	Engine.GetGUIObjectByName("formFightStatsArmorImage").tooltip = "Armor";
+	Engine.GetGUIObjectByName("formFightStatsShieldImage").tooltip = "Shield";
+	
+	Engine.GetGUIObjectByName("formFightStatsArmorNum").caption = sumTemplateArmor(unitTemplate);
+	Engine.GetGUIObjectByName("formFightStatsShieldNum").caption = sumTemplateShield(unitTemplate);
+	Engine.GetGUIObjectByName("formFightStatsAttackNum").caption = sumTemplateAttack(unitTemplate);
+	Engine.GetGUIObjectByName("formFightStatsAttackRangeNum").caption = sumTemplateRanged(unitTemplate);
+	
+	// Get formation tempalte	
+	let healthSection = Engine.GetGUIObjectByName("formationEntityHealthSection");
+	let ammoSection   = Engine.GetGUIObjectByName("formationEntityAmmoSection");
+	let energySection = Engine.GetGUIObjectByName("formationEntityEnergySection");
+	let moraleSection = Engine.GetGUIObjectByName("formationEntityMoraleSection");
 
-	let sectionPosTop = Engine.GetGUIObjectByName("formSectionPosTop");
-	let sectionPosBottom = Engine.GetGUIObjectByName("formSectionPosBottom");
-	let sectionPosMiddle = Engine.GetGUIObjectByName("formSectionPosMiddle");
-	let healthSection = Engine.GetGUIObjectByName("formHealthSection");
-	let ammoSection   = Engine.GetGUIObjectByName("formAmmoSection");
-	let energySection = Engine.GetGUIObjectByName("formEnergySection");
-	healthSection.size = sectionPosTop.size;
-	ammoSection.size = sectionPosBottom.size;
-	energySection.size = sectionPosMiddle.size;
-
+	let unitIcon = Engine.GetGUIObjectByName("formationEntityImage");
+	let formIcon = Engine.GetGUIObjectByName("formationFormImage");
+	
+	unitIcon.sprite = "stretched:session/portraits/" + fState.formation.unitIcon;
+	
+	unitIcon.tooltip = unitTemplate.name.specific;
+	unitIcon.tooltip += "\n("+ unitTemplate.name.generic +")";
+	
+	formIcon.sprite = "stretched:session/portraits/" + fState.identity.icon;
+	
+	formIcon.tooltip = "Formaiton: " + template.name.specific;
+	
+	Engine.GetGUIObjectByName("formStatCount").caption = "Count: " + fState.formation.membersCount;
+	
 	let averageHealth = 0;
 	let maxHealth = 0;
 	let playerID = 0;
@@ -456,6 +452,8 @@ function displayFormation(entStates, fState)
 	let maxAmmo = 0;
 	let maxEnergy = 0;
 	let avEnergy = 0;
+	let avMorale = 0;
+	let maxMorale = 0;
 	for (let entState of entStates)
 	{
 		playerID = entState.player; // trust that all selected entities have the same owner
@@ -472,53 +470,74 @@ function displayFormation(entStates, fState)
 			avEnergy += entState.energy.points;
 			maxEnergy += entState.energy.maxPoints;
 		}
+		if (entState.morale) {
+			avMorale += entState.morale.points;
+			maxMorale += entState.morale.maxPoints;
+		}
 	}
-	if (averageHealth > 0)
+	
+	Engine.GetGUIObjectByName("formStatHealth").caption = formHealthString(averageHealth, maxHealth);
+	Engine.GetGUIObjectByName("formStatEnergy").caption = formEnergyString(avEnergy, maxEnergy);
+	Engine.GetGUIObjectByName("formStatMorale").caption = formMoraleString(avMorale, maxMorale);
+	
+	/*
+	if (fState.formation.maxMembers > 0) {
+		let unitCountBar = Engine.GetGUIObjectByName("formationEntityCountBar");
+		let countSize = unitCountBar.size;
+		countSize.rright = 100 * Math.max(0, Math.min(1, fState.formation.membersCount / fState.formation.maxMembers));
+		unitCountBar.size = countSize;
+		Engine.GetGUIObjectByName("formationEntityCount").tooltip = "Count: " + fState.formation.membersCount + "/" + fState.formation.maxMembers;
+	}
+	if (maxHealth > 0)
 	{
-		let unitHealthBar = Engine.GetGUIObjectByName("formHealthBar");
+		let unitHealthBar = Engine.GetGUIObjectByName("formationEntityHealthBar");
 		let healthSize = unitHealthBar.size;
 		healthSize.rright = 100 * Math.max(0, Math.min(1, averageHealth / maxHealth));
 		unitHealthBar.size = healthSize;
-		Engine.GetGUIObjectByName("formHealth").tooltip= sprintf(translate("Average helth: %(hitpoints)s %%"), {
-			"hitpoints": Math.round((averageHealth / maxHealth) * 100)
-		});
+		
+		let unitHealthT = Engine.GetGUIObjectByName("formationEntityHealth");
+		unitHealthT.tooltip = "Health: " + averageHealth + "/" + maxHealth;
 	}
 	if (maxAmmo > 0)
 	{
-		let unitAmmoBar = Engine.GetGUIObjectByName("formAmmoBar");
+		let unitAmmoBar = Engine.GetGUIObjectByName("formationEntityAmmoBar");
 		let ammoSize = unitAmmoBar.size;
 		ammoSize.rright = 100 * Math.max(0, Math.min(1, avAmmo / maxAmmo));
 		unitAmmoBar.size = ammoSize;
-		Engine.GetGUIObjectByName("formAmmo").tooltip= sprintf("ammo: %(count)s", {"count": avAmmo});
+		Engine.GetGUIObjectByName("formationEntityAmmo").tooltip = "Ammo: " + avAmmo + "/" + maxAmmo;
 	}		
 	ammoSection.hidden = !maxAmmo;
 	if (maxEnergy > 0) {
-		let unitenergyBar = Engine.GetGUIObjectByName("formEnergyBar");
+		let unitenergyBar = Engine.GetGUIObjectByName("formationEntityEnergyBar");
 		let energySize = unitenergyBar.size;
 		energySize.rright = 100 * Math.max(0, Math.min(1, avEnergy / maxEnergy));
 		unitenergyBar.size = energySize;
-		Engine.GetGUIObjectByName("formEnergy").tooltip= sprintf(translate("Average energy: %(hitpoints)s %%"), {
-			"hitpoints": Math.round((avEnergy / maxEnergy) * 100)
-		});
+		Engine.GetGUIObjectByName("formationEntityEnergy").tooltip = "Energy: " + avEnergy + "/"+ maxEnergy;;
 	}
-	energySection.hidden = !maxEnergy;
-	
-	let iconTooltips = [];
-	iconTooltips = iconTooltips.concat([
-		getAurasTooltip,
-		getEntityTooltip
-	].map(func => func(template)));
-	Engine.GetGUIObjectByName("formIconBorder").tooltip = iconTooltips.filter(tip => tip).join("\n");
+	moraleSection.hidden = !maxMorale;
+	if (maxMorale > 0) {
+		let unitmoraleBar = Engine.GetGUIObjectByName("formationEntityMoraleBar");
+		let moraleSize = unitmoraleBar.size;
+		moraleSize.rright = 100 * Math.max(0, Math.min(1, avMorale / maxMorale));
+		unitmoraleBar.size = moraleSize;
+		Engine.GetGUIObjectByName("formationEntityMorale").tooltip = "Morale: " + avMorale + "/" + maxMorale;
+	}
+	moraleSection.hidden = !maxMorale;
+	*/
 	
 	// Unhide Details Area
+	Engine.GetGUIObjectByName("detailsAreaSingle").hidden = true;
 	Engine.GetGUIObjectByName("detailsAreaMultiple").hidden = true;
-	Engine.GetGUIObjectByName("detailsAreaMultiple").hidden = true;
+	Engine.GetGUIObjectByName("selectionFormation").hidden = false;
 	Engine.GetGUIObjectByName("detailsAreaFormation").hidden = false;
+
+	Engine.GetGUIObjectByName("formationEntityPanel").hidden = false;
 }
 
 // Fills out information for multiple entities
 function displayMultiple(entStates)
 {
+	Engine.GetGUIObjectByName("selectionFormation").hidden = true;
 	let averageHealth = 0;
 	let maxHealth = 0;
 	let maxCapturePoints = 0;
@@ -629,7 +648,7 @@ function displayMultiple(entStates)
 	// Unhide Details Area
 	Engine.GetGUIObjectByName("detailsAreaMultiple").hidden = false;
 	Engine.GetGUIObjectByName("detailsAreaSingle").hidden = true;
-	Engine.GetGUIObjectByName("detailsAreaFormation").hidden = true;
+	Engine.GetGUIObjectByName("selectionFormation").hidden = true;
 }
 
 // Updates middle entity Selection Details Panel and left Unit Commands Panel
@@ -650,20 +669,23 @@ function updateSelectionDetails()
 			continue;
 		entStates.push(entState);
 	}
-
+	
+	let formationEntities = Engine.GetGUIObjectByName("formationEntityPanel");
 	if (entStates.length == 0)
 	{
 		Engine.GetGUIObjectByName("detailsAreaMultiple").hidden = true;
 		Engine.GetGUIObjectByName("detailsAreaSingle").hidden = true;
-		Engine.GetGUIObjectByName("detailsAreaFormation").hidden = true;
+		Engine.GetGUIObjectByName("selectionFormation").hidden = true;
 		hideUnitCommands();
 
 		supplementalDetailsPanel.hidden = true;
 		detailsPanel.hidden = true;
 		commandsPanel.hidden = true;
+		formationEntities.hidden = false;
 		return;
 	}
-
+	formationEntities.hidden = true;
+	
 	let hasFormation = false;
 	let formation = null;
 	let fState = null;
@@ -688,7 +710,12 @@ function updateSelectionDetails()
 		//warn(formation + ": selDetail fState st");
 		fState = GetEntityState(formation);
 		//warn("selDetail fState en");
-		displayFormation(entStates, fState);
+		supplementalDetailsPanel.hidden = true;
+		detailsPanel.hidden = true;
+		commandsPanel.hidden = true;
+		hideUnitCommands();
+		updateFormationCommands(entStates, supplementalDetailsPanel, commandsPanel);
+		displayFormation(entStates, fState);	
 	}
 	// Fill out general info and display it
 	else if(entStates.length == 1)
@@ -696,15 +723,15 @@ function updateSelectionDetails()
 	else
 		displayMultiple(entStates);
 
-	// Show basic details.
-	detailsPanel.hidden = false;
-
 	// Fill out commands panel for specific unit selected (or first unit of primary group)
-	updateUnitCommands(entStates, supplementalDetailsPanel, commandsPanel);
-
-	// Show health bar for garrisoned units if the garrison panel is visible
-	if (Engine.GetGUIObjectByName("unitGarrisonPanel") && !Engine.GetGUIObjectByName("unitGarrisonPanel").hidden)
-		updateGarrisonHealthBar(entStates[0], g_Selection.toList());
+	if (!hasFormation) {	
+		// Show basic details.
+		detailsPanel.hidden = false;
+		updateUnitCommands(entStates, supplementalDetailsPanel, commandsPanel);
+		// Show health bar for garrisoned units if the garrison panel is visible
+		if (Engine.GetGUIObjectByName("unitGarrisonPanel") && !Engine.GetGUIObjectByName("unitGarrisonPanel").hidden)
+			updateGarrisonHealthBar(entStates[0], g_Selection.toList());
+	}
 }
 
 function tradingGainString(gain, owner)

@@ -2,6 +2,7 @@
 <Entity parent="template_unit_infantry_melee">
   <Attack>
     <Melee>
+	  <AntiCharge>true</AntiCharge>
       <Pierce>15</Pierce>
       <MaxRange>7</MaxRange>
       <RepeatTime>2000</RepeatTime>

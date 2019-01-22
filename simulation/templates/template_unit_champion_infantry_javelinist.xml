@@ -2,7 +2,7 @@
 <Entity parent="template_unit_champion_infantry_ranged">
   <Attack>
     <Ranged>
-      <Ammo>25</Ammo>
+      <Ammo>20</Ammo>
       <Missle>20</Missle>
       <MaxRange>22.0</MaxRange>
       <MinRange>7.0</MinRange>

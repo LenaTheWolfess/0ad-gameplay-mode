@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant name="death">
+      <mesh>flora/tree_death.dae</mesh>
+	  <textures><texture file="props/wood_e.png" name="baseTex"/></textures>
+	</variant>
+    <variant frequency="1" name="Tree dead 1">
+      <mesh>gaia/tree_dead_a_2.dae</mesh>
+	  <textures><texture file="gaia/tree_dead.dds" name="baseTex"/></textures>
+    </variant>
+    <variant frequency="1" name="Tree dead 2">
+      <mesh>gaia/tree_dead_a_1.dae</mesh>
+	  <textures><texture file="gaia/tree_dead.dds" name="baseTex"/></textures>
+    </variant>
+  </group>
+  <material>basic_trans.xml</material>
+</actor>

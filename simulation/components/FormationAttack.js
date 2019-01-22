@@ -88,7 +88,7 @@ FormationAttack.prototype.recalculateRange = function()
 	}
 	return result;
 }
-FormationAttack.prototype.GetRange = function(target)
+FormationAttack.prototype.GetRange = function(target, allowCapture)
 {
 	let result = {"min": 0, "max": this.canAttackAsFormation ? -1 : 0};
 	let cmpFormation = Engine.QueryInterface(this.entity, IID_Formation);
@@ -108,7 +108,7 @@ FormationAttack.prototype.GetRange = function(target)
 		if (!cmpAttack)
 			continue;
 
-		let type = cmpAttack.GetBestAttackAgainst(target);
+		let type = cmpAttack.GetBestAttackAgainst(target, allowCapture);
 		if (!type)
 			continue;
 
@@ -157,7 +157,7 @@ FormationAttack.prototype.GetBestAttackAgainst = function(target, allowCapture)
 		if (!cmpAttack)
 			continue;
 
-		let type = cmpAttack.GetBestAttackAgainst(target);
+		let type = cmpAttack.GetBestAttackAgainst(target, allowCapture);
 		if (!type)
 			continue;
 		return type;

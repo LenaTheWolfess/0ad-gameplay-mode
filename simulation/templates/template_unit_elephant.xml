@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit">
   <Armour>
-    <Hack>0</Hack>
-    <Pierce>0</Pierce>
-    <Crush>0</Crush>
-    <Missle>0</Missle>
+    <Hack>7</Hack>
+    <Pierce>5</Pierce>
+    <Crush>7</Crush>
+    <Missle>5</Missle>
   </Armour>
   <Cost>
     <BatchSize>3</BatchSize>
@@ -17,6 +17,10 @@
       <metal>250</metal>
     </Resources>
   </Cost>
+  <Morale>
+    <MaxPoints>100</MaxPoints>
+	<RegenRate>0</RegenRate>
+  </Morale>
   <DeathDamage>
     <Shape>Circular</Shape>
 	<Range>5</Range>
@@ -44,8 +48,8 @@
   <Selectable>
     <Overlay>
       <Texture>
-        <MainTexture>arrow/256x256.png</MainTexture>
-        <MainTextureMask>arrow/256x256_mask.png</MainTextureMask>
+        <MainTexture>circle/256x256.png</MainTexture>
+        <MainTextureMask>circle/256x256_mask.png</MainTextureMask>
       </Texture>
     </Overlay>
   </Selectable>

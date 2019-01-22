@@ -17,6 +17,10 @@
   <Auras datatype="tokens">
     units/heroes/hero_garrison
   </Auras>
+  <Morale>
+    <MaxPoints>500</MaxPoints>
+	<RegenRate>0</RegenRate>
+  </Morale>
   <Cost>
     <BatchSize>14</BatchSize>
     <Population>2</Population>

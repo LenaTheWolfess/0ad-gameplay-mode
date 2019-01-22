@@ -2,7 +2,7 @@
 <Entity parent="template_unit_champion_infantry">
   <Attack>
     <Ranged>
-      <Ammo>50</Ammo>
+      <Ammo>25</Ammo>
       <CritChance>0.1</CritChance>
       <CritDamage>50000</CritDamage>
 	  <RefillAmount>5</RefillAmount>
@@ -14,7 +14,7 @@
       <MaxRange>20.0</MaxRange>
       <MinRange>7.0</MinRange>
       <ProjectileSpeed>75.0</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
+      <Gravity>4</Gravity>
       <PrepareTime>750</PrepareTime>
       <RepeatTime>1250</RepeatTime>
       <Spread>3.0</Spread>

@@ -48,6 +48,8 @@
     </Entities>
     <Technologies datatype="tokens">
       persians/immortals
+	  pers/xerxes_champion
+      pers/cyrus_champion
     </Technologies>
   </ProductionQueue>
   <ResourceTrickle>

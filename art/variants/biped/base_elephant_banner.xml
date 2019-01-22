@@ -1,4 +1,4 @@
-<variant name="Base" frequency="1">
+<variant name="Base">
   <animations>
     <animation file="biped/elephant_rider_archer_idle_1.dae" name="idle" speed="25"/>
     <animation file="biped/elephant_rider_archer_walk_1.dae" name="Walk" speed="20"/>

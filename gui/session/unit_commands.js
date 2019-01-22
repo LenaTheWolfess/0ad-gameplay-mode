@@ -20,6 +20,15 @@ var g_unitPanelButtons = {
 	"FormationMembers": 0
 };
 
+var g_formationPanelButtons = {
+	"FormationType": 0,
+	"FormationStance": 0,
+	"Members": 0,
+	"Command": 0,
+	"Ability": 0,
+	"Pack": 0
+};
+
 /**
  * Set the position of a panel object according to the index,
  * from left to right, from top to bottom.
@@ -39,6 +48,22 @@ function setPanelObjectPosition(object, index, rowLength, vMargin = 1, hMargin =
 	var vIndex = Math.floor(index / rowLength);
 	size.top = vIndex * (oHeight + hMargin);
 	size.bottom = size.top + oHeight;
+	object.size = size;
+}
+
+function setPanelObjectPositionH(object, index, rowLength, vMargin = 1, hMargin = 1)
+{
+	var size = object.size;
+	// horizontal position
+	var oWidth = size.right - size.left;
+	var hIndex = index % rowLength;
+	size.top = hIndex * (oWidth + vMargin);
+	size.bottom = size.top + oWidth;
+	// vertical position
+	var oHeight = size.right - size.left;
+	var vIndex = Math.floor(index / rowLength);
+	size.left = vIndex * (oHeight + hMargin);
+	size.right = size.left + oHeight;
 	object.size = size;
 }
 
@@ -130,6 +155,70 @@ function setupUnitPanel(guiName, unitEntStates, playerState)
 	g_SelectionPanels[guiName].used = true;
 }
 
+function setupFormationPanel(guiName, unitEntStates, playerState)
+{
+	if (!g_FormationPanels[guiName])
+	{
+		error("unknown guiName used '" + guiName + "'");
+		return;
+	}
+
+	let items = g_FormationPanels[guiName].getItems(unitEntStates);
+
+	if (!items || !items.length)
+		return;
+
+	let numberOfItems = Math.min(items.length, g_FormationPanels[guiName].getMaxNumberOfItems());
+	let rowLength = g_FormationPanels[guiName].rowLength || 8;
+
+	if (g_FormationPanels[guiName].resizePanel)
+		g_FormationPanels[guiName].resizePanel(numberOfItems, rowLength);
+
+	for (let i = 0; i < numberOfItems; ++i)
+	{
+		let data = {
+			"i": i,
+			"item": items[i],
+			"playerState": playerState,
+			"player": unitEntStates[0].player,
+			"unitEntStates": unitEntStates,
+			"rowLength": rowLength,
+			"numberOfItems": numberOfItems,
+			// depending on the XML, some of the GUI objects may be undefined
+			"button": Engine.GetGUIObjectByName("formation" + guiName + "Button[" + i + "]"),
+			"icon": Engine.GetGUIObjectByName("formation" + guiName + "Icon[" + i + "]"),
+			"guiSelection": Engine.GetGUIObjectByName("formation" + guiName + "Selection[" + i + "]"),
+			"countDisplay": Engine.GetGUIObjectByName("formation" + guiName + "Count[" + i + "]")
+		};
+
+		if (data.button)
+		{
+			data.button.hidden = false;
+			data.button.enabled = true;
+			data.button.tooltip = "";
+			data.button.caption = "";
+		}
+
+		if (g_FormationPanels[guiName].setupButton &&
+		    !g_FormationPanels[guiName].setupButton(data))
+			continue;
+
+		// TODO: we should require all entities to have icons, so this case never occurs
+		if (data.icon && !data.icon.sprite)
+			data.icon.sprite = "BackgroundBlack";
+	}
+
+	// Hide any buttons we're no longer using
+	for (let i = numberOfItems; i < g_formationPanelButtons[guiName]; ++i)
+		if (g_FormationPanels[guiName].hideItem)
+			g_FormationPanels[guiName].hideItem(i, rowLength);
+		else
+			Engine.GetGUIObjectByName("formation" + guiName + "Button[" + i + "]").hidden = true;
+
+	g_unitPanelButtons[guiName] = numberOfItems;
+	g_FormationPanels[guiName].used = true;
+}
+
 /**
  * Updates the selection panels where buttons are supposed to
  * depend on the context.
@@ -192,11 +281,68 @@ function updateUnitCommands(entStates, supplementalDetailsPanel, commandsPanel)
 		Engine.GetGUIObjectByName("unit" + panelName + "Panel").hidden = !g_SelectionPanels[panelName].used;
 }
 
+function updateFormationCommands(entStates, supplementalDetailsPanel, commandsPanel)
+{
+	for (let panel in g_FormationPanels)
+		g_FormationPanels[panel].used = false;
+
+	// If the selection is friendly units, add the command panels
+
+	// Get player state to check some constraints
+	// e.g. presence of a hero or build limits
+	let playerStates = GetSimState().players;
+	let playerState = playerStates[Engine.GetPlayerID()];
+
+	if (g_IsObserver || entStates.every(entState => controlsPlayer(entState.player)))
+	{
+		for (let guiName of g_FormationPanelsOrder)
+		{
+
+			if (g_FormationPanels[guiName].conflictsWith &&
+			    g_FormationPanels[guiName].conflictsWith.some(p => g_FormationPanels[p].used))
+				continue;
+
+			setupFormationPanel(guiName, entStates, playerStates[entStates[0].player]);
+		}
+
+//		supplementalDetailsPanel.hidden = false;
+//		commandsPanel.hidden = false;
+	}
+	else if (playerState.isMutualAlly[entStates[0].player]) // owned by allied player
+	{
+		// TODO if there's a second panel needed for a different player
+		// we should consider adding the players list to g_FormationPanels
+	//	setupFormationPanel("Garrison", entStates, playerState);
+	//	setupFormationPanel("AllyCommand", entStates, playerState);
+
+	//	supplementalDetailsPanel.hidden = !g_FormationPanels.Garrison.used;
+
+		commandsPanel.hidden = true;
+	}
+	else // owned by another player
+	{
+	//	setupFormationPanel("Garrison", entStates, playerState);
+	//	supplementalDetailsPanel.hidden = !g_FormationPanels.Garrison.used;
+		commandsPanel.hidden = true;
+	}
+
+	// Hides / unhides Formation Panels (panels should be grouped by type, not by order, but we will leave that for another time)
+	for (let panelName in g_FormationPanels)
+		Engine.GetGUIObjectByName("formation" + panelName + "Panel").hidden = !g_FormationPanels[panelName].used;
+}
+
 // Force hide commands panels
 function hideUnitCommands()
 {
 	for (var panelName in g_SelectionPanels)
 		Engine.GetGUIObjectByName("unit" + panelName + "Panel").hidden = true;
+}
+
+// Force hide commands panels
+function hideFormationCommands()
+{
+	for (var panelName in g_SelectionPanels)
+		Engine.GetGUIObjectByName("formation" + panelName + "Panel").hidden = true;
 }
 
 // Get all of the available entities which can be trained by the selected entities

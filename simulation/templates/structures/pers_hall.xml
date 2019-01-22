@@ -45,6 +45,9 @@
       units/{civ}_kardakes_skirmisher
       units/{civ}_champion_elephant
     </Entities>
+	 <Technologies datatype="tokens">
+      pers/darius_champion
+    </Technologies>
   </ProductionQueue>
   <Sound>
     <SoundGroups>

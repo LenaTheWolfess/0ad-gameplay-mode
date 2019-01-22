@@ -1,4 +1,4 @@
-<variant name="ready" frequency="1">
+<variant name="ready">
   <animations>
     <animation file="biped/new/spear_idle_ready.dae" name="Idle" id="idle1" speed="30"/>
     <animation file="biped/new/spear_walk_ready.dae" name="Walk" id="walk1" speed="30"/>

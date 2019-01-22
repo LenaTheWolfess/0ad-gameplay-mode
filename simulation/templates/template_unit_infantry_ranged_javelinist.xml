@@ -2,10 +2,9 @@
 <Entity parent="template_unit_infantry_ranged">
   <Attack>
     <Ranged>
-      <Ammo>25</Ammo>
+      <Ammo>15</Ammo>
       <Missle>20</Missle>
       <MaxRange>20.0</MaxRange>
-      <MinRange>7.0</MinRange>
       <ProjectileSpeed>62.5</ProjectileSpeed>
       <PrepareTime>3000</PrepareTime>
 	  <AnimLength>4000</AnimLength>
@@ -16,7 +15,7 @@
   </Attack>
   <Cost>
     <Resources>
-      <wood>10</wood>
+      <wood>15</wood>
     </Resources>
   </Cost>
   <Identity>

@@ -1,4 +1,4 @@
-<variant name="Base" frequency="1">
+<variant name="Base">
   <animations>
     <animation event="0.5" file="biped/new/sword_shieldsmall_attack_a.dae" name="attack_melee" id="attack1" speed="120"/>
     <animation event="0.5" file="biped/new/sword_shieldsmall_attack_b.dae" name="attack_melee" id="attack2" speed="100"/>

@@ -96,6 +96,9 @@ Formation.prototype.Init = function()
 	this.centerGap = +(this.template.CenterGap || 0);
 	this.useAvgRot = false;
 
+	this.unitTypeTemplate = undefined;
+	
+	this.unitName = "Unit";
 	this.maxMembersCount = +this.template.MaxMemberCount;
 	var animations = this.template.Animations;
 	this.animations = {};
@@ -148,6 +151,27 @@ Formation.prototype.Init = function()
 	Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer)
 		.SetInterval(this.entity, IID_Formation, "ShapeUpdate", 1000, 1000, null);
 };
+
+Formation.prototype.UnitKilled = function(target)
+{
+	for (let member of this.members) {
+		let cmpMorale = Engine.QueryInterface(member, IID_Morale);
+		if (cmpMorale)
+			cmpMorale.Increase(1);
+	}
+}
+
+Formation.prototype.DistributeExp = function(amount)
+{
+	if (!amount)
+		return;
+	for (let member of this.members) {
+		let cmpExperience = Engine.QueryInterface(member, IID_Experience);
+		if (cmpExperience && !cmpExperience.IsMaxLeveled()) {
+			cmpExperience.IncreaseXp(amount);
+		}
+	}
+}
 
 /**
  * Set the value from which two twin formations will become one.
@@ -203,7 +227,6 @@ Formation.prototype.CanCharge = function(target)
 //		warn("target is formation member: disabled for now");
 		return true;
 	}
-	// just for start do no allow to charge into formation
 	if (cmpIdentity.HasClass("Organic")) {
 //		warn("CAN CHARGE");
 		return true;
@@ -270,6 +293,25 @@ Formation.prototype.Spread = function(offsets, spreadRatioX = 1.5, spreadRatioY 
 	return newOff;
 }
 
+Formation.prototype.GetUnitIcon = function()
+{
+	let uIcon = "units/athen_champion_infantry.png";
+	for (let member of this.members) {
+		if (member == this.banner || member == this.siege || member == this.commander)
+			continue;
+		let cmpIdentity = Engine.QueryInterface(member, IID_Identity);
+		if (cmpIdentity) {
+			return cmpIdentity.GetIcon();
+		}
+	}
+	return uIcon;
+}
+
+Formation.prototype.GetUnitName = function()
+{
+	return this.unitName;
+}
+
 Formation.prototype.GetClosestMember = function(ent, filter)
 {
 	let cmpEntPosition = Engine.QueryInterface(ent, IID_Position);
@@ -309,6 +351,11 @@ Formation.prototype.GetClosestMember = function(ent, filter)
 Formation.prototype.GetPrimaryMember = function()
 {
 	return this.members[0];
+};
+
+Formation.prototype.GetUnitTypeTemplate = function()
+{
+	return this.unitTypeTemplate;
 };
 
 Formation.prototype.GetMemberOffset = function(entity)
@@ -637,6 +684,7 @@ Formation.prototype.AddCommander = function(commander, reform = true) {
  */
 Formation.prototype.SetMembers = function(ents, withBanner = false, withCommander = false, withSiege = false)
 {
+	this.unitTypeTemplate = undefined;
 	let extraPlace = 0;
 	if (withBanner)
 		extraPlace++;
@@ -660,10 +708,20 @@ Formation.prototype.SetMembers = function(ents, withBanner = false, withCommande
 		if (cmpIdentity) {
 			if (cmpIdentity.HasClass("Banner"))
 				this.banner = ent;
+			else
 			if (cmpIdentity.HasClass("Commander"))
 				this.commander = ent;
+			else
 			if (cmpIdentity.HasClass("Siege"))
 				this.siege = ent;
+			else {
+				this.unitName = cmpIdentity.GetGenericName();
+				if (this.unitTypeTemplate == undefined) {
+					let cmpTemplateManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_TemplateManager);
+					let template = cmpTemplateManager.GetCurrentTemplateName(ent);
+					this.unitTypeTemplate = template;
+				}
+			}
 		}
 		let cmpUnitAI = Engine.QueryInterface(ent, IID_UnitAI);
 		cmpUnitAI.SetFormationController(this.entity);
@@ -682,7 +740,7 @@ Formation.prototype.SetMembers = function(ents, withBanner = false, withCommande
 
 	//	this.offsets = undefined;
 	// Locate this formation controller in the middle of its members
-	this.MoveToMembersCenter();
+//	this.MoveToMembersCenter();
 
 	// Compute the speed etc. of the formation
 	this.ComputeMotionParameters();
@@ -705,7 +763,13 @@ Formation.prototype.SetMembers = function(ents, withBanner = false, withCommande
 
 Formation.prototype.Died = function(ents)
 {
+	let amount = (ents.length / this.members.length) * 100;
 	this.FillPositions(ents);
+	for (let member of this.members) {
+		let cmpMorale = Engine.QueryInterface(member, IID_Morale);
+		if (cmpMorale)
+			cmpMorale.Reduce(amount);
+	}
 }
 
 /**
@@ -727,15 +791,15 @@ Formation.prototype.RemoveMembers = function(ents)
 		let cmpHealth = Engine.QueryInterface(ent, IID_Health);
 		if (!cmpHealth || cmpHealth.GetHitpoints() <= 0) {
 			died.push(ent);
-			let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
-			if (cmpIdentity) {
-				if (cmpIdentity.HasClass("Banner"))
-					this.banner = INVALID_ENTITY;
-				if (cmpIdentity.HasClass("Commander"))
-					this.commander = INVALID_ENTITY;
-				if (cmpIdentity.HasClass("Siege"))
-					this.siege = INVALID_ENTITY;
-			}
+		}
+		let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
+		if (cmpIdentity) {
+			if (cmpIdentity.HasClass("Banner"))
+				this.banner = INVALID_ENTITY;
+			if (cmpIdentity.HasClass("Commander"))
+				this.commander = INVALID_ENTITY;
+			if (cmpIdentity.HasClass("Siege"))
+				this.siege = INVALID_ENTITY;
 		}
 	}
 
@@ -756,10 +820,13 @@ Formation.prototype.RemoveMembers = function(ents)
 
 	this.formationMembersWithAura = this.formationMembersWithAura.filter(function(e) { return ents.indexOf(e) == -1; });
 
-//	if (this.members.length < this.template.RequiredMemberCount)
 	if (!this.members.length)
 	{
 		this.Disband();
+		return;
+	}
+	if (this.members.length < this.template.RequiredMemberCount) {
+		this.LoadFormation("special/formations/null");
 		return;
 	}
 
@@ -943,6 +1010,7 @@ Formation.prototype.MoveMembersIntoFormation = function(moveCenter, force)
 	}
 
 	// Switch between column and box if necessary
+	/*
 	if (!this.canCharge) {
 		let cmpUnitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
 		let walkingDistance = cmpUnitAI.ComputeWalkingDistance();
@@ -953,7 +1021,7 @@ Formation.prototype.MoveMembersIntoFormation = function(moveCenter, force)
 			this.offsets = undefined;
 		}
 	}
-
+	*/
 	let newOrientation = this.GetEstimatedOrientation(avgpos);
 	let dSin = Math.abs(newOrientation.sin - this.oldOrientation.sin);
 	let dCos = Math.abs(newOrientation.cos - this.oldOrientation.cos);
@@ -984,7 +1052,14 @@ Formation.prototype.MoveMembersIntoFormation = function(moveCenter, force)
 			"z": offset.y,
 			"running": this.running
 		};
-		cmpUnitAI.AddOrder("FormationWalk", data, force);
+		if (this.running) {
+		//	warn("formationrun");
+			cmpUnitAI.AddOrder("FormationRun", data, true);
+		}
+		else {
+	//		warn("formationWalk");
+			cmpUnitAI.AddOrder("FormationWalk", data, force);
+		}
 		this.memberPositions[offset.ent].offset = i;
 		this.memberPositions[offset.ent].x = offset.x;
 		this.memberPositions[offset.ent].y = offset.y;
@@ -1561,7 +1636,7 @@ Formation.prototype.ShapeUpdate = function()
 		Engine.DestroyEntity(this.twinFormations[i]);
 		this.twinFormations.splice(i,1);
 	}
-
+/*
 	if (!this.canCharge) {
 		// Switch between column and box if necessary
 		let cmpUnitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
@@ -1576,6 +1651,7 @@ Formation.prototype.ShapeUpdate = function()
 			// shape causing center to change causing shape to switch back)
 		}
 	}
+*/
 };
 
 Formation.prototype.OnGlobalOwnershipChanged = function(msg)
@@ -1593,11 +1669,25 @@ Formation.prototype.OnGlobalEntityRenamed = function(msg)
 	{
 		this.offsets = undefined;
 		let cmpNewUnitAI = Engine.QueryInterface(msg.newentity, IID_UnitAI);
+		let cmpIdentity = Engine.QueryInterface(msg.entity, IID_Identity);
+		let cmpTemplateManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_TemplateManager);
+		
+		if (this.unitTypeTemplate == cmpTemplateManager.GetCurrentTemplateName(msg.entity)) {
+			let template = cmpTemplateManager.GetCurrentTemplateName(msg.newentity);
+			this.unitTypeTemplate = template;
+		}
 		if (cmpNewUnitAI)
 		{
 			this.members[this.members.indexOf(msg.entity)] = msg.newentity;
 			this.memberPositions[msg.newentity] = this.memberPositions[msg.entity];
 		}
+		
+		if (this.banner == msg.entity)
+			this.banner = msg.newentity;
+		if (this.commander == msg.entity)
+			this.commander = msg.newentity;
+		if (this.siege == msg.entity)
+			this.siege = msg.newentity;
 
 		let cmpOldUnitAI = Engine.QueryInterface(msg.entity, IID_UnitAI);
 		cmpOldUnitAI.SetFormationController(INVALID_ENTITY);
@@ -1659,6 +1749,17 @@ Formation.prototype.LoadFormation = function(newTemplate)
 
 	let cmpNewPosition = Engine.QueryInterface(newFormation, IID_Position);
 	let cmpPosition = Engine.QueryInterface(this.entity, IID_Position);
+	
+	let pos = cmpPosition.GetPosition();
+	cmpNewPosition.JumpTo(pos.x, pos.z);
+	let inWorld = cmpNewPosition.IsInWorld();
+	// Don't make the formation controller entity show up in range queries
+	if (!inWorld)
+	{
+		let cmpRangeManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_RangeManager);
+		cmpRangeManager.SetEntityFlag(this.entity, "normal", false);
+	}
+	
 	if (cmpPosition && cmpPosition.IsInWorld() && cmpNewPosition)
 		cmpNewPosition.TurnTo(cmpPosition.GetRotation().y);
 

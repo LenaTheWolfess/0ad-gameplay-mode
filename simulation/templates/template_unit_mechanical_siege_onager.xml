@@ -12,7 +12,7 @@
       <MaxRange>80.0</MaxRange>
       <MinRange>26.0</MinRange>
       <ProjectileSpeed>37.5</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
+      <Gravity>4</Gravity>
       <PrepareTime>4000</PrepareTime>
       <RepeatTime>10000</RepeatTime>
       <Spread>4.0</Spread>

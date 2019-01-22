@@ -18,11 +18,8 @@
     </variant>
   </group>
   <group>
-    <variant file="biped/base_swordsman_shield.xml"/>
-  </group>
-  <group>
     <variant name="ready" file="biped/ready_stance/base_swordsman_shield.xml"/>
-    <variant name="relax" file="biped/relax/base_swordsman_shield.xml">
+    <variant name="relax" file="biped/relax/base_swordsman_shield.xml" frequency="1">
       <props>
         <prop actor="props/temp/l_sheath_gladus.xml" attachpoint="sheath_L"/>
         <prop actor="" attachpoint="weapon_R"/>

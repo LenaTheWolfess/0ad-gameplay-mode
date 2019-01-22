@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Unit Commands -->
+<object name="formationCommandPanel"
+	size="100% 2% 100% 100%"
+	type="image"
+>
+	<object size="1 2 100% 100%">
+	<repeat count="3">
+		<object name="formationCommandButton[n]" hidden="true" style="iconButton" type="button" size="0 0 36 36" tooltip_style="sessionToolTipBottomBold">
+		<object name="formationCommandIcon[n]" ghost="true" type="image" size="3 3 33 33" style="commandIcon"/>
+		<object name="formationCommandCount[n]" ghost="true" style="groupIconsText" type="text" size="3 3 33 33"/>
+		</object>
+	</repeat>
+	</object>
+</object>
+

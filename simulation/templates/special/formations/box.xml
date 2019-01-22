@@ -13,7 +13,7 @@
     <DisabledTooltip>at least 8 units required</DisabledTooltip>
     <FormationName>Box</FormationName>
     <FormationShape>square</FormationShape>
-    <SortingClasses>Ranged Pike Spear Hoplite Melee</SortingClasses>
+    <SortingClasses>Siege Commander Banner Cavalry Archer Javelin Ranged Pike Spear Hoplite Sword Melee</SortingClasses>
     <SortingOrder>fillFromTheCenter</SortingOrder>
 	<UnitSeparationWidthMultiplier>1.0</UnitSeparationWidthMultiplier>
     <UnitSeparationDepthMultiplier>1.0</UnitSeparationDepthMultiplier>

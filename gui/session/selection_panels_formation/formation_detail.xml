@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Unit details for Formation Unit -->
+<object size="0 0 100% 100%" name="detailsAreaFormation" hidden="false">
+	<!-- Stats Bars -->
+	<object name="formationEntityButton" size="0 0 100% 100%" hidden="false" >
+		<object name="formationEntityImage" size="20% 2% 54% 42%" type="image" hidden="false" tooltip_style="sessionToolTip"/>
+		<object name="formationFormImage" size="42% 2% 82% 42%" type="image" hidden="true"/>
+		<!-- Stats -->
+		<object name="formStats" size="10% 42% 60% 82%">
+		   <object name="formStatCount" size="0 0 100% 20%" type="text" style="largeCenteredOutlinedText">Count: 17</object>
+		   <object name="formStatHealth" size="0 20% 100% 40%" type="text" style="largeCenteredOutlinedText">Health: Very good</object>
+		   <object name="formStatEnergy" size="0 40% 100% 60%" type="text" style="largeCenteredOutlinedText">Energy: Very good</object>
+		   <object name="formStatMorale" size="0 60% 100% 80%" type="text" style="largeCenteredOutlinedText">Morale: Very good</object>
+		</object>
+		<!-- Attack and armor -->
+		<object name="formFightStats" size="60% 0% 100% 82%">
+			<object name="formFightStatsAttack" size="0 0 100% 25%">
+			  <object name="formFightStatsAttackImage" size="0 0 50% 100%" type="image" sprite="stretched:session/icons/attack-request.png" tooltip_style="sessionToolTip"/>
+			  <object name="formFightStatsAttackNum" size="50% 0 100% 100%" type="text" style="largeCenteredOutlinedText">0</object>
+			</object>
+			<object name="formFightStatsAttackRange" size="0 25% 100% 50%">
+			  <object name="formFightStatsAttackRangeImage" size="0 0 50% 100%" type="image" sprite="stretched:session/icons/attack-request.png" tooltip_style="sessionToolTip"/>
+			  <object name="formFightStatsAttackRangeNum" size="50% 0 100% 100%" type="text" style="largeCenteredOutlinedText">0</object>
+			</object>
+			<object name="formFightStatsArmor" size="0 50% 100% 75%" tooltip_style="sessionToolTip" >
+			  <object name="formFightStatsArmorImage" size="0 0 50% 100%" type="image" sprite="stretched:session/icons/stances/standground.png" tooltip_style="sessionToolTip"/>
+			  <object name="formFightStatsArmorNum" size="50% 0 100% 100%" type="text" style="largeCenteredOutlinedText">0</object>
+			</object>
+			<object name="formFightStatsShield" size="0 75% 100% 100%" tooltip_style="sessionToolTip" >
+			  <object name="formFightStatsShieldImage" size="0 0 50% 100%" type="image" sprite="stretched:session/icons/stances/standground.png" tooltip_style="sessionToolTip"/>
+			  <object name="formFightStatsShieldNum" size="50% 0 100% 100%" type="text" style="largeCenteredOutlinedText">0</object>
+			</object>
+		</object>		
+		<!-- Bars -->
+		<object name="formationEntityBars" hidden="true" size="2% 42% 42% 82%" ghost="false">
+			<!-- Count bar -->
+			<object size="3 0 100%-3 20" name="formationEntityCountSection" ghost="false">
+				<object size="0 0 100% 100%" name="formationEntityCount" type="image" ghost="false" tooltip_style="sessionToolTip">
+					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
+					<object type="image" sprite="countBackground" ghost="true"/>
+					<object type="image" sprite="countForeground" ghost="true" name="formationEntityCountBar"/>
+					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
+				</object>
+			</object>
+			<!-- Health bar -->
+			<object size="3 20 100%-3 40" name="formationEntityHealthSection" ghost="false">
+				<object size="0 0 100% 100%" name="formationEntityHealth" type="image" tooltip_style="sessionToolTip">
+					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
+					<object type="image" sprite="healthBackground" ghost="true"/>
+					<object type="image" sprite="healthForeground" ghost="true" name="formationEntityHealthBar"/>
+					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
+				</object>
+			</object>
+			<!-- Energy bar -->
+			<object size="3 40 100%-3 60" name="formationEntityEnergySection" ghost="false">
+				<object size="0 0 100% 100%" name="formationEntityEnergy" type="image" tooltip_style="sessionToolTip">
+					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
+					<object type="image" sprite="energyBackground" ghost="true"/>
+					<object type="image" sprite="energyForeground" ghost="true" name="formationEntityEnergyBar"/>
+					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
+				</object>
+			</object>
+			<!-- Morale bar -->
+			<object size="3 60 100%-3 80" name="formationEntityMoraleSection" ghost="false">
+				<object size="0 0 100% 100%" name="formationEntityMorale" type="image" tooltip_style="sessionToolTip">
+					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
+					<object type="image" sprite="moraleBackground" ghost="true"/>
+					<object type="image" sprite="moraleForeground" ghost="true" name="formationEntityMoraleBar"/>
+					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
+				</object>
+			</object>
+			<!-- Ammo bar -->
+			<object size="3 80 100%-3 100" name="formationEntityAmmoSection" ghost="false">
+				<object size="0 0 100% 100%" name="formationEntityAmmo" type="image" tooltip_style="sessionToolTip">
+					<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
+					<object type="image" sprite="ammoBackground" ghost="true"/>
+					<object type="image" sprite="ammoForeground" ghost="true" name="formationEntityAmmoBar"/>
+					<object type="image" sprite="statsBarShaderHorizontal" ghost="true"/>
+				</object>
+			</object>
+		</object>
+		<!-- Player Name and Civ -->
+		<object size="0 82% 100% 100%">
+			<object size="40% 0 60% 100%" name="formPlayerCivIcon" type="image" ghost="true"/>
+			<object size="0 0 100% 100%" name="formPlayerColorBackground" type="image" sprite="playerColorBackground" ghost="true"/>
+			<object size="0 0 100% 100%" type="image" sprite="bottomEdgedPanelShader" ghost="true"/>
+			<!-- Why is this being automatically ghosted? In the mean time, set ghost to false -->
+			<object ghost="false" size="0 0 100% 100%-5" name="formPlayer" type="text" style="largeCenteredOutlinedText" tooltip_style="sessionToolTip"/>
+		</object>
+	</object>
+</object>

@@ -68,9 +68,14 @@ Armour.prototype.TakeDamage = function(strengths, multiplier = 1, flank = 0, fir
 	// Don't bother rounding, since HP is no longer integral.
 	let total = fire + mount + crit;
 	let chargePenalty = 1;
-	if (charge)
-		chargePenalty = 0.8;
-
+	if (charge) {
+		chargePenalty = 0.5;
+	}
+	/*
+	if (mount) {
+	//	warn("mount: " + mount);
+	}
+*/
 	for (let type in strengths) {
 		total += strengths[type] * multiplier * Math.pow(0.9, armourStrengths[type] * chargePenalty || 0);
 	}
@@ -81,6 +86,31 @@ Armour.prototype.TakeDamage = function(strengths, multiplier = 1, flank = 0, fir
 		return 0;
 	let reduced = cmpHealth.Reduce(total);
 	return reduced;
+};
+
+/**
+* Get Armour strenghts
+* @param {number} applyShield - protection from the shield 1 yes, 0 no
+*/
+Armour.prototype.GetShieldStrengths = function(applyShield = 1)
+{
+	if (!this.template.Shield)
+		return 0;
+	// Work out the armour values with technology effects
+	var applyMods = (type) => {
+		var strength;
+
+		strength = +this.template.Shield[type];
+		let resS = ApplyValueModificationsToEntity("Armour/Shield/" + type, strength, this.entity);
+
+		return resS;
+	};
+
+	let ret = {};
+	for (let damageType of DamageTypes.GetTypes())
+		ret[damageType] = applyMods(damageType);
+
+	return ret;
 };
 
 /**

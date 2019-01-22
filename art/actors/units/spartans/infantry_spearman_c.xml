@@ -18,7 +18,7 @@
   </group>
   <group>
    <variant name="ready" file="biped/ready_stance/base_hoplite.xml"/>
-   <variant name="relax" file="biped/relax/base_hoplite.xml"/>
+   <variant name="relax" file="biped/relax/base_hoplite.xml" frequency="1"/>
    <variant name="secondary">
       <animations>
         <animation event="0.50" file="biped/new/javelin_attack_a.dae" load="0" name="attack_ranged" speed="50"/>

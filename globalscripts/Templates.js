@@ -167,6 +167,11 @@ function GetTemplateDataHelper(template, player, auraTemplates, resources, damag
 		ret.armour = {};
 		for (let damageType of damageTypes.GetTypes())
 			ret.armour[damageType] = getEntityValue("Armour/" + damageType);
+		if (template.Armour.Shield) {
+			ret.shield = {};
+			for (let damageType of damageTypes.GetTypes())
+				ret.shield[damageType] = getEntityValue("Armour/Shield/" + damageType);
+		}
 	}
 
 	if (template.Attack)

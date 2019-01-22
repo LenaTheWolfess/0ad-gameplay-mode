@@ -18,7 +18,7 @@
   </group>
   <group>
     <variant name="ready" file="biped/ready_stance/base_swordsman_shieldarm_fast.xml"/>
-    <variant name="relax" file="biped/relax/base_swordsman_shieldarm_fast.xml">
+    <variant name="relax" file="biped/relax/base_swordsman_shieldarm_fast.xml" frequency="1">
      <props>
         <prop actor="" attachpoint="weapon_R"/>
      </props>

@@ -246,7 +246,8 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 			"classes": cmpIdentity.GetClassesList(),
 			"visibleClasses": cmpIdentity.GetVisibleClassesList(),
 			"selectionGroupName": cmpIdentity.GetSelectionGroupName(),
-			"canDelete": !cmpIdentity.IsUndeletable()
+			"canDelete": !cmpIdentity.IsUndeletable(),
+			"icon": cmpIdentity.GetIcon()
 		};
 
 	let cmpPosition = Engine.QueryInterface(ent, IID_Position);
@@ -371,7 +372,10 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 			ret.formation = {
 				"members": cmpFormation.GetMembers(),
 				"maxMembers": cmpFormation.GetMaxMembers(),
-				"membersCount": cmpFormation.GetMemberCount()
+				"membersCount": cmpFormation.GetMemberCount(),
+				"unitIcon": cmpFormation.GetUnitIcon(),
+				"unitName": cmpFormation.GetUnitName(),
+				"unitTemplate": cmpFormation.GetUnitTypeTemplate()
 			}
 		}
 	}
@@ -459,8 +463,10 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 	}
 
 	let cmpArmour = Engine.QueryInterface(ent, IID_DamageReceiver);
-	if (cmpArmour)
-		ret.armour = cmpArmour.GetArmourStrengths();
+	if (cmpArmour) {
+		ret.armour = cmpArmour.GetArmourStrengths(0);
+		ret.shield = cmpArmour.GetShieldStrengths();
+	}
 
 	let cmpBuildingAI = Engine.QueryInterface(ent, IID_BuildingAI);
 	if (cmpBuildingAI)
@@ -501,6 +507,13 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 		ret.promotion = {
 			"curr": cmpPromotion.GetCurrentXp(),
 			"req": cmpPromotion.GetRequiredXp()
+		};
+		
+	let cmpMorale = Engine.QueryInterface(ent, IID_Morale);
+	if (cmpMorale)
+		ret.morale = {
+			"points": cmpMorale.GetPoints(),
+			"maxPoints": cmpMorale.GetMaxPoints()
 		};
 
 	let cmpExperience = Engine.QueryInterface(ent, IID_Experience);

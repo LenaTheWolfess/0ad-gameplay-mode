@@ -20,7 +20,6 @@
   </group>
   <group>
     <variant file="biped/rider/promotion.xml"/>
-   
     <variant file="biped/rider/death.xml"/>
   </group>
   <material>player_trans.xml</material>

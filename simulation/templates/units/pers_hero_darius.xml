@@ -19,19 +19,6 @@
     <Square width="6.0" depth="12.0"/>
     <Height>5.0</Height>
   </Footprint>
-  <ProductionQueue>
-  <BatchTimeModifier>0.7</BatchTimeModifier>
-    <Technologies datatype="tokens">
-      pers/darius_champion
-    </Technologies>
-    <TechCostMultiplier>
-      <food>1.0</food>
-      <wood>1.0</wood>
-      <stone>1.0</stone>
-      <metal>1.0</metal>
-      <time>1.0</time>
-    </TechCostMultiplier>
-  </ProductionQueue>
   <Identity>
     <Civ>pers</Civ>
     <VisibleClasses datatype="tokens">Chariot</VisibleClasses>

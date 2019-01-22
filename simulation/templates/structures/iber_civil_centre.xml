@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_civic_civil_centre">
+  <Health>
+    <SpawnEntityOnDeath>decay|rubble/rubble_iber_cc</SpawnEntityOnDeath>
+  </Health>
+  <Identity>
+    <Civ>iber</Civ>
+    <SpecificName>Oppidum</SpecificName>
+  </Identity>
+
+  <VisualActor>
+    <Actor>structures/iberians/civil_centre.xml</Actor>
+  </VisualActor>
+</Entity>

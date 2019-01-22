@@ -18,16 +18,12 @@
   </group>
   <group>
     <variant file="biped/base_rhomphaia_shield_fast.xml"/>
-    <variant file="biped/build.xml"/>
-    <variant file="biped/build_farm.xml"/>
   </group>
   <group>
     <variant name="ready" file="biped/ready_stance/base_rhomphaia_fast.xml"/>
-    <variant name="relax" file="biped/relax/base_rhomphaia_fast.xml"/>
+    <variant name="relax" file="biped/relax/base_rhomphaia_fast.xml" frequency="1"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/build.xml"/>
-    <variant file="biped/build_farm.xml"/>
     <variant file="biped/death_infantry.xml">
       <props>
         <prop actor="props/units/capes/cloak_thracian.xml" attachpoint="root"/>

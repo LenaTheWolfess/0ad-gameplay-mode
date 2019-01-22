@@ -36,16 +36,10 @@
   </group>
   <group>
     <variant file="biped/base_hoplite.xml"/> 
- <variant file="biped/build.xml"/> 
- <variant file="biped/build_farm.xml"/>
-  </group>
-  <group>
    <variant name="ready" file="biped/ready_stance/base_hoplite.xml"/>
-   <variant name="relax" file="biped/relax/base_hoplite.xml"/>
+   <variant name="relax" file="biped/relax/base_hoplite.xml" frequency="1"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/build.xml"/>
-    <variant file="biped/build_farm.xml"/>
     <variant file="biped/death_infantry.xml"/>
   </group>
   <material>player_trans.xml</material>

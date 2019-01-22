@@ -234,6 +234,100 @@ function getArmorTooltip(template)
 	});
 }
 
+function formHealthString(curr, max)
+{
+	if (!max)
+		return "";
+	if (curr == 0)
+		return "Dead";
+	let perc = 100 * curr / max;
+	if (perc > 95)
+		return "Very Healthy";
+	if (perc > 80)
+		return "Healthy";
+	if (perc > 45)
+		return "Wounded";
+	if (perc > 30)
+		return "Hard wounded";
+	if (perc > 0)
+		return "Near dead";
+}
+
+function formEnergyString(curr, max)
+{
+	if (!max)
+		return "";
+	let perc = 100 * curr / max;
+	if (perc > 90)
+		return "Fresh";
+	if (perc > 60)
+		return "Winded";
+	if (perc > 40)
+		return "Tired";
+	if (perc > 20)
+		return "Very Tired";
+	if (perc >= 0)
+		return "Exhausted";
+}
+
+function formMoraleString(curr, max)
+{
+	if (!max)
+		return "";
+	if (curr == 0)
+		return "Broken";
+	let perc = 100 * curr / max;
+	if (perc > 20)
+		return "Eager";
+	if (perc > 0)
+		return "Feared";
+}
+
+function sumTemplateArmor(template)
+{
+	if (!template.armour)
+		return 0;
+	let dmg = 0;
+	g_DamageTypes.GetTypes().filter( type => {
+		dmg += +template.armour[type];
+	});
+	return dmg;
+}
+
+function sumTemplateShield(template)
+{
+	if (!template.shield) {
+		return 0;
+	}
+	let dmg = 0;
+	g_DamageTypes.GetTypes().filter( type => {
+		dmg += +template.shield[type];
+	});
+	return dmg;
+}
+
+function sumTemplateAttack(template)
+{
+	if (!template.attack || !template.attack["Melee"])
+		return 0;
+	let dmg = 0;
+	g_DamageTypes.GetTypes().filter( type => {
+		dmg += +template.attack["Melee"][type];
+	});
+	return dmg;
+}
+
+function sumTemplateRanged(template)
+{
+	if (!template.attack || !template.attack["Ranged"])
+		return 0;
+	let dmg = 0;
+	g_DamageTypes.GetTypes().filter( type => {
+		dmg += +template.attack["Ranged"][type];
+	});
+	return dmg;
+}
+
 function damageTypesToText(dmg)
 {
 	if (!dmg)

@@ -1,5 +1,9 @@
-<variant name="ready" frequency="1">
+<variant name="ready">
   <animations>
+    <animation file="biped/new/promotion.dae" name="promotion" speed="80"/>
+    <animation file="biped/new/pike_idle_relax.dae" name="Idle" speed="30"/>
+    <animation file="biped/new/pike_walk_relax.dae" name="Walk" speed="30"/>
+    <animation file="biped/new/pike_jog_relax.dae" name="Run" speed="10"/>
     <animation file="biped/new/pike_idle_ready.dae" name="syntagma_front_idle" speed="30"/>
     <animation file="biped/new/pike_walk_ready.dae" name="syntagma_front_walk" speed="30"/>
     <animation file="biped/new/pike_run_ready.dae" name="syntagma_front_run" speed="10"/>
@@ -9,5 +13,6 @@
     <animation file="biped/new/pike_idle_relax.dae" name="syntagma_back_idle" speed="30"/>
     <animation file="biped/new/pike_walk_relax.dae" name="syntagma_back_walk" speed="30"/>
     <animation file="biped/new/pike_jog_relax.dae" name="syntagma_back_run" speed="10"/>
+    <animation event="0.5" file="biped/new/pike_attack_a.dae" name="attack_melee" id="attack1" speed="10"/>
   </animations>
 </variant>

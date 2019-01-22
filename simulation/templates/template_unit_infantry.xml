@@ -25,6 +25,10 @@
       <metal>0</metal>
     </Resources>
   </Cost>
+  <Morale>
+    <MaxPoints>100</MaxPoints>
+	<RegenRate>0</RegenRate>
+  </Morale>
   <Energy>
     <MaxPoints>100</MaxPoints>
     <RegenRate>5</RegenRate>

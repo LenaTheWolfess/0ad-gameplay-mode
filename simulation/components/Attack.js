@@ -111,6 +111,7 @@ Attack.prototype.Schema =
 	"<optional>" +
 		"<element name='Melee'>" +
 			"<interleave>" +
+				"<optional><element name='AntiCharge'><data type='boolean'/></element></optional>"+
 				"<optional><element name='CritChance'><ref name='nonNegativeDecimal'/></element></optional>" +
 				"<optional><element name='CritDamage'><ref name='nonNegativeDecimal'/></element></optional>" +
 				"<optional><element name='AnimationVariant'><text/></element></optional>"+
@@ -478,7 +479,10 @@ Attack.prototype.CanAttack = function(target, wantedTypes)
 
 		if (heightDiff > this.GetRange(type).max)
 			continue;
-
+		
+		if (type == "Capture")
+			return true;
+		
 		let restrictedClasses = this.GetRestrictedClasses(type);
 		if (!restrictedClasses.length)
 			return true;
@@ -790,13 +794,15 @@ Attack.prototype.CauseMountDamage = function(targets)
 {
 	let attackerOwner = Engine.QueryInterface(this.entity, IID_Ownership).GetOwner();
 	let cmpDamage = Engine.QueryInterface(SYSTEM_ENTITY, IID_Damage);
-	let cmpMotion;
 	let cmpUnitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
+	let cmpFormationAI;
 	let attacker = this.entity;
+	let cmpMotion;
 
 	if (cmpUnitAI.IsFormationMember()) {
 		let formation = cmpUnitAI.GetFormationController();
 		cmpMotion = Engine.QueryInterface(formation, IID_UnitMotion);
+		cmpFormationAI = Engine.QueryInterface(formation, IID_UnitAI);
 	} else {
 		cmpMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
 	}
@@ -805,6 +811,14 @@ Attack.prototype.CauseMountDamage = function(targets)
 	let mountDamage = 3.0 * speed;
 //	warn("mount damage:" + mountDamage);
 	let type = "Melee";
+	let cmpHealth = Engine.QueryInterface(this.entity, IID_Health);
+	
+	let cmpIdentity = Engine.QueryInterface(this.entity, IID_Identity);
+	let elephant = cmpIdentity && cmpIdentity.HasClass("Elephant");
+	if (elephant) {
+		mountDamage = mountDamage + 5000;
+	}
+	
 	for (let target of targets) {
 		let flank = 0;
 		let cmpTargetPosition = Engine.QueryInterface(target, IID_Position);
@@ -820,7 +834,7 @@ Attack.prototype.CauseMountDamage = function(targets)
 
 		let backAngleToleration = 1.0;
 		let sideAngleToleration = 2.0;
-
+		
 		let angleDiff = (selfRotation - targetRotation) % (2 * Math.PI);
 
 		if (angleDiff < 0.0)
@@ -829,13 +843,17 @@ Attack.prototype.CauseMountDamage = function(targets)
 			flank = 1;
 		else if (angleDiff < sideAngleToleration)
 			flank = 0.5;
+		
+		let wasAnti = false;
 
-		if (!flank) {
+		if (!flank && !elephant) {
 			let cmpTargetAI = Engine.QueryInterface(target, IID_UnitAI);
 			if (cmpTargetAI && cmpTargetAI.IsFormationMember() && cmpTargetAI.IsAntiCharge()) {
 				let cmpTargetAttack = Engine.QueryInterface(target, IID_Attack);
 				if (cmpTargetAttack && cmpTargetAttack.CanCauseAntiCharge()) {
 					cmpTargetAttack.PerformAntiChargeDamage(this.entity);
+					mountDamage = 0;
+					wasAnti = true;
 					if (cmpHealth.GetHitpoints() <= 0.0)
 						break;
 				}
@@ -853,6 +871,15 @@ Attack.prototype.CauseMountDamage = function(targets)
 			"mount": mountDamage,
 			"attackerOwner": attackerOwner
 		});
+		if (wasAnti && !elephant) {
+			let cmpTargetHealth = Engine.QueryInterface(target, IID_Health);
+			if (cmpTargetHealth && cmpTargetHealth.GetHitpoints() > 0) {
+				cmpUnitAI.UnitWasStopped();
+				if (cmpFormationAI)
+					cmpFormationAI.UnitWasStopped();
+				break;
+			}
+		}
 	}
 }
 
@@ -1124,20 +1151,24 @@ Attack.prototype.PerformAttack = function(type, target)
 
 Attack.prototype.CanCauseAntiCharge = function()
 {
-	return !!this.template["Melee"];
+	return !!this.template["Melee"] && !!this.template["Melee"].AntiCharge && this.template["Melee"].AntiCharge;
 }
 
 Attack.prototype.PerformAntiChargeDamage = function(target)
 {
+//	warn("anticharge");
 	let type = "Melee";
 	let attackerOwner = Engine.QueryInterface(this.entity, IID_Ownership).GetOwner();
-	let cmpDamage = Engine.QueryInterface(SYSTEM_ENTITY, IID_Damage);
+	let cmpDamage = Engine.QueryInterface(SYSTEM_ENTITY, IID_Damage);	
 	cmpDamage.CauseDamage({
 		"strengths": this.GetAttackStrengths(type),
 		"target": target,
 		"attacker": this.entity,
-		"multiplier": GetDamageBonus(target, this.GetBonusTemplate(type)),
-		"type": type,
+		"multiplier": 0,
+		"flank": 0,
+		"fire": 0,
+		"type": "Mount",
+		"mount": 500000,
 		"attackerOwner": attackerOwner
 	});
 }

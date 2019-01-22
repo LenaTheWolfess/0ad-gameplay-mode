@@ -383,9 +383,22 @@ Damage.prototype.CauseDamage = function(data)
 	let cmpExperience = Engine.QueryInterface(data.attacker, IID_Experience);
 	let cmpLoot = Engine.QueryInterface(data.target, IID_Loot);
 	let cmpHealth = Engine.QueryInterface(data.target, IID_Health);
-	if (cmpExperience && !cmpExperience.IsMaxLeveled() && cmpLoot && cmpLoot.GetXp() > 0)
-		cmpExperience.IncreaseXp(cmpLoot.GetXp() * -targetState.change / cmpHealth.GetMaxHitpoints());
-
+	
+	if (cmpLoot && cmpLoot.GetXp() > 0) {
+		let amount = cmpLoot.GetXp() * -targetState.change / cmpHealth.GetMaxHitpoints();
+			
+		if (cmpExperience && !cmpExperience.IsMaxLeveled())
+			cmpExperience.IncreaseXp(amount);
+		
+		let cmpUnitAI = Engine.QueryInterface(data.attacker, IID_UnitAI);
+		if (cmpUnitAI && cmpUnitAI.IsFormationMember()) {
+			let formationEnt = cmpUnitAI.GetFormationController();
+			let cmpFormation = Engine.QueryInterface(formationEnt, IID_Formation);
+			if (cmpFormation) {
+				cmpFormation.DistributeExp(amount*0.5);
+			}
+		}
+	}
 	if (targetState.killed) {
 		this.TargetKilled(data.attacker, data.target, data.attackerOwner);
 	}
@@ -393,6 +406,7 @@ Damage.prototype.CauseDamage = function(data)
 	let dmg = 0;
 	if (!!targetState.change)
 		dmg = targetState.change;
+	
 	Engine.PostMessage(data.target, MT_Attacked, { "attacker": data.attacker, "target": data.target, "type": data.type, "damage": -dmg, "attackerOwner": data.attackerOwner });
 };
 
@@ -438,8 +452,16 @@ Damage.prototype.TargetKilled = function(attacker, target, attackerOwner)
 		cmpLooter.Collect(target);
 
 	let cmpUnitAI = Engine.QueryInterface(attacker, IID_UnitAI);
-	if (cmpUnitAI)
+	if (cmpUnitAI) {
 		cmpUnitAI.TargetDied(target);
+		if (cmpUnitAI.IsFormationMember()) {
+			let formationEnt = cmpUnitAI.GetFormationController();
+			let cmpFormation = Engine.QueryInterface(formationEnt, IID_Formation);
+			if (cmpFormation)
+				cmpFormation.UnitKilled(target);
+		}
+	}
+	
 };
 
 Engine.RegisterSystemComponentType(IID_Damage, "Damage", Damage);

@@ -10,11 +10,6 @@
       <Spread>4.0</Spread>
     </Ranged>
   </Attack>
-  <Cost>
-    <Resources>
-      <wood>20</wood>
-    </Resources>
-  </Cost>
   <Identity>
     <VisibleClasses datatype="tokens">Archer</VisibleClasses>
     <GenericName>Cavalry Archer</GenericName>

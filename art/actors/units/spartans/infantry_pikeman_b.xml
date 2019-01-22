@@ -2,7 +2,7 @@
 <actor version="1">
   <castshadow/>
   <group>
-    <variant frequency="1" name="Base">
+    <variant name="Base">
       <mesh>skeletal/new/m_tunic_short.dae</mesh>
       <props>
         <prop actor="props/units/heads/new/head_spart_a.xml" attachpoint="head"/>
@@ -20,16 +20,10 @@
   </group>
   <group>
     <variant file="biped/pikeman_base.xml"/> 
-    <variant file="biped/build.xml"/> 
-    <variant file="biped/build_farm.xml"/>
-  </group>
-  <group>
     <variant name="ready" file="biped/ready_stance/base_pikeman.xml"/>
-    <variant name="relax" file="biped/relax/base_pikeman.xml"/>
+    <variant name="relax" file="biped/relax/base_pikeman.xml" frequency="1"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
-    <variant file="biped/build.xml"/>
-    <variant file="biped/build_farm.xml"/>
     <variant file="biped/death_infantry.xml"/>
   </group>
   <material>player_trans.xml</material>

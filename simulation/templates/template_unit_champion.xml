@@ -17,6 +17,10 @@
     <Classes datatype="tokens">Organic Human</Classes>
     <VisibleClasses datatype="tokens">Champion Soldier</VisibleClasses>
   </Identity>
+  <Morale>
+    <MaxPoints>200</MaxPoints>
+	<RegenRate>0</RegenRate>
+  </Morale>
   <Loot>
     <xp>150</xp>
     <food>10</food>

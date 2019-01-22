@@ -10,6 +10,8 @@
   <Formation>
     <Icon>formations/phalanx.png</Icon>
     <RequiredMemberCount>10</RequiredMemberCount>
+	<SortingClasses>Hero Banner Commander Pike Spear Hoplite Sword Melee</SortingClasses>
+	<SortingOrder>fillFromTheBack</SortingOrder>
     <DisabledTooltip>only hoplite infantry allowed (at least 10)</DisabledTooltip>
     <FormationName>Phalanx</FormationName>
     <UnitSeparationWidthMultiplier>0.4</UnitSeparationWidthMultiplier>

@@ -31,7 +31,6 @@
     <Height>20.0</Height>
   </Footprint>
   <GarrisonHolder>
-    <FormationTake>true</FormationTake>
     <Max>17</Max>
     <EjectHealth>0.1</EjectHealth>
     <EjectClassesOnDestroy datatype="tokens">Unit</EjectClassesOnDestroy>

@@ -16,12 +16,12 @@
       <Pierce>0</Pierce>
       <Hack>0</Hack>
       <Crush>0</Crush>
-      <MaxRange>80</MaxRange>
+      <MaxRange>32</MaxRange>
       <MinRange>10</MinRange>
       <ProjectileSpeed>75.0</ProjectileSpeed>
       <Gravity>9.81</Gravity>
       <PrepareTime>1500</PrepareTime>
-      <RepeatTime>1500</RepeatTime>
+      <RepeatTime>3000</RepeatTime>
       <Spread>0.1</Spread>
       <Delay>0</Delay>
       <PreferredClasses datatype="tokens">Infantry</PreferredClasses>

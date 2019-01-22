@@ -11,13 +11,6 @@
   <Obstruction>
     <Static width="39" depth="31"/>
   </Obstruction>
-  <ProductionQueue>
-    <Entities datatype="tokens">
-      units/{civ}_infantry_pikeman_b
-      units/{civ}_infantry_javelinist_b
-      units/{civ}_cavalry_archer_b
-    </Entities>
-  </ProductionQueue>
   <VisualActor>
     <Actor>structures/ptolemies/civic_centre.xml</Actor>
   </VisualActor>
