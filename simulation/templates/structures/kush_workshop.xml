@@ -4,6 +4,11 @@
     <Civ>kush</Civ>
     <SpecificName>Kushite Siege Workshop</SpecificName>
   </Identity>
+  <ProductionQueue>	
+    <Technologies datatype="tokens">	
+       siege_tower	
+    </Technologies>	
+  </ProductionQueue>
   <VisualActor>
     <Actor>structures/kushites/workshop.xml</Actor>
   </VisualActor>
