@@ -2,7 +2,7 @@
 <actor version="1">
   <castshadow/>
   <group>
-    <variant file="biped/base_swordsman_shield_fast.xml">
+    <variant>
       <mesh>skeletal/new/m_hero_tunic.dae</mesh>
       <props>
         <prop actor="props/units/heads/celt_helmet_brito.xml" attachpoint="helmet"/>
@@ -10,7 +10,7 @@
         <prop actor="props/units/shields/celt_brennus.xml" attachpoint="shield"/>
         <prop actor="props/units/weapons/csword.xml" attachpoint="weapon_R"/>
         <prop actor="props/temp/l_sheath.xml" attachpoint="sheath_L"/>
-        <prop actor="props/units/capes/swordsman_shield_ready_fast.xml" attachpoint="root"/>
+        <prop actor="props/units/capes/swordsman_shield_ready.xml" attachpoint="root"/>
       </props>
       <textures>
         <texture file="skeletal/celt_brennus.dds" name="baseTex"/>
@@ -18,7 +18,13 @@
     </variant>
   </group>
   <group>
-    <variant frequency="1" name="Idle"/>
+    <variant name="ready" file="biped/ready_stance/base_swordsman_shield.xml"/>
+    <variant name="relax" file="biped/relax/base_swordsman_shield.xml" frequency="1">
+     <props>
+        <prop actor="props/temp/l_sheath_xiphos.xml" attachpoint="sheath_L"/>
+        <prop actor="" attachpoint="weapon_R"/>
+     </props>
+    </variant>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/death_infantry.xml">
       <props>

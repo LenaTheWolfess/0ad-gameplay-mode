@@ -4,7 +4,7 @@
   <group>
     <variant name="Base">
       <props>
-        <prop actor="props/units/helmets/hele_iar_skirmish_e.xml" attachpoint="helmet"/>
+        <prop actor="props/units/helmets/hele_chalcidean_ornate_crested.xml" attachpoint="helmet"/>
         <prop actor="props/units/heads/new/head_beard.xml" attachpoint="head"/>
         <prop actor="props/units/weapons/arrow_back.xml" attachpoint="weapon_R"/>
         <prop actor="props/units/weapons/bow_recurve.xml" attachpoint="weapon_L"/>

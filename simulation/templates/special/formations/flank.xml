@@ -11,7 +11,9 @@
     <FormationName>Flank</FormationName>
     <FormationShape>square</FormationShape>
     <ShiftRows>true</ShiftRows>
-    <CenterGap>12</CenterGap>
+	<SortingClasses>Siege Commander Banner Cavalry Archer Javelin Ranged Pike Spear Hoplite Sword Melee</SortingClasses>
+    <SortingOrder>fillFromTheCenter</SortingOrder>
+    <CenterGap>5</CenterGap>
   </Formation>
   <FormationAttack>
     <CanAttackAsFormation>true</CanAttackAsFormation>

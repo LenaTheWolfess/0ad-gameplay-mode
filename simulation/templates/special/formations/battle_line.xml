@@ -9,7 +9,8 @@
 </Identity>
   <Formation>
     <Icon>formations/battle_line.png</Icon>
-    <FormationName>Battle Line</FormationName><SortingClasses>Cavalry Archer Javelin Ranged Pike Spear Hoplite Sword Melee Siege Commander Banner</SortingClasses>
+    <FormationName>Battle Line</FormationName>
+	<SortingClasses>Cavalry Archer Javelin Ranged Pike Spear Hoplite Sword Melee Siege Commander Banner</SortingClasses>
     <SortingOrder>fillFromTheSides</SortingOrder>
     <ShiftRows>true</ShiftRows>
     <MinColumns>5</MinColumns>

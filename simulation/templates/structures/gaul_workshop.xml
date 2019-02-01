@@ -3,11 +3,6 @@
   <Identity>
     <Civ>gaul</Civ>
   </Identity>
-  <ProductionQueue>
-    <Technologies datatype="tokens">
-      siege_ram
-    </Technologies>
-  </ProductionQueue>
   <VisualActor>
     <Actor>structures/gauls/workshop.xml</Actor>
   </VisualActor>

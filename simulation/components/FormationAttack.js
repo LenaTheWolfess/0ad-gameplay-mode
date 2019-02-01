@@ -124,7 +124,7 @@ FormationAttack.prototype.GetRange = function(target, allowCapture)
 		}
 		else
 		{
-		if (range.max > result.max || range.max < 0)
+			if (range.max > result.max || range.max < 0)
 				result.max = range.max;
 		}
 		if (range.min < result.min)
@@ -135,7 +135,6 @@ FormationAttack.prototype.GetRange = function(target, allowCapture)
 
 //	if (result.max >= 0)
 //		result.max += extraRange;
-
 	return result;
 };
 

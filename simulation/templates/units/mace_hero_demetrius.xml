@@ -21,7 +21,7 @@
     <GenericName>Demetrius The Besieger</GenericName>
     <SpecificName>Dēmḗtrios Poliorkḗtēs</SpecificName>
     <Icon>units/hele_hero_demetrius.png</Icon>
-	<FormationCompany>mace_champion_infantry_b</FormationCompany>
+	<FormationCompany>mace_champion_infantry_e</FormationCompany>
   </Identity>
   <VisualActor>
     <Actor>units/macedonians/hero_infantry_swordsman_demetrius.xml</Actor>

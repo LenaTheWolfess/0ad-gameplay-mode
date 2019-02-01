@@ -411,8 +411,9 @@ Attack.prototype.CanAttack = function(target, wantedTypes)
 			error("entity " +this.entity+  " requires man power but cannot be garrisoned");
 			return false;
 		}
-		if (this.template.NeedsManPower > cmpGarisonHolder.GetEntities().length)
+		if (this.template.NeedsManPower > cmpGarisonHolder.GetEntities().length) {
 			return false;
+		}
 	}
 
 	let cmpFormation = Engine.QueryInterface(target, IID_Formation);
@@ -487,8 +488,9 @@ Attack.prototype.CanAttack = function(target, wantedTypes)
 		if (!restrictedClasses.length)
 			return true;
 
-		if (!MatchesClassList(targetClasses, restrictedClasses))
+		if (!MatchesClassList(targetClasses, restrictedClasses)) {
 			return true;
+		}
 	}
 
 	return false;

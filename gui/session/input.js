@@ -903,7 +903,7 @@ function handleInputAfterGui(ev)
 		case "mousebuttondown":
 			if (ev.button == SDL_BUTTON_LEFT && preSelectedAction != ACTION_NONE)
 			{
-				var action = determineAction(ev.x, ev.y, ev.clicks);
+				var action = determineAction(ev.x, ev.y, false, ev.clicks);
 				if (!action)
 					break;
 				if (!Engine.HotkeyIsPressed("session.queue"))

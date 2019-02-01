@@ -5,7 +5,7 @@
     <variant frequency="1" name="Base">
       <mesh>skeletal/new/m_tunic_long.dae</mesh>
       <props>
-        <prop actor="props/units/helmets/hele_iar_skirmish_e.xml" attachpoint="helmet"/>
+        <prop actor="props/units/helmets/hele_pilos.xml" attachpoint="helmet"/>
         <prop actor="props/units/heads/new/head_hele_e.xml" attachpoint="head"/>
         <prop actor="props/units/weapons/arrow_back.xml" attachpoint="weapon_R"/>
         <prop actor="props/units/weapons/bow_short.xml" attachpoint="weapon_L"/>
@@ -21,7 +21,7 @@
 	<variant file="biped/new/bow_aim_a.xml"/>
 	<variant file="biped/new/bow_fire_a.xml"/>
     <variant name="ready" file="biped/ready_stance/base_archer.xml"/>
-    <variant name="relax" file="biped/relax/base_archer.xml">
+    <variant name="relax" file="biped/relax/base_archer.xml" frequency="1">
        <props>
         <prop actor="" attachpoint="weapon_R"/>
       </props>

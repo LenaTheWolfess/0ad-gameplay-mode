@@ -685,6 +685,7 @@ function updateSelectionDetails()
 		return;
 	}
 	formationEntities.hidden = true;
+	hideFormationCommands();
 	
 	let hasFormation = false;
 	let formation = null;

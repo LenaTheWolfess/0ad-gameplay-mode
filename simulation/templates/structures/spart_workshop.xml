@@ -7,7 +7,6 @@
   <ProductionQueue>
     <Technologies datatype="tokens">
       balista
-	  siege_ram
     </Technologies>
   </ProductionQueue>
   <VisualActor>

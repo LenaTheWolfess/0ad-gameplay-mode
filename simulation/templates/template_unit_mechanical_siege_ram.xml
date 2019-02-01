@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit_mechanical_siege">
+  <Auras datatype="tokens">
+    units/siege_protection
+  </Auras>
   <Armour>
     <Missle>100</Missle>
     <Crush>10</Crush>
@@ -14,7 +17,8 @@
       <Pierce>0.0</Pierce>
       <Crush>150.0</Crush>
       <Missle>0.0</Missle>
-      <MaxRange>6.5</MaxRange>
+      <MaxRange>5</MaxRange>
+	  <MinRange>0</MinRange>
       <PrepareTime>3000</PrepareTime>
       <RepeatTime>8000</RepeatTime>
       <RestrictedClasses datatype="tokens">Organic</RestrictedClasses>
@@ -41,6 +45,7 @@
     <List datatype="tokens">Support Infantry</List>
     <BuffHeal>0</BuffHeal>
     <LoadingRange>2</LoadingRange>
+	<FormationTake>true</FormationTake>
   </GarrisonHolder>
   <Health>
     <Max>400</Max>

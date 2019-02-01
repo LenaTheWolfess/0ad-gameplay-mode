@@ -2,13 +2,14 @@
 <actor version="1">
   <castshadow/>
   <group>
-    <variant file="biped/base_swordsman_shieldarm.xml">
+    <variant file="biped/base_swordsman_shieldarm_fast.xml">
       <mesh>skeletal/new/m_armor_tunic_short.dae</mesh>
       <props>
         <prop actor="props/units/heads/new/head_hele_e.xml" attachpoint="head"/>
         <prop actor="props/units/weapons/falcata.xml" attachpoint="weapon_R"/>
         <prop actor="props/units/helmets/mace_craterus.xml" attachpoint="helmet"/>
         <prop actor="props/units/shields/mace_round_craterus.xml" attachpoint="shield_arm"/>
+        <prop actor="props/temp/l_sheath.xml" attachpoint="sheath_L"/>
       </props>
       <textures>
         <texture file="skeletal/mace_hero_craterus.png" name="baseTex"/>
@@ -18,7 +19,13 @@
     </variant>
   </group>
   <group>
-    <variant frequency="1" name="Idle"/>
+    <variant name="ready" file="biped/ready_stance/base_swordsman_shieldarm_fast.xml"/>
+    <variant name="relax" file="biped/relax/base_swordsman_shieldarm_fast.xml" frequency="1">
+      <props>
+        <prop actor="props/temp/l_sheath_xiphos.xml" attachpoint="sheath_L"/>
+        <prop actor="" attachpoint="weapon_R"/>
+      </props>
+    </variant>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/death_infantry.xml"/>
   </group>

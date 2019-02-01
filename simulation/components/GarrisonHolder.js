@@ -542,15 +542,29 @@ GarrisonHolder.prototype.Garrison = function(entity, vgpEntity)
 			let formationContr = cmpEntAI.GetFormationController();
 			if (formationContr) {
 				let cmpFormation = Engine.QueryInterface(formationContr, IID_Formation);
-				if(!cmpFormation.AddSiege(this.entity))
+				if(!cmpFormation.AddSiege(this.entity)) {
 					return false;
+				}
+				formationContr = cmpUnitAI.GetFormationController();
+				cmpFormation = Engine.QueryInterface(formationContr, IID_Formation);
+				for (let fm of cmpFormation.GetMembers()) {
+					if (fm == this.entity) {
+						continue;
+					}
+					let cmpFmAI = Engine.QueryInterface(fm, IID_UnitAI);
+					this.entities.push(fm);
+					if (!cmpFmAI) {
+						continue;
+					}
+					cmpFmAI.SetGarrisoned();
+					cmpFmAI.FinishOrder();
+					cmpFmAI.SetNextState("IDLE");
+				}
+				cmpFormation.MoveMembersIntoFormation(false, true);
+				return true;
 			}
 		}
-		if (cmpEntAI && cmpUnitAI && cmpEntAI.GetFormationController() == cmpUnitAI.GetFormationController()) {
-			this.entities.push(entity);
-			cmpEntAI.SetSiegeCrew(this.entity);
-		}
-		return true;
+		return false;
 	}
 	
 	if (!this.PerformGarrison(entity))
@@ -687,6 +701,7 @@ GarrisonHolder.prototype.Eject = function(entity, forced)
 			if (formationContr && !this.entities.length) {
 				let cmpFormation = Engine.QueryInterface(formationContr, IID_Formation);
 				cmpFormation.RemoveMembers([this.entity]);
+				cmpUnitAI.Stop();
 			}
 			return true;
 		}

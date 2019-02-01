@@ -31,7 +31,6 @@
     </variant>
     <variant file="biped/rider/attack_slaughter_shield_iber.xml"/>
     <variant file="biped/rider/death_javelin.xml"/>
-    <variant file="biped/gather_meat.xml"/>
   </group>
   <material>player_trans.xml</material>
 </actor>

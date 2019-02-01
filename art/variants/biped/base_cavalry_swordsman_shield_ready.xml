@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<variant name = "ready">
+  <animations>
+    <animation file="biped/rider/cavalry/idle_ready_shield.dae" name="idle" speed="80"/>
+    <animation file="biped/rider/cavalry/slow_gallop_shield.dae" name="Walk" speed="7"/>
+    <animation file="biped/rider/cavalry/gallop_shield.dae" name="Run" speed="7"/>
+    <animation file="biped/rider/cavalry/attack_capture_shield.dae" name="attack_capture" speed="120"/>
+    <animation file="biped/rider/cavalry/attack_cut_shield_long.dae" name="attack_melee" event="0.5" id="attack1" speed="60"/>
+    <animation file="biped/rider/cavalry/attack_cut_shield.dae" name="attack_melee" event="0.5" id="attack2" speed="60"/>
+    <animation file="biped/rider/cavalry/attack_cut_shield.dae" name="attack_melee" event="0.5" id="attack3" speed="60"/>
+    <animation file="biped/rider/cavalry/attack_cut_shield_c.dae" name="attack_melee" event="0.5" id="attack4" speed="60"/>
+  </animations>
+</variant>

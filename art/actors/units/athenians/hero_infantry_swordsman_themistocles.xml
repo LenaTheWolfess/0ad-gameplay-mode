@@ -9,6 +9,7 @@
         <prop actor="props/units/heads/new/head_corinthian.xml" attachpoint="head"/>
         <prop actor="props/units/weapons/xiphos_alexander.xml" attachpoint="weapon_R"/>
         <prop actor="props/units/shields/athen_aspis_themistocles.xml" attachpoint="shield_arm"/>
+        <prop actor="props/temp/l_sheath.xml" attachpoint="sheath_L"/>
       </props>
       <textures>
         <texture file="skeletal/hele_themistocles.dds" name="baseTex"/>
@@ -16,7 +17,13 @@
     </variant>
   </group>
   <group>
-    <variant frequency="1" name="Idle"/>
+    <variant name="ready" file="biped/ready_stance/base_swordsman_shieldarm_fast.xml"/>
+    <variant name="relax" file="biped/relax/base_swordsman_shieldarm_fast.xml" frequency="1">
+     <props>
+        <prop actor="props/temp/l_sheath_xiphos.xml" attachpoint="sheath_L"/>
+        <prop actor="" attachpoint="weapon_R"/>
+     </props>
+    </variant>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
     <variant file="biped/gather_praise.xml"/>

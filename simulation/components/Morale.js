@@ -99,7 +99,6 @@ Morale.prototype.CheckRegenTimer = function()
 Morale.prototype.Reduce = function(amount)
 {
 	if (amount < 0 || amount == 0){
-		warn("Tried to reduce morale by negative or zero value: " + amount);
 		return;
 	}
 

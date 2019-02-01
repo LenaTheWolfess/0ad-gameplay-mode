@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant frequency="1" name="Base">
+      <mesh>skeletal/new/m_tunic_short.dae</mesh>
+      <props>
+        <prop actor="props/units/weapons/axe_sagaris.xml" attachpoint="weapon_R"/>
+      </props>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Clothing-red-stripes">
+      <props>
+        <prop actor="props/units/heads/new/head_pers_tiara_y.xml" attachpoint="head"/>
+        <prop actor="props/units/heads/pers_kidaris_tied_yellow.xml" attachpoint="helmet"/>
+      </props>
+      <textures>
+        <texture file="skeletal/pers_isp_a_1.dds" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Clothing-blue-stripes">
+      <props>
+        <prop actor="props/units/heads/new/head_pers_tiara_y.xml" attachpoint="head"/>
+      </props>
+      <textures>
+        <texture file="skeletal/pers_isp_a_2.dds" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Clothing-gold-stripes">
+      <props>
+        <prop actor="props/units/heads/new/head_pers_tiara_y.xml" attachpoint="head"/>
+      </props>
+      <textures>
+        <texture file="skeletal/pers_isp_a_3.dds" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Clothing-emerald">
+      <props>
+        <prop actor="props/units/heads/new/head_pers_tiara.xml" attachpoint="head"/>
+      </props>
+      <textures>
+        <texture file="skeletal/pers_isp_e_1.dds" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Clothing-gold">
+      <props>
+        <prop actor="props/units/heads/new/head_pers_tiara.xml" attachpoint="head"/>
+      </props>
+      <textures>
+        <texture file="skeletal/pers_isp_e_2.dds" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="2" name="Clothing-brown-stripes">
+      <props>
+        <prop actor="props/units/heads/new/head_pers_tiara_y.xml" attachpoint="head"/>
+      </props>
+      <textures>
+        <texture file="skeletal/pers_isp_b_1.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant file="biped/base_swordsman_shieldarm_fast.xml"/>
+    <variant name="ready" file="biped/ready_stance/base_swordsman_shieldarm_fast.xml"/>
+    <variant name="relax" file="biped/relax/base_swordsman_shieldarm_fast.xml" frequency="1">
+      <props>
+        <prop actor="props/temp/weapons/axe_sagaris.xml" attachpoint="sheath_L"/>
+        <prop actor="" attachpoint="weapon_R"/>
+      </props>
+    </variant>
+    <variant file="biped/attack_capture.xml"/>
+    <variant file="biped/attack_slaughter.xml"/>
+    <variant file="biped/death_infantry.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

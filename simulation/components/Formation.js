@@ -323,7 +323,7 @@ Formation.prototype.GetClosestMember = function(ent, filter)
 	let closestDistance = Infinity;
 	for (let member of this.members)
 	{
-		if (filter && !filter(ent))
+		if (filter && !filter(member))
 			continue;
 
 		let cmpPosition = Engine.QueryInterface(member, IID_Position);
@@ -478,6 +478,8 @@ Formation.prototype.IsFreeFormation = function()
 Formation.prototype.CanLeavePosition = function(entity)
 {
 	if (this.template.FormationName === "Free")
+		return true;
+	if (this.siege == entity)
 		return true;
 	if (!entity)
 		return false;
@@ -641,6 +643,7 @@ Formation.prototype.AddSiege = function(siege, reform = true) {
 	if(cmpAura && cmpAura.HasFormationAura()) {
 		cmpAura.ApplyFormationBonus([siege]);
 	}
+	this.LoadFormation("special/formations/box");
 	if (!reform)
 		return true;
 	this.useAvgRot = true;
@@ -779,6 +782,7 @@ Formation.prototype.Died = function(ents)
 Formation.prototype.RemoveMembers = function(ents)
 {
 //	this.offsets = undefined;
+	let reload = false;
 	this.members = this.members.filter(function(e) { return ents.indexOf(e) == -1; });
 	this.inPosition = this.inPosition.filter(function(e) { return ents.indexOf(e) == -1; });
 	let died = [];
@@ -798,8 +802,10 @@ Formation.prototype.RemoveMembers = function(ents)
 				this.banner = INVALID_ENTITY;
 			if (cmpIdentity.HasClass("Commander"))
 				this.commander = INVALID_ENTITY;
-			if (cmpIdentity.HasClass("Siege"))
+			if (cmpIdentity.HasClass("Siege")) {
 				this.siege = INVALID_ENTITY;
+				reload = true;
+			}
 		}
 	}
 
@@ -833,7 +839,7 @@ Formation.prototype.RemoveMembers = function(ents)
 	let cmpAttack = Engine.QueryInterface(this.entity, IID_Attack);
 	if(cmpAttack)
 		cmpAttack.recalculateRange();
-
+	
 	if (!this.rearrange) {
 		this.Died(died);
 		// Locate this formation controller in the middle of its members
@@ -1246,7 +1252,6 @@ Formation.prototype.ComputeFormationOffsets = function(active, positions)
 	var shiftRows = this.shiftRows;
 	var centerGap = this.centerGap;
 	var sortingOrder = this.sortingOrder;
-
 	var offsets = [];
 
 	// Choose a sensible size/shape for the various formations, depending on number of units
@@ -1394,6 +1399,11 @@ Formation.prototype.ComputeFormationOffsets = function(active, positions)
 	// sort the available places in certain ways
 	// the places first in the list will contain the heaviest units as defined by the order
 	// of the types list
+	if (this.siege)
+		this.sortingOrder = "fillFromTheCenter";
+	
+	if (this.sortingOrder == "fillToTheSides")
+		offsets.sort(function(o1, o2) { return Math.abs(o1.x) > Math.abs(o2.x);});
 	if (this.sortingOrder == "fillFromTheSides")
 		offsets.sort(function(o1, o2) { return Math.abs(o1.x) < Math.abs(o2.x);});
 	else if (this.sortingOrder == "fillToTheCenter")
@@ -1723,6 +1733,9 @@ Formation.prototype.DeleteTwinFormations = function()
 
 Formation.prototype.LoadFormation = function(newTemplate)
 {
+	if (this.siege != INVALID_ENTITY) {
+		newTemplate = "special/formations/box";
+	}
 //	warn("loadFormation");
 	// get the old formation info
 	let members = this.members.slice();

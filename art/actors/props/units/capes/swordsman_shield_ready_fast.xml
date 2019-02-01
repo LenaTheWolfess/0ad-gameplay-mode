@@ -13,8 +13,8 @@
     <variant file="biped/base_swordsman_shield_fast.xml"/>
   </group>
   <group>
-    <variant name="ready" file="biped/ready_stance/base_swordsman_shieldsmall_fast.xml"/>
-    <variant name="relax" file="biped/relax/base_swordsman_shieldsmall_fast.xml"/>
+    <variant name="ready" file="biped/ready_stance/base_swordsman_shieldarm_fast.xml"/>
+    <variant name="relax" file="biped/relax/base_swordsman_shieldarm_fast.xml"/>
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
     <variant file="biped/death_infantry.xml"/>

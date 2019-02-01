@@ -16,7 +16,6 @@
   <ProductionQueue>
     <Technologies datatype="tokens">
 		siege_tower
-		siege_ram
 		catapult
 		balista
     </Technologies>

@@ -3,11 +3,6 @@
   <Identity>
     <Civ>iber</Civ>
   </Identity>
-  <ProductionQueue>
-    <Technologies datatype="tokens">
-      siege_ram
-    </Technologies>
-  </ProductionQueue>
   <VisualActor>
     <Actor>structures/iberians/workshop.xml</Actor>
   </VisualActor>

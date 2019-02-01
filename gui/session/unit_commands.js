@@ -341,7 +341,7 @@ function hideUnitCommands()
 // Force hide commands panels
 function hideFormationCommands()
 {
-	for (var panelName in g_SelectionPanels)
+	for (var panelName in g_FormationPanels)
 		Engine.GetGUIObjectByName("formation" + panelName + "Panel").hidden = true;
 }
 

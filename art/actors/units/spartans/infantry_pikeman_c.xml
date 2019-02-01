@@ -7,7 +7,7 @@
       <props>
         <prop actor="props/units/shields/hele_round_spartiate_pike.xml" attachpoint="shield_arm"/>
         <prop actor="props/units/weapons/sarissa.xml" attachpoint="weapon_R"/>
-        <prop actor="props/units/heads/spartan_phalangite_helmet.xml" attachpoint="helmet"/>
+        <prop actor="props/units/helmets/spart_champ_pike.xml" attachpoint="helmet"/>
         <prop actor="props/units/heads/new/head_hele_b.xml" attachpoint="head"/>
         <prop actor="props/units/capes/pikeman.xml" attachpoint="root"/>
       </props>

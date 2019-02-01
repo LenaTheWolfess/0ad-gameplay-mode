@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/brit_infantry_swordsman_a">
+ <Armour>
+   <Missle>1</Missle>  
+   <Pierce>1</Pierce>  
+   <Crush>2</Crush>  
+   <Hack>2</Hack>  
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <Cost>
+    <BuildTime op="add">0.5</BuildTime>
+    <Resources>
+      <metal op="add">10</metal>
+    </Resources>
+  </Cost>
+  <UnitMotion>
+    <WalkSpeed op="mul">0.95</WalkSpeed>
+    <Run>
+      <Speed op="mul">0.95</Speed>
+    </Run>
+  </UnitMotion>
+  <VisualActor>
+    <Actor>units/britons/infantry_swordsman_e.xml</Actor>
+  </VisualActor>
+</Entity>

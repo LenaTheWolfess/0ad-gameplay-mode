@@ -54,6 +54,7 @@
       units/{civ}_mechanical_siege_tower
     </Entities>
     <Technologies datatype="tokens">
+      siege_ram
     </Technologies>
   </ProductionQueue>
   <Sound>

@@ -5,7 +5,6 @@
   </Identity>
   <ProductionQueue>
     <Technologies datatype="tokens">
-      siege_ram
       balista
       catapult
     </Technologies>

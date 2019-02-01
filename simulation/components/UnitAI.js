@@ -637,6 +637,8 @@ UnitAI.prototype.UnitFsmSpec = {
 
 		// Work out how to attack the given target
 		var type = this.GetBestAttackAgainst(this.order.data.target, this.order.data.allowCapture);
+		
+//		warn(this.order.data.allowCapture + " ? "  + this.order.data.target  + " : " + type);
 		if (!type)
 		{
 			// Oops, we can't attack at all
@@ -926,7 +928,7 @@ UnitAI.prototype.UnitFsmSpec = {
 
 		if (this.MoveToGarrisonRange(this.order.data.target))
 		{
-	//		warn("move to range");
+//			warn("move to range");
 			this.SetNextState("INDIVIDUAL.GARRISON.APPROACHING");
 		}
 		else
@@ -1102,6 +1104,7 @@ UnitAI.prototype.UnitFsmSpec = {
 		},
 
 		"Order.Attack": function(msg) {
+		//	warn("Attack");
 			let target = msg.data.target;
 			if (!target) {
 				this.FinishOrder();
@@ -1126,8 +1129,8 @@ UnitAI.prototype.UnitFsmSpec = {
 				}
 				this.FinishOrder();
 				return;
-			}
-			this.CallMemberFunction("RespondToTargetedEntities", {"ents":[target],"allowCapture": allowCapture});
+			} 
+			this.CallMemberFunction("RespondToTargetedEntities", [{"ents":[target],"allowCapture": allowCapture}]);
 			if (cmpAttack.CanAttackAsFormation())
 				this.SetNextState("COMBAT.ATTACKING");
 			else
@@ -1623,7 +1626,7 @@ UnitAI.prototype.UnitFsmSpec = {
 				"MoveCompleted": function(msg) {
 					let cmpAttack = Engine.QueryInterface(this.entity, IID_Attack);
 					this.CallMemberFunction("SetHeldPosition",{});
-					this.CallMemberFunction("RespondToTargetedEntities", {"ents": [this.order.data.target],"allowCapture": this.order.data.allowCapture});
+					this.CallMemberFunction("RespondToTargetedEntities", [{"ents": [this.order.data.target],"allowCapture": this.order.data.allowCapture}]);
 					if (cmpAttack.CanAttackAsFormation())
 						this.SetNextState("COMBAT.ATTACKING");
 					else
@@ -4391,6 +4394,7 @@ UnitAI.prototype.UnitFsmSpec = {
 							//	warn("done");
 								this.isGarrisoned = true;
 								if (this.siegeCrew != INVALID_ENTITY) {
+									this.Stop();
 									this.SetNextState("IDLE");
 									return true;
 								}
@@ -6130,7 +6134,6 @@ UnitAI.prototype.MoveToTargetAttackRange = function(target, type)
 {
 	if (!this.CanMove())
 		return false;
-
 	/*
 	// for formation members, the formation will take care of the range check
 	if (this.IsFormationMember())
@@ -6373,15 +6376,16 @@ UnitAI.prototype.CheckTargetDistanceInReach = function(target, iid, type)
 	let range = iid !== IID_Attack ? cmpRanged.GetRange() : cmpRanged.GetRange(type);
 
 	let cmpPosition = Engine.QueryInterface(target, IID_Position);
-	if (!cmpPosition || !cmpPosition.IsInWorld())
+	if (!cmpPosition || !cmpPosition.IsInWorld()) {
 		return false;
+	}
 
 	let pos = cmpPosition.GetPosition();
 	let cmpMyPosition = Engine.QueryInterface(this.entity, IID_Position);
-	if (!cmpMyPosition || !cmpMyPosition.IsInWorld())
+	if (!cmpMyPosition || !cmpMyPosition.IsInWorld()) {
 		return false;
+	}
 	let mPos = cmpMyPosition.GetPosition();
-
 	return Math.euclidDistance2D(pos.x, pos.z, mPos.x, mPos.z) < range.max;
 };
 
@@ -6617,7 +6621,6 @@ UnitAI.prototype.AttackEntityInCloseZone = function(ents, allowCapture)
 	);
 	if (!target)
 		return false;
-
 	this.PushOrderFront("Attack", { "target": target, "force": false, "allowCapture": allowCapture });
 	return true;
 };
@@ -6663,6 +6666,7 @@ UnitAI.prototype.AttackEntityInReach = function(ents, allowCapture)
 	if (!target)
 		return false;
 
+//	warn("Push Attack: ");
 	this.PushOrderFront("Attack", { "target": target, "force": false, "allowCapture": allowCapture });
 	return true;
 };
@@ -6679,6 +6683,7 @@ UnitAI.prototype.RespondToTargetedEntities = function(msg, reason = null)
 			this.SetAnimationVariant("relax");
 			this.prepared = false;
 		}
+	//	warn("no msg");
 		return false;
 	}
 	let ents = msg.ents;
@@ -6688,6 +6693,7 @@ UnitAI.prototype.RespondToTargetedEntities = function(msg, reason = null)
 			this.SetAnimationVariant("relax");
 			this.prepared = false;
 		}
+	//	warn("no ents");
 		return false;
 	}
 
@@ -6704,12 +6710,18 @@ UnitAI.prototype.RespondToTargetedEntities = function(msg, reason = null)
 			this.PushOrderFront("Flee", { "target": ents[0], "force": false });
 			return true;
 		}
+		
+		if (allowCapture) {
+			return this.AttackVisibleEntity(ents, allowCapture);
+		}
+		
 		if (this.AttackEntityInReach(ents, allowCapture)) {
 			return true;
 		}
 		
-		if (this.GetStance().respondStandGround)
+		if (this.GetStance().respondStandGround){
 			return false;
+		}
 		
 		if (this.AttackEntityInCloseZone(ents, allowCapture)) {
 			return true;
@@ -7851,7 +7863,8 @@ UnitAI.prototype.GetTargetsAlongChargePath = function()
 {
 	if (!this.chargeDamageRangeQuery)
 		return [];
-
+	
+	let cmpRangeManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_RangeManager);
 	let entities = cmpRangeManager.ResetActiveQuery(this.chargeDamageRangeQuery);
 	return entities;
 }
@@ -8144,7 +8157,6 @@ UnitAI.prototype.GetFormationOffset = function()
 	return this.fmp;
 }
 
-
 //// Helper functions ////
 
 UnitAI.prototype.CanAttack = function(target)
@@ -8430,6 +8442,7 @@ UnitAI.prototype.SetFacePointAfterMove = function(val)
 UnitAI.prototype.AttackEntitiesByPreference = function(ents)
 {
 	//warn(this.entity + " attack entities by preference");
+	let allowCapture = this.order && this.order.data && this.order.data.allowCapture;
 	if (!ents.length) {
 		//warn(this.entity + " no entitites");
 		if (this.prepared) {
@@ -8486,7 +8499,7 @@ UnitAI.prototype.AttackEntitiesByPreference = function(ents)
 			if (!entsByPreferences[pref])
 				continue;
 			//warn(this.entity+ " using preference " + pref + " lenght: " + entsByPreferences[pref].length);
-			if (this.RespondToTargetedEntities({"ents":entsByPreferences[pref], "allowCapture": false}))
+			if (this.RespondToTargetedEntities({"ents":entsByPreferences[pref], "allowCapture": allowCapture}))
 				return true;
 			}
 	}
@@ -8503,7 +8516,7 @@ UnitAI.prototype.AttackEntitiesByPreference = function(ents)
 	}
 
 	//warn (this.entity+ " -> respondToTargetedEntitites count = " + entsWithoutPref.length); 
-	return this.RespondToTargetedEntities({"ents":entsWithoutPref, "allowCapture": false});
+	return this.RespondToTargetedEntities({"ents":entsWithoutPref, "allowCapture": allowCapture});
 };
 
 /**

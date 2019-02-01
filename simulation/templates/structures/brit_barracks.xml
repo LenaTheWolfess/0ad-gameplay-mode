@@ -22,10 +22,12 @@
       units/{civ}_champion_infantry
     </Entities>
     <Technologies datatype="tokens">
-      swords
       spears
+      swords
 	  brit/spear_a
 	  brit/spear_e
+	  brit/sword_a
+	  brit/sword_e
       brit/champion_sword  
     </Technologies>
   </ProductionQueue>

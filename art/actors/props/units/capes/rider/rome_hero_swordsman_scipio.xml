@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant>
+      <mesh>props/new/capes/cape_hd_medium.dae</mesh>
+      <textures>
+        <texture file="props/cape_hd_beige.png" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant name="ready" file="biped/base_cavalry_swordsman_shield_ready.xml"/>
+    <variant name="relax" file="biped/base_cavalry_swordsman_shield_relax.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

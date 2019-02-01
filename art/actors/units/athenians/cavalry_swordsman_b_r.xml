@@ -19,12 +19,8 @@
     </variant>
   </group>
   <group>
-    <variant file="biped/base_cavalry_swordsman_relax.xml"/>
-    <variant file="biped/rider/carry_meat.xml"/>
-  </group>
-  <group>
-    <variant name="ready"/>
-    <variant name="relax">
+    <variant name="ready" file="biped/base_cavalry_swordsman_ready.xml"/>
+    <variant name="relax" file="biped/base_cavalry_swordsman_relax.xml" frequency="1">
       <props>
         <prop actor="props/temp/l_sheath_xiphos.xml" attachpoint="sheath_L"/>
         <prop actor="" attachpoint="weapon_R"/>
@@ -32,7 +28,6 @@
     </variant>
     <variant file="biped/rider/promotion.xml"/>
     <variant file="biped/rider/attack_slaughter_hele.xml"/>
-    <variant file="biped/gather_meat.xml"/>
     <variant file="biped/rider/death.xml"/>
   </group>
   <material>player_trans.xml</material>

@@ -9,6 +9,7 @@
         <prop actor="props/units/weapons/falcata.xml" attachpoint="weapon_R"/>
         <prop actor="props/units/shields/kart_hero_hamilcar.xml" attachpoint="shield"/>
         <prop actor="props/units/heads/kart_hero_2.xml" attachpoint="helmet"/>
+        <prop actor="props/temp/l_sheath.xml" attachpoint="sheath_L"/>
         <prop actor="props/units/capes/rider/cart_hamilcar.xml" attachpoint="root"/>
       </props>
       <textures>
@@ -17,7 +18,13 @@
     </variant>
   </group>
   <group>
-    <variant frequency="1" name="Idle"/>
+    <variant name="ready" file="biped/base_cavalry_swordsman_shield_ready.xml"/>
+    <variant name="relax" file="biped/base_cavalry_swordsman_shield_relax.xml" frequency="1">
+      <props>
+        <prop actor="props/temp/l_sheath_xiphos.xml" attachpoint="sheath_L"/>
+        <prop actor="" attachpoint="weapon_R"/>
+      </props>
+    </variant>
     <variant file="biped/rider/death.xml"/>
   </group>
   <material>player_trans.xml</material>
