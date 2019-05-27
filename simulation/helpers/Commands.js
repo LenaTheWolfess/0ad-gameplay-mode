@@ -231,12 +231,9 @@ var g_Commands = {
 	"walk-to-range": function(player, cmd, data)
 	{
 		// Only used by the AI
-		for (let ent of data.entities)
-		{
-			var cmpUnitAI = Engine.QueryInterface(ent, IID_UnitAI);
-			if (cmpUnitAI)
+		GetFormationUnitAIs(data.entities, player).forEach(cmpUnitAI => {
 				cmpUnitAI.WalkToPointRange(cmd.x, cmd.z, cmd.min, cmd.max, cmd.queued);
-		}
+		});
 	},
 
 	"attack-walk": function(player, cmd, data)
@@ -697,6 +694,12 @@ var g_Commands = {
 		}
 	},
 
+"regroup": function(player, cmd, data)
+	{
+		GetFormationUnitAIs(data.entities, player).forEach(cmpUnitAI => {
+			cmpUnitAI.MoveIntoFormation(cmd);
+		});
+	},
 	"formation": function(player, cmd, data)
 	{
 		GetMergedFormationUnitAIs(data.entities, player, cmd.name).forEach(cmpUnitAI => {
@@ -1004,12 +1007,12 @@ function notifyBackToWorkFailure(player)
  */
 function ExtractFormations(ents)
 {
-	var entities = []; // subset of ents that have UnitAI
-	var members = {}; // { formationentity: [ent, ent, ...], ... }
+	let entities = []; // subset of ents that have UnitAI
+	let members = {}; // { formationentity: [ent, ent, ...], ... }
 	for (let ent of ents)
 	{
-		var cmpUnitAI = Engine.QueryInterface(ent, IID_UnitAI);
-		var fid = cmpUnitAI.GetFormationController();
+		let cmpUnitAI = Engine.QueryInterface(ent, IID_UnitAI);
+		let fid = cmpUnitAI.GetFormationController();
 		if (fid != INVALID_ENTITY)
 		{
 			if (!members[fid])
@@ -1539,8 +1542,8 @@ function RemoveFromFormation(ents)
 }
 
 /**
- * Returns a list of UnitAI components, each belonging either to a
- * selected unit or to a formation entity for groups of the selected units.
+ * Returns a list of UnitAI components and be sure to not allow single unit commands
+ * iff unit is member of formation
  */
 function GetFormationUnitAIs(ents, player)
 {
@@ -1651,7 +1654,7 @@ function GetMergedFormationUnitAIs(ents, player, formationTemplate)
 	
 	// TESTING PURPOSES ONLY
 	// ALLOW TO CREATE FORMATION
-	/*
+	
 	if (!formationUnitAIs.length)
 	{
 		// We need to give the selected units a new formation controller
@@ -1720,7 +1723,7 @@ function GetMergedFormationUnitAIs(ents, player, formationTemplate)
 			}
 		}
 	}
-	*/
+	
 	// ALLOW TO CREATE FORMATION
 	
 	return nonformedUnitAIs.concat(formationUnitAIs);

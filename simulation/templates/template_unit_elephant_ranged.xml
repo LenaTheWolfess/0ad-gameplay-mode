@@ -3,9 +3,9 @@
 <Attack>
     <Melee>
       <Hack>20</Hack>
-      <Pierce>0</Pierce>
+      <Pierce>0.0</Pierce>
       <Crush>150.0</Crush>
-      <Missle>0</Missle>
+      <Missle>0.0</Missle>
       <MaxRange>8.0</MaxRange>
       <PrepareTime>1000</PrepareTime>
       <RepeatTime>8000</RepeatTime>
@@ -16,17 +16,20 @@
       <Ammo>50</Ammo>
 	  <RefillAmount>5</RefillAmount>
 	  <RefillTime>100000</RefillTime>
-      <Hack>0</Hack>
+      <Hack>0.0</Hack>
       <Pierce>0.0</Pierce>
-      <Crush>0</Crush>
-      <Missle>0</Missle>
+      <Crush>0.0</Crush>
+      <Missle>0.0</Missle>
       <MaxRange>16.0</MaxRange>
       <MinRange>7.0</MinRange>
-      <ProjectileSpeed>75.0</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
       <PrepareTime>1000</PrepareTime>
       <RepeatTime>1500</RepeatTime>
-      <Spread>3.0</Spread>
+      <Projectile>
+        <Spread>3.0</Spread>
+        <Gravity>9.81</Gravity>
+        <LaunchPoint y="3"/>
+        <Speed>75.0</Speed>
+      </Projectile>
       <Delay>0</Delay>
       <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>
@@ -38,4 +41,16 @@
   <Identity>
  	<BannerCode>elephant_banner</BannerCode>
   </Identity>
+  <Energy>
+    <MaxPoints>150</MaxPoints>
+    <RegenRate>5</RegenRate>
+    <RunDegRate>10</RunDegRate>
+  </Energy>
+  <Morale>
+    <MaxPoints>200</MaxPoints>
+	<RegenRate>0</RegenRate>
+  </Morale>
+  <Promotion>
+    <RequiredXp>150</RequiredXp>
+  </Promotion>
 </Entity>

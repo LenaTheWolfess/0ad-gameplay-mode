@@ -11,7 +11,7 @@
   </Footprint>
   <Identity>
     <Civ>sele</Civ>
-    <Icon>units/sele_mechanical_siege_ram.png</Icon>
+    <Icon>units/sele_siege_ram.png</Icon>
   </Identity>
   <VisualActor>
     <Actor>units/seleucids/siege_ram.xml</Actor>

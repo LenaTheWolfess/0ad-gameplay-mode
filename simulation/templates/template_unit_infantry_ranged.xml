@@ -3,7 +3,7 @@
   <Attack>
     <Melee>
       <Hack>5</Hack>
-      <Pierce>0</Pierce>
+      <Pierce>0.0</Pierce>
       <Crush>0.0</Crush>
       <Missle>0.0</Missle>  
       <MaxRange>2.2</MaxRange>
@@ -16,17 +16,20 @@
       <Ammo>20</Ammo>
 	  <RefillAmount>5</RefillAmount>
 	  <RefillTime>100000</RefillTime>
-      <Hack>0</Hack>
-      <Pierce>0</Pierce>
-      <Crush>0</Crush>
-      <Missle>0</Missle>
+      <Hack>0.0</Hack>
+      <Pierce>0.0</Pierce>
+      <Crush>0.0</Crush>
+      <Missle>0.0</Missle>
       <MaxRange>20.0</MaxRange>
       <MinRange>7.0</MinRange>
-      <ProjectileSpeed>75.0</ProjectileSpeed>
-      <Gravity>4</Gravity>
       <PrepareTime>2000</PrepareTime>
       <RepeatTime>4000</RepeatTime>
-      <Spread>3.0</Spread>
+      <Projectile>
+        <Spread>3.0</Spread>
+        <Gravity>9.81</Gravity>
+        <LaunchPoint y="3"/>
+        <Speed>75.0</Speed>
+      </Projectile>
       <Delay>0</Delay>
       <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>

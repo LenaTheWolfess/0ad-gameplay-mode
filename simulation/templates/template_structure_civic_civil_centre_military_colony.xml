@@ -41,7 +41,6 @@
     <Technologies datatype="tokens">
       -phase_town_{civ}
       -phase_city_{civ}
-      upgrade_rank_advanced_mercenary
     </Technologies>
   </ProductionQueue>
   <Sound>

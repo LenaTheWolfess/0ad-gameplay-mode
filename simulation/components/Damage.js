@@ -406,7 +406,6 @@ Damage.prototype.CauseDamage = function(data)
 	let dmg = 0;
 	if (!!targetState.change)
 		dmg = targetState.change;
-	
 	Engine.PostMessage(data.target, MT_Attacked, { "attacker": data.attacker, "target": data.target, "type": data.type, "damage": -dmg, "attackerOwner": data.attackerOwner });
 };
 

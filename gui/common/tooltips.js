@@ -280,7 +280,7 @@ function formMoraleString(curr, max)
 	if (perc > 20)
 		return "Eager";
 	if (perc > 0)
-		return "Feared";
+		return "Scared";
 }
 
 function sumTemplateArmor(template)

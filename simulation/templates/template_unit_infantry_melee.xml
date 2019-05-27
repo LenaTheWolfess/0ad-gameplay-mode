@@ -4,10 +4,10 @@
     <Melee>
       <EnergyCost>1</EnergyCost>
       <EnergyPenetration>true</EnergyPenetration>
-      <Hack>0</Hack>
-      <Pierce>0</Pierce>
-      <Crush>0</Crush>
-      <Missle>0</Missle>
+      <Hack>0.0</Hack>
+      <Pierce>0.0</Pierce>
+      <Crush>0.0</Crush>
+      <Missle>0.0</Missle>
       <MaxRange>3</MaxRange>
       <PrepareTime>500</PrepareTime>
       <RepeatTime>1000</RepeatTime>

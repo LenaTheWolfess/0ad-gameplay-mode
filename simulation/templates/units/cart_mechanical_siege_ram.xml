@@ -11,7 +11,7 @@
   </Footprint>
   <Identity>
     <Civ>cart</Civ>
-    <Icon>units/cart_mechanical_siege_ram.png</Icon>
+    <Icon>units/cart_siege_ram.png</Icon>
   </Identity>
   <VisualActor>
     <Actor>units/carthaginians/siege_ram.xml</Actor>

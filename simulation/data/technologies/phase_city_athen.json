@@ -10,7 +10,7 @@
 	"supersedes": "phase_town_athen",
 	"replaces": ["phase_city"],
 	"icon": "city_phase.png",
-	"researchTime": 60,
+	"researchTime": 0,
 	"tooltip": "Advance to City Phase, which unlocks more structures and units. Territory radius for Civic Centers increased by another +50%. Silver Owls civ bonus grants an extra +10% metal gather rate to all workers. Citizen soldiers max health increased by +10%. All structures +9 garrisoned regeneration rate.",
 	"modifications": [
 		{ "value": "ResourceGatherer/Rates/metal.ore", "multiply": 1.1, "affects": "Worker" },

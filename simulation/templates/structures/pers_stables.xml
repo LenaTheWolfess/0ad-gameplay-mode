@@ -17,7 +17,7 @@
     <Civ>pers</Civ>
     <GenericName>Cavalry Stables</GenericName>
     <SpecificName>Paraspa</SpecificName>
-    <VisibleClasses datatype="tokens">-Barracks Stables</VisibleClasses>
+    <VisibleClasses datatype="tokens">Stables</VisibleClasses>
     <Tooltip>Train citizen-cavalry units.</Tooltip>
     <Icon>structures/pers_stable.png</Icon>
   </Identity>

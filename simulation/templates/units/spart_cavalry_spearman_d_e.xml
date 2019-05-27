@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="units/spart_cavalry_spearman_d_a">
+  <Armour>
+   <Missle>4</Missle>  
+   <Pierce>5</Pierce>  
+   <Crush>5</Crush>  
+   <Hack>6</Hack> 
+  </Armour>
+  <Identity>
+    <Rank>Elite</Rank>
+  </Identity>
+  <Promotion disable=""/>
+  <VisualActor>
+    <Actor>units/spartans/cavalry_spearman_d_e.xml</Actor>
+  </VisualActor>
+</Entity>

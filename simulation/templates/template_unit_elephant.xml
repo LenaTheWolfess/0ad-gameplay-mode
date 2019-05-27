@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_unit">
+  <Attack>
+    <MountDamage>500</MountDamage>
+  </Attack>
   <Armour>
     <Hack>7</Hack>
     <Pierce>5</Pierce>

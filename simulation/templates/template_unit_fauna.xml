@@ -32,9 +32,7 @@
   </UnitAI>
   <UnitMotion>
     <WalkSpeed op="mul">0.7</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.7</Speed>
-    </Run>
+    <RunMultiplier op="mul">0.7</RunMultiplier> 
   </UnitMotion>
   <Visibility>
     <RetainInFog>true</RetainInFog>

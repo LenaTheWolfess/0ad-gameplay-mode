@@ -21,9 +21,7 @@
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">0.9</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.9</Speed>
-    </Run>
+     <RunMultiplier op="mul">0.9 </RunMultiplier>
   </UnitMotion>
   <VisualActor>
     <Actor>structures/iberians/warship.xml</Actor>

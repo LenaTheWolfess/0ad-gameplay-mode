@@ -8,11 +8,13 @@
       <Crush>0</Crush>
       <MaxRange>32.0</MaxRange>
       <MinRange>7.0</MinRange>
-      <ProjectileSpeed>62.5</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
+      <Projectile>
+        <Speed>62.5</Speed>
+        <Gravity>9.81</Gravity>
+        <Spread>0.5</Spread>
+	  </Projectile>
       <PrepareTime>600</PrepareTime>
       <RepeatTime>1000</RepeatTime>
-      <Spread>0.5</Spread>
       <Delay>0</Delay>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Ranged>

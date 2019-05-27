@@ -57,9 +57,7 @@
   <UnitMotion>
     <PassabilityClass>large</PassabilityClass>
     <WalkSpeed op="mul">0.95</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.95</Speed>
-    </Run>
+    <RunMultiplier op="mul">0.95</RunMultiplier>
   </UnitMotion>
   <Vision>
     <Range>80</Range>

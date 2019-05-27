@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant frequency="1" name="Base">
+      <mesh>skeletal/new/m_tunic_short.dae</mesh>
+      <props>
+        <prop actor="props/units/heads/new/head_hele_b.xml" attachpoint="head"/>
+        <prop actor="props/units/weapons/spear_lance_cavalry.xml" attachpoint="weapon_R"/>
+        <prop actor="props/units/capes/hoplite_throw.xml" attachpoint="root"/>
+      </props>
+      <textures>
+        <texture file="skeletal/hele_tunic.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+   <variant file="biped/base_hoplite.xml"/> 
+   <variant name="ready" file="biped/ready_stance/base_hoplite.xml"/>
+   <variant name="relax" file="biped/relax/base_hoplite.xml" frequency="1"/>
+    <variant file="biped/attack_capture.xml"/>
+    <variant file="biped/attack_slaughter.xml"/>
+    <variant file="biped/death_infantry.xml"/>
+  </group>
+  <material>default.xml</material>
+</actor>

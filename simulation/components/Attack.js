@@ -72,8 +72,6 @@ Attack.prototype.Schema =
 			"<ElevationBonus>15.0</ElevationBonus>" +
 			"<PrepareTime>800</PrepareTime>" +
 			"<RepeatTime>1600</RepeatTime>" +
-			"<ProjectileSpeed>50.0</ProjectileSpeed>" +
-			"<Spread>2.5</Spread>" +
 			"<Delay>1000</Delay>" +
 			"<Bonuses>" +
 				"<Bonus1>" +
@@ -82,6 +80,8 @@ Attack.prototype.Schema =
 				"</Bonus1>" +
 			"</Bonuses>" +
 			"<Projectile>" +
+				"<Speed>50.0</Speed>" +
+				"<Spread>2.5</Spread>" +
 				"<ActorName>props/units/weapons/rock_flaming.xml</ActorName>" +
 				"<ImpactActorName>props/units/weapons/rock_explosion.xml</ImpactActorName>" +
 				"<ImpactAnimationLifetime>0.1</ImpactAnimationLifetime>" +
@@ -108,6 +108,11 @@ Attack.prototype.Schema =
 			"<data type='nonNegativeInteger'/>"+
 		"</element>" +
 	"</optional>" +
+	"<optional> " +
+	  "<element name='MountDamage'>"+
+	     "<data type='nonNegativeInteger'/>"+
+	  "</element>"+
+	"</optional> " +
 	"<optional>" +
 		"<element name='Melee'>" +
 			"<interleave>" +
@@ -184,38 +189,41 @@ Attack.prototype.Schema =
 				"<element name='RepeatTime' a:help='Time between attacks (in milliseconds). The attack animation will be stretched to match this time'>" +
 					"<data type='positiveInteger'/>" +
 				"</element>" +
-				"<element name='ProjectileSpeed' a:help='Speed of projectiles (in metres per second)'>" +
-					"<ref name='positiveDecimal'/>" +
-				"</element>" +
-				"<element name='Gravity' a:help='The gravity affecting the projectile. This affects the shape of the flight curve.'>" +
-					"<ref name='nonNegativeDecimal'/>" +
-				"</element>" +
-				"<element name='Spread' a:help='Standard deviation of the bivariate normal distribution of hits at 100 meters. A disk at 100 meters from the attacker with this radius (2x this radius, 3x this radius) is expected to include the landing points of 39.3% (86.5%, 98.9%) of the rounds.'><ref name='nonNegativeDecimal'/></element>" +
-				"<element name='Delay' a:help='Delay of the damage in milliseconds'><ref name='nonNegativeDecimal'/></element>" +
+					"<element name='Delay' a:help='Delay of the damage in milliseconds'><ref name='nonNegativeDecimal'/></element>" +
 				Attack.prototype.bonusesSchema +
 				Attack.prototype.preferredClassesSchema +
 				Attack.prototype.restrictedClassesSchema +
-				"<optional>" +
-					"<element name='Projectile'>" +
-						"<interleave>" +
-							"<oneOrMore>" +
-								"<choice>" +
-									"<element name='ActorName' a:help='actor of the projectile animation'>" +
-										"<text/>" +
-									"</element>" +
-									"<interleave>" +
-										"<element name='ImpactActorName' a:help='actor of the projectile impact animation'>" +
-											"<text/>" +
-										"</element>" +
-										"<element name='ImpactAnimationLifetime' a:help='length of the projectile impact animation'>" +
-											"<ref name='positiveDecimal'/>" +
-										"</element>" +
-									"</interleave>" +
-								"</choice>" +
-							"</oneOrMore>" +
-						"</interleave>" +
-					"</element>" +
-				"</optional>" +
+				"<element name='Projectile'>" +
+					"<interleave>" +
+						"<element name='Speed' a:help='Speed of projectiles (in meters per second).'>" +
+							"<ref name='positiveDecimal'/>" +
+						"</element>" +
+						"<element name='Spread' a:help='Standard deviation of the bivariate normal distribution of hits at 100 meters. A disk at 100 meters from the attacker with this radius (2x this radius, 3x this radius) is expected to include the landing points of 39.3% (86.5%, 98.9%) of the rounds.'><ref name='nonNegativeDecimal'/></element>" +
+						"<element name='Gravity' a:help='The gravity affecting the projectile. This affects the shape of the flight curve.'>" +
+							"<ref name='nonNegativeDecimal'/>" +
+						"</element>" +
+						"<optional>" +
+							"<element name='LaunchPoint' a:help='Delta from the unit position where to launch the projectile.'>" +
+								"<attribute name='y'>" +
+									"<data type='decimal'/>" +
+								"</attribute>" +
+							"</element>" +
+						"</optional>" +
+						"<optional>" +
+							"<element name='ActorName' a:help='actor of the projectile animation.'>" +
+								"<text/>" +
+							"</element>" +
+						"</optional>" +
+						"<optional>" +
+							"<element name='ImpactActorName' a:help='actor of the projectile impact animation'>" +
+								"<text/>" +
+							"</element>" +
+							"<element name='ImpactAnimationLifetime' a:help='length of the projectile impact animation.'>" +
+								"<ref name='positiveDecimal'/>" +
+							"</element>" +
+						"</optional>" +
+					"</interleave>" +
+				"</element>" +
 				"<optional>" +
 					"<element name='Splash'>" +
 						"<interleave>" +
@@ -319,6 +327,11 @@ Attack.prototype.CanRange = function()
 Attack.prototype.SetCanRange = function()
 {
 	this.noRange = false;
+}
+
+Attack.prototype.SetAmmo = function(count)
+{
+	this.ammo = count;
 }
 
 Attack.prototype.CheckAmmoRefill = function()
@@ -794,6 +807,9 @@ Attack.prototype.GetBonusTemplate = function(type)
 
 Attack.prototype.CauseMountDamage = function(targets)
 {
+	if (!this.template.MountDamage)
+		return;
+	warn(this.entity + " cause mount damage");
 	let attackerOwner = Engine.QueryInterface(this.entity, IID_Ownership).GetOwner();
 	let cmpDamage = Engine.QueryInterface(SYSTEM_ENTITY, IID_Damage);
 	let cmpUnitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
@@ -822,6 +838,7 @@ Attack.prototype.CauseMountDamage = function(targets)
 	}
 	
 	for (let target of targets) {
+		warn(this.entity + " cause mount damage to " + target);
 		let flank = 0;
 		let cmpTargetPosition = Engine.QueryInterface(target, IID_Position);
 		let cmpPosition = Engine.QueryInterface(attacker, IID_Position);
@@ -915,10 +932,10 @@ Attack.prototype.PerformAttack = function(type, target)
 		//  * Obstacles like trees could reduce the probability of the target being hit
 		//  * Obstacles like walls should block projectiles entirely
 
-		let horizSpeed = +this.template[type].ProjectileSpeed;
-		let gravity = +this.template[type].Gravity;
-		//horizSpeed /= 2; gravity /= 2; // slow it down for testing
-
+		let horizSpeed = +this.template[type].Projectile.Speed;
+		let gravity = +this.template[type].Projectile.Gravity;
+	//	horizSpeed /= 2; gravity /= 2; // slow it down for testing
+		gravity = 0;
 		let cmpPosition = Engine.QueryInterface(this.entity, IID_Position);
 		if (!cmpPosition || !cmpPosition.IsInWorld())
 			return;
@@ -935,7 +952,7 @@ Attack.prototype.PerformAttack = function(type, target)
 		let predictedPosition = (timeToTarget !== false) ? Vector3D.mult(targetVelocity, timeToTarget).add(targetPosition) : targetPosition;
 
 		// Add inaccuracy based on spread.
-		let distanceModifiedSpread = ApplyValueModificationsToEntity("Attack/Ranged/Spread", +this.template.Ranged.Spread, this.entity) *
+		let distanceModifiedSpread = ApplyValueModificationsToEntity("Attack/Ranged/Spread", +this.template[type].Projectile.Spread, this.entity) *
 			predictedPosition.horizDistanceTo(selfPosition) / 100;
 
 		let randNorm = randomNormal2D();
@@ -943,7 +960,7 @@ Attack.prototype.PerformAttack = function(type, target)
 		let offsetZ = randNorm[1] * distanceModifiedSpread;
 
 		let realTargetPosition = new Vector3D(predictedPosition.x + offsetX, targetPosition.y, predictedPosition.z + offsetZ);
-
+		
 		// Recalculate when the missile will hit the target position.
 		let realHorizDistance = realTargetPosition.horizDistanceTo(selfPosition);
 		timeToTarget = realHorizDistance / horizSpeed;
@@ -956,16 +973,13 @@ Attack.prototype.PerformAttack = function(type, target)
 		let actorName = "";
 		let impactActorName = "";
 		let impactAnimationLifetime = 0;
-		if (this.template.Ranged.Projectile)
-		{
-			actorName = this.template.Ranged.Projectile.ActorName || "";
-			impactActorName = this.template.Ranged.Projectile.ImpactActorName || "";
-			impactAnimationLifetime = this.template.Ranged.Projectile.ImpactAnimationLifetime || 0;
-		}
+		
+		actorName = this.template[type].Projectile.ActorName || "";
+		impactActorName = this.template[type].Projectile.ImpactActorName || "";
+		impactAnimationLifetime = this.template[type].Projectile.ImpactAnimationLifetime || 0;
 
-		let launchPoint = selfPosition.clone();
-		// TODO: remove this when all the ranged unit templates are updated with Projectile/Launchpoint
-		launchPoint.y += 3;
+		let deltaLaunchPoint = new Vector3D(0, this.template[type].Projectile.LaunchPoint["@y"], 0.0);
+		let launchPoint = Vector3D.add(selfPosition, deltaLaunchPoint);
 		
 		let cmpVisual = Engine.QueryInterface(this.entity, IID_Visual);
 		if (cmpVisual)
@@ -981,7 +995,7 @@ Attack.prototype.PerformAttack = function(type, target)
 		}
 
 		let id = cmpProjectileManager.LaunchProjectileAtPoint(launchPoint, realTargetPosition, horizSpeed, gravity, actorName, impactActorName, impactAnimationLifetime);
-
+		
 		let attackImpactSound = "";
 		let cmpSound = Engine.QueryInterface(this.entity, IID_Sound);
 		if (cmpSound)
@@ -1226,6 +1240,14 @@ Attack.prototype.GetRangeOverlays = function()
 
 	let range = this.GetRange("Ranged");
 	let rangeOverlays = [];
+	
+	let unitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
+	if (range.max && !unitAI) {
+		let cmpPosition = Engine.QueryInterface(this.entity, IID_Position);
+		let cmpRangeManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_RangeManager);
+		if (cmpRangeManager && cmpPosition/* && cmpPosition.IsInWorld()*/)
+			range.max = cmpRangeManager.GetElevationAdaptedRange(cmpPosition.GetPosition(), cmpPosition.GetRotation(), range.max, range.elevationBonus, 2*Math.PI);
+	}
 	for (let i in range)
 		if ((i == "min" || i == "max") && range[i])
 			rangeOverlays.push({

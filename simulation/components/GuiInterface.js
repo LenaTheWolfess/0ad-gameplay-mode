@@ -556,7 +556,7 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 	if (cmpUnitMotion)
 		ret.speed = {
 			"walk": cmpUnitMotion.GetWalkSpeed(),
-			"run": cmpUnitMotion.GetRunSpeed()
+			"run": cmpUnitMotion.GetWalkSpeed() * cmpUnitMotion.GetRunMultiplier()
 		};
 
 	return ret;
@@ -1097,8 +1097,12 @@ GuiInterface.prototype.SetBuildingPlacementPreview = function(player, cmd)
 			result = cmpBuildRestrictions.CheckPlacement();
 
 		let cmpRangeOverlayManager = Engine.QueryInterface(ent, IID_RangeOverlayManager);
-		if (cmpRangeOverlayManager)
-			cmpRangeOverlayManager.SetEnabled(true, this.enabledVisualRangeOverlayTypes);
+		if (cmpRangeOverlayManager) {
+			let enabled = this.enabledVisualRangeOverlayTypes;
+			enabled["Attack"] = true;
+			cmpRangeOverlayManager.SetEnabled(true, enabled, true);
+			cmpRangeOverlayManager.UpdateRangeOverlays("Attack");
+		}
 
 		// Set it to a red shade if this is an invalid location
 		let cmpVisual = Engine.QueryInterface(ent, IID_Visual);

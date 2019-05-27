@@ -33,7 +33,7 @@
     <Civ>gaia</Civ>
     <GenericName>Fire Raiser</GenericName>
     <SpecificName>Pyrobolos</SpecificName>
-    <Icon>units/hele_mechanical_siege_lithobolos.png</Icon>
+    <Icon>units/hele_siege_lithobolos.png</Icon>
   </Identity>
   <Vision>
     <Range>60</Range>

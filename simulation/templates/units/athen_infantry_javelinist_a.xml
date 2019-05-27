@@ -16,6 +16,7 @@
   </Cost>
   <Identity>
     <Rank>Advanced</Rank>
+	<RequiredTechnology>athen_javelin_a</RequiredTechnology>
   </Identity>
   <Promotion>
     <Entity>units/athen_infantry_javelinist_e</Entity>

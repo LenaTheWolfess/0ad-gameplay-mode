@@ -11,7 +11,7 @@
   </Footprint>
   <Identity>
     <Civ>ptol</Civ>
-    <Icon>units/ptol_mechanical_siege_ram.png</Icon>
+    <Icon>units/ptol_siege_ram.png</Icon>
   </Identity>
   <VisualActor>
     <Actor>units/ptolemies/siege_ram.xml</Actor>

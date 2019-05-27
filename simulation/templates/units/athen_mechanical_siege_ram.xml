@@ -11,7 +11,7 @@
   </Footprint>
   <Identity>
     <Civ>athen</Civ>
-    <Icon>units/athen_mechanical_siege_ram.png</Icon>
+    <Icon>units/athen_siege_ram.png</Icon>
   </Identity>
   <VisualActor>
     <Actor>units/athenians/siege_ram.xml</Actor>

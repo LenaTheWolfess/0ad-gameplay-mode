@@ -16,6 +16,7 @@
   </Cost>
   <Identity>
     <Rank>Elite</Rank>
+	<RequiredTechnology>athen_javelin_e</RequiredTechnology>
   </Identity>
   <Promotion disable=""/>
   <VisualActor>

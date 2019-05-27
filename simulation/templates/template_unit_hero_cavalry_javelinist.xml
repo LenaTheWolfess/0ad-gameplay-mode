@@ -6,7 +6,9 @@
       <MaxRange>28.0</MaxRange>
       <PrepareTime>750</PrepareTime>
       <RepeatTime>1250</RepeatTime>
-      <Spread>0.5</Spread>
+	  <Projectile>
+        <Spread>0.5</Spread>
+	  </Projectile>
     </Ranged>
   </Attack>
   <Footprint>

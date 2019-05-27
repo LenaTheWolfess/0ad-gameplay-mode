@@ -36,9 +36,7 @@
   <Pack disable=""/>
   <UnitMotion>
     <WalkSpeed>0.001</WalkSpeed>
-    <Run>
-      <Speed>0.001</Speed>
-    </Run>
+     <RunMultiplier>0.001 </RunMultiplier>
   </UnitMotion>
   <Vision>
     <Range>88</Range>

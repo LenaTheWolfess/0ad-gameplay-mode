@@ -18,9 +18,7 @@
   </Cost>
   <UnitMotion>
     <WalkSpeed op="mul">0.95</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.95</Speed>
-    </Run>
+     <RunMultiplier op="mul">0.95 </RunMultiplier>
   </UnitMotion>
   <VisualActor>
     <Actor>units/athenians/infantry_swordsman_e.xml</Actor>

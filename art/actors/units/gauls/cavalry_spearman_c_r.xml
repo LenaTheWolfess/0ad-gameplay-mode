@@ -21,7 +21,7 @@
   </group>
   <group>
     <variant frequency="1" name="Idle"/>
-    <variant file="biped/rider/death_shield_a.xml"/>
+    <variant file="biped/rider/death_shield.xml"/>
   </group>
   <material>player_trans.xml</material>
 </actor>

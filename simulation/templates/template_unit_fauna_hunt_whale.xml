@@ -54,8 +54,6 @@
   <UnitMotion>
     <PassabilityClass>ship-small</PassabilityClass>
     <WalkSpeed op="mul">1.8</WalkSpeed>
-    <Run>
-      <Speed op="mul">1.8</Speed>
-    </Run>
+    <RunMultiplier op="mul">1.8</RunMultiplier> 
   </UnitMotion>
 </Entity>

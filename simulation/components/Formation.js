@@ -1212,28 +1212,29 @@ Formation.prototype.GetAvgFootprint = function(active)
 Formation.prototype.ComputeFormationOffsets = function(active, positions)
 {
 //	warn("new offsets");
-	var separation = this.GetAvgFootprint(active);
+	let separation = this.GetAvgFootprint(active);
 	separation.width *= this.separationMultiplier.width;
 	separation.depth *= this.separationMultiplier.depth;
 
+	let sortingClasses;
 	if (this.columnar)
-		var sortingClasses = ["Cavalry","Infantry"];
+		sortingClasses = ["Cavalry","Infantry"];
 	else
-		var sortingClasses = this.sortingClasses.slice();
+		sortingClasses = this.sortingClasses.slice();
 	sortingClasses.push("Unknown");
 
 	// the entities will be assigned to positions in the formation in
 	// the same order as the types list is ordered
-	var types = {};
-	for (var i = 0; i < sortingClasses.length; ++i)
+	let types = {};
+	for (let i = 0; i < sortingClasses.length; ++i)
 		types[sortingClasses[i]] = [];
 
-	for (var i in active)
+	for (let i in active)
 	{
-		var cmpIdentity = Engine.QueryInterface(active[i], IID_Identity);
-		var classes = cmpIdentity.GetClassesList();
-		var done = false;
-		for (var c = 0; c < sortingClasses.length; ++c)
+		let cmpIdentity = Engine.QueryInterface(active[i], IID_Identity);
+		let classes = cmpIdentity.GetClassesList();
+		let done = false;
+		for (let c = 0; c < sortingClasses.length; ++c)
 		{
 			if (classes.indexOf(sortingClasses[c]) > -1)
 			{
@@ -1246,16 +1247,16 @@ Formation.prototype.ComputeFormationOffsets = function(active, positions)
 			types["Unknown"].push({"ent": active[i], "pos": positions[i]});
 	}
 
-	var count = active.length;
+	let count = active.length;
 
-	var shape = this.formationShape;
-	var shiftRows = this.shiftRows;
-	var centerGap = this.centerGap;
-	var sortingOrder = this.sortingOrder;
-	var offsets = [];
+	let shape = this.formationShape;
+	let shiftRows = this.shiftRows;
+	let centerGap = this.centerGap;
+	let sortingOrder = this.sortingOrder;
+	let offsets = [];
 
 	// Choose a sensible size/shape for the various formations, depending on number of units
-	var cols;
+	let cols;
 
 	if (this.columnar)
 	{
@@ -1280,11 +1281,11 @@ Formation.prototype.ComputeFormationOffsets = function(active, positions)
 	// define special formations here
 	if (this.template.FormationName == "Scatter")
 	{
-		var width = Math.sqrt(count) * (separation.width + separation.depth) * 2.5;
+		let width = Math.sqrt(count) * (separation.width + separation.depth) * 2.5;
 
-		for (var i = 0; i < count; ++i)
+		for (let i = 0; i < count; ++i)
 		{
-			var obj = new Vector2D(randFloat(0, width), randFloat(0, width));
+			let obj = new Vector2D(randFloat(0, width), randFloat(0, width));
 			obj.row = 1;
 			obj.column = i + 1;
 			offsets.push(obj);
@@ -1297,16 +1298,16 @@ Formation.prototype.ComputeFormationOffsets = function(active, positions)
 	if (shape != "special")
 	{
 		offsets = [];
-		var r = 0;
-		var left = count;
+		let r = 0;
+		let left = count;
 		let lastMiddle = 0;
 		// while there are units left, start a new row in the formation
 		while (left > 0)
 		{
 			// save the position of the row
-			var z = -r * separation.depth;
+			let z = -r * separation.depth;
 			// switch between the left and right side of the center to have a symmetrical distribution
-			var side = 1;
+			let side = 1;
 			// determine the number of entities in this row of the formation
 			if (shape == "square")
 			{
@@ -1324,7 +1325,7 @@ Formation.prototype.ComputeFormationOffsets = function(active, positions)
 			if (!shiftRows && n > left)
 				n = left;
 			let lm = lastMiddle;
-			for (var c = 0; c < n && left > 0; ++c)
+			for (let c = 0; c < n && left > 0; ++c)
 			{
 				// switch sides for the next entity
 				side *= -1;
@@ -1393,7 +1394,7 @@ Formation.prototype.ComputeFormationOffsets = function(active, positions)
 	// make sure the average offset is zero, as the formation is centered around that
 	// calculating offset distances without a zero average makes no sense, as the formation
 	// will jump to a different position any time
-	var avgoffset = Vector2D.average(offsets);
+	let avgoffset = Vector2D.average(offsets);
 	offsets.forEach(function (o) {o.sub(avgoffset);});
 
 	// sort the available places in certain ways
@@ -1420,12 +1421,12 @@ Formation.prototype.ComputeFormationOffsets = function(active, positions)
 		offsets.sort(function(o1, o2) { return o1.y > o2.y;});
 
 	// query the 2D position of the formation
-	var cmpPosition = Engine.QueryInterface(this.entity, IID_Position);
-	var formationPos = cmpPosition.GetPosition2D();
+	let cmpPosition = Engine.QueryInterface(this.entity, IID_Position);
+	let formationPos = cmpPosition.GetPosition2D();
 
 	// use realistic place assignment,
 	// every soldier searches the closest available place in the formation
-	var newOffsets = [];
+	let newOffsets = [];
 	let realPositions = this.GetRealOffsetPositions(offsets, formationPos);
 	for (let i = sortingClasses.length; i; --i)
 	{
@@ -1454,12 +1455,12 @@ Formation.prototype.ComputeFormationOffsets = function(active, positions)
  */
 Formation.prototype.TakeClosestOffset = function(entPos, realPositions, offsets)
 {
-	var pos = entPos.pos;
-	var closestOffsetId = -1;
-	var offsetDistanceSq = Infinity;
-	for (var i = 0; i < realPositions.length; i++)
+	let pos = entPos.pos;
+	let closestOffsetId = -1;
+	let offsetDistanceSq = Infinity;
+	for (let i = 0; i < realPositions.length; i++)
 	{
-		var distSq = pos.distanceToSquared(realPositions[i]);
+		let distSq = pos.distanceToSquared(realPositions[i]);
 		if (distSq < offsetDistanceSq)
 		{
 			offsetDistanceSq = distSq;
@@ -1533,9 +1534,12 @@ Formation.prototype.ComputeMotionParameters = function()
 			minSpeed = Math.min(minSpeed, cmpUnitMotion.GetWalkSpeed());
 	}
 	minSpeed *= this.GetSpeedMultiplier();
-
+	
 	let cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
-	cmpUnitMotion.SetSpeed(minSpeed);
+	
+	minSpeed = minSpeed / cmpUnitMotion.GetWalkSpeed();
+	
+	cmpUnitMotion.SetSpeedMultiplier(minSpeed);
 	this.minSpeed = minSpeed;
 	this.speed = minSpeed;
 };
@@ -1543,7 +1547,7 @@ Formation.prototype.ComputeMotionParameters = function()
 Formation.prototype.WalkSpeed = function()
 {
 	let cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
-	cmpUnitMotion.SetSpeed(this.minSpeed);
+	cmpUnitMotion.SetSpeedMultiplier(this.minSpeed);
 	this.speed = this.minSpeed;
 	this.running = false;
 	this.charging = false;
@@ -1592,25 +1596,25 @@ Formation.prototype.Run = function()
 		let cmpUnitMotion = Engine.QueryInterface(ent, IID_UnitMotion);
 		if (cmpUnitMotion) {
 			if (maxSpeed == 0)
-				maxSpeed = cmpUnitMotion.GetRunSpeed();
+				maxSpeed = cmpUnitMotion.GetRunMultiplier();
 			else
-				maxSpeed = Math.min(maxSpeed, cmpUnitMotion.GetRunSpeed());
+				maxSpeed = Math.min(maxSpeed, cmpUnitMotion.GetRunMultiplier());
 		}
 	}
 	maxSpeed *= this.GetSpeedMultiplier();
 
-	this.speed = maxSpeed;
+	this.speed = maxSpeed * this.minSpeed;
 	this.running = true;
 
 	let cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
-	cmpUnitMotion.SetSpeed(maxSpeed);
+	cmpUnitMotion.SetSpeedMultiplier(this.speed);
 }
 
 Formation.prototype.ShapeUpdate = function()
 {
 	// Check the distance to twin formations, and merge if when
 	// the formations could collide
-	for (var i = this.twinFormations.length - 1; i >= 0; --i)
+	for (let i = this.twinFormations.length - 1; i >= 0; --i)
 	{
 		// only do the check on one side
 		if (this.twinFormations[i] <= this.entity)

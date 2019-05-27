@@ -11,7 +11,7 @@
   </Footprint>
   <Identity>
     <Civ>kush</Civ>
-    <Icon>units/kush_mechanical_siege_ram.png</Icon>
+    <Icon>units/kush_siege_ram.png</Icon>
   </Identity>
   <VisualActor>
     <Actor>units/kushites/siege_ram.xml</Actor>

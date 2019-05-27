@@ -4,10 +4,12 @@
     <Ranged>
       <Missle>15.0</Missle>
       <MaxRange>40.0</MaxRange>
-      <ProjectileSpeed>75.0</ProjectileSpeed>
+      <Projectile>
+	    <Speed>75.0</Speed>
+        <Spread>1.0</Spread>
+	  </Projectile>
       <PrepareTime>500</PrepareTime>
       <RepeatTime>3000</RepeatTime>
-      <Spread>1.0</Spread>
       <Delay>0</Delay>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Ranged>

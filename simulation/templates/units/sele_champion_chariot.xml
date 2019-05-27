@@ -30,9 +30,7 @@
   </Cost>
   <UnitMotion>
     <WalkSpeed op="mul">0.6</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.6</Speed>
-    </Run>
+     <RunMultiplier op="mul">0.6 </RunMultiplier>
   </UnitMotion>
   <VisualActor>
     <Actor>units/seleucids/chariot_archer_c_m.xml</Actor>

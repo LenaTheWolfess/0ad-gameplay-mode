@@ -8,11 +8,13 @@
       <Missle>35.0</Missle>
       <MaxRange>45.0</MaxRange>
       <MinRange>0.0</MinRange>
-      <ProjectileSpeed>75.0</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
+      <Projectile>
+	    <Speed>75.0</Speed>
+        <Gravity>9.81</Gravity>
+        <Spread>2.0</Spread>
+	  </Projectile>
       <PrepareTime>1000</PrepareTime>
       <RepeatTime>2000</RepeatTime>
-      <Spread>2.0</Spread>
       <Delay>0</Delay>
       <PreferredClasses datatype="tokens">Ship Human</PreferredClasses>
     </Ranged>
@@ -72,8 +74,6 @@
   </StatusBars>
   <UnitMotion>
     <WalkSpeed op="mul">1.55</WalkSpeed>
-    <Run>
-      <Speed op="mul">1.55</Speed>
-    </Run>
+    <RunMultiplier op="mul">1.55</RunMultiplier> 
   </UnitMotion>
 </Entity>

@@ -241,12 +241,16 @@ function loadTechnology(techName)
 	let template = loadTechData(techName);
 	let tech = GetTechnologyDataHelper(template, g_SelectedCiv, g_ResourceData);
 	tech.name.internal = techName;
+	tech.supersedes = template.supersedes;
 
 	if (template.pair !== undefined)
 	{
 		tech.pair = template.pair;
-		tech.reqs = mergeRequirements(tech.reqs, loadTechnologyPair(template.pair).reqs);
-	}
+		let pairInfo = loadTechnologyPair(template.pair);
+		tech.paired = pairInfo.techs[0];
+		if (techName == pairInfo.techs[0])
+			tech.paired = pairInfo.techs[1];
+		tech.reqs = mergeRequirements(tech.reqs, pairInfo.reqs);	}
 
 	return tech;
 }

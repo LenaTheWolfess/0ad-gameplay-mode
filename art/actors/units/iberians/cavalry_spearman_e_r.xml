@@ -28,7 +28,7 @@
     <variant file="biped/rider/promotion_shield.xml"/>
     <variant file="biped/rider/attack_slaughter_shield_iber.xml"/>
     <variant file="biped/gather_meat.xml"/>
-    <variant file="biped/rider/death_shield_b.xml"/>
+    <variant file="biped/rider/death_shield.xml"/>
   </group>
   <material>player_trans.xml</material>
 </actor>

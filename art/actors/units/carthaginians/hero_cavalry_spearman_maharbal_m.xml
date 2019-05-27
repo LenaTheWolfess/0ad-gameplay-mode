@@ -7,7 +7,7 @@
       <props>
         <prop actor="units/carthaginians/hero_cavalry_spearman_maharbal_r.xml" attachpoint="rider"/>
         <prop actor="props/horse/cav_armor_kart.xml" attachpoint="root"/>
-        <prop actor="props/horse/cav_rein_spearman_shield.xml" attachpoint="head"/>
+        <prop actor="props/horse/cav_rein_sperman.xml" attachpoint="root"/>
       </props>
       <textures>
         <texture file="skeletal/horse_kart_maharbal.dds" name="baseTex"/>

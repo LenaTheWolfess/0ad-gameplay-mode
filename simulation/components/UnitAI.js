@@ -138,7 +138,7 @@ var g_Stances = {
 	"broken": {
 		"targetVisibleEnemies": false,
 		"targetAttackersAlways": false,
-		"respondFlee": true,
+		"respondFlee": false,
 		"respondChase": false,
 		"respondChaseBeyondVision": false,
 		"respondStandGround": false,
@@ -409,7 +409,7 @@ UnitAI.prototype.UnitFsmSpec = {
 			return;
 		}
 
-		this.SetMoveSpeed(this.GetRunSpeed());
+		this.SetSpeedMultiplier(this.GetRunMultiplier());
 		this.SetNextState("INDIVIDUAL.RUNNING");
 	},
 
@@ -430,7 +430,7 @@ UnitAI.prototype.UnitFsmSpec = {
 			return;
 		}
 
-		this.SetMoveSpeed(this.GetWalkSpeed());
+		this.ResetSpeedMultiplier();
 		if (!this.IsFormationMember())
 			this.SetHeldPosition(this.order.data.x, this.order.data.z);
 		if (!this.order.data.max)
@@ -598,7 +598,7 @@ UnitAI.prototype.UnitFsmSpec = {
 			return;
 		}
 
-		this.SetMoveSpeed(this.GetRunSpeed());
+		this.SetSpeedMultiplierRatio(this.GetRunMultiplier());
 		this.SetNextState("INDIVIDUAL.CHARGING");
 	},
 	"Order.Rotate": function(msg) {
@@ -1361,6 +1361,7 @@ UnitAI.prototype.UnitFsmSpec = {
 				cmpFormation.SetRearrange(false);
 				cmpFormation.MoveMembersIntoFormation(false, true);
 			//	this.StartTimer(200, 200);
+			//	this.StartWalkSoundTimer(1200);
 			},
 			"MoveStarted": function(msg) {
 		//		let cmpFormation = Engine.QueryInterface(this.entity, IID_Formation);
@@ -1403,6 +1404,8 @@ UnitAI.prototype.UnitFsmSpec = {
 				cmpFormation.MoveMembersIntoFormation(false, true);
 			//	this.CallMemberFunction("StartRunning", []);
 				this.StartTimer(200);
+			//	this.StopWalkSoundTimer();
+			//	this.StartWalkSoundTimer(600);
 			},
 			"leave": function(msg) {
 				this.CallMemberFunction("StopRunning", []);
@@ -1852,8 +1855,8 @@ UnitAI.prototype.UnitFsmSpec = {
 					cmpEnergy.StartChargeTimer();
 			},
 			"HealthChanged": function() {
-				let speed = this.GetRunSpeed();
-				this.SetMoveSpeed(speed);
+				
+				this.SetSpeedMultiplier(this.GetRunMultiplier());
 			},
 			// Occurs when the unit has reached its destination and the controller
 			// is done moving. The controller is notified.
@@ -1885,7 +1888,7 @@ UnitAI.prototype.UnitFsmSpec = {
 				if (cmpEnergy)
 					cmpEnergy.CancelChargeTimer();
 				this.CallMemberFunction("SetHeldPosition",{});
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 			//	this.UpdateMemberPosition();
 			//	this.WalkToHeldPosition();
 			},
@@ -1903,7 +1906,7 @@ UnitAI.prototype.UnitFsmSpec = {
 			"leave": function() {
 				this.StopTimer();
 				this.StopMoving();
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 				this.mountDamage = false;
 				let cmpEnergy = Engine.QueryInterface(this.entity, IID_Energy);
 				if (cmpEnergy)
@@ -1930,8 +1933,8 @@ UnitAI.prototype.UnitFsmSpec = {
 				this.SelectAnimation("move");
 			},
 			"HealthChanged": function() {
-				let speed = this.GetRunSpeed();
-				this.SetMoveSpeed(speed);
+				
+				this.SetSpeedMultiplier(this.GetRunMultiplier());
 			},
 			// Occurs when the unit has reached its destination and the controller
 			// is done moving. The controller is notified.
@@ -1963,7 +1966,7 @@ UnitAI.prototype.UnitFsmSpec = {
 				let cmpEnergy = Engine.QueryInterface(this.entity, IID_Energy);
 				if (cmpEnergy)
 					cmpEnergy.CancelRunningTimer();
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 			//	this.UpdateMemberPosition();
 			//	this.WalkToHeldPosition();
 			},
@@ -1978,7 +1981,7 @@ UnitAI.prototype.UnitFsmSpec = {
 				let cmpEnergy = Engine.QueryInterface(this.entity, IID_Energy);
 				if (cmpEnergy)
 					cmpEnergy.CancelRunningTimer();
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 			}
 		},
 		"WALKING": {
@@ -1987,7 +1990,7 @@ UnitAI.prototype.UnitFsmSpec = {
 				let cmpEnergy = Engine.QueryInterface(this.entity, IID_Energy);
 				if (cmpEnergy)
 					cmpEnergy.CancelRunningTimer();
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 
 				let cmpFormation = Engine.QueryInterface(this.formationController, IID_Formation);
 				if (cmpFormation)
@@ -2048,7 +2051,7 @@ UnitAI.prototype.UnitFsmSpec = {
 				let cmpEnergy = Engine.QueryInterface(this.entity, IID_Energy);
 				if (cmpEnergy)
 					cmpEnergy.CancelRunningTimer();
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 
 				var cmpFormation = Engine.QueryInterface(this.formationController, IID_Formation);
 				if (cmpFormation) {
@@ -2179,11 +2182,11 @@ UnitAI.prototype.UnitFsmSpec = {
 			"FLEEING": {
 				"enter": function() {
 					this.PlaySound("panic");
-					let speed = this.GetRunSpeed();
+					
 					this.prepared = false;
 					this.SetAnimationVariant("flee");
 					this.SelectAnimation("move");
-					this.SetMoveSpeed(speed);
+					this.SetSpeedMultiplier(this.GetRunMultiplier());
 				},
 				"MoveCompleted": function() {
 					this.SetNextStateAlwaysEntering("INDIVIDUAL.BROKEN.STAING");
@@ -2192,7 +2195,7 @@ UnitAI.prototype.UnitFsmSpec = {
 			"STAING": {
 				"enter": function() {
 					this.SetDefaultAnimationVariant();
-					this.SetMoveSpeed(this.GetWalkSpeed());
+					this.ResetSpeedMultiplier();
 					this.SelectAnimation("idle");
 				},
 				"MoveStarted": function() {
@@ -2418,15 +2421,15 @@ UnitAI.prototype.UnitFsmSpec = {
 			},
 
 			"HealthChanged": function() {
-				let speed = this.GetRunSpeed();
-				this.SetMoveSpeed(speed);
+				
+				this.SetSpeedMultiplier(this.GetRunMultiplier());
 			},
 
 			"leave": function() {
 				let cmpEnergy = Engine.QueryInterface(this.entity, IID_Energy);
 				if (cmpEnergy)
 					cmpEnergy.CancelRunningTimer();
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 			},
 
 			"MoveCompleted": function() {
@@ -2434,7 +2437,7 @@ UnitAI.prototype.UnitFsmSpec = {
 				let cmpEnergy = Engine.QueryInterface(this.entity, IID_Energy);
 				if (cmpEnergy)
 					cmpEnergy.CancelRunningTimer();
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 			},
 			"Timer": function() {
 				this.StopTimer();
@@ -2454,12 +2457,12 @@ UnitAI.prototype.UnitFsmSpec = {
 			},
 
 			"HealthChanged": function() {
-				let speed = this.GetRunSpeed();
-				this.SetMoveSpeed(speed);
+				
+				this.SetSpeedMultiplier(this.GetRunMultiplier());
 			},
 
 			"leave": function() {
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 				this.StopTimer();
 				this.mountDamage = false;
 				let cmpEnergy = Engine.QueryInterface(this.entity, IID_Energy);
@@ -2484,7 +2487,7 @@ UnitAI.prototype.UnitFsmSpec = {
 
 			"MoveCompleted": function() {
 				this.FinishOrder();
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 				this.mountDamage = false;
 				let cmpEnergy = Engine.QueryInterface(this.entity, IID_Energy);
 				if (cmpEnergy)
@@ -2592,7 +2595,7 @@ UnitAI.prototype.UnitFsmSpec = {
 				},
 
 				"leave": function(msg) {
-					this.SetMoveSpeed(this.GetWalkSpeed());
+					this.ResetSpeedMultiplier();
 					this.StopTimer();
 					this.SetDefaultAnimationVariant();
 				},
@@ -2607,13 +2610,13 @@ UnitAI.prototype.UnitFsmSpec = {
 						{
 							var speed = cmpUnitAI.GetWalkSpeed();
 							if (speed < this.GetWalkSpeed())
-								this.SetMoveSpeed(speed);
+								this.SetSpeedMultiplier(speed / this.GetWalkSpeed());
 						}
 					}
 				},
 
 				"MoveCompleted": function() {
-					this.SetMoveSpeed(this.GetWalkSpeed());
+					this.ResetSpeedMultiplier();
 					if (!this.MoveToTargetRangeExplicit(this.isGuardOf, 0, this.guardRange))
 						this.SetNextState("GUARDING");
 				},
@@ -2671,11 +2674,11 @@ UnitAI.prototype.UnitFsmSpec = {
 				this.PlaySound("panic");
 
 				// Run quickly
-				let speed = this.GetRunSpeed();
+				
 				this.prepared=false;
 				this.SetAnimationVariant("relax");
 				this.SelectAnimation("move");
-				this.SetMoveSpeed(speed);
+				this.SetSpeedMultiplier(this.GetRunMultiplier());
 				if (this.IsAnimal())
 					this.SetNextState("ANIMAL.RUNNING");
 				else
@@ -2684,13 +2687,13 @@ UnitAI.prototype.UnitFsmSpec = {
 			},
 /*************** BACKUP PLAN *****************
 			"HealthChanged": function() {
-				var speed = this.GetRunSpeed();
-				this.SetMoveSpeed(speed);
+				
+				this.SetSpeedMultiplier(this.GetRunMultiplier());
 			},
 
 			"leave": function() {
 				// Reset normal speed
-				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.ResetSpeedMultiplier();
 			},
 
 			"MoveCompleted": function() {
@@ -2784,23 +2787,22 @@ UnitAI.prototype.UnitFsmSpec = {
 				// we are ready to loose arrows (or whatever) rigth now
 				// so setup loose animation and peform attack
 				"enter": function() {
-			//		warn(this.entity + " FIRING ");
+				//	warn(this.entity + " FIRING ");
 					this.StopTimer();
 					this.prepared = true;
-					let target = this.order.data.target;
-					let cmpFormation = Engine.QueryInterface(target, IID_Formation);
-					// if the target is a formation, save the attacking formation, and pick a member
-					if (cmpFormation)
-					{
-						var thisObject = this;
-						var filter = function(t) {
-							return thisObject.CanAttack(t);
-						};
-						this.order.data.formationTarget = target;
-						target = cmpFormation.GetClosestMember(this.entity, filter);
-						this.order.data.target = target;
+					if (!this.order) {
+					//	warn("->IDLE");
+						this.SetNextState("IDLE");
+						return;
 					}
-					// Check the target is still alive and attackable
+					if (!this.order.data || !this.order.data.target) {
+						this.FinishOrder();
+					//	warn("->IDLE");
+						this.SetNextState("IDLE");
+						return;
+					}
+					let target = this.order.data.target;
+						// Check the target is still alive and attackable
 					if (this.CanAttack(target))
 					{
 						let cmpAttack = Engine.QueryInterface(this.entity, IID_Attack);
@@ -2925,7 +2927,7 @@ UnitAI.prototype.UnitFsmSpec = {
 							if (this.orderQueue.length > 0 && this.orderQueue[0].data && this.orderQueue[0].data.attackType &&
 								this.orderQueue[0].data.attackType == this.oldAttackType) {
 									// reset timer
-									this.StartTimer(0);
+									this.SetNextState("AIM");
 								}
 							return;
 						}
@@ -2950,98 +2952,13 @@ UnitAI.prototype.UnitFsmSpec = {
 					else {
 						warn(this.entity + " NO VISUAL");
 					}
+				//	warn(this.entity + "timer->aim");
 					this.SetNextStateAlwaysEntering("AIM");
-		//			warn(this.entity + "->aim");
 				},
 				"leave": function() {
 					this.StopTimer();
 			//		warn(this.entity + "FIRING->leave");
 				},
-				"Order.Attack": function() {
-						this.StopTimer();
-					// Check the target is alive
-						if (!this.TargetIsAlive(this.order.data.target))
-						{
-							this.FinishOrder();
-							return;
-						}
-
-						// Work out how to attack the given target
-						var type = this.GetBestAttackAgainst(this.order.data.target, this.order.data.allowCapture);
-						if (!type)
-						{
-							// Oops, we can't attack at all
-							this.FinishOrder();
-							return;
-						}
-						this.order.data.attackType = type;
-
-						// If we are already at the target, try attacking it from here
-						if (this.CheckTargetAttackRange(this.order.data.target, this.order.data.attackType))
-						{
-						//	if (this.IsTurret()){
-							//warn(this.entity + " is in range to attack " + this.order.data.target);
-						//	}
-							this.StopMoving();
-							// For packable units within attack range:
-							// 1. If unpacked, we can attack the target.
-							// 2. If packed, we first need to unpack, then follow case 1.
-							if (this.CanUnpack())
-							{
-								this.PushOrderFront("Unpack", { "force": true });
-								return;
-							}
-
-							if (this.order.data.attackType == this.oldAttackType)
-							{
-								if (this.IsAnimal())
-									this.SetNextState("ANIMAL.COMBAT.ATTACKING");
-								else
-									this.SetNextState("INDIVIDUAL.COMBAT.AIM");
-							}
-							else
-							{
-								if (this.IsAnimal())
-									this.SetNextStateAlwaysEntering("ANIMAL.COMBAT.ATTACKING");
-								else
-									this.SetNextStateAlwaysEntering("INDIVIDUAL.COMBAT.ATTACKING");
-							}
-							return;
-						}
-
-						// If we can't reach the target, but are standing ground, then abandon this attack order.
-						// Unless we're hunting, that's a special case where we should continue attacking our target.
-						if (this.IsTurret())
-						{
-							//warn("Order.Attack: stand ground -> leave order");
-							this.FinishOrder();
-							return;
-						}
-
-						// For packable units out of attack range:
-						// 1. If packed, we need to move to attack range and then unpack.
-						// 2. If unpacked, we first need to pack, then follow case 1.
-						if (this.CanPack())
-						{
-							this.PushOrderFront("Pack", { "force": true });
-							return;
-						}
-
-						// Try to move within attack range
-						if (this.MoveToTargetAttackRange(this.order.data.target, this.order.data.attackType))
-						{
-							// We've started walking to the given point
-							if (this.IsAnimal())
-								this.SetNextState("ANIMAL.COMBAT.APPROACHING");
-							else
-								this.SetNextState("INDIVIDUAL.COMBAT.APPROACHING");
-							return;
-						}
-
-						// We can't reach the target, and can't move towards it,
-						// so abandon this attack order
-						this.FinishOrder();
-				} // Order.Attack
 			}, // FIRING
 			"AIM": {
 				// wait to next loose round
@@ -3054,103 +2971,18 @@ UnitAI.prototype.UnitFsmSpec = {
 				},
 				// we can attack again
 				"Timer": function(msg) {
-				//	warn(this.entity + "AIM->timer->ATTACKING");
-					this.SetNextStateAlwaysEntering("ATTACKING");
+				//	warn(this.entity + "AIM->timer->FIRING");
+					this.SetNextStateAlwaysEntering("FIRING");
 				},
 				"leave": function() {
 					this.StopTimer();
 			//		warn(this.entity +" AIM->leave");
-				},
-				"Order.Attack": function() {
-					this.StopTimer();
-					// Check the target is alive
-					if (!this.TargetIsAlive(this.order.data.target))
-					{
-						this.FinishOrder();
-						return;
-					}
-
-					// Work out how to attack the given target
-					var type = this.GetBestAttackAgainst(this.order.data.target, this.order.data.allowCapture);
-					if (!type)
-					{
-						// Oops, we can't attack at all
-						this.FinishOrder();
-						return;
-					}
-					this.order.data.attackType = type;
-
-					// If we are already at the target, try attacking it from here
-					if (this.CheckTargetAttackRange(this.order.data.target, this.order.data.attackType))
-					{
-					//	if (this.IsTurret()){
-						//warn(this.entity + " is in range to attack " + this.order.data.target);
-					//	}
-						this.StopMoving();
-						// For packable units within attack range:
-						// 1. If unpacked, we can attack the target.
-						// 2. If packed, we first need to unpack, then follow case 1.
-						if (this.CanUnpack())
-						{
-							this.PushOrderFront("Unpack", { "force": true });
-							return;
-						}
-
-						if (this.order.data.attackType == this.oldAttackType)
-						{
-							if (this.IsAnimal())
-								this.SetNextState("ANIMAL.COMBAT.ATTACKING");
-							else
-								this.SetNextStateAlwaysEntering("INDIVIDUAL.COMBAT.AIM");
-						}
-						else
-						{
-							if (this.IsAnimal())
-								this.SetNextStateAlwaysEntering("ANIMAL.COMBAT.ATTACKING");
-							else
-								this.SetNextStateAlwaysEntering("INDIVIDUAL.COMBAT.ATTACKING");
-						}
-						return;
-					}
-
-					// If we can't reach the target, but are standing ground, then abandon this attack order.
-					// Unless we're hunting, that's a special case where we should continue attacking our target.
-					if (this.IsTurret())
-					{
-						//warn("Order.Attack: stand ground -> leave order");
-						this.FinishOrder();
-						return;
-					}
-
-					// For packable units out of attack range:
-					// 1. If packed, we need to move to attack range and then unpack.
-					// 2. If unpacked, we first need to pack, then follow case 1.
-					if (this.CanPack())
-					{
-						this.PushOrderFront("Pack", { "force": true });
-						return;
-					}
-
-					// Try to move within attack range
-					if (this.MoveToTargetAttackRange(this.order.data.target, this.order.data.attackType))
-					{
-						// We've started walking to the given point
-						if (this.IsAnimal())
-							this.SetNextState("ANIMAL.COMBAT.APPROACHING");
-						else
-							this.SetNextState("INDIVIDUAL.COMBAT.APPROACHING");
-						return;
-					}
-
-					// We can't reach the target, and can't move towards it,
-					// so abandon this attack order
-					this.FinishOrder();
 				}
 			}, // READY
 			"ATTACKING": {
 				"enter": function() {
 				//	this.NotifyFormationInCombat();
-					//warn(this.entity + " COMBAT.ATTACKING " + this.order.data.target);
+				//	warn(this.entity + " COMBAT.ATTACKING " + this.order.data.target);
 					if (!this.order || !this.order.data || !this.order.data.target) {
 						this.SetNextState("IDLE");
 						return false;
@@ -3296,7 +3128,8 @@ UnitAI.prototype.UnitFsmSpec = {
 						return;
 					}
 					if (this.oneTime) {
-						this.SetNextStateAlwaysEntering("FIRING");
+					//	warn(this.entity + " ATTACKING->timer->AIM");
+						this.SetNextStateAlwaysEntering("AIM");
 						return;
 					}
 					let target = this.order.data.target;
@@ -3493,8 +3326,8 @@ UnitAI.prototype.UnitFsmSpec = {
 					if (cmpUnitAI && cmpUnitAI.IsFleeing())
 					{
 						// Run after a fleeing target
-						var speed = this.GetRunSpeed();
-						this.SetMoveSpeed(speed);
+						
+						this.SetSpeedMultiplier(this.GetRunMultiplier());
 					}
 					this.StartTimer(1000, 1000);
 				},
@@ -3503,13 +3336,13 @@ UnitAI.prototype.UnitFsmSpec = {
 					let cmpUnitAI = Engine.QueryInterface(this.order.data.target, IID_UnitAI);
 					if (!cmpUnitAI || !cmpUnitAI.IsFleeing())
 						return;
-					let speed = this.GetRunSpeed();
-					this.SetMoveSpeed(speed);
+					
+					this.SetSpeedMultiplier(this.GetRunMultiplier());
 				},
 
 				"leave": function() {
 					// Reset normal speed in case it was changed
-					this.SetMoveSpeed(this.GetWalkSpeed());
+					this.ResetSpeedMultiplier();
 					// Show carried resources when walking.
 					this.SetDefaultAnimationVariant();
 
@@ -3755,8 +3588,8 @@ UnitAI.prototype.UnitFsmSpec = {
 
 					// Scale timing interval based on rate, and start timer
 					// The offset should be at least as long as the repeat time so we use the same value for both.
-					var offset = 1000/rate;
-					var repeat = offset;
+					let offset = 1000/rate;
+					let repeat = offset;
 					this.StartTimer(offset, repeat);
 
 					// We want to start the gather animation as soon as possible,
@@ -4619,7 +4452,7 @@ UnitAI.prototype.UnitFsmSpec = {
 		"ROAMING": {
 			"enter": function() {
 				// Walk in a random direction
-				this.SelectAnimation("walk", false, this.GetWalkSpeed());
+				this.SelectAnimation("walk", false, 1);
 				this.SetFacePointAfterMove(false);
 				this.MoveRandomly(+this.template.RoamDistance);
 				// Set a random timer to switch to feeding state
@@ -5565,6 +5398,24 @@ UnitAI.prototype.StartTimer = function(offset, repeat, animLenght = undefined)
 		this.timer = cmpTimer.SetInterval(this.entity, IID_UnitAI, "TimerHandler", offset, repeat, data);
 };
 
+UnitAI.prototype.StartWalkSoundTimer = function(repeat)
+{
+	if (this.soundTimer)
+		return;
+	let cmpTimer = Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer);
+	if (repeat === undefined)
+		this.soundTimer = cmpTimer.SetTimeout(this.entity, IID_UnitAI, "PlayMovementSound", 0);
+	else
+		this.soundTimer = cmpTimer.SetInterval(this.entity, IID_UnitAI, "PlayMovementSound", 0, repeat)
+}
+UnitAI.prototype.StopWalkSoundTimer = function()
+{
+	if (!this.soundTimer)
+		return;
+	let cmpTimer = Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer);
+	cmpTimer.CancelTimer(this.soundTimer);
+	this.soundTimer = undefined;
+}
 /**
  * Stop the current UnitAI timer.
  */
@@ -5663,20 +5514,18 @@ UnitAI.prototype.OnPackFinished = function(msg)
 
 UnitAI.prototype.GetWalkSpeed = function()
 {
-	var cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
+	let cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
+	if (!cmpUnitMotion)
+		return 0;
 	return cmpUnitMotion.GetWalkSpeed();
 };
 
-UnitAI.prototype.GetRunSpeed = function()
+UnitAI.prototype.GetRunMultiplier = function()
 {
 	var cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
-	var runSpeed = cmpUnitMotion.GetRunSpeed();
-	var walkSpeed = cmpUnitMotion.GetWalkSpeed();
-	if (runSpeed <= walkSpeed)
-		return runSpeed;
-	var cmpHealth = Engine.QueryInterface(this.entity, IID_Health);
-	var health = cmpHealth.GetHitpoints()/cmpHealth.GetMaxHitpoints();
-	return (health*runSpeed + (1-health)*walkSpeed);
+	if (!cmpUnitMotion)
+		return 0;
+	return cmpUnitMotion.GetRunMultiplier();
 };
 
 /**
@@ -5835,6 +5684,35 @@ UnitAI.prototype.FindNearbyFoundation = function()
 	return nearby.find(ent => !Engine.QueryInterface(ent, IID_Foundation).IsFinished());
 };
 
+UnitAI.prototype.PlayMovementSound = function()
+{
+	if (!this.IsFormationController())
+		return;
+	let sound;
+	if (this.IsRunning())
+		sound = "run";
+	else if (this.IsWalking())
+		sound = "walk";
+	else {
+		this.StopWalkSoundTimer();
+		return;
+	}
+	this.PlaySound(sound);
+	return;
+	let cmpSoundManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_SoundManager);
+	if (!cmpSoundManager) {
+		this.PlaySound(sound);
+		return;
+	}
+	let cmpFormation = Engine.QueryInterface(this.entity, IID_Formation);
+	let member = cmpFormation.GetPrimaryMember();
+	let cmpSound = Engine.QueryInterface(member, IID_Sound);
+	let cmpPosition = Engine.QueryInterface(member, IID_Position);
+	
+	let soundGroup = cmpSound.GetSoundGroup(sound);
+	cmpSoundManager.PlaySoundGroupAtPosition(soundGroup, cmpPosition.GetPosition());
+}
+
 /**
  * Play a sound appropriate to the current entity.
  */
@@ -5843,8 +5721,8 @@ UnitAI.prototype.PlaySound = function(name)
 	// If we're a formation controller, use the sounds from our first member
 	if (this.IsFormationController())
 	{
-		var cmpFormation = Engine.QueryInterface(this.entity, IID_Formation);
-		var member = cmpFormation.GetPrimaryMember();
+		let cmpFormation = Engine.QueryInterface(this.entity, IID_Formation);
+		let member = cmpFormation.GetPrimaryMember();
 		if (member)
 			PlaySound(name, member);
 	}
@@ -5914,7 +5792,7 @@ UnitAI.prototype.SelectAnimation = function(name, once = false, speed = 1.0)
 	if (name == "move")
 	{
 		// Speed to switch from walking to running animations
-		cmpVisual.SelectMovementAnimation((this.GetWalkSpeed() + this.GetRunSpeed()) / 2);
+		cmpVisual.SelectMovementAnimation(this.GetWalkSpeed());
 		return;
 	}
 
@@ -5946,7 +5824,7 @@ UnitAI.prototype.StopRunning = function()
 	}
 	
 	this.mountDamage = false;
-	this.SetMoveSpeed(this.GetWalkSpeed());
+	this.ResetSpeedMultiplier();
 	if (this.IsAnimal())
 		this.SetNextState("ANIMAL.WALKING");
 	else
@@ -5962,7 +5840,7 @@ UnitAI.prototype.StopCharging = function()
 	}
 
 	this.mountDamage = false;
-	this.SetMoveSpeed(this.GetWalkSpeed());
+	this.ResetSpeedMultiplier();
 	if (this.IsAnimal())
 		this.SetNextState("ANIMAL.WALKING");
 	else
@@ -6895,7 +6773,7 @@ UnitAI.prototype.SetFormationController = function(ent)
 
 	// Set obstruction group, so we can walk through members
 	// of our own formation (or ourself if not in formation)
-	var cmpObstruction = Engine.QueryInterface(this.entity, IID_Obstruction);
+	let cmpObstruction = Engine.QueryInterface(this.entity, IID_Obstruction);
 	if (cmpObstruction)
 	{
 		if (ent == INVALID_ENTITY)
@@ -6907,6 +6785,8 @@ UnitAI.prototype.SetFormationController = function(ent)
 	// If we were removed from a formation, let the FSM switch back to INDIVIDUAL
 	if (ent == INVALID_ENTITY)
 		this.UnitFsm.ProcessMessage(this, { "type": "FormationLeave" });
+	
+	Engine.PostMessage(this.entity, MT_FormationControllerChanged, { "to": ent });
 };
 
 UnitAI.prototype.GetFormationController = function()
@@ -7992,10 +7872,18 @@ UnitAI.prototype.GetStanceName = function()
 	return this.stance;
 };
 
-UnitAI.prototype.SetMoveSpeed = function(speed)
+UnitAI.prototype.ResetSpeedMultiplier = function()
 {
-	let cmpMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
-	cmpMotion.SetSpeed(speed);
+	let cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
+	if (cmpUnitMotion)
+		cmpUnitMotion.SetSpeedMultiplier(1);
+};
+
+UnitAI.prototype.SetSpeedMultiplier = function(speed)
+{
+	let cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
+	if (cmpUnitMotion)
+		cmpUnitMotion.SetSpeedMultiplier(speed);
 };
 
 UnitAI.prototype.SetHeldPosition = function(x, z)

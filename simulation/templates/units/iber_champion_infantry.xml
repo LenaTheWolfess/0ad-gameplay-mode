@@ -21,9 +21,7 @@
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">0.92</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.92</Speed>
-    </Run>
+     <RunMultiplier op="mul">0.92 </RunMultiplier>
   </UnitMotion>
   <VisualActor>
     <Actor>units/iberians/infantry_swordsman_c.xml</Actor>

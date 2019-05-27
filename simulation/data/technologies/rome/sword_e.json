@@ -5,7 +5,7 @@
 	"description": "Promote unit.",
 	"cost": { "food": 0, "wood": 0, "stone": 0, "metal": 0 },
 	"supersedes": "rome/sword_a",
-	"requirements": {"all": [{"tech": "medium_leg_protection"},{"tech": "improved_chain_armor" }, {"tech": "swords"}]},
+	"requirements": {"all": [{"tech": "medium_leg_protection"},{"tech": "improved_chain_armor" }]},
 	"icon": "armor_plates_swords.png",
 	"researchTime": 10,
 	"tooltip": "Equip swordsmen with leg protection and improved chain armor.",

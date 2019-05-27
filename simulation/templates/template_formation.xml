@@ -43,6 +43,7 @@
   <UnitMotion>
     <FormationController>true</FormationController>
     <WalkSpeed>1.0</WalkSpeed>
+	<RunMultiplier>100.0</RunMultiplier>
     <PassabilityClass>formation</PassabilityClass>
   </UnitMotion>
   <VisualActor>

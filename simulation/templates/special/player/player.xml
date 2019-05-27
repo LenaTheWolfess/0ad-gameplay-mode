@@ -16,7 +16,6 @@
   <EntityLimits>
     <Limits>
       <CivilCentre>1</CivilCentre>
-      <DefenseTower>30</DefenseTower>
       <Fortress>10</Fortress>
       <Wonder>1</Wonder>
       <Hero>1</Hero>
@@ -40,6 +39,7 @@
       <Field>0</Field>
 	  <Stables>0</Stables>
 	  <Barracks>0</Barracks>
+	  <Archery>0</Archery>
     </Limits>
     <LimitChangers>
       <WarDog>
@@ -60,11 +60,14 @@
         <RequiredTechs datatype="tokens">phase_town</RequiredTechs>
       </CivilCentre>
 	  <Stables>
-	    <RequiredClasses datatype="tokens">Corral</RequiredClasses>
+	    <RequiredClasses datatype="tokens">Corral Blacksmith</RequiredClasses>
 	  </Stables>
 	  <Barracks>
 	    <RequiredClasses datatype="tokens">Blacksmith</RequiredClasses>
 	  </Barracks>
+	  <Archery>
+	    <RequiredClasses datatype="tokens">Blacksmith</RequiredClasses>
+	  </Archery>
     </LimitRemovers>
   </EntityLimits>
   <Identity>

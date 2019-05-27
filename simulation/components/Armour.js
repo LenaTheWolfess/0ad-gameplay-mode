@@ -142,7 +142,7 @@ Armour.prototype.GetArmourStrengths = function(applyShield = 1)
 	};
 
 	var foundation = Engine.QueryInterface(this.entity, IID_Foundation) && this.template.Foundation;
-	var shield = this.template.Shield && applyShield != 0;
+	var shield = this.template.Shield && applyShield;
 
 	let ret = {};
 	for (let damageType of DamageTypes.GetTypes())

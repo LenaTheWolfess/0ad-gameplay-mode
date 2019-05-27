@@ -7,7 +7,7 @@
   <Identity>
     <Civ>gaul</Civ>
     <SpecificName>Reithe</SpecificName>
-    <Icon>units/celt_mechanical_siege_ram.png</Icon>
+    <Icon>units/celt_siege_ram.png</Icon>
   </Identity>
   <VisualActor>
     <Actor>structures/gauls/siege_ram.xml</Actor>

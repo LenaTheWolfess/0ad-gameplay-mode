@@ -9,9 +9,7 @@
   </Pack>
   <UnitMotion>
     <WalkSpeed>0.001</WalkSpeed>
-    <Run>
-      <Speed>0.001</Speed>
-    </Run>
+     <RunMultiplier>0.001 </RunMultiplier>
   </UnitMotion>
   <VisualActor>
     <Actor>units/athenians/siege_spear_pivot.xml</Actor>

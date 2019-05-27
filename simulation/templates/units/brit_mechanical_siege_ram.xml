@@ -7,7 +7,7 @@
   <Identity>
     <Civ>brit</Civ>
     <SpecificName>Reithe</SpecificName>
-    <Icon>units/celt_mechanical_siege_ram.png</Icon>
+    <Icon>units/celt_siege_ram.png</Icon>
   </Identity>
   <VisualActor>
     <Actor>structures/britons/siege_ram.xml</Actor>

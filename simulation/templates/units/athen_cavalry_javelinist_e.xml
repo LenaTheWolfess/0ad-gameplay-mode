@@ -18,9 +18,7 @@
   </Cost>
   <UnitMotion>
     <WalkSpeed op="mul">0.96</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.96</Speed>
-    </Run>
+     <RunMultiplier op="mul">0.96 </RunMultiplier>
   </UnitMotion>
   <VisualActor>
     <Actor>units/athenians/cavalry_javelinist_e_m.xml</Actor>

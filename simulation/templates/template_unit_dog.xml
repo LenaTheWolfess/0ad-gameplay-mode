@@ -83,9 +83,7 @@
   </TrainingRestrictions>
   <UnitMotion>
     <WalkSpeed op="mul">1.6</WalkSpeed>
-    <Run>
-      <Speed op="mul">1.6</Speed>
-    </Run>
+    <RunMultiplier op="mul">1.6</RunMultiplier> 
   </UnitMotion>
   <Vision>
     <Range>30</Range>

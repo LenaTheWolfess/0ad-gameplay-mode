@@ -662,9 +662,7 @@ function updateSelectionDetails()
 
 	for (let sel of g_Selection.toList())
 	{
-		//warn(sel + ": sel detail st");
 		let entState = GetEntityState(sel);
-		//warn("sel detail en");
 		if (!entState)
 			continue;
 		entStates.push(entState);

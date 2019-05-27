@@ -84,9 +84,7 @@
   </StatusBars>
   <UnitMotion>
     <WalkSpeed op="mul">0.3</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.3</Speed>
-    </Run>
+    <RunMultiplier op="mul">0.3</RunMultiplier>
   </UnitMotion>
   <UnitAI>
     <NeedsManPowerToMove>9</NeedsManPowerToMove>

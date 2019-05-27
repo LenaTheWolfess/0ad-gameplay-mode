@@ -5,10 +5,14 @@
 	  <Ammo>30</Ammo>
       <Crush>8.0</Crush>
       <MaxRange>24.0</MaxRange>
-      <ProjectileSpeed>62.5</ProjectileSpeed>
       <PrepareTime>500</PrepareTime>
       <RepeatTime>3000</RepeatTime>
-      <Spread>6.0</Spread>
+      <Projectile>
+        <Spread>6.0</Spread>
+        <Gravity>9.81</Gravity>
+        <LaunchPoint y="3"/>
+        <Speed>75.0</Speed>
+      </Projectile>
       <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>
     </Ranged>
   </Attack>

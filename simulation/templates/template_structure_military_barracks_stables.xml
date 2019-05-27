@@ -13,7 +13,7 @@
     <GenericName>Stables</GenericName>
     <Tooltip>Train citizen-soldier cavalry. Research training improvements.</Tooltip>
     <Icon>structures/pers_stable.png</Icon>
-    <Classes datatype="tokens">Stables</Classes>
+    <VisibleClasses datatype="tokens">Stables -Barracks</VisibleClasses>
   </Identity>
   <ProductionQueue>
     <BatchTimeModifier>1.0</BatchTimeModifier>
@@ -23,6 +23,7 @@
       -units/{civ}_infantry_swordsman_b
       -units/{civ}_infantry_spearman_hoplite_b
       -units/{civ}_infantry_swordman_b
+      -units/{civ}_infantry_axeman_b
       units/{civ}_cavalry_swordsman_b
       units/{civ}_cavalry_axeman_b
       units/{civ}_cavalry_spearman_b

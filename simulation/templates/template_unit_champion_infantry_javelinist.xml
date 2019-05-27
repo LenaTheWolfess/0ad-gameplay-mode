@@ -6,12 +6,13 @@
       <Missle>20</Missle>
       <MaxRange>22.0</MaxRange>
       <MinRange>7.0</MinRange>
-      <ProjectileSpeed>62.5</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
+      <Projectile>
+	    <Speed>62.5</Speed>
+        <Spread>2.0</Spread>
+      </Projectile>
       <PrepareTime>1500</PrepareTime>
 	  <AnimLength>1500</AnimLength>
       <RepeatTime>2500</RepeatTime>
-      <Spread>2.0</Spread>
       <Delay>0</Delay>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Ranged>

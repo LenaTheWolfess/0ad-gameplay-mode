@@ -127,6 +127,13 @@ AIProxy.prototype.OnUnitIdleChanged = function(msg)
 	this.changes.idle = msg.idle;
 };
 
+AIProxy.prototype.OnFormationControllerChanged = function(msg)
+{
+	if (!this.NotifyChange())
+		return;
+	this.changes.formationController = msg.to;
+}
+
 AIProxy.prototype.OnUnitStanceChanged = function(msg)
 {
 	if (!this.NotifyChange())
@@ -245,8 +252,8 @@ AIProxy.prototype.GetFullRepresentation = function()
 
 		if (cmpPosition.IsInWorld())
 		{
-			let pos = cmpPosition.GetPosition2D();
-			ret.position = [pos.x, pos.y];
+			let pos = cmpPosition.GetPosition();
+			ret.position = [pos.x, pos.z, pos.y];
 			ret.angle = cmpPosition.GetRotation().y;
 		}
 		else
@@ -285,6 +292,7 @@ AIProxy.prototype.GetFullRepresentation = function()
 		ret.unitAIState = cmpUnitAI.GetCurrentState();
 		// Updated by OnUnitAIOrderDataChanged
 		ret.unitAIOrderData = cmpUnitAI.GetOrderData();
+		ret.formationController = cmpUnitAI.GetFormationController();
 	}
 
 	let cmpProductionQueue = Engine.QueryInterface(this.entity, IID_ProductionQueue);
@@ -382,6 +390,11 @@ AIProxy.prototype.OnTrainingStarted = function(msg)
 {
 	this.cmpAIInterface.PushEvent("TrainingStarted", msg);
 };
+
+AIProxy.prototype.OnResearchFinished = function(msg)
+{
+	this.cmpAIInterface.PushEvent("ResearchFinished", msg);
+}
 
 AIProxy.prototype.OnTrainingFinished = function(msg)
 {

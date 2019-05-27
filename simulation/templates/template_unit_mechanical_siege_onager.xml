@@ -11,11 +11,13 @@
       <Missle>0.0</Missle>
       <MaxRange>80.0</MaxRange>
       <MinRange>26.0</MinRange>
-      <ProjectileSpeed>37.5</ProjectileSpeed>
-      <Gravity>4</Gravity>
+      <Projectile>
+	    <Speed>37.5</Speed>
+        <Spread>4.0</Spread>
+        <Gravity>4</Gravity>
+	  </Projectile>
       <PrepareTime>4000</PrepareTime>
       <RepeatTime>10000</RepeatTime>
-      <Spread>4.0</Spread>
       <Delay>0</Delay>
       <Projectile>
         <ImpactActorName>props/units/weapons/rock_explosion.xml</ImpactActorName>
@@ -82,8 +84,6 @@
   </UnitAI>
   <UnitMotion>
     <WalkSpeed op="mul">0.8</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.8</Speed>
-    </Run>
+    <RunMultiplier op="mul">0.8</RunMultiplier>
   </UnitMotion>
 </Entity>

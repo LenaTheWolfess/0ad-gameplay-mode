@@ -2,14 +2,18 @@
 <Entity parent="template_unit_infantry_ranged">
   <Attack>
     <Ranged>
-      <Ammo>20</Ammo>
+      <Ammo>200</Ammo>
       <Missle>15</Missle>
-      <MaxRange>30.0</MaxRange>
-      <ProjectileSpeed>75.0</ProjectileSpeed>
-      <PrepareTime>3000</PrepareTime>
-	  <AnimLength>2000</AnimLength>
-      <RepeatTime>4000</RepeatTime>
-      <Spread>2.0</Spread>
+      <MaxRange>100.0</MaxRange>
+      <PrepareTime>1500</PrepareTime>
+	  <AnimLength>1500</AnimLength>
+      <RepeatTime>5000</RepeatTime>
+      <Projectile>
+        <Spread>0.0</Spread>
+        <Gravity>9.81</Gravity>
+        <LaunchPoint y="3"/>
+        <Speed>75.0</Speed>
+      </Projectile>
       <RestrictedClasses datatype="tokens">Structure</RestrictedClasses>
     </Ranged>
   </Attack>

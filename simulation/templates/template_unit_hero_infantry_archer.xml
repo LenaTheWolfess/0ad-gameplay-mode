@@ -8,11 +8,13 @@
       <Hack>0</Hack>
       <MaxRange>80</MaxRange>
       <MinRange>7.0</MinRange>
-      <ProjectileSpeed>75.0</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
+      <Projectile>
+        <Speed>75.0</Speed>
+        <Gravity>9.81</Gravity>
+        <Spread>0.5</Spread>
+	  </Projectile>
       <PrepareTime>200</PrepareTime>
       <RepeatTime>300</RepeatTime>
-      <Spread>0.5</Spread>
       <Delay>0</Delay>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Ranged>

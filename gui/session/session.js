@@ -1709,9 +1709,7 @@ function updateAdditionalHighlight()
 		// flag the guarding and/or guarded entities to add in this additional highlight
 		for (let sel in g_Selection.selected)
 		{
-			warn(g_Selection.selected[sel] + ": updateAdditionalHighlight st");
 			let state = GetEntityState(g_Selection.selected[sel]);
-			warn("updateAdditionalHighlight en");
 			if(!state)
 				continue;
 			if (g_ShowGuarded){
@@ -1734,34 +1732,18 @@ function updateAdditionalHighlight()
 	let used = [];
 	for (let sel in highlighted)
 	{
-		//warn(highlighted[sel] + ": updateAdditionalHighlight st");
 		let state = GetEntityState(highlighted[sel]);
-		//warn("updateAdditionalHighlight en");
-		if(!state)
-			continue;
-		if (!state.unitAI)
+		if(!state || !state.unitAI)
 			continue;
 		let formation = state.unitAI.formationController;
-		if (!formation)
-			continue;
-		if (used.indexOf(formation) != -1)
+		if (!formation || used.indexOf(formation) != -1)
 			continue;
 		used.push(formation);
-		//warn(formation + ": updateAdditionalHighlight fState st");
 		let fState = GetEntityState(formation);
-		//warn("updateAdditionalHighlight fState en");
-		if(!fState){
-			//warn("fState does not exist");
+		if(!fState || !fState.formation)
 			continue;
-		}
-		if(!fState.formation){
-			//warn("cmpFormation does not exist");
-			continue;
-		}
-
 		let ents = fState.formation.members;
-		for (let ent of ents)
-		{
+		for (let ent of ents) {
 			if(highlighted.indexOf(ent) == -1 && entsAdd.indexOf(ent) == -1)
 				entsAdd.push(ent);
 		}

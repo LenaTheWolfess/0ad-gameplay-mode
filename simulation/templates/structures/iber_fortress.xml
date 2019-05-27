@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Entity parent="template_structure_military_fortress">
   <Cost>
-    <PopulationBonus>15</PopulationBonus>
     <BuildTime op="mul">1.5</BuildTime>
     <Resources>
       <stone>1200</stone>

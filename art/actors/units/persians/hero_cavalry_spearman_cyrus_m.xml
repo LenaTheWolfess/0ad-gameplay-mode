@@ -3,13 +3,13 @@
   <castshadow/>
   <group>
     <variant frequency="1" file="quadraped/base_horse_spearman.xml" name="Spearman Horse">
-      <mesh>skeletal/horse.dae</mesh>
+      <mesh>skeletal/horse_persian.dae</mesh>
       <props>
         <prop actor="units/persians/hero_cavalry_spearman_cyrus_r.xml" attachpoint="rider"/>
         <prop actor="props/units/heads/pers_cav_knot.xml" attachpoint="head"/>
         <prop actor="props/horse/cav_front_armor_bronze.xml" attachpoint="root"/>
         <prop actor="props/horse/cav_blanket_pers_hero.xml" attachpoint="root"/>
-        <prop actor="props/horse/cav_rein_spearman_shield.xml" attachpoint="head"/>
+        <prop actor="props/horse/cav_rein_sperman.xml" attachpoint="root"/>
       </props>
       <textures><texture file="skeletal/horse_pers_cyrus.png" name="baseTex"/></textures>
     </variant>

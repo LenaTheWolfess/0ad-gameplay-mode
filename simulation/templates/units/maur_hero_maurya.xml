@@ -17,19 +17,6 @@
 	<FormationCompany>maur_champion_maiden_archer_fire</FormationCompany>
 	<BannerCode>infantry_pikeman_banner</BannerCode>
   </Identity>
-  <ProductionQueue>
-    <BatchTimeModifier>0.7</BatchTimeModifier>
-    <Technologies datatype="tokens">
-      maur/maiden_archer_fire
-    </Technologies>
-    <TechCostMultiplier>
-      <food>1.0</food>
-      <wood>1.0</wood>
-      <stone>1.0</stone>
-      <metal>1.0</metal>
-      <time>1.0</time>
-    </TechCostMultiplier>
-  </ProductionQueue>
   <VisualActor>
     <Actor>units/mauryans/hero_elephantry_maurya_m.xml</Actor>
   </VisualActor>
