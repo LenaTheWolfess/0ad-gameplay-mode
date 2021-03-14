@@ -3,6 +3,6 @@
 	"label": "git version",
 	"version": "0.0.23",
 	"description": "gameplay",
-	"dependencies": ["0ad>=0.0.23"],
+	"dependencies": ["0ad=0.0.23"],
 	"type": "content addon"
 }
